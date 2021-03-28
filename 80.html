@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>[转]Google Closure: 糟糕的JavaScript | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="上周在澳大利亚佩恩的Edge of the Web会议上我碰到了javascript library Raphaël 和 gRaphaël 的创建者Dmitry Baranovskiy。这两个library做的最重要的事情也许就是使在javascript效率相对低下的IE上面绘制一些复杂的矢量图变得了可能。然而，Dmitry 却很不爽，因为他找到的一些实现的很糟糕的代码，在Google刚刚发布的Closure Library中。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"[转]Google Closure: 糟糕的JavaScript",
+      "item":"/80.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/80.html"
+    },
+    "headline": "[转]Google Closure: 糟糕的JavaScript | 影の域","datePublished": "2010-01-19T15:38:29+00:00",
+    "dateModified": "2010-01-19T15:38:29+00:00",
+    "wordCount":  5271 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "上周在澳大利亚佩恩的Edge of the Web会议上我碰到了javascript library Raphaël 和 gRaphaël 的创建者Dmitry Baranovskiy。这两个library做的最重要的事情也许就是使在javascript效率相对低下的IE上面绘制一些复杂的矢量图变得了可能。然而，Dmitry 却很不爽，因为他找到的一些实现的很糟糕的代码，在Google刚刚发布的Closure Library中。"
+}
+</script><meta property="og:title" content="[转]Google Closure: 糟糕的JavaScript | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/80.html" />
+
+
+
+
+<meta property="og:description" content="上周在澳大利亚佩恩的Edge of the Web会议上我碰到了javascript library Raphaël 和 gRaphaël 的创建者Dmitry Baranovskiy。这两个library做的最重要的事情也许就是使在javascript效率相对低下的IE上面绘制一些复杂的矢量图变得了可能。然而，Dmitry 却很不爽，因为他找到的一些实现的很糟糕的代码，在Google刚刚发布的Closure Library中。" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2010-01-19T15:38:29&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2010-01-19T15:38:29&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">[转]Google Closure: 糟糕的JavaScript</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-19</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>11分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>5271字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p><strong>原文：<a href="http://www.sitepoint.com/blogs/2009/11/12/google-closure-how-not-to-write-javascript/">Google Closure: How not to write JavaScript</a></strong></p>
+<p><strong>译者注：google在2009年11月6号开源了自己在 gmail、google reader 等几乎所有重要 google 产品中使用的javascrpt :</strong> <a href="http://code.google.com/closure/" target="_blank"><strong><span style="color: #1166cc;">google closure</span></strong></a> <strong>，包括一套庞大的类似与 dojo 的 library、一套与之相应的 compiler、一套 template 系统。closure 完成了很多事情，包括一直困扰前端开发们的开发效率和运行效率之间的平衡（closure 使用library来提升开发效率，使用侵入性极强的 compiler 来去除无用代码，保证执行效率缩减 js 的大小，这与 YUI 等 library 采用的</strong> <a href="http://developer.yahoo.com/yui/articles/hosting/" target="_blank"><strong><span style="color: #1166cc;">combo-handling</span></strong></a> <strong>是不一样的思路，但对于单独的页面，js 的代码量将更少是肯定的）总之，google 这次开源 Closure 是一个很棒的事情，网上有这太多关于这件事的讨论，大家可以到文章结尾的相关链接处看到更多的相关讨论的文章。这里翻译的是一篇 sitepoint 上指出的一些 Closure 的 javascript 的细节处理的错误，虽然有这些 stupid 的部分，却并不妨碍 google closure 是一个伟大的工具（据创始人 <a href="http://erik.eae.net/archives/2009/11/05/22.27.29/" target="_blank"><span style="color: #1166cc;">erik 说</span></a>****，现在有超过400名google工程师贡献了closure的代码），在这种规模下，代码还是尽量的stupid一些好了。虽然这么说，了解一些聪明的javascript代码也并不会妨碍我们成为一个好的程序员，评价一个东西很糟糕也总是比创建一个新的东西容易得多。哈哈，废话不多说了，正文开始。</strong></p>
+<p>上周在澳大利亚佩恩的<a href="http://www.edgeoftheweb.org.au/" target="_blank"><span style="color: #1166cc;">Edge of the Web</span></a>会议上我碰到了javascript library <a href="http://raphaeljs.com/" target="_blank"><span style="color: #1166cc;">Raphaël</span></a> 和 <a href="http://g.raphaeljs.com/" target="_blank"><span style="color: #1166cc;">gRaphaël</span></a> 的创建者<a href="http://dmitry.baranovskiy.com/" target="_blank"><span style="color: #1166cc;">Dmitry Baranovskiy</span></a>。这两个library做的最重要的事情也许就是使在javascript效率相对低下的IE上面绘制一些复杂的矢量图变得了可能。然而，Dmitry 却很不爽，因为他找到的一些实现的很糟糕的代码，在Google刚刚发布的<a href="http://googlecode.blogspot.com/2009/11/introducing-closure-tools.html" target="_blank"><span style="color: #1166cc;">Closure Library</span></a>中。</p>
+<p>在会议上做了一个名为<a href="http://www.slideshare.net/Dmitry.Baranovskiy/your-javascript-library" target="_blank"><span style="color: #1166cc;">how to write your own JavaScript library</span></a>的演讲（<a href="http://passingcuriosity.com/2009/notes-on-dmitry-baranovskiys-talk-on-your-javascript-library/" target="_blank"><span style="color: #1166cc;">详细笔记</span></a>）之后，Dmitry在第二天早上早餐之后分享了他关于这个新library的想法：“就是这个世界现在需要的东西——另一个糟糕的JavaScript library”。当我问道是什么使它如此“糟糕”的时候，他解释说：“<strong>它是一个由不懂JavaScript的Java程序员们开发的JavaScript library</strong>。”</p>
+<p>在那一天接下来的时间里面，Dmitry向那些愿意倾听的展示了他在Closure代码中发现的一个接一个的可怕的代码的例子。他告诉我，他最大的担忧是人们会因为Closure挂着强大的Google的招牌而从放弃一些真的很棒的例如<a href="http://jquery.com/" target="_blank"><span style="color: #1166cc;">jQuery</span></a>这样的library转而使用它。</p>
+<p>“我和你做个交易吧”，我告诉他，“给我一些可怕的代码的例子，我把他们发布在SitePoint上。”</p>
+<h2 id="span-stylecolor-003366strongspan-stylefont-size-xx-large缓慢的循环spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">缓慢的循环</span></strong></span></h2>
+<p>文件 <a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/array/array.js?r=2" target="_blank"><span style="color: #1166cc;">array.js</span></a>，63行:</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">for</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">i</span><span style="color: gray;"> = </span><span style="color: blue;">fromIndex</span><span style="color: gray;">; </span><span style="color: blue;">i</span><span style="color: gray;"> < </span><span style="color: blue;">arr</span><span style="color: gray;">.</span><span style="color: blue;">length</span><span style="color: gray;">; </span><span style="color: blue;">i</span><span style="color: gray;">++</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+  </ol>
+</div>
+<p>这个 for 循环每一次循环都查找了数组 (arr) 的.length 属性，简单的在开始循环的时候设置一个变量来存储这个数字，可以让循环跑得更快：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">for</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">i</span><span style="color: gray;"> = </span><span style="color: blue;">fromIndex</span><span style="color: gray;">, </span><span style="color: blue;">ii</span><span style="color: gray;"> = </span><span style="color: blue;">arr</span><span style="color: gray;">.</span><span style="color: blue;">length</span><span style="color: gray;">; </span><span style="color: blue;">i</span><span style="color: gray;"> < </span><span style="color: blue;">ii</span><span style="color: gray;">; </span><span style="color: blue;">i</span><span style="color: gray;">++</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+  </ol>
+</div>
+<p>Google的程序员们在同一个文件里面稍后的地方似乎发现了这个技巧，文件 <a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/array/array.js?r=2" target="_blank"><span style="color: #1166cc;">array.js</span></a>，153行:</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">l</span><span style="color: gray;"> = </span><span style="color: blue;">arr</span><span style="color: gray;">.</span><span style="color: blue;">length</span><span style="color: gray;">;  </span><span style="color: #ffa500;">// must be fixed during loop&#8230; see docs</span>
+    </li>
+    <li>
+      <span style="color: gray;">⋮</span>
+    </li>
+    <li>
+      <span style="color: green;">for</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">i</span><span style="color: gray;"> = </span><span style="color: blue;">l</span><span style="color: gray;"> &#8211; </span><span style="color: maroon;">1</span><span style="color: gray;">; </span><span style="color: blue;">i</span><span style="color: gray;"> >= </span><span style="color: maroon;"></span><span style="color: gray;">; &#8212;</span><span style="color: blue;">i</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+  </ol>
+</div>
+<p>这个循环避免了在每次循环中的属性查找，但是这个for循环是如此的简单以至于它可以进一步的被简化成一个while循环，而且可以运行得更快：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">i</span><span style="color: gray;"> = </span><span style="color: blue;">arr</span><span style="color: gray;">.</span><span style="color: blue;">length</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">⋮</span>
+    </li>
+    <li>
+      <span style="color: green;">while</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: blue;">i</span><span style="color: gray;">&#8212;</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+  </ol>
+</div>
+<p>但不是所有的Closure Library的效率都是由于没有优化好的循环造成的，文件 <a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/dom/dom.js?r=2" target="_blank"><span style="color: #1166cc;">dom.js</span></a>，797行：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">switch</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: blue;">node</span><span style="color: gray;">.</span><span style="color: blue;">tagName</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">APPLET</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">AREA</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">BR</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">COL</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">FRAME</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">HR</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">IMG</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">INPUT</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">IFRAME</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">ISINDEX</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">LINK</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">NOFRAMES</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">NOSCRIPT</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">META</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">OBJECT</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">PARAM</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">SCRIPT</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">case</span><span style="color: gray;"> </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">STYLE</span><span style="color: gray;">:</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">return</span><span style="color: gray;"> </span><span style="color: green;">false</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: olive;">}</span>
+    </li>
+    <li>
+      <span style="color: green;">return</span><span style="color: gray;"> </span><span style="color: green;">true</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>这类型的代码在Java中是相当普遍的，而且运行起来还不错。然而在JavaScript中，switch语句在每次一个程序员想要检查某个特定的HTML元素是否允许有子元素的时候都会低效的执行。</p>
+<p>有经验的JavaScript程序员知道创建一个包含这个逻辑的object来做这个判断是快得多的：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">takesChildren</span><span style="color: gray;"> = </span><span style="color: olive;">{}</span>
+    </li>
+    <li>
+      <span style="color: blue;">takesChildren</span><span style="color: olive;">[</span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">APPLET</span><span style="color: olive;">]</span><span style="color: gray;"> = </span><span style="color: maroon;">1</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: blue;">takesChildren</span><span style="color: olive;">[</span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">dom</span><span style="color: gray;">.</span><span style="color: blue;">TagName</span><span style="color: gray;">.</span><span style="color: blue;">AREA</span><span style="color: olive;">]</span><span style="color: gray;"> = </span><span style="color: maroon;">1</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">⋮</span>
+    </li>
+  </ol>
+</div>
+<p>建立这样一个object后，检查是否某个标签接收子元素的函数将运行的快得多：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">return</span><span style="color: gray;"> !</span><span style="color: blue;">takesChildren</span><span style="color: olive;">[</span><span style="color: blue;">node</span><span style="color: gray;">.</span><span style="color: blue;">tagName</span><span style="color: olive;">]</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>这段代码可以进一步通过使用hasOwnProperty(下文有对此的详细解释)对外界干扰免疫：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">return</span><span style="color: gray;"> !</span><span style="color: blue;">takesChildren</span><span style="color: gray;">.</span><span style="color: blue;">hasOwnProperty</span><span style="color: olive;">(</span><span style="color: blue;">node</span><span style="color: gray;">.</span><span style="color: blue;">tagName</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>如果我们对Google有所期待的话，那就是执行效率了。好玩的是，Google发布了它自己的浏览器，Google Chrome，主要是为了提升JavaScript的执行效率到高一个层次！</p>
+<p>看着这样的代码，我们不得不怀疑是不是Google通过培训他们自己的开发者写好一些的JavaScript代码也可以达到同样的目的。</p>
+<h2 id="span-stylecolor-003366strongspan-stylefont-size-xx-large漏水船中的六个月spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">漏水船中的六个月</span></strong></span></h2>
+<p>说Google在构建Closure的时候忽略了开发效率是不公平的。实际上，这个library提供了一个通用的方法来缓存那些执行缓慢的函数的结果，这个方法被再次以同样的参数被调用的时候，结果会被立即返回。文件<a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/memoize/memoize.js?r=2" target="_blank"><span style="color: #1166cc;">memoize.js</span></a>，39行：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">memoize</span><span style="color: gray;"> = </span><span style="color: green;">function</span><span style="color: olive;">(</span><span style="color: blue;">f</span><span style="color: gray;">, </span><span style="color: blue;">opt_serializer</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">functionHash</span><span style="color: gray;"> = </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">getHashCode</span><span style="color: olive;">(</span><span style="color: blue;">f</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">serializer</span><span style="color: gray;"> = </span><span style="color: blue;">opt_serializer</span><span style="color: gray;"> || </span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">memoize</span><span style="color: gray;">.</span><span style="color: blue;">simpleSerializer</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">return</span><span style="color: gray;"> </span><span style="color: green;">function</span><span style="color: olive;">()</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: #ffa500;">// Maps the serialized list of args to the corresponding return value.</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">cache</span><span style="color: gray;"> = </span><span style="color: green;">this</span><span style="color: olive;">[</span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">memoize</span><span style="color: gray;">.</span><span style="color: blue;">CACHE_PROPERTY_</span><span style="color: olive;">]</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: green;">if</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: gray;">!</span><span style="color: blue;">cache</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">      </span><span style="color: blue;">cache</span><span style="color: gray;"> = </span><span style="color: green;">this</span><span style="color: olive;">[</span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">memoize</span><span style="color: gray;">.</span><span style="color: blue;">CACHE_PROPERTY_</span><span style="color: olive;">]</span><span style="color: gray;"> = </span><span style="color: olive;">{}</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: olive;">}</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">key</span><span style="color: gray;"> = </span><span style="color: blue;">serializer</span><span style="color: olive;">(</span><span style="color: blue;">functionHash</span><span style="color: gray;">, </span><span style="color: blue;">arguments</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: green;">if</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: gray;">!</span><span style="color: olive;">(</span><span style="color: blue;">key</span><span style="color: gray;"> </span><span style="color: green;">in</span><span style="color: gray;"> </span><span style="color: blue;">cache</span><span style="color: olive;">))</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">      </span><span style="color: blue;">cache</span><span style="color: olive;">[</span><span style="color: blue;">key</span><span style="color: olive;">]</span><span style="color: gray;"> = </span><span style="color: blue;">f</span><span style="color: gray;">.</span><span style="color: blue;">apply</span><span style="color: olive;">(</span><span style="color: green;">this</span><span style="color: gray;">, </span><span style="color: blue;">arguments</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: olive;">}</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: green;">return</span><span style="color: gray;"> </span><span style="color: blue;">cache</span><span style="color: olive;">[</span><span style="color: blue;">key</span><span style="color: olive;">]</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: olive;">}</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: olive;">}</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>这是一个被很多大型JavaScript library采用的提升执行效率的聪明技巧；问题是，Google没有提供任何的方法来限制缓存的大小！当被缓存的方法只被很少的参数组合调用的时候这是没问题的，但这个方法如果通用的话就是危险的。</p>
+<p>假如缓存一个方法的参数是鼠标的坐标位置的话，这段代码的内存占用将会失去控制的飞快增长，并且拖慢浏览器的速度。</p>
+<p>用Dmitry的话来说就是：“我不太清楚在Java里面这个代码风格叫什么，但在JavaScript里面，这叫‘内存泄漏’”。</p>
+<h2 id="span-stylecolor-003366strongspan-stylefont-size-xx-large真空中的代码spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">真空中的代码</span></strong></span></h2>
+<p>是在他的关于开发一个JavaScript library的讲演中，Dmitry把JavaScript的全局作用域比做一个公共厕所。“你不能避免去那里”，他说，“但是如果可以的话尽量避免表面的接触。”</p>
+<p>一个通用的JavaScript library如果要是可信赖的，它不仅仅要避免影响其他任何可能在同一空间运行的JavaScript代码，它同样要保护自身不被其它不那么礼貌的代码所影响。</p>
+<p>在文件<a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/object/object.js?r=2" target="_blank"><span style="color: #1166cc;">object.js</span></a>，31行：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">object</span><span style="color: gray;">.</span><span style="color: blue;">forEach</span><span style="color: gray;"> = </span><span style="color: green;">function</span><span style="color: olive;">(</span><span style="color: blue;">obj</span><span style="color: gray;">, </span><span style="color: blue;">f</span><span style="color: gray;">, </span><span style="color: blue;">opt_obj</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">for</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">key</span><span style="color: gray;"> </span><span style="color: green;">in</span><span style="color: gray;"> </span><span style="color: blue;">obj</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: blue;">f</span><span style="color: gray;">.</span><span style="color: blue;">call</span><span style="color: olive;">(</span><span style="color: blue;">opt_obj</span><span style="color: gray;">, </span><span style="color: blue;">obj</span><span style="color: olive;">[</span><span style="color: blue;">key</span><span style="color: olive;">]</span><span style="color: gray;">, </span><span style="color: blue;">key</span><span style="color: gray;">, </span><span style="color: blue;">obj</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: olive;">}</span>
+    </li>
+    <li>
+      <span style="color: olive;">}</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>像这样的for-in循环在JavaScript library中是绝对危险的，因为你不会知道有其他的什么JavaScript代码可能在页面中运行，也不知道它可能会添加一些什么东西到JavaScript标准的Object.prototype中。（stauren注：这里是Dmitry不了解Closure的整个设计理念了，看过Closure Compiler的ADVANCE模式的高侵入式压缩方法就知道，它需求整个页面上有且仅有这一段js代码，否则编译会失败）</p>
+<p>Object.prototype是一个包含着所有的JavaScript object共享属性的JavaScript object。给Object.prototype添加一个方法，当前页面上每一个JavaScript object都会包含这个方法——就算这个对象之前已经被创建！早期的像<a href="http://www.prototypejs.org/" target="_blank"><span style="color: #1166cc;">Prototype</span></a>这样的JavaScript library 为Object.prototyp添加了大量各种的方便特性。</p>
+<p>不幸的是，和Object.prototype中原生就有属性不一样，添加到Object.prototype的自定义属性会在任何页面上的for-in循环中被列举出来。</p>
+<p>简单来说，Closure library不能与任何往Object.prototype添加特性的JavaScript代码共存。（stauren注：没错，google就是这么设计的。）</p>
+<p>Google可以使用for-in循环中使用hasOwnProperty检查属性是否真的属于该object来让代码更健壮：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">object</span><span style="color: gray;">.</span><span style="color: blue;">forEach</span><span style="color: gray;"> = </span><span style="color: green;">function</span><span style="color: olive;">(</span><span style="color: blue;">obj</span><span style="color: gray;">, </span><span style="color: blue;">f</span><span style="color: gray;">, </span><span style="color: blue;">opt_obj</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">for</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">key</span><span style="color: gray;"> </span><span style="color: green;">in</span><span style="color: gray;"> </span><span style="color: blue;">obj</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: green;">if</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: blue;">obj</span><span style="color: gray;">.</span><span style="color: blue;">hasOwnProperty</span><span style="color: olive;">(</span><span style="color: blue;">key</span><span style="color: olive;">))</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">      </span><span style="color: blue;">f</span><span style="color: gray;">.</span><span style="color: blue;">call</span><span style="color: olive;">(</span><span style="color: blue;">opt_obj</span><span style="color: gray;">, </span><span style="color: blue;">obj</span><span style="color: olive;">[</span><span style="color: blue;">key</span><span style="color: olive;">]</span><span style="color: gray;">, </span><span style="color: blue;">key</span><span style="color: gray;">, </span><span style="color: blue;">obj</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: olive;">}</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: olive;">}</span>
+    </li>
+    <li>
+      <span style="color: olive;">}</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>这是另一个Closure Library中特别脆弱的部分，来自 <a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/base.js?r=2" target="_blank"><span style="color: #1166cc;">base.js</span></a>, 667行：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">isDef</span><span style="color: gray;"> = </span><span style="color: green;">function</span><span style="color: olive;">(</span><span style="color: blue;">val</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">return</span><span style="color: gray;"> </span><span style="color: blue;">val</span><span style="color: gray;"> !== </span><span style="color: blue;">undefined</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: olive;">}</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>这个函数检查一个特定的变量的值是否被定义。但如果有第三方的脚本将全局变量 undefined 设定为另一个值，它将会失效（stauren注：这是因为undefined在JavaScript中不是保留字）。只需要页面上任何一个位置有下面一行js就会把Closure Library搞崩溃：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">undefined</span><span style="color: gray;"> = </span><span style="color: maroon;">5</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>依赖全局变量 undefined 是JavaScript library作者犯的另一个菜鸟错误。</p>
+<p>你也许会想，那些乱给 undefined 变量赋值的人活该他们倒霉，但修正这个错误的代价是小的：简单的在函数内声明一个本地的 undefined 变量就好了！</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">isDef</span><span style="color: gray;"> = </span><span style="color: green;">function</span><span style="color: olive;">(</span><span style="color: blue;">val</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">undefined</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">return</span><span style="color: gray;"> </span><span style="color: blue;">val</span><span style="color: gray;"> !== </span><span style="color: blue;">undefined</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: olive;">}</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p><span style="color: gray;"> </span></p>
+<h2 id="span-stylecolor-003366strongspan-stylefont-size-xx-large混乱的类型spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">混乱的类型</span></strong></span></h2>
+<p>在其他语言的开发者看来，JavaScript中最让人迷惑的部分莫过于数据类型系统了。Closure Library包含这方面大量的错误，进一步显示了作者对于JavaScript这部分细节的经验缺乏。</p>
+<p>文件 <a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/string/string.js?r=2" target="_blank"><span style="color: #1166cc;">string.js</span></a>, 97行：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: #ffa500;">// We cast to String in case an argument is a Function. …</span>
+    </li>
+    <li>
+      <span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">replacement</span><span style="color: gray;"> = </span><span style="color: teal;">String</span><span style="color: olive;">(</span><span style="color: blue;">arguments</span><span style="color: olive;">[</span><span style="color: blue;">i</span><span style="color: olive;">])</span><span style="color: gray;">.</span><span style="color: blue;">replace</span><span style="color: olive;">(</span><span style="color: gray;">…</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>这行代码使用了 String 转换函数把 arguments[i] 转换为一个字符串对象。这恐怕是做这样的一个转换的最慢的方式了，虽然对于其他语言的开发者来说这也许是最明显的办法。</p>
+<p>一个快的多的方法是在你需要转换的值上面加一个空白字符串(“”):</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">replacement</span><span style="color: gray;"> = </span><span style="color: olive;">(</span><span style="color: blue;">arguments</span><span style="color: olive;">[</span><span style="color: blue;">i</span><span style="color: olive;">]</span><span style="color: gray;"> + </span><span style="color: #8b0000;">&#8220;&#8221;</span><span style="color: olive;">)</span><span style="color: gray;">.</span><span style="color: blue;">replace</span><span style="color: olive;">(</span><span style="color: gray;">…</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>下面是一个更和字符串相关的类型混乱。来自文件 <a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/base.js?r=2" target="_blank"><span style="color: #1166cc;">base.js</span></a>，742行：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">isString</span><span style="color: gray;"> = </span><span style="color: green;">function</span><span style="color: olive;">(</span><span style="color: blue;">val</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">return</span><span style="color: gray;"> </span><span style="color: green;">typeof</span><span style="color: gray;"> </span><span style="color: blue;">val</span><span style="color: gray;"> == </span><span style="color: #8b0000;">&#8216;</span><span style="color: red;">string</span><span style="color: #8b0000;">&#8216;</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: olive;">}</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>JavaScript实际上用两种方式来表现文本字符串——原生字符串类型和字符串对象：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">a</span><span style="color: gray;"> = </span><span style="color: #8b0000;">&#8220;</span><span style="color: red;">I am a string!</span><span style="color: #8b0000;">&#8220;</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: blue;">alert</span><span style="color: olive;">(</span><span style="color: green;">typeof</span><span style="color: gray;"> </span><span style="color: blue;">a</span><span style="color: olive;">)</span><span style="color: gray;">; </span><span style="color: #ffa500;">// Will output &#8220;string&#8221;</span>
+    </li>
+    <li>
+      <span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">b</span><span style="color: gray;"> = </span><span style="color: green;">new</span><span style="color: gray;"> </span><span style="color: teal;">String</span><span style="color: olive;">(</span><span style="color: #8b0000;">&#8220;</span><span style="color: red;">I am also a string!</span><span style="color: #8b0000;">&#8220;</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: blue;">alert</span><span style="color: olive;">(</span><span style="color: green;">typeof</span><span style="color: gray;"> </span><span style="color: blue;">b</span><span style="color: olive;">)</span><span style="color: gray;">; </span><span style="color: #ffa500;">// Will output &#8220;object&#8221;</span>
+    </li>
+  </ol>
+</div>
+<p>绝大多数时候用原生字符串类型来表示字符串是更有效的（上面的变量a），但要调用任何字符串上的原生的方法（例如toLowerCase），这个变量必须先被转换成一个字符串对象（上面的变量b）。JavaScript会在需要的时候自动的在2种类型之间转换。这个特性叫做“自动装箱(autoboxing)”，在很多其他的语言中也有。</p>
+<p>不幸的是，在Google的只懂Java的程序员们眼中看来，Java只将字符串表示为对象。这是我对于为什么Closure Library会忽略JavaScript中第二种类型的字符串的最靠谱的猜想。</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">b</span><span style="color: gray;"> = </span><span style="color: green;">new</span><span style="color: gray;"> </span><span style="color: teal;">String</span><span style="color: olive;">(</span><span style="color: #8b0000;">&#8220;</span><span style="color: red;">I am also a string!</span><span style="color: #8b0000;">&#8220;</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: blue;">alert</span><span style="color: olive;">(</span><span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">isString</span><span style="color: olive;">(</span><span style="color: blue;">b</span><span style="color: olive;">))</span><span style="color: gray;">; </span><span style="color: #ffa500;">// Will output FALSE</span>
+    </li>
+  </ol>
+</div>
+<p>下面是另一个Java带来的类型混乱的例子。来自文件 <a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/color/color.js?r=2" target="_blank"><span style="color: #1166cc;">color.js</span></a>,  633行：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">return</span><span style="color: gray;"> </span><span style="color: olive;">[</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: teal;">Math</span><span style="color: gray;">.</span><span style="color: blue;">round</span><span style="color: olive;">(</span><span style="color: blue;">factor</span><span style="color: gray;"> * </span><span style="color: blue;">rgb1</span><span style="color: olive;">[</span><span style="color: maroon;"></span><span style="color: olive;">]</span><span style="color: gray;"> + </span><span style="color: olive;">(</span><span style="color: maroon;">1.0</span><span style="color: gray;"> &#8211; </span><span style="color: blue;">factor</span><span style="color: olive;">)</span><span style="color: gray;"> * </span><span style="color: blue;">rgb2</span><span style="color: olive;">[</span><span style="color: maroon;"></span><span style="color: olive;">])</span><span style="color: gray;">,</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: teal;">Math</span><span style="color: gray;">.</span><span style="color: blue;">round</span><span style="color: olive;">(</span><span style="color: blue;">factor</span><span style="color: gray;"> * </span><span style="color: blue;">rgb1</span><span style="color: olive;">[</span><span style="color: maroon;">1</span><span style="color: olive;">]</span><span style="color: gray;"> + </span><span style="color: olive;">(</span><span style="color: maroon;">1.0</span><span style="color: gray;"> &#8211; </span><span style="color: blue;">factor</span><span style="color: olive;">)</span><span style="color: gray;"> * </span><span style="color: blue;">rgb2</span><span style="color: olive;">[</span><span style="color: maroon;">1</span><span style="color: olive;">])</span><span style="color: gray;">,</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: teal;">Math</span><span style="color: gray;">.</span><span style="color: blue;">round</span><span style="color: olive;">(</span><span style="color: blue;">factor</span><span style="color: gray;"> * </span><span style="color: blue;">rgb1</span><span style="color: olive;">[</span><span style="color: maroon;">2</span><span style="color: olive;">]</span><span style="color: gray;"> + </span><span style="color: olive;">(</span><span style="color: maroon;">1.0</span><span style="color: gray;"> &#8211; </span><span style="color: blue;">factor</span><span style="color: olive;">)</span><span style="color: gray;"> * </span><span style="color: blue;">rgb2</span><span style="color: olive;">[</span><span style="color: maroon;">2</span><span style="color: olive;">])</span>
+    </li>
+    <li>
+      <span style="color: olive;">]</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>以上的那些 1.0 说明了问题。像Java这样的语言用 代表整形数据使用的(1)与代表浮点数据的(1.0)是不一样的。但在JavaScript中，数字类型就是数字类型。(1 – factor)一样会运行得很好。</p>
+<p>另一个有着Java味道的JavaScript代码的例子可以在 <a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/fx/fx.js?r=2" target="_blank"><span style="color: #1166cc;">fx.js</span></a> 中找到，465行：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: blue;">goog</span><span style="color: gray;">.</span><span style="color: blue;">fx</span><span style="color: gray;">.</span><span style="color: blue;">Animation</span><span style="color: gray;">.</span><span style="color: blue;">prototype</span><span style="color: gray;">.</span><span style="color: blue;">updateCoords_</span><span style="color: gray;"> = </span><span style="color: green;">function</span><span style="color: olive;">(</span><span style="color: blue;">t</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">coords</span><span style="color: gray;"> = </span><span style="color: green;">new</span><span style="color: gray;"> </span><span style="color: teal;">Array</span><span style="color: olive;">(</span><span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">startPoint</span><span style="color: gray;">.</span><span style="color: blue;">length</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: green;">for</span><span style="color: gray;"> </span><span style="color: olive;">(</span><span style="color: green;">var</span><span style="color: gray;"> </span><span style="color: blue;">i</span><span style="color: gray;"> = </span><span style="color: maroon;"></span><span style="color: gray;">; </span><span style="color: blue;">i</span><span style="color: gray;"> < </span><span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">startPoint</span><span style="color: gray;">.</span><span style="color: blue;">length</span><span style="color: gray;">; </span><span style="color: blue;">i</span><span style="color: gray;">++</span><span style="color: olive;">)</span><span style="color: gray;"> </span><span style="color: olive;">{</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">coords</span><span style="color: olive;">[</span><span style="color: blue;">i</span><span style="color: olive;">]</span><span style="color: gray;"> = </span><span style="color: olive;">(</span><span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">endPoint</span><span style="color: olive;">[</span><span style="color: blue;">i</span><span style="color: olive;">]</span><span style="color: gray;"> &#8211; </span><span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">startPoint</span><span style="color: olive;">[</span><span style="color: blue;">i</span><span style="color: olive;">])</span><span style="color: gray;"> * </span><span style="color: blue;">t</span><span style="color: gray;"> +</span>
+    </li>
+    <li>
+      <span style="color: gray;">    </span><span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">startPoint</span><span style="color: olive;">[</span><span style="color: blue;">i</span><span style="color: olive;">]</span><span style="color: gray;">;</span>
+    </li>
+    <li>
+      <span style="color: gray;">  </span><span style="color: olive;">}</span>
+    </li>
+    <li>
+      <span style="color: olive;">}</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>看到第二行里面他们是怎么构造一个数组的吗？</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">coords</span><span style="color: gray;"> = </span><span style="color: green;">new</span><span style="color: gray;"> </span><span style="color: teal;">Array</span><span style="color: olive;">(</span><span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">startPoint</span><span style="color: gray;">.</span><span style="color: blue;">length</span><span style="color: olive;">)</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>虽然在Java中这是必须的，但在JavaScript中在运行前指定数组的长度是完全没有意义的。这就和使用 var i = new Number(0); 而不是 var i=0; 来新建一个存储数字用的变量一样没有意义。</p>
+<p>实际上，你可以只是简历一个空白的数组，让它自己在被填入值的时候自己变大。这样做代码不但更短，运行得也更快：</p>
+<div class="hl-surround">
+  <ol class="hl-main ln-show" title="Double click to hide line number." ondblclick="linenumber(this)">
+    <li class="hl-firstline">
+      <span style="color: green;">this</span><span style="color: gray;">.</span><span style="color: blue;">coords</span><span style="color: gray;"> = </span><span style="color: olive;">[]</span><span style="color: gray;">;</span>
+    </li>
+  </ol>
+</div>
+<p>啊，你们有没有注意到这个函数里面还有另外一个效率低下的for循环呢？</p>
+<h2 id="span-stylecolor-003366strongspan-stylefont-size-xx-largeapi-设计spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">API 设计</span></strong></span></h2>
+<p>如果所有这些底层的代码质量缺陷还不能让你信服，我觉得你应该试试Google在Closure Library中包含的一些API。</p>
+<p>例如Closure里面的图形类(<a href="http://closure-library.googlecode.com/svn/trunk/closure/goog/docs/closure_goog_graphics_graphics.js.html" target="_blank"><span style="color: #1166cc;">graphics classes</span></a>)，是以HTML5 canvas API为基础构建的，你应该很奇怪为什么一个JavaScript API会以一个HTML标准来设计。简单来说，这是冗余、低效的，完全比不上同类代码。</p>
+<p>作为<a href="http://raphaeljs.com/" target="_blank"><span style="color: #1166cc;">Raphaël</span></a> 和 <a href="http://g.raphaeljs.com/" target="_blank"><span style="color: #1166cc;">gRaphaël</span></a> 的作者，Dmitry在设计可用的JavaScript API方面相当有经验。如果你想感受一下canvas API的全部恐怖（当然，Closure的图形API也有所贡献），看看<a href="http://www.webdirections.org/resources/dmitry-baranovskiy-canvas/" target="_blank"><span style="color: #1166cc;">Dmitry在Web Directions South 2009讲演</span></a>上面关于这个话题的音频和ppt吧。</p>
+<h2 id="span-stylecolor-003366strongspan-stylefont-size-xx-largegoolgle对于代码质量的责任spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">Goolgle对于代码质量的责任</span></strong></span></h2>
+<p>到这个时候我想你应该确信了在网上的最好的JavaScript代码中，Closure Library不是一个闪闪发光的明星了。如果你想找的是这样的代码，我可以向你你推荐一下更声名远扬的就像<a href="http://jquery.com/" target="_blank"><span style="color: #1166cc;">jQuery</span></a>这样的library吗？</p>
+<p>但你也许会想“这又怎么样？Google想发布什么垃圾代码就发布什么垃圾代码——又没人强迫你用它。”如果这是一个某google员工以自己名义发布的个人项目，我同意这个观点，但Google通过给Closure Library打上Google 商标的行为认可了它。</p>
+<p>事实上，程序员们会因为 Closure Library 有着Google的名字而使用它，这就真的是一个杯具了。你喜欢也罢不喜欢也罢，Google在开发社区中是一个被信任的名字，所以Google应该抱着对开发社区负责的态度，在决定像Closure这样的library是否值得向公众曝光之前好好的自己检查一下。</p>
+<p>—</p>
+<p>译者注：说it sucks总是很容易，Closure自然有种种的不足，不过完全没有抹杀它为JavaScript界带来的一些新想法，包括强大的Google Compiler。要完全的了解一个东西，最好各方的想法都看一看，如下：</p>
+<ul style="padding-left: 20px; margin: 5px 0px 15px;">
+  <li style="margin: 0px;">
+    <a href="http://erik.eae.net/archives/2009/11/05/22.27.29/"><span style="color: #1166cc;">Erik Arvidsson, founder of Closure, awesome JS hackers, on the history</span></a>
+  </li>
+  <li style="margin: 0px;">
+    <a href="http://alex.dojotoolkit.org/2009/11/a-bit-of-closure/"><span style="color: #1166cc;">Alex Russell, founder of Dojo and Chrome Frame</span></a>
+  </li>
+  <li style="margin: 0px;">
+    <a href="http://www.slideshare.net/Dmitry.Baranovskiy/your-javascript-library"><span style="color: #1166cc;">Dimitry presentation on JavaScript libraries</span></a>
+  </li>
+  <li style="margin: 0px;">
+    <a href="http://caprazzi.net/posts/learning-closure-ajax-with-goog-net/"><span style="color: #1166cc;">Learning Closure with goog.net</span></a>
+  </li>
+  <li style="margin: 0px;">
+    <a href="http://bolinfest.com/javascript/inheritance.php"><span style="color: #1166cc;">Inheritance Patterns in JavaScript</span></a>
+  </li>
+  <li style="margin: 0px;">
+    <a href="http://almaer.com/blog/getting-closure-dont-just-use-it-dont-just-abuse-it" target="_blank"><span style="color: #1166cc;">Getting Closure: Don’t just use it, don’t just abuse it</span></a>
+  </li>
+</ul>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/87.html" class="block">CSS圆角—基本圆角框</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/76.html" class="block">Google Closure Tools</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#span-stylecolor-003366strongspan-stylefont-size-xx-large缓慢的循环spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">缓慢的循环</span></strong></span></a></li>
+    <li><a href="#span-stylecolor-003366strongspan-stylefont-size-xx-large漏水船中的六个月spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">漏水船中的六个月</span></strong></span></a></li>
+    <li><a href="#span-stylecolor-003366strongspan-stylefont-size-xx-large真空中的代码spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">真空中的代码</span></strong></span></a></li>
+    <li><a href="#span-stylecolor-003366strongspan-stylefont-size-xx-large混乱的类型spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">混乱的类型</span></strong></span></a></li>
+    <li><a href="#span-stylecolor-003366strongspan-stylefont-size-xx-largeapi-设计spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">API 设计</span></strong></span></a></li>
+    <li><a href="#span-stylecolor-003366strongspan-stylefont-size-xx-largegoolgle对于代码质量的责任spanstrongspan"><span style="color: #003366;"><strong><span style="font-size: xx-large;">Goolgle对于代码质量的责任</span></strong></span></a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

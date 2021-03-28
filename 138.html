@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Data URI 和 MHTML | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。
+MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Data URI 和 MHTML",
+      "item":"/138.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/138.html"
+    },
+    "headline": "Data URI 和 MHTML | 影の域","datePublished": "2010-04-10T03:32:45+00:00",
+    "dateModified": "2010-04-10T03:32:45+00:00",
+    "wordCount":  1830 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。\nMHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。"
+}
+</script><meta property="og:title" content="Data URI 和 MHTML | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/138.html" />
+
+
+
+
+<meta property="og:description" content="Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。
+MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2010-04-10T03:32:45&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2010-04-10T03:32:45&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Data URI 和 MHTML</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-04-10</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1830字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <h3 id="data-uri">Data URI</h3>
+<p><a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data URI</a>是由<a href="http://tools.ietf.org/html/rfc2397">RFC 2397</a>定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中：</p>
+<pre><code>data:[&lt;MIME-type&gt;][;base64],&lt;data&gt;
+</code></pre>
+<ol>
+<li>MIME-type：指定嵌入数据的<a href="http://zh.wikipedia.org/wiki/MIME">MIME</a>。其形式是<code>[type]/[subtype]; parameter</code>，比如png图片对应的MIME是image/png。parameter可以用來指定附加的信息，更多情況下是用于指定text/plain和text/htm等的文字编码方式的charset参数。默认是text/plain;charset=US-ASCII。</li>
+<li>base64：声明后面的数据的编码是<a href="http://zh.wikipedia.org/wiki/Base64">base64</a>的，否则数据必须要用百分号编码（即对内容进行urlencode）。</li>
+</ol>
+<p> </p>
+<p>在上个世纪<a href="http://www.w3.org/TR/1999/REC-html401-19991224/struct/objects.html#h-13.3.1">HTML4.01引入了Data URI方案</a>，到今天为止<a href="http://en.wikipedia.org/wiki/Data_URI_scheme#Web_browser_support">除了IE6和IE7之外，所有主流浏览器都支持</a>，但<a href="http://msdn.microsoft.com/en-us/library/cc848897%28VS.85%29.aspx">IE8对Data URI的支持还是有限制的</a>，只支持object（仅是图片时）、img、input type=image、link和CSS中的URL，且数据量不能大于32K。</p>
+<h4 id="优点">优点：</h4>
+<ol>
+<li><a href="http://developer.yahoo.com/performance/rules.html#num_http">减少HTTP请求数</a>，没有了TCP连接消耗和同一域名下浏览器的并发数限制。</li>
+<li>对于小文件会降低带宽。虽然编码后数据量会增加，但是却减少了http头，当http头的数据量大于文件编码的增量，那么就会降低带宽。</li>
+<li>对于HTTPS站点，HTTPS和HTTP混用会有安全提示，而HTTPS相对于HTTP来讲开销要大更多，所以Data URI在这方面的优势更明显。</li>
+<li>可以把整个多媒体页面保存为一个文件。</li>
+</ol>
+<h4 id="缺点">缺点：</h4>
+<ol>
+<li>无法被重复利用，同一个文档应用多次同一个内容，则需要重复多次，数据量大量增加，增加了下载时间。</li>
+<li>无法被独自缓存，所以其包含文档重新加载时，它也要重新加载。</li>
+<li>客户端需要重新解码和显示，增加了点消耗。</li>
+<li>不支持数据压缩，base64编码会增加1/3大小，而urlencode后数据量会增加更多。</li>
+<li>不利于安全软件的过滤，同时也存在一定的安全隐患。</li>
+</ol>
+<h3 id="mhtml">MHTML</h3>
+<p>MHTML是<a href="http://en.wikipedia.org/wiki/MHTML">MIME HTML (Multipurpose Internet Mail Extension HTML)</a>的缩写，是由<a href="http://tools.ietf.org/html/rfc2557">RFC 2557</a>定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。</p>
+<p>MHTML和Data URI还比较类似，有更强大的功能和更复杂的语法，并且没有Data URI中“无法被重复利用”的缺点，但MHTML使用起来不够灵活方便，比如对资源引用的URL在mht文件中可以是相对地址，否则必须是绝对地址。hedger在<a href="http://www.hedgerwow.com/360/dhtml/base64-image/demo.php">《Cross Browser Base64 Encoded Images Embedded in HTML》</a>针对IE的解决方案使用的是相对路径就是因为声明了<code>Content-type:message/rfc822</code>使IE按照MHTML来解析，如果不修改<code>Content-type</code>则需要使用MHTML协议，这个时候必须使用绝对路径，如<a href="http://www.phpied.com/mhtml-when-you-need-data-uris-in-ie7-and-under/">《MHTML – when you need data: URIs in IE7 and under》</a>。</p>
+<h3 id="应用">应用</h3>
+<p>Data URI和MHTML两者的配合可以完整的解决所有的主流浏览器，它们由于无法被缓存和重复利用的缺陷，所以并不适合直接在页面中使用，但在CSS和JavaScript文件中对图片适当地使用有非常大的优越性：</p>
+<ol>
+<li>大大减少请求数，现在大型网站的CSS引用了大量的图片资源。</li>
+<li>CSS和JavaScript都可以被缓存，间接的实现了数据的缓存。</li>
+<li>利用CSS可以解决Data URI的重复利用问题</li>
+<li>告别<a href="http://www.alistapart.com/articles/sprites">CSS Sprites</a>，CSS Sprites的出现是为了减少请求数，但它除了<a href="http://blog.vlad1.com/2009/06/22/to-sprite-or-not-to-sprite/">带来在不确定情况下的异常</a>外，CSS Sprites还需要人为的图片合并，即使有合并工具也依旧必须人为地在如何有效的拼图上耗费大量的时间，并带来维护的困难。当你遵循一定的设计原则后，你就可以完全抛弃CSS Sprites来编写CSS，最后使用工具在上传到服务器环节把图片转换成Data URI和MHTML，如<a href="http://bluehua.org/tag/data-uri">《利用data-uri合并样式表和图片》</a>中用python实现的工具，这可以节约大量的时间。</li>
+<li>base64编码把图片文件增加了1/3，Data URI和MHTML同时使用相当于增加了2/3，但CSS和JavaScript可以使用<a href="http://developer.yahoo.com/performance/rules.html#gzip">gzip压缩</a>，其可以节省2/3的数据量，所以使用gzip压缩后的最终数据量是<code>(1 + 1/3) * 2 * (1/3) = 8/9</code>，所以最终流量是减少的。</li>
+</ol>
+<p>为了方便在CSS中实现Data URI和MHTML，我写了一个Data URI &amp; MHTML 生成器，你可以看利用其生成<a href="http://dancewithnet.com/lab/2009/data-uri-mhtml/create/1250345288.php">Data URI &amp; MHTML应用实例</a>。</p>
+<p>其他DEMO：   <a href="http://phpied.com/files/mhtml/mhtml.html" target="_blank">demo1</a>      <a href="http://labs.aoao.org.cn/yep/test.html" target="_blank">demo2</a></p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/140.html" class="block">JavaScript的valueOf和toString</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/135.html" class="block">挑战 hax.tor.hu 申请带ssh的免费php&#43;mysql空间</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#data-uri">Data URI</a>
+          <ul>
+            <li><a href="#优点">优点：</a></li>
+            <li><a href="#缺点">缺点：</a></li>
+          </ul>
+        </li>
+        <li><a href="#mhtml">MHTML</a></li>
+        <li><a href="#应用">应用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

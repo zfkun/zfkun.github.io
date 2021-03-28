@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>HTML5 canvas 初级入门教程 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="HTML5 canvas 即HTML5画布，是一个现代浏览器都支持的HTML5非插件绘图的功能，本文将展示如何通过HTML5 canvas API操作canvas元素、绘制图形、改变绘图颜色以及删除图形，让我们开始进入这很酷的新技术的短暂旅行吧。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"HTML5 canvas 初级入门教程",
+      "item":"/220.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/220.html"
+    },
+    "headline": "HTML5 canvas 初级入门教程 | 影の域",
+    "image": "/uploads/2011/03/5444647417_e731191271-500x350.jpg",
+    "datePublished": "2011-03-20T11:38:24+00:00",
+    "dateModified": "2011-03-20T11:38:24+00:00",
+    "wordCount":  2531 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "HTML5 canvas 即HTML5画布，是一个现代浏览器都支持的HTML5非插件绘图的功能，本文将展示如何通过HTML5 canvas API操作canvas元素、绘制图形、改变绘图颜色以及删除图形，让我们开始进入这很酷的新技术的短暂旅行吧。"
+}
+</script><meta property="og:title" content="HTML5 canvas 初级入门教程 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/220.html" />
+
+
+
+
+<meta property="og:description" content="HTML5 canvas 即HTML5画布，是一个现代浏览器都支持的HTML5非插件绘图的功能，本文将展示如何通过HTML5 canvas API操作canvas元素、绘制图形、改变绘图颜色以及删除图形，让我们开始进入这很酷的新技术的短暂旅行吧。" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2011-03-20T11:38:24&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2011-03-20T11:38:24&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">HTML5 canvas 初级入门教程</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>6分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>2531字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="/uploads/2011/03/5444647417_e731191271-500x350.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>HTML5 canvas 即HTML5画布，是一个现代浏览器都支持的HTML5非插件绘图的功能，本文将展示如何通过HTML5 canvas API操作canvas元素、绘制图形、改变绘图颜色以及删除图形，让我们开始进入这很酷的新技术的短暂旅行吧。</p>
+<h2 id="canvas元素简介">canvas元素简介</h2>
+<p>使用canvas元素相当简单，它只是一个单纯的HTML标签，外加宽高两个特性。</p>
+<pre><code class="html">&lt;canvas width="500" height="500"&gt;
+&lt;!-- 在这里插入向后兼容的内容，不支持canvas的浏览器可以解析和显示 --&gt;
+&lt;/canvas&gt;</code></pre>
+<p>上面的代码在页面中插入了一个透明的画布，canvas元素内部的内容可以在不支持canvas功能的浏览器下显示你想给你的用户提供的信息，联想下<noscript>元素就可以。</p>
+<h2 id="浏览器支持">浏览器支持</h2>
+<p>很重要的一点就是浏览器对canvas的支持还是相当不错的，所有现代浏览器都支持它，包括最新版的IE9：</p>
+<blockquote>
+<p>Internet Explorer 9.0+<br>
+Safari 3.0+<br>
+Firefox 3.0+<br>
+Chrome 3.0+<br>
+Opera 10.0+<br>
+iOS 1.0+<br>
+Android 1.0+</p>
+</blockquote>
+<p>有趣的是，你可以在IE8以及更低版本的IE浏览器下使用canvas功能，借助<a title="ExplorerCanas" href="http://code.google.com/p/explorercanvas/" target="_blank">ExplorerCanvas 插件</a>。</p>
+<h2 id="画布尺寸">画布尺寸</h2>
+<p>当定义canvas元素的尺寸时，最好通过HTML设置它的width和height特性，因为通过CSS设置宽高会导致画布按比例缩放到你设置的值，这背后有它的逻辑原因：在canvas元素的内部存在一个名为2d渲染环境（2d redering context）的对象，所以，通过CSS设置画布尺寸会引起奇怪的效果。</p>
+<h2 id="探索2d渲染环境">探索2d 渲染环境</h2>
+<p>我们上面提到的canvas元素只是canvas功能的一部分，另一部分是2d渲染环境，它可以让你实现很酷的看得到的东西。</p>
+<p>需要完全理清的是：当你使用canvas，你不是在canvas元素上画图，事实上你是在canvas元素内部的2d渲染环境上。</p>
+<h2 id="坐标系统">坐标系统</h2>
+<p>如果你曾经使用过2d绘图编程语言（比如ActionScript、Processing等），你应该会了解基于屏幕（screen-based）的坐标系统。canvas内部的2d渲染环境并没有什么不同之处，它采用标准的笛卡尔坐标系统，原点位于屏幕左上角，向右移动会增加x坐标的值，向下移动会增加y坐标的值，很容易理解。</p>
+<p><a href="/uploads/2011/03/5444647417_e731191271.jpg" target="_blank"><img class="aligncenter size-full wp-image-354" title="canvas unit" src="/uploads/2011/03/5444647417_e731191271.jpg" alt="" width="500" height="353" srcset="/uploads/2011/03/5444647417_e731191271.jpg 500w, /uploads/2011/03/5444647417_e731191271-300x211.jpg 300w" sizes="(max-width: 500px) 100vw, 500px" /></a></p>
+<p>通常坐标系统的单位是屏幕的1像素。</p>
+<h2 id="操作2d渲染环境">操作2d渲染环境</h2>
+<p>需要利用Javascript提供的API来获取2d渲染环境对象，该方法为：getContext()，看下简单的例子：</p>
+<pre><code class="html">&lt;canvas id="csser-com-Canvas" width="500" height="500"&gt;
+   &lt;!-- 向后兼容的内容 --&gt;
+&lt;/canvas&gt;
+&lt;script&gt;
+var canvas = document.getElementById("csser-com-Canvas");
+var c = canvas.getContext("2d");
+&lt;/script&gt;</code></pre>
+<p>通过调用canvas对象的getContext()方法，c变量就包含了指向2d渲染环境的引用，这意味着你现在已经完成了在画布上绘图的一切准备，接下来可以开始绘图了。</p>
+<h2 id="绘制矩形">绘制矩形</h2>
+<p>获得了2d渲染环境对象，就可以通过调用API提供的大量方法来进行绘图了，一个最基本的方法就是fillRect()，通过它可以绘制一个填充颜色的矩形（颜色默认值为黑色）。</p>
+<p>在c变量的下面增加以下代码：</p>
+<pre><code class="js">c.fillRect(0, 0, 50, 50);</code></pre>
+<p>这将在画布左上角绘制绘制一个黑色背景的正方形：</p>
+<p><a href="/uploads/2011/03/5444673295_e0f869e948_m.jpg" target="_blank"><img class="aligncenter size-full wp-image-355" title="canvas fillRect" src="/uploads/2011/03/5444673295_e0f869e948_m.jpg" alt="canvas fillRect" width="58" height="60" /></a></p>
+<p>在调用fillRect()方法时传入了4个参数：</p>
+<ul>
+<li>第一个是基于原点的x坐标位置</li>
+<li>第二个是基于原点的y坐标位置</li>
+<li>第三个是宽度</li>
+<li>第四个是高度</li>
+</ul>
+<p>fillRect的伪代码看起来应该像这个样子：</p>
+<pre><code class="js">c.fillRect(x, y, width, height);</code></pre>
+<p>很酷的是，不仅可以绘制填充的矩形，你还可以绘制线框矩形，使用strokeRect()方法，绘制四周产生描边效果的矩形，如：</p>
+<pre><code class="js">c.strokeRect(50, 50, 100, 100);</code></pre>
+<p>strokeRect的参数与fillRect是一致的，绘制的结果如下：</p>
+<p><a href="/uploads/2011/03/5444673313_94f0bb9556_m.jpg" target="_blank"><img class="aligncenter size-full wp-image-356" title="canvas strokeRect" src="/uploads/2011/03/5444673313_94f0bb9556_m.jpg" alt="canvas strokeRect" width="160" height="160" srcset="/uploads/2011/03/5444673313_94f0bb9556_m.jpg 160w, /uploads/2011/03/5444673313_94f0bb9556_m-150x150.jpg 150w" sizes="(max-width: 160px) 100vw, 160px" /></a></p>
+<p>利用canvas绘图，简单、优美，所有的方法都很易懂，但是当放在一起使用可以让你画出很漂亮的图形。</p>
+<h2 id="绘制路径">绘制路径</h2>
+<p>矩形是唯一一个可以通过单个API方法绘制的图形，先把它放在一边，我们来学习下路径（Paths）绘制。使用路径，可以绘制线条、连续的曲线以及复合图形。</p>
+<p>绘制一个简单的路径需要利用一些AIP方法：</p>
+<blockquote>
+<p>beginPath 开始一个新路径<br>
+moveTo 移动路径的绘图起点<br>
+lineTo 从moveTo定义的点开始绘制连续的路径，或者从上一次的lineTo的终点开始绘制。<br>
+closePath 连接最后的点和最初的点并关闭路径绘制<br>
+fill 用颜色填充路径<br>
+stroke 描变路径</p>
+</blockquote>
+<p>尝试执行下面的代码：</p>
+<pre><code class="js">c.beginPath();
+c.moveTo(50, 50);
+c.lineTo(50, 250);
+c.lineTo(250, 250);
+c.closePath;
+c.fill();</code></pre>
+<p>执行结果为：</p>
+<p><a href="/uploads/2011/03/5445275668_000b7c58f1_m.jpg" target="_blank"><img class="aligncenter size-full wp-image-357" title="canvas paths" src="/uploads/2011/03/5445275668_000b7c58f1_m.jpg" alt="canvas paths" width="208" height="207" srcset="/uploads/2011/03/5445275668_000b7c58f1_m.jpg 208w, /uploads/2011/03/5445275668_000b7c58f1_m-150x150.jpg 150w" sizes="(max-width: 208px) 100vw, 208px" /></a></p>
+<p>你可以用同样的方法绘制你希望的图形，canvas还包含更高级的路径绘制，比如圆弧（可以绘制圆形）和贝塞尔曲线（用于绘制很酷的曲线效果），总之，绘制路径要比绘制矩形复杂的多。</p>
+<h2 id="改变颜色">改变颜色</h2>
+<p>到目前为止，我们的示例所绘制的都是填充或描边的黑色，canvas也提供了一些属性用于改变绘制图形的颜色，它们是fillStyle和strokeStyle，它们的语法都是可以自解释的，所以我们直接来改变一个矩形的填充颜色：</p>
+<pre><code class="js">c.fillStyle = "rgb(255, 0, 0)";
+c.fillRect(50, 50, 100, 100);</code></pre>
+<p>结果：</p>
+<p><a href="/uploads/2011/03/5445275680_58dc82498b_m.jpg" target="_blank"><img class="aligncenter size-full wp-image-358" title="canvas fillStyle" src="/uploads/2011/03/5445275680_58dc82498b_m.jpg" alt="canvas fillStyle" width="107" height="107" /></a></p>
+<p>或者，你可以改变描边的颜色：</p>
+<pre><code class="js">c.strokeStyle = "rgb(255, 0, 0)";
+c.strokeRect(50, 50, 100, 100);</code></pre>
+<p>结果：</p>
+<p><a href="/uploads/2011/03/5445275718_085b9c4e07_m.jpg" target="_blank"><img class="aligncenter size-full wp-image-359" title="canvas strokeStyle" src="/uploads/2011/03/5445275718_085b9c4e07_m.jpg" alt="canvas strokeStyle" width="109" height="109" /></a></p>
+<p>fillStyle和strokeStyle属性很漂亮的一点就是，它们都支持普通CSS颜色值，这意味着你可以使用RGB、RGBA、HSA、颜色名称以及十六进制颜色值。</p>
+<p>还有一点需要指出的是，改变画布中的颜色值不会影响已经绘制的任何图形，例如，如果你绘制了一个黑色的矩形，然后设置填充为红色，接着绘制了另一个矩形，这时第一个矩形仍然为黑色。</p>
+<h2 id="改变线宽">改变线宽</h2>
+<p>除了可以改变颜色，还可以利用lineWidth属性改变描边线条的宽度，按照上面的例子，改变线条宽度：</p>
+<pre><code class="js">c.lineWidth = 20;
+c.strokeStyle = "#f00";
+c.strokeRect(50, 50, 100, 100);</code></pre>
+<p>结果：</p>
+<p><a href="/uploads/2011/03/5444673423_370c8a9c4e_m.jpg" target="_blank"><img class="aligncenter size-full wp-image-360" title="canvas lineWidth" src="/uploads/2011/03/5444673423_370c8a9c4e_m.jpg" alt="canvas lineWidth" width="133" height="133" /></a></p>
+<p>同样的可以改变路径的线宽：</p>
+<pre><code class="js">c.lineWidth = 20;
+c.beginPath();
+c.moveTo(50, 50);
+c.lineTo(50, 250);
+c.lineTo(250, 250);
+c.closePath();
+c.stroke();</code></pre>
+<p>结果：</p>
+<p><a href="/uploads/2011/03/5444673489_5a79a07697_m.jpg" target="_blank"><img class="aligncenter size-full wp-image-361" title="canvas lineWidth paths" src="/uploads/2011/03/5444673489_5a79a07697_m.jpg" alt="canvas lineWidth paths" width="240" height="240" srcset="/uploads/2011/03/5444673489_5a79a07697_m.jpg 240w, /uploads/2011/03/5444673489_5a79a07697_m-150x150.jpg 150w" sizes="(max-width: 240px) 100vw, 240px" /></a></p>
+<p>还有一些其它的改变线条的方式，比如lineCap设置线条的末端，lineJoin设置线条的角。</p>
+<h2 id="删除图形">删除图形</h2>
+<p>最后我们来了解下如何删除已经绘制的图形，删除图形只需Javascript API提供的一个名为clearRect的方法，其原理是使参数指定的矩形区域背景变为透明。</p>
+<p>本文示例画布长宽分别为500像素，要想删除整个画布图形，可以这样做：</p>
+<pre><code class="js">c.fillRect(50, 50, 100, 100);
+c.clearRect(0, 0, 500, 500);</code></pre>
+<p>上面的代码执行后，你会什么都看不到，事实上填充的矩形已经绘制，只是瞬间被删除了，所以你看不到它。</p>
+<p>如果你不清楚画布的具体宽高，清除整个画布可以这样：</p>
+<pre><code class="js">c.clearRect(0, 0, canvas.width, canvas.height);</code></pre>
+<h2 id="删除画布中的区域">删除画布中的区域</h2>
+<p>如果你不想删除整个画布的图形，而仅仅删除画布中的一个区域，假如，你绘制了一个黑色的正方形，旁边绘制了一个红色的正方形：</p>
+<pre><code class="js">c.fillRect(50, 50, 100, 100);
+c.fillStyle = "#f00";
+c.fillRect(200, 50, 100, 100);</code></pre>
+<p>看起来是这个样子：</p>
+<p><a href="/uploads/2011/03/5444673565_a360d6e213_m.jpg" target="_blank"><img class="aligncenter size-full wp-image-362" title="canvas clearRect" src="/uploads/2011/03/5444673565_a360d6e213_m.jpg" alt="canvas clearRect" width="240" height="104" /></a></p>
+<p>接下来你可以通过clearRect删除黑色背景的正方形而只保留红色正方形：</p>
+<pre><code class="js">c.clearRect(50, 50, 100, 100);</code></pre>
+<p>注意传入clearRect的参数能确保能覆盖要被删除的图形的区域。</p>
+<p>原文：<a href="http://net.tutsplus.com/tutorials/javascript-ajax/canvas-from-scratch-introducing-canvas/" target="_blank">Canvas From Scratch: Introducing Canvas</a></p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/223.html" class="block">动态生成windows快捷方式文件</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/218.html" class="block">如何检测HTML表单已经发生改变</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#canvas元素简介">canvas元素简介</a></li>
+    <li><a href="#浏览器支持">浏览器支持</a></li>
+    <li><a href="#画布尺寸">画布尺寸</a></li>
+    <li><a href="#探索2d渲染环境">探索2d 渲染环境</a></li>
+    <li><a href="#坐标系统">坐标系统</a></li>
+    <li><a href="#操作2d渲染环境">操作2d渲染环境</a></li>
+    <li><a href="#绘制矩形">绘制矩形</a></li>
+    <li><a href="#绘制路径">绘制路径</a></li>
+    <li><a href="#改变颜色">改变颜色</a></li>
+    <li><a href="#改变线宽">改变线宽</a></li>
+    <li><a href="#删除图形">删除图形</a></li>
+    <li><a href="#删除画布中的区域">删除画布中的区域</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

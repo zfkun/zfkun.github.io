@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>影の域</title>
+    <link>/</link>
+    <description>Recent content on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 20 Dec 2013 09:44:02 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>node-airplay 0.1.0 release</title>
+      <link>/525.html</link>
+      <pubDate>Fri, 20 Dec 2013 09:44:02 +0000</pubDate>
+      
+      <guid>/525.html</guid>
+      <description>这是一个专为兼容 AirPlay 协议的设备（Apple TV）使用的 node.js 客户端库 项目地址: node-airplay 此项目是搞 iPlay 的时候分离出来的模块。 当时写的匆忙，没注意已有类似的项目(Ben Vanik搞的)，不过年久失修，已跟不上时代了。 so, 借鉴升华了下，加上了 HLS 直播流支持，本地自动实时转码。 PS： 后来发现，Ben Vanik 也搞了 node-livestreaming 和 node-transcoding ，C++的node模块，但因年久失修，已经不好利用了，连编译都是个问题，还得自己收工 从node-waf 迁移到 node-gyp</description>
+    </item>
+    
+    <item>
+      <title>Emmet DocSet for Dash 1.0</title>
+      <link>/513.html</link>
+      <pubDate>Thu, 03 Oct 2013 17:42:37 +0000</pubDate>
+      
+      <guid>/513.html</guid>
+      <description>Emmet-DocSet v1.0 Released!!  Emmet DocSet for Dash</description>
+    </item>
+    
+    <item>
+      <title>阿里-智勇大闯关第三季 参考答案</title>
+      <link>/503.html</link>
+      <pubDate>Fri, 16 Aug 2013 07:37:24 +0000</pubDate>
+      
+      <guid>/503.html</guid>
+      <description>阿里-智勇大闯关第三季 各关非官方参考答案, 自己随意弄的，不一定够标准。基本 console 敲入回车即可。</description>
+    </item>
+    
+    <item>
+      <title>KISSY Snippets for Sublime Text 2</title>
+      <link>/478.html</link>
+      <pubDate>Wed, 03 Oct 2012 04:51:36 +0000</pubDate>
+      
+      <guid>/478.html</guid>
+      <description>KISSY Snippets for Sublime Text 2 v1.0.9 Released!!
+If you are interested in this package, join us !!
+Try it now :
+  by Package Control, search for “KISSY” (Recommend)
+  by Source, “git clone https://github.com/zfkun/sublime-kissy-snippets.git”
+  Come on !!</description>
+    </item>
+    
+    <item>
+      <title>KISSY DataLazyLoad组件之事件BUG</title>
+      <link>/461.html</link>
+      <pubDate>Fri, 24 Feb 2012 10:58:48 +0000</pubDate>
+      
+      <guid>/461.html</guid>
+      <description>正在随手弄一Photo App， 为了性能和效率，不得不使用LazyLoad，至此，为此BUG的浮现做好了铺垫。
+为图快速制作出原型，暂且使用KISSY辅助开发，App自身只有一个重要需求： 弹性、自适应。
+所以，很自然的对 windows 对象做了 Resize Event 的监听处理。 %&lt;em&gt;……（&lt;/em&gt;&amp;amp;&lt;em&gt;%%&lt;/em&gt;……*（，(此处省略1000字)，coding-complete &amp;amp;&amp;amp; unit-test-ok !
+然后，准备添加 LazyLoad支持以提高体验和性能，降低成本。（殊不知，杯具就此发生）</description>
+    </item>
+    
+    <item>
+      <title>Path UI by CSS3</title>
+      <link>/454.html</link>
+      <pubDate>Tue, 06 Dec 2011 06:44:20 +0000</pubDate>
+      
+      <guid>/454.html</guid>
+      <description>&lt;p&gt;Path的UI惊起哇声一片，最大的亮点无疑是左下角的菜单展开效果。于是有各个版本的仿Path菜单出现，比如我们之前报道过的国内某牛人的作品，这里还有若干个关于Path菜单的讨论。但最引人注意的还是来自法国小伙Victor的作品：用纯CSS3制作的Path菜单效果。&lt;/p&gt;
+&lt;p&gt;他说他喜欢Path的新界面，尤其是添加菜单，作为一个前端设计师的他打算在浏览器里实现同样的效果。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Thinkpad 全系列驱动程序官方安装光盘下载</title>
+      <link>/449.html</link>
+      <pubDate>Thu, 17 Nov 2011 07:58:43 +0000</pubDate>
+      
+      <guid>/449.html</guid>
+      <description>Lenovo 这次厚道一次了，知道提高用户体验了。对于经常反复装系统的孩子们应该用的着。当然就不要要求实时更新了，估计很难。先装了再update也无妨，总比装完发现，网卡，声卡，显卡驱动均无 + 无另外上网设备的尴尬好的多吧。</description>
+    </item>
+    
+    <item>
+      <title>移动 Web 开发平台 Rexsee 开源</title>
+      <link>/445.html</link>
+      <pubDate>Fri, 28 Oct 2011 09:30:04 +0000</pubDate>
+      
+      <guid>/445.html</guid>
+      <description>国内移动Web开发平台Rexsee正式开源，其开发者社区也于本周上线。访问社区可以查看详细开发手册、API说明与示例以及全部源码，并可在线编译免费生成移动应用客户端。</description>
+    </item>
+    
+    <item>
+      <title>CubeStormer II &#43; Samsung Galaxy S II ，5.35 秒暴解三阶魔方！</title>
+      <link>/441.html</link>
+      <pubDate>Wed, 26 Oct 2011 07:11:28 +0000</pubDate>
+      
+      <guid>/441.html</guid>
+      <description>CubeStormer II + Samsung Galaxy S II ，5.35 秒暴解三阶魔方！</description>
+    </item>
+    
+    <item>
+      <title>WordPress Rewrite SEO 之404方式折腾笔记</title>
+      <link>/417.html</link>
+      <pubDate>Sun, 17 Jul 2011 10:10:57 +0000</pubDate>
+      
+      <guid>/417.html</guid>
+      <description>WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。
+最近折腾 HTML5探索 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。
+空间是虚拟主机（还是WIN + IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite。SO, 就开始大面积的调整程序 + hack, 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）</description>
+    </item>
+    
+    <item>
+      <title>站内搜索</title>
+      <link>/search/</link>
+      <pubDate>Sun, 17 Jul 2011 04:04:19 +0000</pubDate>
+      
+      <guid>/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[转]利用跨域资源共享（CORS）实现ajax跨域调用</title>
+      <link>/394.html</link>
+      <pubDate>Fri, 15 Jul 2011 05:14:06 +0000</pubDate>
+      
+      <guid>/394.html</guid>
+      <description>几年前，网站开发者都因为ajax的同源策略而撞了南墙。当我们惊叹于XMLHttpRequest对象跨浏览器支持所带来的巨大进步时，我们很快发现没有一个方法可以使我们用JavaScript实现请求跨域访问，对此我们哀叹不已。每个人在他们自己的网站上建立代理来摆脱这种限制。虽然开发者利用服务器代理和其它技巧避开了这种限制，而在社区的抗议者允许ajax在本地跨域调用。许多人还没意识到当前几乎所有的浏览器（Internet Explorer 8+， Firefox 3.5+， Safari 4+和 Chrome）都可通过名为Cross-Origin Resource Sharing的协议支持ajax跨域调用。</description>
+    </item>
+    
+    <item>
+      <title>window.open() 之句柄保持和重连</title>
+      <link>/388.html</link>
+      <pubDate>Thu, 14 Jul 2011 09:21:50 +0000</pubDate>
+      
+      <guid>/388.html</guid>
+      <description>window.open()是挺常用的弹窗方式，大部分时候用在一些会话框提示、上传、第三方应用交互等，这时若需要面对资源保持的问题时，就需要一些特殊的技巧来fix。</description>
+    </item>
+    
+    <item>
+      <title>apk文件的MIME类型</title>
+      <link>/372.html</link>
+      <pubDate>Sun, 10 Jul 2011 05:32:36 +0000</pubDate>
+      
+      <guid>/372.html</guid>
+      <description>今天更新日志时刚好需要提供apk文件的本地下载，测试下果然该死的WIN+IIS的虚拟主机不给力，因为缺少MIME识别而提示404。
+其实文件路径是真实有效的，只是主机没有手动增加对apk文件类型的识别配置，所以默认给了404（体验还真好，FK）。
+so, fix it !!</description>
+    </item>
+    
+    <item>
+      <title>WordPress 中文Tag 显示404错误的BUG修正</title>
+      <link>/344.html</link>
+      <pubDate>Thu, 07 Jul 2011 08:15:15 +0000</pubDate>
+      
+      <guid>/344.html</guid>
+      <description>今天无意间查看站点的谷歌统计数据时发现，存在200+的错误页面。 - -!
+分析了下，最终锁定WordPress 的中文支持问题。由于WordPress对中文的支持不好，主要体现在路由的解析上，导致了中文Tag的URL解析异常，从而显示了404结果页。</description>
+    </item>
+    
+    <item>
+      <title>[转]IE6、IE7、IE8 CSS Bug兼容解决记录</title>
+      <link>/275.html</link>
+      <pubDate>Tue, 14 Jun 2011 10:05:04 +0000</pubDate>
+      
+      <guid>/275.html</guid>
+      <description>一份值得看下的IE6、IE7、IE8 CSS Bug兼容解决记录</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu安装之wubi方式默认自动BT下载iso的问题</title>
+      <link>/236.html</link>
+      <pubDate>Tue, 26 Apr 2011 07:12:38 +0000</pubDate>
+      
+      <guid>/236.html</guid>
+      <description>正在研究一基于c的qqrobot，无奈需搭建linux开发环境。经过 Dev-cpp，Cygwin（已通过编译但运行异常，怀疑环境有关）的尝试，各有不足，遂选择新装ubuntu来解决。</description>
+    </item>
+    
+    <item>
+      <title>解决VMware Tools installation cannot be started manually while Easy Install is in progress.</title>
+      <link>/232.html</link>
+      <pubDate>Tue, 19 Apr 2011 10:31:22 +0000</pubDate>
+      
+      <guid>/232.html</guid>
+      <description>很多尝试VMware 7虚拟机的朋友都会发现，用Ghost xp安装Windows以后，在开始安装VMware Tools时，会弹出显示如下内容的警告框： VMware Tools installation cannot be started manually while Easy Install is in progress. 解决方法： 在开启虚拟机操作系统的情况下，在虚拟机设置中更改floppy为auto detect。然后点击菜单中的安装VMWare Tools，虚拟操作系统中的光驱里就会有VMWare Tools的安装程序了，自行安装即</description>
+    </item>
+    
+    <item>
+      <title>fastcgi_finish_request提速程序执行</title>
+      <link>/229.html</link>
+      <pubDate>Wed, 13 Apr 2011 02:56:14 +0000</pubDate>
+      
+      <guid>/229.html</guid>
+      <description>当PHP运行在FastCGI模式时，PHP FPM提供了一个名为fastcgi_finish_request的方法。</description>
+    </item>
+    
+    <item>
+      <title>Windows7下搭建Node.js环境</title>
+      <link>/226.html</link>
+      <pubDate>Wed, 06 Apr 2011 08:34:18 +0000</pubDate>
+      
+      <guid>/226.html</guid>
+      <description>下载并安装Cygwin 及Node.js安装依赖的附加组件 cygwin下载: http://cygwin.com/setup.exe (下载点最好选择台湾或日本的临近点，速度快) 附加组件选择: Devel : gcc-g++: C++ compiler gcc-mingw-g++: Mingw32 support headers and libraries for GCC C++ gcc4-g++: G++ subpackage git: Fast Version Control System – core files (github方式下载时用) make: The GNU version of the ‘make’ utility openssl-devel: The OpenSSL development environment pkg-config: A utility used to retrieve information about installed libraries zlib-devel: The zlib compression/decompression library (development) Editor: vim: Vi IMproved – enhanced vi editor Python: 全部 Web: wget: Utility to retrieve files from the WWW via HTTP and FTP curl: Multi-protocol file transfer command-line tool 由于操作系统为 windows 7 (Windows Vista以后版本)，需要在ash模式下执行rebaseall才能保证 node.js的编译通过 a. 进入 cygwin安装目录/bin/ b. 运行ash.exe</description>
+    </item>
+    
+    <item>
+      <title>动态生成windows快捷方式文件</title>
+      <link>/223.html</link>
+      <pubDate>Sat, 02 Apr 2011 07:52:01 +0000</pubDate>
+      
+      <guid>/223.html</guid>
+      <description>近期改版中涉及到此小需求。就看了下，其实挺简单，这里就做个简单记录，不需要分析了。简单的使用了PHP语言（其他也一样），扩展性很容易做（稍微做点可变处理就行），所以就没去刻意做，写死效率最高 - -。</description>
+    </item>
+    
+    <item>
+      <title>HTML5 canvas 初级入门教程</title>
+      <link>/220.html</link>
+      <pubDate>Sun, 20 Mar 2011 11:38:24 +0000</pubDate>
+      
+      <guid>/220.html</guid>
+      <description>HTML5 canvas 即HTML5画布，是一个现代浏览器都支持的HTML5非插件绘图的功能，本文将展示如何通过HTML5 canvas API操作canvas元素、绘制图形、改变绘图颜色以及删除图形，让我们开始进入这很酷的新技术的短暂旅行吧。</description>
+    </item>
+    
+    <item>
+      <title>如何检测HTML表单已经发生改变</title>
+      <link>/218.html</link>
+      <pubDate>Sun, 20 Mar 2011 11:36:46 +0000</pubDate>
+      
+      <guid>/218.html</guid>
+      <description>表单是Web应用不可缺少的功能，它是服务器端与浏览器端数据交换的最基本的方法。你应该已经读过很多关于HTML5和Javascript的表单标签和数据验证的文章，今天我们来讨论下如何检查表单数据是否被改变了。</description>
+    </item>
+    
+    <item>
+      <title>Javascript浏览器另类探测技巧</title>
+      <link>/216.html</link>
+      <pubDate>Sun, 20 Mar 2011 11:22:34 +0000</pubDate>
+      
+      <guid>/216.html</guid>
+      <description>下面是一些另类的但挺高效的浏览器探测技巧，主要利用了各浏览器的私有特征完成。</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Memory Leak Detector (v2)</title>
+      <link>/211.html</link>
+      <pubDate>Sun, 20 Mar 2011 10:58:12 +0000</pubDate>
+      
+      <guid>/211.html</guid>
+      <description>JavaScript Memory Leak Detector (download) is a debugging tool to detect memory leaks and enforce best practices in JavaScript code when working with version of Internet Explorer older than IE8.</description>
+    </item>
+    
+    <item>
+      <title>webkit的自定义图片滚动条</title>
+      <link>/208.html</link>
+      <pubDate>Sun, 20 Mar 2011 10:51:17 +0000</pubDate>
+      
+      <guid>/208.html</guid>
+      <description>http://trac.webkit.org/export/41842/trunk/LayoutTests/scrollbars/overflow-scrollbar-combinations.html 非常不错, only webkit的话，还是不错的。</description>
+    </item>
+    
+    <item>
+      <title>欺骗IE不出现Flash激活框的小发现</title>
+      <link>/205.html</link>
+      <pubDate>Sun, 20 Mar 2011 10:43:08 +0000</pubDate>
+      
+      <guid>/205.html</guid>
+      <description>大家都知道欺骗IE不出现Flash激活框的方法很简单 只要在页面上面引入一个js文件，然后用js来控制flash的html代码输出即可。 但是如果我们的脚本是动态加载的就会有两种情况，看以下代码 var s = docuemnt.createElement(&amp;#8220;script&amp;#8221;); s.src = src; docuemnt.getElementsByTagName(&amp;#8220;head&amp;#8221;)[0].appendChild(s); var s = docuemnt.createElement(&amp;#8220;script&amp;#8221;); docuemnt.getElementsByTagName(&amp;#8220;head&amp;#8221;)[0].appendChild(s); s.src = src; 一眼看下去这两断代码执行结果上面差不多。但是有一段代码无法欺骗IE，引入的js输出flash会出现激活框。 这两断唯一区别就是 先给 script 对象的src赋值 再 append到head。还是先append再赋值。我做了实验，只有先给 script 的src 赋值再 append 到页面上面就可以欺骗IE了。</description>
+    </item>
+    
+    <item>
+      <title>Google 的疯狂面试题</title>
+      <link>/202.html</link>
+      <pubDate>Sun, 20 Mar 2011 10:39:41 +0000</pubDate>
+      
+      <guid>/202.html</guid>
+      <description>Google 的疯狂面试题</description>
+    </item>
+    
+    <item>
+      <title>XHR与浏览器导航冲突解决方案</title>
+      <link>/199.html</link>
+      <pubDate>Sun, 20 Mar 2011 09:45:11 +0000</pubDate>
+      
+      <guid>/199.html</guid>
+      <description>最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。</description>
+    </item>
+    
+    <item>
+      <title>Repaint 跟踪浏览器的渲染</title>
+      <link>/196.html</link>
+      <pubDate>Sun, 20 Mar 2011 09:32:35 +0000</pubDate>
+      
+      <guid>/196.html</guid>
+      <description>前端优化，从很久就开始了。随着研究的深入，关注的点就越来越多。最近也有不少的前端开发同学在研究浏览器的Reflow和Repaint</description>
+    </item>
+    
+    <item>
+      <title>ECMAScript 5与HTML5的支持情况</title>
+      <link>/192.html</link>
+      <pubDate>Sun, 20 Mar 2011 09:14:50 +0000</pubDate>
+      
+      <guid>/192.html</guid>
+      <description>ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。</description>
+    </item>
+    
+    <item>
+      <title>javascript中的Get/Set访问器</title>
+      <link>/190.html</link>
+      <pubDate>Sun, 20 Mar 2011 09:13:23 +0000</pubDate>
+      
+      <guid>/190.html</guid>
+      <description>JavaScript中的Get和Set访问器，和C#中的访问器非常相似。 标准的Get和Set访问器的实现 function Field(val){ this.value = val; } Field.prototype = { get value(){ return this._value; }, set value(val){ this._value = val; } }; var field = new Field(&amp;#8220;test&amp;#8221;); field.value=&amp;#8221;test2&amp;#8243;; //field.value will now return &amp;#8220;test2&amp;#8221; 在如下浏览器能正常工作： 我们常用的实现方法可能是这样的： function Field(val){ var value = val; &amp;lt;p&amp;gt; this.getValue = function(){&amp;lt;br /&amp;gt; return value;&amp;lt;br /&amp;gt; }; &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; this.setValue = function(val){&amp;lt;br /&amp;gt; value = val;&amp;lt;br /&amp;gt; };&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt; var field = new Field(&amp;amp;#8220;test&amp;amp;#8221;);&amp;lt;br /&amp;gt; field.setValue(&amp;amp;#8220;test2&amp;amp;#8221;)&amp;lt;br /&amp;gt; field.getValue() // return &amp;amp;#8220;test2&amp;amp;#8221; &amp;lt;/p&amp;gt; 在DOM元素上Get和Set访问器的实现 HTMLElement.prototype.__defineGetter__(&amp;#8220;description&amp;#8221;, function () { return this.desc; }); HTMLElement.prototype.__defineSetter__(&amp;#8220;description&amp;#8221;, function (val) { this.desc = val; }); document.body.description = &amp;#8220;Beautiful body&amp;#8221;; // document.body.description will now return &amp;#8220;Beautiful body&amp;#8221;; 在如下浏览器能正常工作： &amp;nbsp; &amp;nbsp; 通过Object.defineProperty实现访问器 将来ECMAScript标</description>
+    </item>
+    
+    <item>
+      <title>IE9允许前端开发获取到页面性能数据</title>
+      <link>/187.html</link>
+      <pubDate>Sun, 20 Mar 2011 08:25:53 +0000</pubDate>
+      
+      <guid>/187.html</guid>
+      <description>长期以来，为了改善站点的用户体验，我们一直都是在页面顶端加上一个_ **(new Date()).getTime()**_ 来获取用户打开页面的时间，使用httpwatch来分析页面打开的解释时间。httpwatch虽然强大，但是还是无法让我们深入到用户的环境去了解用户打开页面前的一些情况，例如:DNS解释时间，请求和响应时间，以及更加深入的页面渲染时间等重要信息。这些信息对用户环境分析是至关重要的。 如今，这个情况即将改变，微软的IE9将给前端开发们提供有力的性能分析接口让我们能够深入分析页面的性能，这就是强大的msPerformance接口。这个接口其实是</description>
+    </item>
+    
+    <item>
+      <title>add bookmark for ie &amp; ff &amp; opera</title>
+      <link>/182.html</link>
+      <pubDate>Sun, 20 Mar 2011 07:38:03 +0000</pubDate>
+      
+      <guid>/182.html</guid>
+      <description>add bookmark for ie &amp;amp; ff &amp;amp; opera</description>
+    </item>
+    
+    <item>
+      <title>WordPress 3.1升级后无法访问</title>
+      <link>/179.html</link>
+      <pubDate>Sun, 20 Mar 2011 07:28:44 +0000</pubDate>
+      
+      <guid>/179.html</guid>
+      <description>杯具，Wordpress 3.1升级后，竟然无法访问，原因提示如下： ………网页页生成了 过多的重定向。清除此网站的 Cookie 或允许第三方 Cookie 可能会解决该问题。如果 不能解决，则可能是服务器配置的问题，而不是您的 计算机有问题。以下是一些建议：请稍后重新载入此网页。……….. 很是郁闷，弄了半天是空间本身的设置及 3.1的代码逻辑处理 综合作用的结果。 无奈，空间是没权限动了，只能修改wordpress 代码了： 找到 wp-include/template-loader.php 修改第一行处代码： if ( defined(‘WP_USE_THEMES’) &amp;amp;&amp;amp; WP_USE_THEMES ) 改为（红色为增加部分） if ( false &amp;amp;&amp;amp; define</description>
+    </item>
+    
+    <item>
+      <title>原生JSON.parse解析异常问题</title>
+      <link>/176.html</link>
+      <pubDate>Fri, 18 Mar 2011 04:47:56 +0000</pubDate>
+      
+      <guid>/176.html</guid>
+      <description>昨天开发新类库，做到Json模块，使用了json2官方类为底层，使用中频遇异常，甚是不爽。看了下源码，json2 采用了优化处理机制，优先使用浏览器原生JSON处理。（事实是json自己的实现也如此）</description>
+    </item>
+    
+    <item>
+      <title>apache2.2的优化及模块安装</title>
+      <link>/174.html</link>
+      <pubDate>Thu, 10 Mar 2011 02:26:35 +0000</pubDate>
+      
+      <guid>/174.html</guid>
+      <description>一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 &amp;lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L</description>
+    </item>
+    
+    <item>
+      <title>Google API – Chart – QR</title>
+      <link>/170.html</link>
+      <pubDate>Sun, 30 Jan 2011 16:33:54 +0000</pubDate>
+      
+      <guid>/170.html</guid>
+      <description>谷歌的Chart API真是全啊，下面这个就是比较实用的二维码： http://code.google.com/intl/zh-CN/apis/chart/docs/gallery/qr_codes.html</description>
+    </item>
+    
+    <item>
+      <title>判断 iframe 是否加载完成的完美方法</title>
+      <link>/167.html</link>
+      <pubDate>Thu, 13 Jan 2011 07:23:58 +0000</pubDate>
+      
+      <guid>/167.html</guid>
+      <description>网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(&amp;quot;iframe&amp;quot;); iframe.src = &amp;quot;http://www.planabc.net&amp;quot;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == &amp;quot;complete&amp;quot;){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(&amp;quot;iframe&amp;quot;); iframe.src = &amp;quot;http://www.planabc.net&amp;quot;; if (iframe.attachEvent){ iframe.attachEvent(&amp;quot;onload&amp;quot;, function(){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); }); } else { iframe.onload = function(){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。</description>
+    </item>
+    
+    <item>
+      <title>获取 Textarea 的光标位置</title>
+      <link>/163.html</link>
+      <pubDate>Thu, 13 Jan 2011 06:55:22 +0000</pubDate>
+      
+      <guid>/163.html</guid>
+      <description>在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。</description>
+    </item>
+    
+    <item>
+      <title>如何获取当前 select 元素的值</title>
+      <link>/161.html</link>
+      <pubDate>Thu, 13 Jan 2011 06:44:39 +0000</pubDate>
+      
+      <guid>/161.html</guid>
+      <description>如何获取当前 select 元素的值</description>
+    </item>
+    
+    <item>
+      <title>如何在事件代理中正确使用 focus 和 blur 事件</title>
+      <link>/159.html</link>
+      <pubDate>Thu, 13 Jan 2011 06:26:45 +0000</pubDate>
+      
+      <guid>/159.html</guid>
+      <description>如何在事件代理中正确使用 focus 和 blur 事件</description>
+    </item>
+    
+    <item>
+      <title>MooTools Upgrade from 1.2 to 1.3</title>
+      <link>/157.html</link>
+      <pubDate>Thu, 13 Jan 2011 05:18:16 +0000</pubDate>
+      
+      <guid>/157.html</guid>
+      <description>This is a list of the API changes made from 1.2 to 1.3. It allows you to drop the compatibility layer mostly by doing search and replace. If you just want to update to MooTools Core 1.3 with your existing code, see Update from 1.2 to 1.3.</description>
+    </item>
+    
+    <item>
+      <title>随机颜色</title>
+      <link>/154.html</link>
+      <pubDate>Wed, 12 Jan 2011 09:48:29 +0000</pubDate>
+      
+      <guid>/154.html</guid>
+      <description>var getRandomColor = function() { return ‘#’ + (‘00000’ + (Math.random() * 0x1000000 &amp;laquo; 0).toString(16)).substr(-6); } 网上看到，记录一下。</description>
+    </item>
+    
+    <item>
+      <title>今夜</title>
+      <link>/150.html</link>
+      <pubDate>Wed, 15 Dec 2010 08:06:29 +0000</pubDate>
+      
+      <guid>/150.html</guid>
+      <description>冰冷的夜，守在窗边，期待归来。 忏悔的心，坐在床头，渴望重来。 对视，哀叹，奇怪又无奈。 说不出话来。 上望着熬过这一晚。</description>
+    </item>
+    
+    <item>
+      <title>前端资源文件缓存清除一法</title>
+      <link>/147.html</link>
+      <pubDate>Thu, 25 Nov 2010 07:02:43 +0000</pubDate>
+      
+      <guid>/147.html</guid>
+      <description>&lt;p&gt;|
+对于前端开发来说，经常要面对JS，CSS，图片等资源的缓存更新问题（CDN永久缓存的就另当别论）。&lt;/p&gt;
+&lt;p&gt;大部分情况，为了节省服务器压力及带宽且又不失可维护性，习惯对这些资源文件添加比较久的缓存时间，这样就给前端开发人员带来一个自动更新的棘手问题。&lt;/p&gt;
+&lt;p&gt;其实，较简单的解决办法，就是固定周期或有条件的或每次（这样要缓存何用？）的增加随机数击穿缓存，强制更新即可。&lt;/p&gt;
+&lt;p&gt;这里说一个也较为简单的方式，利用AJAX的访问来更新本地缓存。&lt;/p&gt;
+&lt;p&gt;原理很简单，使用http协议的 If-Modified-Since 和 Cache-Control 两个header头参数即可。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>现在</title>
+      <link>/145.html</link>
+      <pubDate>Thu, 29 Apr 2010 06:43:15 +0000</pubDate>
+      
+      <guid>/145.html</guid>
+      <description>疲惫、累、烦。</description>
+    </item>
+    
+    <item>
+      <title>IE6&#43;和FF的CSS Hack</title>
+      <link>/142.html</link>
+      <pubDate>Thu, 22 Apr 2010 16:59:21 +0000</pubDate>
+      
+      <guid>/142.html</guid>
+      <description>一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) #wrapper { width: 100px!important; /\* IE7+FF \*/ width: 80px; /\* IE6 \*/ } 2, IE6/IE77对FireFox *+html 与 *html 是IE特有的标签, firefox 暂不支持.而*+html 又为 IE7特有标签. #wrapper { #wrapper { width: 120px; } /\* FireFox \*/ \*html #wrapper { width: 80px;} /\* ie6 fixed */ \*+html #wrapper { width: 60px;} /\* ie7 fixed, 注意顺序 */ } 注意: *+html 对IE7的HACK 必须保证HTML顶部有如下声明： 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global</description>
+    </item>
+    
+    <item>
+      <title>JavaScript的valueOf和toString</title>
+      <link>/140.html</link>
+      <pubDate>Thu, 22 Apr 2010 16:01:25 +0000</pubDate>
+      
+      <guid>/140.html</guid>
+      <description>JavaScript中valueOf函数方法是返回指定对象的原始值。JavaScript中toString函数方法是返回对象的字符串表示</description>
+    </item>
+    
+    <item>
+      <title>Data URI 和 MHTML</title>
+      <link>/138.html</link>
+      <pubDate>Sat, 10 Apr 2010 03:32:45 +0000</pubDate>
+      
+      <guid>/138.html</guid>
+      <description>Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。
+MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。</description>
+    </item>
+    
+    <item>
+      <title>挑战 hax.tor.hu 申请带ssh的免费php&#43;mysql空间</title>
+      <link>/135.html</link>
+      <pubDate>Fri, 19 Mar 2010 02:39:25 +0000</pubDate>
+      
+      <guid>/135.html</guid>
+      <description>hax.tor.hu 是一家提供带ssh的免费php+mysql虚拟主机的空间服务商，而且它的SSH隧道是开通的,但是想获得这一免费午餐，却让我大伤脑筋，因为它要求通 过它的五道变态难题才行</description>
+    </item>
+    
+    <item>
+      <title>5 个简单实用的 CSS 属性</title>
+      <link>/131.html</link>
+      <pubDate>Tue, 09 Mar 2010 01:57:06 +0000</pubDate>
+      
+      <guid>/131.html</guid>
+      <description>这篇文章介绍了 5 个实用的 CSS 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。</description>
+    </item>
+    
+    <item>
+      <title>PureMVC Standard for JavaScript</title>
+      <link>/127.html</link>
+      <pubDate>Mon, 08 Mar 2010 03:55:06 +0000</pubDate>
+      
+      <guid>/127.html</guid>
+      <description>PureMVC is a lightweight framework for creating applications based upon the classic  Model-View-Controller design meta-pattern. This is the specific implementation for the JavaScript language.</description>
+    </item>
+    
+    <item>
+      <title>contains vs compareDocumentPosition</title>
+      <link>/125.html</link>
+      <pubDate>Sun, 07 Mar 2010 11:04:34 +0000</pubDate>
+      
+      <guid>/125.html</guid>
+      <description>一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）</description>
+    </item>
+    
+    <item>
+      <title>JS闭包之词法作用域</title>
+      <link>/117.html</link>
+      <pubDate>Fri, 05 Mar 2010 05:34:43 +0000</pubDate>
+      
+      <guid>/117.html</guid>
+      <description>var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic</description>
+    </item>
+    
+    <item>
+      <title>Comet—“服务器推”技术</title>
+      <link>/115.html</link>
+      <pubDate>Wed, 03 Mar 2010 06:02:46 +0000</pubDate>
+      
+      <guid>/115.html</guid>
+      <description>Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。</description>
+    </item>
+    
+    <item>
+      <title>Javascript的变量与delete操作符</title>
+      <link>/112.html</link>
+      <pubDate>Mon, 01 Mar 2010 05:19:40 +0000</pubDate>
+      
+      <guid>/112.html</guid>
+      <description>Javascript中的delete操作虽然是一个小小的delete操作符，其行为却异常复杂</description>
+    </item>
+    
+    <item>
+      <title>Understanding and Solving Internet Explorer Leak Patterns</title>
+      <link>/109.html</link>
+      <pubDate>Sun, 28 Feb 2010 06:01:57 +0000</pubDate>
+      
+      <guid>/109.html</guid>
+      <description>&lt;p&gt;In the past, memory leaks haven&amp;rsquo;t posed huge problems for Web developers. Pages were kept relatively simple and navigation between different locations within a site was a great way to clean up any loose memory. If there was a leak, it was most likely small enough to go unnoticed.&lt;/p&gt;
+&lt;p&gt;New Web applications live up to higher standards. A page might run for hours without being navigated and retrieve updated information dynamically through Web services. Language features are pushed to the breaking point by combining complex event schemes, object-oriented JScript, and closures to produce entire applications. With these and other changes, certain memory leak patterns are becoming more prominent, especially those previously hidden by navigation.&lt;/p&gt;
+&lt;p&gt;The good news is that memory leak patterns can be easily spotted if you know what to look for. Most of the troublesome patterns you might face have known workarounds requiring only a small amount of extra work on your behalf. While some pages might still fall prey to small memory leaks, the most noticeable ones can be easily removed.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>结婚了</title>
+      <link>/107.html</link>
+      <pubDate>Tue, 23 Feb 2010 10:20:04 +0000</pubDate>
+      
+      <guid>/107.html</guid>
+      <description>结婚了 ，有情人终是要成眷属的。</description>
+    </item>
+    
+    <item>
+      <title>好累</title>
+      <link>/104.html</link>
+      <pubDate>Sat, 30 Jan 2010 07:57:52 +0000</pubDate>
+      
+      <guid>/104.html</guid>
+      <description>太久了， 没安稳的睡过，烦躁、犹豫、无奈、恐惧。 凌乱的压力压的我透不过气，咬牙。 不求可怜、不求同情、也不求理解。 只相信， 最终， 做到想做的、得到想要的、给予能给的、看到想看的…… 好累。</description>
+    </item>
+    
+    <item>
+      <title>Windows 下 Nginx &#43; PHP5 的安装与配置</title>
+      <link>/102.html</link>
+      <pubDate>Thu, 28 Jan 2010 15:26:33 +0000</pubDate>
+      
+      <guid>/102.html</guid>
+      <description>Nginx 是一个轻量级的高性能 Http WebServer，以事件驱动方式编写，因此相比 Apache 而言，Nginx 更加稳定、性能更好，而且配置简单，资源占用较低。以下是在 Windows 7 安装中 Nginx 和 PHP5.3 的步骤。</description>
+    </item>
+    
+    <item>
+      <title>Nginx 0.8.x &#43; PHP 5.2.10（FastCGI）搭建胜过Apache十倍的Web服务器（第5版）</title>
+      <link>/95.html</link>
+      <pubDate>Wed, 27 Jan 2010 16:40:35 +0000</pubDate>
+      
+      <guid>/95.html</guid>
+      <description>本文是张宴撰写的关于搭建“Nginx + PHP（FastCGI）”Web服务器的第5篇文章。本系列文章作为国内最早详细介绍 Nginx + PHP 安装、配置、使用的资料之一，为推动 Nginx 在国内的发展产生了积极的作用。这是一篇关于Nginx 0.7.x系列版本的文章，安装、配置方式与第4篇文章相差不大，但增加了MySQL安装配置的信息、PHP 5.2.10 的 php-fpm 补丁。Nginx 0.7.x系列版本虽然为开发版，但在很多大型网站的生产环境中已经使用。</description>
+    </item>
+    
+    <item>
+      <title>房贷：等额本息和等额本金有什么区别？</title>
+      <link>/93.html</link>
+      <pubDate>Mon, 25 Jan 2010 14:39:42 +0000</pubDate>
+      
+      <guid>/93.html</guid>
+      <description>等额本息：本金逐月递增，利息逐月递减，月还款数不变。等额本金：本金保持相同，利息逐月递减，月还款数递减。适合于有计划提前还贷。利息少的是等额本金方式的还款。</description>
+    </item>
+    
+    <item>
+      <title>CSS圆角—透明圆角化背景图片</title>
+      <link>/91.html</link>
+      <pubDate>Thu, 21 Jan 2010 03:11:53 +0000</pubDate>
+      
+      <guid>/91.html</guid>
+      <description>序言：第一章中我介绍了最基本的纯CSS圆角框的实现原理，并给出Demo，在本章中会对上一个模型作一些新的创新，实现将背景图片透明圆角化。并给出一些漂亮的通用演示效果。
+在上面的案例中，我只给出最为原始的圆角框模型，它还是存在一些不足之处。比如不能将图片应用到圆角框内。而在本例中，我会在上面的基础上作出一些创新。就是将背景图片也圆角化。</description>
+    </item>
+    
+    <item>
+      <title>CSS圆角—基本圆角框</title>
+      <link>/87.html</link>
+      <pubDate>Thu, 21 Jan 2010 02:50:03 +0000</pubDate>
+      
+      <guid>/87.html</guid>
+      <description>纯CSS实现圆角框是一件大家都说烂了的事件，我也写过两篇总结文章，为什么还会有这篇文章呢，事情是这样的。在我们的以前的项目中，实现圆角框往往是用背景图片来实现的，但是，当这些项目发布上线后，在维护过程中，有时需要添加一些新的需求，因为以前的项目中大量采用了圆角图片，并且这些图片全部采用了CSS sprites方式合并的图，为了不增加更多的额外工作，并且也不想用JS来添加更多的http请求，所以需要一些简单的CSS方案来解决这个问题。而我的个人爱好，也喜欢采用无图片的方式来处理这些效果。总觉得CSS能完成的工作，为什么不让它来实现呢？</description>
+    </item>
+    
+    <item>
+      <title>[转]Google Closure: 糟糕的JavaScript</title>
+      <link>/80.html</link>
+      <pubDate>Tue, 19 Jan 2010 15:38:29 +0000</pubDate>
+      
+      <guid>/80.html</guid>
+      <description>上周在澳大利亚佩恩的Edge of the Web会议上我碰到了javascript library Raphaël 和 gRaphaël 的创建者Dmitry Baranovskiy。这两个library做的最重要的事情也许就是使在javascript效率相对低下的IE上面绘制一些复杂的矢量图变得了可能。然而，Dmitry 却很不爽，因为他找到的一些实现的很糟糕的代码，在Google刚刚发布的Closure Library中。</description>
+    </item>
+    
+    <item>
+      <title>Google Closure Tools</title>
+      <link>/76.html</link>
+      <pubDate>Tue, 19 Jan 2010 06:12:17 +0000</pubDate>
+      
+      <guid>/76.html</guid>
+      <description>Web applications have evolved from simple HTML pages into rich, interactive applications that provide a great user experience. Today&amp;rsquo;s web apps pose a challenge for developers, however: how do you create and maintain efficient JavaScript code that downloads quickly and works across different browsers?</description>
+    </item>
+    
+    <item>
+      <title>wp_list_categories()参数说明</title>
+      <link>/74.html</link>
+      <pubDate>Mon, 18 Jan 2010 09:39:44 +0000</pubDate>
+      
+      <guid>/74.html</guid>
+      <description>show_option_all 值：任意填。 如果你写”那啥’，那么在列表第一个分类就显示“那啥”两字，不过连接是连接到blog首页的，正好可以利用此参数加个“首页”。 orderby 值：ID、name（默认值）、count。 作用是按这3个值来排序。 order 值：ASC（默认值）、DESC。 ASC为升序，DESC为降序。 show_last_updated 值：0（默认值）、1。 0无作用，1为最近更新的分类显示在前面。 style 值：list（默认值）、none。 例6中已经举例了。none无作用。 show_count 值：0、1（默认值） 1在每个分类后面显示日志数量，0不显示。 hide_empty 值：0、1（默认值） 1是隐藏没有发表日志的分</description>
+    </item>
+    
+    <item>
+      <title>Mootools Sortables插件BUG修正</title>
+      <link>/67.html</link>
+      <pubDate>Sun, 17 Jan 2010 03:04:04 +0000</pubDate>
+      
+      <guid>/67.html</guid>
+      <description>前阵子新版专辑管理项目开发中碰到比较郁闷的问题，经测试最终决定给Sortables打个小补丁。
+由于对选择状态的文本内容、连接和图片等进行拖放操作会触发系统的默认动作，例如ie中拖动图片鼠标会变成禁止操作状态，这样会导致这个拖放程序执行失败，所以Mootools 的Drag基类配置里其实有preventDefault配置项来给使用者解决此类问题，默认值为false，需要处理时设置为true即可。 然而郁闷的是，开发时才发现，Sortables类里内部创建的Drag.Move实例却只能使用preventDefault的默认值，因为Sortables没有给出配置项用来设置内部(this.drag)这个DragMove实例的preventDefault参数项。无奈之下，只能打补丁了。 另打补丁期间又发现另一个问题，甚是郁闷。Sortables的start方法仅判断是否空闲进而决定是否真正执行。而实际项目需求有时需要屏蔽鼠标右键(带来的问题很多)，而看了办法发现，找到的唯一办法仍旧是打补丁。 最终，打上2处补丁后，世界清静了。。。</description>
+    </item>
+    
+    <item>
+      <title>选择性复活</title>
+      <link>/64.html</link>
+      <pubDate>Sun, 17 Jan 2010 02:06:59 +0000</pubDate>
+      
+      <guid>/64.html</guid>
+      <description>博客选择性复活！ 经过几天的捣腾，终于恢复了部分数据(其他的我已回天无力)。 能有幸捣腾这非天灾，真是感谢党的关怀、感谢领导的决策、感谢祖国的和谐！ 从零开始….</description>
+    </item>
+    
+    <item>
+      <title>用硬盘玩《银河战士：三部曲》（ Metroid Prime Trilogy 美版）的方法</title>
+      <link>/61.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:40:33 +0000</pubDate>
+      
+      <guid>/61.html</guid>
+      <description>首先，据说目前最完美的方法还是刻盘。我没有D9的空盘，也懒得试验。。。</description>
+    </item>
+    
+    <item>
+      <title>腾讯TT、遨游浏览器检测</title>
+      <link>/59.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:39:30 +0000</pubDate>
+      
+      <guid>/59.html</guid>
+      <description>最近腾讯TT4.5版发布后，为了兼容一处FLASH的WMODE参数异常的BUG使用到了新版检测方法，特此记录一下，省的以后忘记。 TT4.5 检测方法: 调用 external.getTTVerStr() 返回 浏览器信息，非TT或此版本均会抛出异常。 TT通用版检测方法: 首先检测 navigator.userAgent 是否含有 Tencent 特征串，继而调用 external.ShowBrowserUI(’ku6′) ，非TT均会抛出异常 顺便提一下 遨游 的检测方法： 也是通过 external 对象来辅助检测，调用 external.tab_count 不抛异常即为 遨游浏览器。</description>
+    </item>
+    
+    <item>
+      <title>5.50GEN用PSone模拟游戏模块Popsloader For 5.50GEN-A（含完整版）</title>
+      <link>/57.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:38:42 +0000</pubDate>
+      
+      <guid>/57.html</guid>
+      <description>十分感谢PSPGEN小组，他们不但发布了让PSP3000实现运行ISO的5.03GEN for HEN，还为PSP1000和非PSP2000-3的老玩家们带来了解决5.50游戏问题的自制系统5.50GEN-A。这次为解决玩家们在5.50系统下无法正常运行PSone模拟游戏的问题，发布了Popsloader For 5.50GEN-A，喜欢PSone模拟游戏的5.50GEN-A用户赶快试试！</description>
+    </item>
+    
+    <item>
+      <title>绝对震撼!10款动感图片展示js代码</title>
+      <link>/55.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:33:12 +0000</pubDate>
+      
+      <guid>/55.html</guid>
+      <description>绝对震撼!10款动感图片展示js代码 http://pcedu.pconline.com.cn/empolder/wz/javascript/0809/1421645.html</description>
+    </item>
+    
+    <item>
+      <title>新牧场物语 符石工厂 超详细攻略</title>
+      <link>/53.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:32:41 +0000</pubDate>
+      
+      <guid>/53.html</guid>
+      <description>新牧场物语 符石工厂 超详细攻略 http://tieba.baidu.com/f?kz=210242288</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 与 ActionScript 3.0 交互的一些问题</title>
+      <link>/49.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:30:34 +0000</pubDate>
+      
+      <guid>/49.html</guid>
+      <description>JavaScript 跟 ActionScript 3.0 交互也是通过 flash.external.ExternalInterface 这个类，不过与跟 Flash 8 中跟 ActionScript 2.0 交互所使用的 flash.external.ExternalInterface 还是有所不同的。最大的不同就是 ExternalInterface.addCallback 方法在 ActionScript 3.0 中只有 2 个参数了，而不再有 instance 这个参数。下面要讨论的这些问题都是关于 Flash 9 中 ActionScript 3.0 的。</description>
+    </item>
+    
+    <item>
+      <title>神奇电池v8将PSP刷到5.00M33-4教程</title>
+      <link>/46.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:27:12 +0000</pubDate>
+      
+      <guid>/46.html</guid>
+      <description>本教程不适用以下主机：PSP3000、PSP2000（TA88V3），这两种主机无法按照本教程制作神奇电池、无法进行刷机操作。如果你是以上两种主机，请使用5.03HEN R2进行破解。
+部分适用以下主机：PSP2000（TA88V2），这种主机无法按照本教程制作神奇电池，但如果已经拥有神奇电池，则可按照本教程进行刷机操作。
+其余PSP1000及PSP2000主机完全适用本教程。
+本教程将指导玩家制作两个东西：神奇电池以及神奇记忆棒，这两者相配合可以实现将任何好用的不好用（仅限软件层面的损坏）的PSP主机修复到5.00M33-4系统。</description>
+    </item>
+    
+    <item>
+      <title>DOS命令之netstat</title>
+      <link>/44.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:26:11 +0000</pubDate>
+      
+      <guid>/44.html</guid>
+      <description>经常调试程序需要占用80端口来跑WEB服务，可是总有乱七八糟的软件给抢了先，哎。 无奈只能自己动手查出进程 KILL 掉才行。netstat命令还算可以满足需求。 cmd&amp;gt; netstat -abn | grep :80 最后一列就是PID 这样通过任务管理器里就可以查看这个进程的详细信息了，当然还通过DOS去查看也行，不过我懒得敲了。</description>
+    </item>
+    
+    <item>
+      <title>PS游戏大合集(内含”最终幻想”全系列原版ISO)</title>
+      <link>/42.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:25:01 +0000</pubDate>
+      
+      <guid>/42.html</guid>
+      <description>PS游戏大合集(内含”最终幻想”全系列原版ISO) http://www.verycd.com/topics/47245/</description>
+    </item>
+    
+    <item>
+      <title>基于OpenCV的PHP图像人脸识别技术</title>
+      <link>/39.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:22:35 +0000</pubDate>
+      
+      <guid>/39.html</guid>
+      <description>写了一个PHP扩展openCV，只封装了两个函数，叫face_detect和face_count。openCV是一个开源的用C/C++开发的计算机图形图像库，非常强大，研究资料很齐全。本文重点是介绍如何使用php来调用其中的局部的功能。人脸侦查技术只是openCV一个应用分支。</description>
+    </item>
+    
+    <item>
+      <title>PHP CURL函数库</title>
+      <link>/35.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:14:39 +0000</pubDate>
+      
+      <guid>/35.html</guid>
+      <description>curl_close — 关闭一个curl会话 curl_copy_handle — 拷贝一个curl连接资源的所有内容和参数 curl_errno — 返回一个包含当前会话错误信息的数字编号 curl_error — 返回一个包含当前会话错误信息的字符串 curl_exec — 执行一个curl会话 curl_getinfo — 获取一个curl连接资源句柄的信息 curl_init — 初始化一个curl会话 curl_multi_add_handle — 向curl批处理会话中添加单独的curl句柄资源 curl_multi_close — 关闭一个批处理句柄资源 curl_multi_exec — 解析一个curl批处理句柄 curl_multi_getcontent — 返回获取的输出的文本流 curl_multi_info_read — 获取当前解析的curl的相关传输信息 curl_multi_init — 初始化一个curl批处理句柄资源 curl_multi_remove_handle — 移除curl批处理句柄资源中的某个句柄资源 curl_multi_select — Get all the sockets associated with</description>
+    </item>
+    
+    <item>
+      <title>domdocument::domdocument() expects at least 1 parameter解决办法</title>
+      <link>/33.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:11:13 +0000</pubDate>
+      
+      <guid>/33.html</guid>
+      <description>问题的解决方法：http://bugs.php.net/bug.php?id=45538 php5 在 windows 下运行时，不需要在 php.ini 里声明 php_domxml.dll，加个分号注释起来就行了。 If you use PHP 5 in windows, you don’t need to declare php_domxml.dll in your php.ini file. so u can give comment in the line php_domxml.dll in your php.ini file. you only need to comment it out, but do not delete the php_domxml.dll file in the ext directory.</description>
+    </item>
+    
+    <item>
+      <title>久违了。。。</title>
+      <link>/30.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:09:16 +0000</pubDate>
+      
+      <guid>/30.html</guid>
+      <description>昨天无意中看到《寄生前夜III》的介绍，这让我突然又怀念起高中时代孤身一人、深更半夜、冥思苦想、浴血奋战的时光了。 于是决定下载(非合盘不死机美版镜像)下来在我的小P(PSP200 5.00M33-6)上玩一把。 终于，偷鸡摸狗的下载了下来却被无尽的重启、卡屏给彻底打败了。 晚上，看龙珠的时候，不知怎么突然的想到小P中的FC软件了，总有一种感觉告诉我跟FC有点关系。 于是乎，关机、重启、进入恢复模式、调整plugin中FC为禁用、保存退出、重启、进入游戏、调出popsloader选择3.11核心进入、经典PS开机画</description>
+    </item>
+    
+    <item>
+      <title>最新@msn.com邮箱帐号注册方法</title>
+      <link>/28.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:07:07 +0000</pubDate>
+      
+      <guid>/28.html</guid>
+      <description>最新 @msn.com 邮箱帐号注册方法。 访问https://accountservices.passport.net/reg.srf?ns=msn.com&amp;amp;sl=1&amp;amp;lc=2052 即可</description>
+    </item>
+    
+    <item>
+      <title>Axis 解析WSDL生成JAVA代码命令</title>
+      <link>/26.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:06:28 +0000</pubDate>
+      
+      <guid>/26.html</guid>
+      <description>主要收藏记录使用 axis 项目部署到 tomcat 上 进入到部署目录里 tomcat安装目录/webapps/axis/WEB-INF/ 执行下面命令即可: Java -Djava.ext.dirs=lib org.apache.axis.wsdl.WSDL2Java WSDL文件地址或URL</description>
+    </item>
+    
+    <item>
+      <title>绝体绝命都市3 试玩版</title>
+      <link>/23.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:03:06 +0000</pubDate>
+      
+      <guid>/23.html</guid>
+      <description>《绝体绝命都市 3 破坏的城市与她的歌》（絶体絶命都市 3 壊れゆく街と彼女の歌）（ZETTAI ZETSUMEI TOSHI 3 THE FIRST SCREENS）（NPJH-90030|EC8EA5FE30E84A8C|0001|G）
+游戏名称：绝体绝命都市3：破坏的城市与她的歌 / 绝体绝命都市3：崩坏的街道与她的歌 / 绝体绝命都市3：崩坏的城市与她的歌声 / 绝体绝命都市3：晃动的歌声
+日文名称：絶体絶命都市 3 -壊れゆく街と彼女の歌-
+英文名称：Zettai Zetsumei Toshi 3 : The First Screens
+制作厂商：IREM SOFTWARE ENGINEERING INC.
+代理发行：IREM SOFTWARE ENGINEERING INC.
+游戏类型：A·AVG – Action + Adventage Game（动作＋冒险游戏）
+载体容量：UMD×1
+对应主机：Play Station Portable（プレイステーション·ポータブル）
+语言版本：日文（日版）
+发卖日期：2009年04月23日（木曜日/星期四）
+参考价格：5,040日元
+官方网站：http://www.zettai-zetsumei.com/zz3/index.html</description>
+    </item>
+    
+    <item>
+      <title>iconv 方法使用</title>
+      <link>/21.html</link>
+      <pubDate>Sat, 16 Jan 2010 15:00:26 +0000</pubDate>
+      
+      <guid>/21.html</guid>
+      <description>有时候使用iconv方法转换部分文字的时候可能会出现异常或转换失败的情况，这个时候就得追加一些参数来帮助处理了。</description>
+    </item>
+    
+    <item>
+      <title>时间的档案</title>
+      <link>/18.html</link>
+      <pubDate>Sat, 16 Jan 2010 14:37:19 +0000</pubDate>
+      
+      <guid>/18.html</guid>
+      <description>一渺秒（十亿分之一秒的十亿分之一）
+科学家是用渺秒来对瞬时事件进行计时的。
+研究人员已经用稳定的高速激光产生了仅持续250渺秒的光脉冲。
+尽管这一时间间隔短得无法想像，但是和普朗克常数相比还是很长的。
+普朗克常数大约为10-43渺秒，被认为是可能持续的最短时间。</description>
+    </item>
+    
+    <item>
+      <title>Java UnicodeHelper</title>
+      <link>/15.html</link>
+      <pubDate>Sat, 16 Jan 2010 14:31:47 +0000</pubDate>
+      
+      <guid>/15.html</guid>
+      <description>public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return &#34;&#34;; char c = &#39;\0&#39;; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j &amp;lt; k; j++) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // &#39;&#34;&#39; case 92: // &#39;\\&#39; stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 47: // &#39;/&#39; if (i == 60) stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 8: // &#39;\b&#39; stringbuffer.append(&#34;\\b&#34;); break; case 9: // &#39;\t&#39; stringbuffer.append(&#34;\\t&#34;); break; case 10: // &#39;\n&#39; stringbuffer.append(&#34;\\n&#34;); break; case 12: // &#39;\f&#39; stringbuffer.append(&#34;\\f&#34;); break; case 13: // &#39;\r&#39; stringbuffer.append(&#34;\\r&#34;); break; default: if (c = &#39;0&#39; &amp;&amp; c &amp;lt;= &#39;9&#39; || c = &#39;A&#39; &amp;&amp; c &amp;lt;= &#39;z&#39;) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(&#34;000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(&#34;\\u&#34;).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = &#34;&#34;; while (start -1) { end = unicodeStr.indexOf(&#34;\\u&#34;, start + 2); if (end == -1) { if (unicodeStr.length()</description>
+    </item>
+    
+  </channel>
+</rss>

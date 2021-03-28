@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>CSS圆角—透明圆角化背景图片 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="序言：第一章中我介绍了最基本的纯CSS圆角框的实现原理，并给出Demo，在本章中会对上一个模型作一些新的创新，实现将背景图片透明圆角化。并给出一些漂亮的通用演示效果。
+在上面的案例中，我只给出最为原始的圆角框模型，它还是存在一些不足之处。比如不能将图片应用到圆角框内。而在本例中，我会在上面的基础上作出一些创新。就是将背景图片也圆角化。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"CSS圆角—透明圆角化背景图片",
+      "item":"/91.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/91.html"
+    },
+    "headline": "CSS圆角—透明圆角化背景图片 | 影の域","datePublished": "2010-01-21T03:11:53+00:00",
+    "dateModified": "2010-01-21T03:11:53+00:00",
+    "wordCount":  1944 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "序言：第一章中我介绍了最基本的纯CSS圆角框的实现原理，并给出Demo，在本章中会对上一个模型作一些新的创新，实现将背景图片透明圆角化。并给出一些漂亮的通用演示效果。\n在上面的案例中，我只给出最为原始的圆角框模型，它还是存在一些不足之处。比如不能将图片应用到圆角框内。而在本例中，我会在上面的基础上作出一些创新。就是将背景图片也圆角化。"
+}
+</script><meta property="og:title" content="CSS圆角—透明圆角化背景图片 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/91.html" />
+
+
+
+
+<meta property="og:description" content="序言：第一章中我介绍了最基本的纯CSS圆角框的实现原理，并给出Demo，在本章中会对上一个模型作一些新的创新，实现将背景图片透明圆角化。并给出一些漂亮的通用演示效果。
+在上面的案例中，我只给出最为原始的圆角框模型，它还是存在一些不足之处。比如不能将图片应用到圆角框内。而在本例中，我会在上面的基础上作出一些创新。就是将背景图片也圆角化。" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2010-01-21T03:11:53&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2010-01-21T03:11:53&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">CSS圆角—透明圆角化背景图片</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-21</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1944字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>作者：<a href="http://www.blueidea.com/common/contact.asp?type=作者&username=by0001" target="_blank">by0001</a>　来自：<a href="http://www.blueidea.com/">蓝色理想</a><br>
+原文：<a href="http://www.blueidea.com/tech/web/2010/7353.asp">http://www.blueidea.com/tech/web/2010/7353.asp</a></p>
+<p>序言：第一章中我介绍了最基本的纯CSS圆角框的实现原理，并给出Demo，在本章中会对上一个模型作一些新的创新，实现将背景图片透明圆角化。并给出一些漂亮的通用演示效果。</p>
+<p>在上面的案例中，我只给出最为原始的圆角框模型，它还是存在一些不足之处。比如不能将图片应用到圆角框内。而在本例中，我会在上面的基础上作出一些创新。就是将背景图片也圆角化，好像目前在网络上还没有这样的功能应用，我只见过用js方式来实现的，可以参看我的《<a href="http://www.blueidea.com/tech/web/2009/6488.asp" target="_blank">超圆滑圆角框的半完美解决方案</a>》一文中后面几种JS方案。但是纯CSS方式的实现可是我独家所创，如有雷同，只能说英雄所见略同。呵呵！</p>
+<p>还是先看看最终的效果图，让大家有一个大概的印象。</p>
+<p style="text-align: center;">
+  <img class="aligncenter" src="http://www.blueidea.com/articleimg/2010/01/7353/01.jpg" border="0" alt="" width="510" height="533" />
+</p>
+<p style="text-align: center;">
+  图一
+</p>
+<p>像这种小面积布局在网页设计中应用得很普遍，但目前网络流行的作法都是采用图片的方式来实现的，将图片按上中下切成三块内容，然后使用三个同级的DIV或SPAN容器各自填充一张图，但是这种方法有一个最大的毛病：不能自动适应宽度的变化，一般做法都是采用固定宽度的方式，这是由于图片的宽度决定的。</p>
+<p>当然对于一些比较有经验的人员来说，可以采用九宫格布局（可参看我的另一篇文章《<a href="http://www.blueidea.com/tech/web/2009/6800.asp" target="_blank">九宫格基本布局</a>》）方式或者滑动门方式来做到自适应宽度的变化，九宫格一般都需要用到八张图片，而滑动门虽然只用一张图片，但为了适应宽度的变化，这张图片一般都做得很大。<br>
+而我现在独创的这种方法可以完全做到适应不同宽度的需要，并且全部兼容所有的浏览器，而所需要的仅仅是一张很小的水平平辅的背景图片而已。</p>
+<p><strong>基本原理</strong>：</p>
+<p style="text-align: center;">
+  我们都知道图片是方方正正的，不可能做出圆角效果，那么我们如何来做外圆透明的图片呢？其实道理说明了也就是一件很简单的事情，你看过下面的放大示意图后可能就会“哦”地一声，原来不过如此……<br /> <img class="aligncenter" src="http://www.blueidea.com/articleimg/2010/01/7353/02.jpg" border="0" alt="" width="464" height="388" />
+</p>
+<p style="text-align: center;">
+  图二
+</p>
+<p>是的，看到这个效果图你会一目了然，可是要想到这个方法，我却浪费了不少脑细胞。呵呵！</p>
+<p>实现这种方法原理很简单：**在每个b标签中各加载一次同样的图片，并结合背景定位background-position方式来达到效果。**我们知道，同一张图片加载多少次对于性能的影响并不大，因为这张图片已经被电脑缓存到本地，和用css sprites合并图片一样的道理。</p>
+<p>但是需要注意的是：每个B标签加载图片的定位是不一样的。</p>
+<p><strong>背景图片定位原理</strong>：　　</p>
+<p>b1标签位于第一位，它主要用来描绘上边框线，所以它不需要加载背景图片。</p>
+<p>b2标签位于第二位，它是第一个需要加载背景图片的，但是不需要图片负偏移，所以直接居左居顶定位就可以了。</p>
+<pre><code class="css">.b2{background-position:left top;}
+</code></pre>
+<p>b3标签位于第三位，它需要加载背景图片，让它的背景图片向上负偏移b2的高度值就可以，也就是1px。</p>
+<pre><code class="css">.b3{background-position:left -1px;}
+</code></pre>
+<p>b4位于第四位，所以它向上负偏移b2+b3高度值的和，为2px.。</p>
+<pre><code class="css">.b4{background-position:left -2px;}
+</code></pre>
+<p>H3标签位于第五位，所以它的背景图片需要向上负偏移b2+b3+b4高度值的各，也就是4px；</p>
+<pre><code class="css">h3{background-position:left -4px;}
+</code></pre>
+<p>这样，b2、b3、b4、h3的图片叠加起来和原始图片上下渐变的效果完全重合，如同一张图片，这样就达到模拟圆角图片的效果。<br>
+怎么样，原理够简单明了吧！</p>
+<p>原理清楚后，要实现起来也就是一件水到渠成的事！</p>
+<p><strong>HTML结构层</strong>：</p>
+<p>如同我们在第一章中模型所见，保持结构不变。</p>
+<p><strong>CSS样式层：（只写关键代码）</strong></p>
+<p>将上面的几句代码进行合并，如下所示：</p>
+<pre><code class="css">.sharp b.b2{background-position:left top;}
+.sharp b.b3{background-position:left -1px;}
+.sharp b.b4{background-position:left -2px;}
+.sharp .content h3{background-position:left -4px;}
+</code></pre>
+<p>和第一章中同样的道理，我们肯定要在各个不同的块框中有不同的背景图片的变化，也就是说，我们也要实现不同的换肤方案，当一个页面要多次调用同一个圆角框时，也可以让它们有些丰富的变化。实现不同的风格。OK，没问题，你只需要简单的将下面的样式中的背景图片的路径改变一下就可以了。</p>
+<pre><code class="css">.color1 .b2,.color1 .b3,.color1 .b4,.color1 h3{background:url(images/bg1.gif) repeat-x;}
+</code></pre>
+<p>你可以实现不同的颜色方案，就看你的设计师给你多少张不同图片了。</p>
+<p>一种风格的定制也是一件简单的事情：</p>
+<pre><code class="css">*颜色方案一,绿色风格----------------------------------------*/
+/*边框色*/
+.color1 .b2,.color1 .b3,.color1 .b4,.color1 .b5,.color1 .b6,
+.color1 .b7,.color1 .content{border-color:#A0C044;}
+.color1 .b1,.color1 .b8{background:#A0C044;}
+.color1 h3{border-bottom:1px #679800 solid;}
+/*图片路径*/
+.color1 .b2,.color1 .b3,.color1 .b4,.color1 h3{background:url(images/bg1.gif) repeat-x;}
+/*文字内容背景色*/
+.color1 .b5,.color1 .b6,.color1 .b7{background:#FFF;}
+</code></pre>
+<p>你只需要复制上面的代码，简单修改一下边框色，背景色，图片路径就变成你想要的风格了，是不是很简单呢？然后在你想应用样式的容器上定义这个color1类名即可。</p>
+<p>在我的演示模型中，我定义了9种风格的变化，看看有没有适合你需要，直接复制就可以使用了，祝您用得开心！</p>
+<p><strong>为了演示效果，本模型的宽度值全部采用百分比实现的，你可以随意伸缩宽度，看看它能否适应弹性的变化。</strong></p>
+<p><strong>本模型在以下浏览器中完美通过：<br>
+IE5.5、IE6、IE7、IE8、FF3、TT、Maxthon2.1.5、Opera9.6、Safari4.0、Chrome2.0。</strong></p>
+<p><a class="aligncenter" href="http://www.zfkun.com/soft/CSS_RoundAngle_2.rar" target="_blank">压缩包下载</a></p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/93.html" class="block">房贷：等额本息和等额本金有什么区别？</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/87.html" class="block">CSS圆角—基本圆角框</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

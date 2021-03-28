@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>文章 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="codeing life">
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[{
+            "@type":"ListItem",
+            "position":  1 ,
+            "name": "wp_list_categories()参数说明",
+            "description": "show_option_all 值：任意填。 如果你写”那啥’，那么在列表第一个分类就显示“那啥”两字，不过连接是连接到blog首页的，正好可以利用此参数加个“首页”。 orderby 值：ID、name（默认值）、count。 作用是按这3个值来排序。 order 值：ASC（默认值）、DESC。 ASC为升序，DESC为降序。 show_last_updated 值：0（默认值）、1。 0无作用，1为最近更新的分类显示在前面。 style 值：list（默认值）、none。 例6中已经举例了。none无作用。 show_count 值：0、1（默认值） 1在每个分类后面显示日志数量，0不显示。 hide_empty 值：0、1（默认值） 1是隐藏没有发表日志的分",
+            "url": "/74.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
+            "name": "Mootools Sortables插件BUG修正",
+            "description": "前阵子新版专辑管理项目开发中碰到比较郁闷的问题，经测试最终决定给Sortables打个小补丁。\n由于对选择状态的文本内容、连接和图片等进行拖放操作会触发系统的默认动作，例如ie中拖动图片鼠标会变成禁止操作状态，这样会导致这个拖放程序执行失败，所以Mootools 的Drag基类配置里其实有preventDefault配置项来给使用者解决此类问题，默认值为false，需要处理时设置为true即可。 然而郁闷的是，开发时才发现，Sortables类里内部创建的Drag.Move实例却只能使用preventDefault的默认值，因为Sortables没有给出配置项用来设置内部(this.drag)这个DragMove实例的preventDefault参数项。无奈之下，只能打补丁了。 另打补丁期间又发现另一个问题，甚是郁闷。Sortables的start方法仅判断是否空闲进而决定是否真正执行。而实际项目需求有时需要屏蔽鼠标右键(带来的问题很多)，而看了办法发现，找到的唯一办法仍旧是打补丁。 最终，打上2处补丁后，世界清静了。。。",
+            "url": "/67.html"
+        },{
+            "@type":"ListItem",
+            "position":  3 ,
+            "name": "选择性复活",
+            "description": "博客选择性复活！ 经过几天的捣腾，终于恢复了部分数据(其他的我已回天无力)。 能有幸捣腾这非天灾，真是感谢党的关怀、感谢领导的决策、感谢祖国的和谐！ 从零开始….",
+            "url": "/64.html"
+        }
+    ]
+}
+</script><meta property="og:title" content="文章 | 影の域" />
+<meta property="og:type" content="website" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/posts/" />
+
+
+
+
+
+<meta property="og:description" content="codeing life" />
+
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="影の域" />
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<article class="mx-6 my-8">
+    <h1 class="font-bold text-3xl text-primary-text">文章</h1>
+    
+</article>
+<div class="bg-secondary-bg rounded px-6">
+    <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/74.html" class="font-bold text-xl hover:text-eureka">wp_list_categories()参数说明</a>
+</div>
+<div class="content">
+  show_option_all 值：任意填。 如果你写”那啥’，那么在列表第一个分类就显示“那啥”两字，不过连接是连接到blog首页的，正好可以利用此参数加个“首页”。 orderby 值：ID、name（默认值）、count。 作用是按这3个值来排序。 order 值：ASC（默认值）、DESC。 ASC为升序，DESC为降序。 show_last_updated 值：0（默认值）、1。 0无作用，1为最近更新的分类显示在前面。 style 值：list（默认值）、none。 例6中已经举例了。none无作用。 show_count 值：0、1（默认值） 1在每个分类后面显示日志数量，0不显示。 hide_empty 值：0、1（默认值） 1是隐藏没有发表日志的分
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-18</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>568字</span>
+    </div>
+    
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/67.html" class="font-bold text-xl hover:text-eureka">Mootools Sortables插件BUG修正</a>
+</div>
+<div class="content">
+  前阵子新版专辑管理项目开发中碰到比较郁闷的问题，经测试最终决定给Sortables打个小补丁。
+由于对选择状态的文本内容、连接和图片等进行拖放操作会触发系统的默认动作，例如ie中拖动图片鼠标会变成禁止操作状态，这样会导致这个拖放程序执行失败，所以Mootools 的Drag基类配置里其实有preventDefault配置项来给使用者解决此类问题，默认值为false，需要处理时设置为true即可。 然而郁闷的是，开发时才发现，Sortables类里内部创建的Drag.Move实例却只能使用preventDefault的默认值，因为Sortables没有给出配置项用来设置内部(this.drag)这个DragMove实例的preventDefault参数项。无奈之下，只能打补丁了。 另打补丁期间又发现另一个问题，甚是郁闷。Sortables的start方法仅判断是否空闲进而决定是否真正执行。而实际项目需求有时需要屏蔽鼠标右键(带来的问题很多)，而看了办法发现，找到的唯一办法仍旧是打补丁。 最终，打上2处补丁后，世界清静了。。。
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-17</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>683字</span>
+    </div>
+    
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/64.html" class="font-bold text-xl hover:text-eureka">选择性复活</a>
+</div>
+<div class="content">
+  博客选择性复活！ 经过几天的捣腾，终于恢复了部分数据(其他的我已回天无力)。 能有幸捣腾这非天灾，真是感谢党的关怀、感谢领导的决策、感谢祖国的和谐！ 从零开始….
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-17</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>78字</span>
+    </div>
+    
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+</div>
+
+
+</div>
+
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/22/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/22/">22</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/23/">23</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/24/">24</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/30/">30</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/24/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/30/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

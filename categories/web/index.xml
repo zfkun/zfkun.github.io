@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on 影の域</title>
+    <link>/categories/web/</link>
+    <description>Recent content in web on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 20 Dec 2013 09:44:02 +0000</lastBuildDate><atom:link href="/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>node-airplay 0.1.0 release</title>
+      <link>/525.html</link>
+      <pubDate>Fri, 20 Dec 2013 09:44:02 +0000</pubDate>
+      
+      <guid>/525.html</guid>
+      <description>这是一个专为兼容 AirPlay 协议的设备（Apple TV）使用的 node.js 客户端库 项目地址: node-airplay 此项目是搞 iPlay 的时候分离出来的模块。 当时写的匆忙，没注意已有类似的项目(Ben Vanik搞的)，不过年久失修，已跟不上时代了。 so, 借鉴升华了下，加上了 HLS 直播流支持，本地自动实时转码。 PS： 后来发现，Ben Vanik 也搞了 node-livestreaming 和 node-transcoding ，C++的node模块，但因年久失修，已经不好利用了，连编译都是个问题，还得自己收工 从node-waf 迁移到 node-gyp</description>
+    </item>
+    
+    <item>
+      <title>Emmet DocSet for Dash 1.0</title>
+      <link>/513.html</link>
+      <pubDate>Thu, 03 Oct 2013 17:42:37 +0000</pubDate>
+      
+      <guid>/513.html</guid>
+      <description>Emmet-DocSet v1.0 Released!!  Emmet DocSet for Dash</description>
+    </item>
+    
+  </channel>
+</rss>

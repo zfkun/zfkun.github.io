@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>如何检测HTML表单已经发生改变 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="表单是Web应用不可缺少的功能，它是服务器端与浏览器端数据交换的最基本的方法。你应该已经读过很多关于HTML5和Javascript的表单标签和数据验证的文章，今天我们来讨论下如何检查表单数据是否被改变了。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"如何检测HTML表单已经发生改变",
+      "item":"/218.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/218.html"
+    },
+    "headline": "如何检测HTML表单已经发生改变 | 影の域","datePublished": "2011-03-20T11:36:46+00:00",
+    "dateModified": "2011-03-20T11:36:46+00:00",
+    "wordCount":  2069 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "表单是Web应用不可缺少的功能，它是服务器端与浏览器端数据交换的最基本的方法。你应该已经读过很多关于HTML5和Javascript的表单标签和数据验证的文章，今天我们来讨论下如何检查表单数据是否被改变了。"
+}
+</script><meta property="og:title" content="如何检测HTML表单已经发生改变 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/218.html" />
+
+
+
+
+<meta property="og:description" content="表单是Web应用不可缺少的功能，它是服务器端与浏览器端数据交换的最基本的方法。你应该已经读过很多关于HTML5和Javascript的表单标签和数据验证的文章，今天我们来讨论下如何检查表单数据是否被改变了。" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2011-03-20T11:36:46&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2011-03-20T11:36:46&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">如何检测HTML表单已经发生改变</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>5分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>2069字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>表单是Web应用不可缺少的功能，它是服务器端与浏览器端数据交换的最基本的方法。你应该已经读过很多关于HTML5和Javascript的表单标签和数据验证的文章，今天我们来讨论下如何检查表单数据是否被改变了。</p>
+<h2 id="为什么要检查表单数据被改变">为什么要检查表单数据被改变？</h2>
+<p>有很多理由需要检测表单数据是否有修改，让我们来看一个很常见的场景，如果用户修改了一个或多个表单域的值，当用户跳离当前页面时，你会给出用户类似“你的修改尚未保存”的提示。你甚至可以给出用户是否保存数据（比如Ajax）的选项。另外的情况，如果表单项没有被修改，这时略去冗余的表单验证和数据发送将会增强用户体验。</p>
+<h2 id="javascriptonchange事件">Javascript onchange事件</h2>
+<p>为HTML表单元素添加onchange事件处理器是一种可行的方法，这也是用的最多的，但是onchange的实现有一些问题存在：</p>
+<ol>
+<li>如果用户改变表单域的值，然后再修改回原始值，程序仍将认为表单的修改已经发生。</li>
+<li>如果表单项的值是通过Javascript动态修改的，onchange事件不会被自动触发。</li>
+<li>为每一个表单元素增加onchange事件会引起性能问题，特别是较大的表单。</li>
+<li>如果将表单元素从DOM中增加或移除，你需要相应的注册或移除事件侦听。</li>
+<li>checkbox和radio的onchange事件在某些浏览器下不能按预期工作（你应该知道是哪个浏览器）。</li>
+<li>除了onchange，还有更简单有效的方案。</li>
+</ol>
+<h2 id="比较默认值">比较默认值</h2>
+<p>幸运的是，我们不需要为了复杂的事件处理而写过多的废话，每个表单元素都有与该对象相关联的默认值，即页面加载完后表单控件显示或者默认的数据值，该值可与用户操作后的值进行对比以得出表单域的值是否发生了改变。</p>
+<p>有点麻烦的是，不同类型的表单元素的默认值属性（properties）不尽相同（做些判断好了，并不影响什么）</p>
+<h2 id="input和textarea">input和textarea</h2>
+<p>让我们从简单的元素开始，所有的textarea对象和除了checkbox、radio之外的 input对象都有一个名为defaultValue的属性，我们可以对比文本域的当前值和默认值是否相同以决定文本域的修改是否发生。</p>
+<pre>&lt;!-- name input --&gt;
+&lt;input type="text" id="name" name="name" value="www.csser.com" /&gt;
+&lt;script&gt;
+var name = document.getElementById("name");
+if (n.value != n.defaultValue) alert("#name has changed");
+&lt;/script&gt;</code></pre>
+<p><strong>小提示</strong>：HTML4或XHTML中，文本域类型为text、hidden、password或file的对象有defaultValue属性。HTML5新的表单类型也有defaultValue属性并且可以用相同的方式检测默认值是否改变过，这些新表单元素包含email、tel、url、range、date、color和search。</p>
+<h2 id="checkbox和radio">checkbox和radio</h2>
+<p>checkbox和radio对象有一个defaultChecked属性，其取值为true或false，我们可以通过对比当前选中状态与默认选中状态进行比较，如：</p>
+<pre>&lt;!-- newsletter opt-in --&gt;
+&lt;input type="checkbox" id="optin" name="optin" checked="checked" /&gt;
+&lt;script&gt;
+var optin = document.getElementById("optin");
+if (n.checked != n.defaultChecked) alert("#optin has changed by csser");
+&lt;/script&gt;</code></pre>
+<p>注意checkbox和radio对象也有defaultValue属性，但它仅被分配给元素的value特性（attribute）而不能标识当前的选中状态。</p>
+<h2 id="下拉列表select">下拉列表select</h2>
+<p>select控件通常用于提供一个下拉列表供用户选择，相比上面提到的控件，select有一点复杂，select元素本身并不具有默认值属性，它的默认值存在于其option元素集合内。当页面加载完毕，默认选中的option拥有selected特性，也就是这个option对象拥有defaultSelected属性且值为true。</p>
+<p>我们可以从select节点的selectedIndex属性取得当前选中的option的索引值，如果该option对象的defaultSelected属性为false，那么select控件的值一定被修改了，如：</p>
+<pre>&lt;!-- job title select box --&gt;
+&lt;select id="job" name="job"&gt;
+   &lt;option&gt;web designer&lt;/option&gt;
+   &lt;option selected="selected"&gt;csser.com developer&lt;/option&gt;
+   &lt;option&gt;graphic artist&lt;/option&gt;
+   &lt;option&gt;IT professional&lt;/option&gt;
+   &lt;option&gt;other&lt;/option&gt;
+&lt;/select&gt;
+&lt;script&gt;
+var job = document.getElementById("job");
+if (!job.options[job.selectedIndex].defaultSelected) alert("#job has changed");
+&lt;/script&gt;</code></pre>
+<p>上面的代码在单选下拉列表并且有一个option拥有selected特性时运行正常，但我们需要留意一些陷阱：</p>
+<ol>
+<li>如果没有option被赋予selected特性，浏览器会将第一个设为默认选中，但其defaultSelected属性值却为false</li>
+<li>如果两个或更多option拥有selected特性（这不合逻辑，但是可能的），每个option都会拥有defaultSelected属性且值为true，但是浏览器仅能得到最后一个的默认值。</li>
+<li>多重选择控件允许用户选择任意个option：</li>
+</ol>
+<pre>&lt;!-- skills multi-select box --&gt;
+&lt;select id="skills" name="skills" multiple="multiple"&gt;
+   &lt;option selected="selected"&gt;HTML&lt;/option&gt;
+   &lt;option selected="selected"&gt;CSSer&lt;/option&gt;
+   &lt;option selected="selected"&gt;JavaScript&lt;/option&gt;
+   &lt;option&gt;PHP&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+<p>多选下拉列表并不常用，因为用多个checkbox可以提供更友好的界面，但是，如果使用多选下拉列表，多个option具有defaultSelected属性且值为true，select节点的selectedIndex属性已经无效，所以需要循环每一个option才能判断其selected属性是否与其defaultSelected属性相匹配。下面的代码可以解决这个问题：</p>
+<pre>var  skills = document.getElementById("skills"),c = false, def = 0, o, ol, opt;
+for (o = 0, ol = n.options.length; o &lt; ol; o++) {
+   opt = skills.options[o];
+   c = c || (opt.selected != opt.defaultSelected);
+   if (opt.defaultSelected) def = o;
+}
+if (c && !skills.multiple) c = (def != skills.selectedIndex);
+if (c) alert("#skills has changed");</code></pre>
+<p>上面这些就是本文介绍的如何检测一个表单值是否改变的内容。</p>
+<p> </p>
+<p>原文：<a href="http://blogs.sitepoint.com/2011/02/18/detect-html-form-changes/" target="_blank">How to Check That an HTML Form Has Been Changed</a></p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/220.html" class="block">HTML5 canvas 初级入门教程</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/216.html" class="block">Javascript浏览器另类探测技巧</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#为什么要检查表单数据被改变">为什么要检查表单数据被改变？</a></li>
+    <li><a href="#javascriptonchange事件">Javascript onchange事件</a></li>
+    <li><a href="#比较默认值">比较默认值</a></li>
+    <li><a href="#input和textarea">input和textarea</a></li>
+    <li><a href="#checkbox和radio">checkbox和radio</a></li>
+    <li><a href="#下拉列表select">下拉列表select</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

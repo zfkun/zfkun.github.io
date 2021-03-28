@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>文章 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="codeing life">
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[{
+            "@type":"ListItem",
+            "position":  1 ,
+            "name": "WordPress 3.1升级后无法访问",
+            "description": "杯具，Wordpress 3.1升级后，竟然无法访问，原因提示如下： ………网页页生成了 过多的重定向。清除此网站的 Cookie 或允许第三方 Cookie 可能会解决该问题。如果 不能解决，则可能是服务器配置的问题，而不是您的 计算机有问题。以下是一些建议：请稍后重新载入此网页。……….. 很是郁闷，弄了半天是空间本身的设置及 3.1的代码逻辑处理 综合作用的结果。 无奈，空间是没权限动了，只能修改wordpress 代码了： 找到 wp-include/template-loader.php 修改第一行处代码： if ( defined(‘WP_USE_THEMES’) \u0026amp;\u0026amp; WP_USE_THEMES ) 改为（红色为增加部分） if ( false \u0026amp;\u0026amp; define",
+            "url": "/179.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
+            "name": "原生JSON.parse解析异常问题",
+            "description": "昨天开发新类库，做到Json模块，使用了json2官方类为底层，使用中频遇异常，甚是不爽。看了下源码，json2 采用了优化处理机制，优先使用浏览器原生JSON处理。（事实是json自己的实现也如此）",
+            "url": "/176.html"
+        },{
+            "@type":"ListItem",
+            "position":  3 ,
+            "name": "apache2.2的优化及模块安装",
+            "description": "一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 \u0026lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L",
+            "url": "/174.html"
+        }
+    ]
+}
+</script><meta property="og:title" content="文章 | 影の域" />
+<meta property="og:type" content="website" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/posts/" />
+
+
+
+
+
+<meta property="og:description" content="codeing life" />
+
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="影の域" />
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<article class="mx-6 my-8">
+    <h1 class="font-bold text-3xl text-primary-text">文章</h1>
+    
+</article>
+<div class="bg-secondary-bg rounded px-6">
+    <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/179.html" class="font-bold text-xl hover:text-eureka">WordPress 3.1升级后无法访问</a>
+</div>
+<div class="content">
+  杯具，Wordpress 3.1升级后，竟然无法访问，原因提示如下： ………网页页生成了 过多的重定向。清除此网站的 Cookie 或允许第三方 Cookie 可能会解决该问题。如果 不能解决，则可能是服务器配置的问题，而不是您的 计算机有问题。以下是一些建议：请稍后重新载入此网页。……….. 很是郁闷，弄了半天是空间本身的设置及 3.1的代码逻辑处理 综合作用的结果。 无奈，空间是没权限动了，只能修改wordpress 代码了： 找到 wp-include/template-loader.php 修改第一行处代码： if ( defined(‘WP_USE_THEMES’) &amp;amp;&amp;amp; WP_USE_THEMES ) 改为（红色为增加部分） if ( false &amp;amp;&amp;amp; define
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>276字</span>
+    </div>
+    
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/176.html" class="font-bold text-xl hover:text-eureka">原生JSON.parse解析异常问题</a>
+</div>
+<div class="content">
+  昨天开发新类库，做到Json模块，使用了json2官方类为底层，使用中频遇异常，甚是不爽。看了下源码，json2 采用了优化处理机制，优先使用浏览器原生JSON处理。（事实是json自己的实现也如此）
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-18</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>204字</span>
+    </div>
+    
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/174.html" class="font-bold text-xl hover:text-eureka">apache2.2的优化及模块安装</a>
+</div>
+<div class="content">
+  一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 &amp;lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-10</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>15分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>7112字</span>
+    </div>
+    
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+</div>
+
+
+</div>
+
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/11/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/11/">11</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/12/">12</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/13/">13</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/30/">30</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/13/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/30/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>apache2.2的优化及模块安装 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 &lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"apache2.2的优化及模块安装",
+      "item":"/174.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/174.html"
+    },
+    "headline": "apache2.2的优化及模块安装 | 影の域","datePublished": "2011-03-10T02:26:35+00:00",
+    "dateModified": "2011-03-10T02:26:35+00:00",
+    "wordCount":  7112 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server\/mpm\/worker\/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib\/apr .\/configure –prefix=\/home\/liuchao\/local\/apr make make install # 编译和安装 apr-util 1.2 cd ..\/apr-util .\/configure –prefix=\/home\/local\/apr-util –with-apr=\/home\/local\/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 \u0026lt; ..\/mod_limitipconn-0.22\/apachesrc.diff \/usr\/local\/apache2.2.3\/bin\/apxs -c -i -a mod_limitipconn.c \/usr\/local\/apache2.2\/bin\/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L"
+}
+</script><meta property="og:title" content="apache2.2的优化及模块安装 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/174.html" />
+
+
+
+
+<meta property="og:description" content="一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 &lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2011-03-10T02:26:35&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2011-03-10T02:26:35&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">apache2.2的优化及模块安装</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-10</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>15分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>7112字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>一、安装</p>
+<p># 解压缩<br>
+tar jxvf httpd-2.2.2.tar.bz2<br>
+cd httpd-2.2.0</p>
+<p># vi server/mpm/worker/worker.c<br>
+找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。<br>
+# define DEFAULT_SERVER_LIMIT 256<br>
+# define MAX_SERVER_LIMIT 40000<br>
+# define DEFAULT_THREAD_LIMIT 256<br>
+# define MAX_THREAD_LIMIT 40000<br>
+# 编译和安装 apr 1.2<br>
+cd srclib/apr<br>
+./configure –prefix=/home/liuchao/local/apr<br>
+make<br>
+make install</p>
+<p># 编译和安装 apr-util 1.2<br>
+cd ../apr-util<br>
+./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr<br>
+make<br>
+make install</p>
+<p>优化编译选项及配置apache可加载的模块<br>
+patch -p1 &lt; ../mod_limitipconn-0.22/apachesrc.diff<br>
+/usr/local/<strong>apache2.2</strong>.3/bin/apxs -c -i -a mod_limitipconn.c<br>
+/usr/local/<strong>apache2.2</strong>/bin/apxs -c -i -a mod_evasive20.c</p>
+<p>更改2Glogs<br>
+export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE”<br>
+然后编译cronolog即可<br>
+CHOST=”i686-pc-linux-gnu”<br>
+CFLAGS=”-march=pentium4 -O3 -pipe -fomit-frame-pointer”<br>
+CXXFLAGS=”-march=pentium4 -O3 -pipe -fomit-frame-pointer”</p>
+<p>./configure –prefix=/usr/local/<strong>apache2.2</strong>.3 –enable-mods-shared=all –enable-so –with-mpm=worker –enable-deflate –enable-cache –enable-disk-cache –enable-mem-cache –enable-file-cache –enable-proxy –enable-rewrite –enable-charset-lite –enable-suexec –with-suexec-bin=/usr/sbin/suexec –disable-ipv6 -disable-dav –with-apr=/usr/local/apr –with-apr-util=/usr/local/apr-util</p>
+<p># 编译及安装<br>
+gmake &amp;&amp; make install</p>
+<p>二、优化apache配置选项</p>
+<p>在主配置文件httpd.conf注释下一行，这样做的目的是把apache的功能配置分成小文件，便于修改和移植<br>
+Include conf/Includes/*.conf</p>
+<p>修改MPM（多道处理器）参数<br>
+# cd /usr/local/<strong>apache2.2</strong><br>
+# vi conf/extra/httpd-mpm.conf<br>
+找到如下选项，并改成对应的数值</p>
+<p>&lt;IfModule mpm_worker_module&gt;<br>
+ServerLimit           64<br>
+ThreadLimit          128<br>
+StartServers           8<br>
+MaxClients          8192<br>
+MinSpareThreads       64<br>
+MaxSpareThreads       256<br>
+ThreadsPerChild       128<br>
+MaxRequestsPerChild    0<br>
+</IfModule></p>
+<p>ServerLimit              64<br>
+ThreadLimit              64<br>
+StartServers              8<br>
+MaxClients             4096<br>
+MinSpareThreads          64<br>
+MaxSpareThreads         256<br>
+ThreadsPerChild          64<br>
+MaxRequestsPerChild     500</p>
+<p>测试过的配置：&lt;IfModule mpm_worker_module&gt;<br>
+ServerLimit          32<br>
+ThreadLimit          64<br>
+StartServers          8<br>
+MaxClients         2048<br>
+MinSpareThreads      64<br>
+MaxSpareThreads      256<br>
+ThreadsPerChild       64<br>
+MaxRequestsPerChild   0<br>
+</IfModule></p>
+<p>修改<strong>apache2.2</strong>子进程所有者<br>
+# vi /usr/local/<strong>apache2.2</strong>/conf/httpd.conf<br>
+把daemon改为nobody<br>
+User nobody<br>
+Group nobody</p>
+<p>一般说来，可以不需要的模块包括：<br>
+#LoadModule env_module libexec/mod_env.so<br>
+#LoadModule negotiation_module libexec/mod_negotiation.so<br>
+#LoadModule status_module libexec/mod_status.so<br>
+#server side include已经过时了<br>
+#LoadModule includes_module libexec/mod_include.so<br>
+#不需要将没有缺省index文件的目录下所有文件列出<br>
+#LoadModule autoindex_module libexec/mod_autoindex.so<br>
+#尽量不使用CGI：一直是Apache安全问题最多的地方<br>
+#LoadModule cgi_module libexec/mod_cgi.so<br>
+#LoadModule asis_module libexec/mod_asis.so<br>
+#LoadModule imap_module libexec/mod_imap.so<br>
+#LoadModule action_module libexec/mod_actions.so<br>
+#不使用安全认证可以大大提高访问速度<br>
+#LoadModule access_module libexec/mod_access.so<br>
+#LoadModule auth_module libexec/mod_auth.so<br>
+#LoadModule setenvif_module libexec/mod_setenvif.so<br>
+最好保留的有：<br>
+#用于定制log格式<br>
+LoadModule config_log_module libexec/mod_log_config.so<br>
+#用于增加文件应用的关联<br>
+LoadModule mime_module libexec/mod_mime.so<br>
+#用于缺省index文件：index.php等<br>
+LoadModule dir_module libexec/mod_dir.so</p>
+<p>可用可不用的有：<br>
+#比如：需要在~/username/下调试php可以将<br>
+LoadModule userdir_module libexec/mod_userdir.so<br>
+#比如：需要将以前的URL进行转向或者需要使用CGI scrīpt-alias<br>
+LoadModule alias_module libexec/mod_alias.so<br>
+三、配置模块</p>
+<p>1.配置静态页面压缩输出模块deflate</p>
+<p>使用mod_deflate模块</p>
+<p>在httpd.conf中加入以下设置：</p>
+<p>SetOutputFilter DEFLATE<br>
+DeflateFilterNote ratio<br>
+SetEnvIfNoCase Request_URI .(?:gif|jpe?g|png)＄ no-gzip dont-vary<br>
+SetEnvIfNoCase Request_URI .(?:exe|t?gz|zip|bz2|sit|rar)＄ no-gzip dont-vary<br>
+SetEnvIfNoCase Request_URI .pdf＄ no-gzip dont-vary</p>
+<p>或者</p>
+<p>DeflateFilterNote ratio<br>
+AddOutputFilterByType DEFLATE text/*<br>
+AddOutputFilterByType DEFLATE application/ms* application/vnd* application/postscrīpt</p>
+<p>两种配置方法的作用差不多，其目的主要是把一些不必要压缩的文件禁止压缩。</p>
+<p>2.配置mod_cache模块</p>
+<p># cd /usr/local/<strong>apache2.2</strong>/conf/Includes<br>
+# vi mod_cache.conf<br>
+在配置文件里添加如下语句</p>
+<IfModule mod_cache>  
+LoadModule disk\_cache\_module modules/mod\_disk\_cache.so  
+<IfModule mod\_disk\_cache>  
+CacheRoot /  
+CacheSize 256  
+CacheEnable disk /  
+CacheDirLevels 5  
+CacheDirLength 3  
+</IfModule>
+<p>LoadModule mem_cache_module modules/mod_mem_cache.so<br>
+&lt;IfModule mod_mem_cache&gt;<br>
+CacheEnable mem /<br>
+MCacheSize 4096<br>
+MCacheMaxObjectCount 100<br>
+MCacheMinObjectSize 1<br>
+MCacheMaxObjectSize 2048<br>
+</IfModule><br>
+</IfModule></p>
+<p>vi /usr/local/apache2/conf/httpd.conf<br>
+在末尾添加上：</p>
+<p><a name="baidusnap0"></a><strong>CacheForceCompletion</strong> 100<br>
+CacheDefaultExpire 3600<br>
+CacheMaxExpire 86400<br>
+CacheLastModifiedFactor 0.1</p>
+<p>设置虚拟目录<br>
+然后保存退出。启动apache</p>
+<p>参数的解释：<br>
+mod_cache：<br>
+CacheEnable: 启动 mod_cache，其后接两个参数。第一个参数指定快取的种类，应设为 mem (记忆体快取) 或 disk (磁碟快取) 之其一；第二个参数指定使用快取的 URI 路径，如果对整个网站 (或虚拟主机) 进行快取，简单指定为根目录(/) 即可。<br>
+<strong>CacheForceCompletion</strong>: 这个值指定当 HTTP request 被取消时，内容的产生动作要完成的百分比；预设是 60(%)。<br>
+CacheDefaultExpire: 指定快取的预设过期秒数；预设值是一小时 (3600)。<br>
+CacheMaxExpire: 指定快取最大的过期秒数；预设值是一天 (86400)。<br>
+CacheLastModifiedFactor: 用来从回应里 Last Modified 资讯算出 expire date。<br>
+计算方式是：<br>
+expire period (过期时距) = 最后更新后至今的时间间距 * CacheLastModifiedFactor<br>
+而<br>
+expire date = 目前时间 + expire period<br>
+不过无论如何，过期时间不能超过 CacheMaxExpire 的设定值。</p>
+<p>现在。如果用squid对该服务器进行反向代理的话，就可以通过cache 实现web的加速了</p>
+<p>3.配置mod_expires模块</p>
+<p>mod_expires可以减少10%左右的重复请求，让重复的用户对指定的页面请求结果都CACHE在本地，根本不向服务器发出请求。</p>
+<p>mod_expires的安装配置：<br>
+<IfModule mod_expires><br>
+ExpiresActive on<br>
+ExpiresByType image/gif “access plus 1 month”<br>
+ExpiresByType text/css “now plus 1 month”<br>
+ExpiresDefault “now plus 1 day”<br>
+</IfModule></p>
+<p>注释：<br>
+所有的.gif文件1个月以后过期<br>
+所有的文件缺省1天以后过期</p>
+<p>4.配置dosevasive模块<br>
+/usr/local/<strong>apache2.2</strong>/bin/apxs -i -a -c mod_dosevasive20.c</p>
+<p>编辑httpd.conf，加入以下内容：</p>
+<p>LoadModule dosevasive20_module modules/mod_dosevasive20.so<br>
+<IfModule mod_dosevasive20><br>
+DOSHashTableSize 3097<br>
+DOSPageCount 2<br>
+DOSSiteCount 50<br>
+DOSPageInterval 1<br>
+DOSSiteInterval 1<br>
+DOSBlockingPeriod 10<br>
+</IfModule></p>
+<p>5.配置mod_limitipconn模块</p>
+<p>mod_limitipconn.c是一个非官方的apache防止多线程下载模块，可以用来作为WEB文件的下载限制，但是它是使用ExtendedStatus On形式，工作在应用层。当同一个IP的连接到达限制的时候，apache对get请求发送：</p>
+<p>HTTP/1.1 503 Service Temporarily Unavailable</p>
+<p>从而使用户不能下载，但并不能阻止这种攻击，仍旧允许连接的。</p>
+<p># /usr/local/<strong>apache2.2</strong>/bin/apxs -c -i -a mod_limitipconn.c</p>
+<p>修改apache配置文件：</p>
+<p># vi /usr/local/apache/conf/httpd.conf<br>
+同时需要设置以下参数在 httpd.conf 中 , 也可以在单个虚拟服务器中。</p>
+<p>ExtendedStatus On</p>
+<p>修改配置文件:</p>
+<p>1 全局控制:</p>
+<p>在httpd.conf加上以下几行:</p>
+<IfModule mod_limitipconn>  
+<Location />     # 所有虚拟主机的/目录  
+MaxConnPerIP 3       # 每IP只允许3个并发连接  
+NoIPLimit image/*    # 对图片不做IP限制  
+</Location>
+<p>&lt;Location /mp3&gt;    # 所有主机的/mp3目录<br>
+MaxConnPerIP 1           # 每IP只允许一个连接请求<br>
+OnlyIPLimit audio/mpeg video      # 该限制只对视频和音频格式的文件<br>
+</Location ><br>
+</IfModule></p>
+<p>2 局部限制,你也可以在虚拟主机的配置文件里设置IP限制,方法是完全一样:</p>
+<p>&lt; VirtualHost xx.xxx.xx.xx &gt;<br>
+ServerAdmin <a href="mailto:chenlf@chinalinuxpub.com"><span style="text-decoration: underline;"><span style="color: #0000ff;">chenlf@chinalinuxpub.com</span></span></a><br>
+ServerName server.domain.com<br>
+ServerAlias <em>.domain.com<br>
+UseCanonicalName OFF<br>
+VirtualDocumentRoot /htdoc/domain/%1<br>
+&lt; IfModule mod_limitipconn.c &gt;<br>
+&lt; Location / &gt;      # 所有虚拟主机的/目录<br>
+MaxConnPerIP 5           # 每IP只允许3个并发连接<br>
+NoIPLimit image/</em>        # 对图片不做IP限制<br>
+&lt; /Location &gt;<br>
+&lt; Location /mp3 &gt;      # 所有主机的/mp3目录<br>
+MaxConnPerIP 2           # 每IP只允许一个连接请求<br>
+OnlyIPLimit audio/mpeg video # 该限制只对视频和音频格式的文件<br>
+&lt; /Location &gt;<br>
+&lt; /IfModule &gt;<br>
+ErrorLog /home/my/logs/error_log<br>
+CustomLog /home/my/logs/access_log common<br>
+&lt; /VirtualHost &gt;<br>
+重启apache，用多线程的下载工具下载时，大于3个线程，其余的将得到信息：<br>
+HTTP/1.1 503 Service Temporarily Unavailable</p>
+<p>或者根据User_Agent判断，把已知的多线程工具都给deny 掉<br>
+in httpd.conf<br>
+…..<br>
+BrowserMatch “NetAnt” badguy<br>
+BrowserMatch “GetRight” badguy<br>
+BrowserMatch “JetCar” badguy<br>
+BrowserMatch “Mass Downloader” badguy<br>
+BrowserMatch “ReGet” badguy<br>
+BrowserMatch “DLExpert” badguy<br>
+BrowserMatch “FlashGet” badguy<br>
+BrowserMatch “Offline Explorer” badguy<br>
+BrowserMatch “Teleport” badguy<br>
+………..</p>
+<p>order deny,allow<br>
+deny from env=badguy<br>
+allow from all</p>
+<p>注意httpd里面应该有 mod_setenvif模块。<br>
+在你的apache的conf文件里面加入<br>
+LoadModule limitipconn_module lib/apache/mod_limitipconn.so<br>
+ExtendedStatus On</p>
+<p>6.安装modsecurity（mod_security 可以加强apache的安全性，特别是在防sql 注入上有很好的效果。）<br>
+下载站点：<a href="http://www.modsecurity.org/download/"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://www.modsecurity.org/download/</span></span></a></p>
+<p># /usr/local/httpd220/bin/apxs -cia mod_security.c<br>
+打开httpd.conf查看是否有如下文字加入</p>
+<p>在httpd.conf中添加下列一段mod_security的配置文件</p>
+<p>LoadModule security_module      modules/mod_security.so<br>
+<IfModule mod_security><br>
+SecFilterEngine On<br>
+SecFilterCheckURLEncoding On<br>
+SecFilterDefaultAction “deny,log,status:500”<br>
+#SecFilterForceByteRange 32 126<br>
+#SecFilterScanPOST On<br>
+SecAuditLog logs/audit_log</p>
+<h3 id="heading"></h3>
+<p>SecFilter “../”</p>
+<h5 id="heading-1"></h5>
+<p>SecFilter /etc/*passwd<br>
+SecFilter /bin/*sh</p>
+<p>#for css attack<br>
+SecFilter “&lt;( | *scrīpt”<br>
+SecFilter “&lt;(.| +&gt;”<br>
+#for sql attack<br>
+SecFilter “delete[ ]+from”<br>
+SecFilter “insert[ ]+into”<br>
+SecFilter “select.+from”<br>
+SecFilter “union[ ]+from”<br>
+SecFilter “drop[ ]”<br>
+</IfModule></p>
+<p>四、滚卷log</p>
+<p>编译前设置export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE”<br>
+使其支持2G以上文件。</p>
+<p>ErrorLog “|/usr/local/sbin/cronolog    /usr/local/<strong>apache2.2</strong>/logs/error_%Y%m%d.log”<br>
+CustomLog “|/usr/local/sbin/cronolog    /usr/local/**apache2.2**/logs/access_%Y%m%d.log” combined<br>
+用gzip压缩每天的日志：<br>
+30 4 * * * /usr/bin/gzip -f /home/apache/logs/`date -d yesterday +%w`/access_log<br>
+日志的定期删除：<br>
+30 5 * * */usr/bin/find /home/apache/logs/ -name access_log.gz -mtime +3 |xargs -r /bin/rm -f<br>
+运行语法检查命令检查语法，出现错误后继续调整。<br>
+# ./bin/apachectl -t</p>
+<p>html网页跳转</p>
+<title>index.html</title>  
+<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=gb2312&#8243;>  
+<meta http-equiv=&#8221;refresh&#8221; content=&#8221;0;url=http://210.51.8.179:81&#8243;>  
+使apache的日志文件里不记录图片文件  
+找到:  
+LogFormat &#8220;%h %l %u %t \&#8221;%r\&#8221; %>s %b \&#8221;%{Referer}i\&#8221; \&#8221;%{User-Agent}i\&#8221;&#8221; combined  
+LogFormat &#8220;%h %l %u %t \&#8221;%r\&#8221; %>s %b&#8221; common  
+LogFormat &#8220;%{Referer}i -> %U&#8221; referer  
+LogFormat &#8220;%{User-agent}i&#8221; agent  
+再后面加上图片文件的类型  
+SetEnvIf Request_URI \.gif＄ gif-image  
+SetEnvIf Request_URI \.GIF＄ gif-image  
+SetEnvIf Request_URI \.jpg＄ gif-image  
+SetEnvIf Request_URI \.JPG＄ gif-image  
+SetEnvIf Request_URI \.png＄ gif-image  
+SetEnvIf Request_URI \.js＄    gif-image  
+SetEnvIf Request_URI \.bmp＄ gif-image  
+SetEnvIf Request_URI \.css＄ gif-image  
+SetEnvIf Request_URI \.mid＄ gif-image  
+SetEnvIf Request_URI \.swf＄ gif-image  
+SetEnvIf Request_URI \.mmf＄ gif-image  
+SetEnvIf Request_URI \.wma＄ gif-image  
+SetEnvIf Request_URI \.midi＄ gif-image  
+日志  
+CustomLog /usr/local/apache/logs/access.log combined env=!gif-image
+<p>使用两个<br>
+ProxyPassReverse / <a href="http://%25%7Bhttp_host%7D:8088/"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://%{HTTP_HOST}:8088/</span></span></a><br>
+RewriteEngine on<br>
+RewriteCond     %{REQUEST_URI} !.<em>.(gif|png|jpg)＄<br>
+RewriteRule ^/(.</em>) <a href="http://%25%7Bhttp_host%7D:8088/"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://%{HTTP_HOST}:8088/</span></span></a> ＄1 [P]</p>
+<p>Linux下检测Apache进程数量并自动重启的脚本</p>
+<p>在/etc/crontab里,定时执行检测脚本,检测系统的Apache,和Mysql进程是否超出标准,超标的话,自动重启,没有的话,记录进程数据.</p>
+<p>Crontab的内容(每30分钟执行一次,并将结果记录在/var/log/chksys.log)</p>
+<p>0,30 * * * * root /usr/local/chksys.sh &raquo; /var/log/chksys.log</p>
+<p>/usr/local/chksys.sh代码:</p>
+<p>#!/bin/bash<br>
+#check apache,mysql thread and auto reboot system<br>
+#Powered by ipaddr(aspbiz)</p>
+<p>#config<br>
+MaxApacheThread=300<br>
+MaxMysqlThread=250</p>
+<p>NeedReboot=0</p>
+<p>ApacheThread=`ps -A|grep http|wc -l`<br>
+MysqlThread=`ps -A|grep mysql|wc -l`</p>
+<p>if [ ＄ApacheThread -gt ＄MaxApacheThread ]<br>
+then<br>
+NeedReboot=1<br>
+fi</p>
+<p>if [ ＄MysqlThread -gt ＄MaxMysqlThread ]<br>
+then<br>
+NeedReboot=1<br>
+fi</p>
+<p>if [ ＄NeedReboot -eq 1 ]<br>
+then<br>
+echo “—————————–”<br>
+echo ＄(date +”%y-%m-%d %H:%M:%S”<br>
+echo “—————————–”<br>
+echo “Apache:＄ApacheThread;Mysql:＄MysqlThread.”<br>
+echo “System is busy,reboot”<br>
+reboot<br>
+else<br>
+echo “—————————–”<br>
+echo ＄(date +”%y-%m-%d %H:%M:%S”<br>
+echo “—————————–”<br>
+echo “Apache:＄ApacheThread;Mysql:＄MysqlThread.”<br>
+echo “System is normal”<br>
+fi<br>
+SVN服务器搭建完全手册<br>
+cvs, 版本控制, 系统维护, Linux, svn准备，下载所需要文件.<br>
+检查已安装的 Apache2 是否已经安装了 mod_dav .<br>
+编译SVN，遇到的问题和解决方法<br>
+使用 默认文件系统(fsfs) 保存数据<br>
+使用 Berkeley DB 保存数据<br>
+配置Apache和SVN，测试.<br>
+其它小结<br>
+从Windows平台上数据转移<br>
+配置文件,使用其支持对文件中的 $Id$ 标签每次提交的时候自动更新版本信息.<br>
+基于路径的权限控制<br>
+常用SVN命令<br>
+相关资源<br>
+准备，下载所需要文件<br>
+本文测试环境<br>
+Linux MY_SERVER 2.6.9-5.ELsmp #1 SMP Wed Jan 5 19:30:39 EST 2005 i686 i686 i386 GNU/Linux<br>
+Apache 2.2.2</p>
+<p>最新的版本 Subversion 可以在这里找到 ：<a href="http://subversion.tigris.org/project_packages.html"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://subversion.tigris.org/project_packages.html</span></span></a></p>
+<p>检查已安装的 Apache2 是否已经安装了 mod_dav<br>
+如果已经成功安装了Apache，使用 httpd -M 来查看有没有安装 dav_module，如果没有的话 必须附加 ‘–enable-dav’ ‘–enable-dav-fs’ 两个参数重新编译 Apache，否则即使编译通过了svn,apache也会启动不起来.</p>
+<p>编译<strong>APACHE2.2</strong></p>
+<p>修改部分源代码</p>
+<p># vi server/mpm/worker/worker.c</p>
+<p>找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的 最大线程数和最大客户端数目。</p>
+<p># define DEFAULT_SERVER_LIMIT 256<br>
+# define MAX_SERVER_LIMIT 40000<br>
+# define DEFAULT_THREAD_LIMIT 256<br>
+# define MAX_THREAD_LIMIT 40000</p>
+<p>编译配置<br>
+优化编译选项及配置apache可加载的模块</p>
+<p># CFLAGS=”-O6 -mpentiumpro -fomit-frame-pointer” CXX=gcc CXXFLAGS=”-O6 -mpentiumpro -fomit-frame-pointer -felide-constructors -fno-exceptions -fno-rtti” \</p>
+<blockquote>
+<p>./configure –prefix=/usr/local/<strong>apache2.2</strong> –enable-mods-shared=all \<br>
+–enable-so –with-mpm=worker –enable-deflate \<br>
+–enable-cache –enable-disk-cache –enable-mem-cache –enable-file-cache \<br>
+–enable-proxy –enable-suexec</p>
+</blockquote>
+<p>编译及安装</p>
+<p># gmake &amp;&amp; make install</p>
+<p>优化apache配置选项<br>
+修改MPM（多道处理器）参数</p>
+<p># cd /usr/local/<strong>apache2.2</strong><br>
+# vi conf/extra/httpd-mpm.conf</p>
+<p>找到如下选项，并改成对应的数值</p>
+<p>ServerLimit 64<br>
+ThreadLimit 128<br>
+StartServers 8<br>
+MaxClients 8192<br>
+MinSpareThreads 50<br>
+MaxSpareThreads 256<br>
+ThreadsPerChild 128<br>
+MaxRequestsPerChild 0</p>
+<p>修改<strong>apache2.2</strong>子进程所有者</p>
+<p># vi /usr/local/<strong>apache2.2</strong>/conf/httpd.conf<br>
+把daemon改为nobody<br>
+User nobody<br>
+Group nobody</p>
+<p>编译SVN，遇到的问题和解决方法<br>
+使用默认的文件系统保存数据.</p>
+<p>最终完整通过安装和测试的编译参数为：</p>
+<p>./configure –with-apxs=/usr/local/apache2/bin/apxs \<br>
+–with-apr=/home/src/server/httpd-2.2.2/srclib/apr \<br>
+–with-apr-util=/home/src/server/httpd-2.2.2/srclib/apr-util</p>
+<p># make<br>
+# make install</p>
+<p>其中 /home/src/server/ 为 httpd-2.2.2 源代码所在文件夹，根据实际情况调整一下.</p>
+<p>遇到问题<br>
+–with-apr 和 –with-apr-util 如果没有加上的话，即使编译成功了也会出现<br>
+Can’t set position pointer in file ‘/home/svn/repos/db/revs/0′: Invalid argument</p>
+<p>这样的错误提示.</p>
+<p>暂时不能使用 Berkeley DB [* 已解决]<br>
+svn 保存文件更新数据库的方法有两个，一种是直接使用 fs (filesystem)来保存,另一种是通过Oracle提供支持的开源数据库 Berkeley DB 进行保存。但是如果加上 –with-berkeley-db=/usr/local/BerkeleyDB.4.4 就会configure时就会报错.</p>
+<p>configure: error: APR-UTIL was installed independently, it won’t be<br>
+possible to use the specified Berkeley DB: /usr/local/BerkeleyDB.4.4</p>
+<p>我想 apr-unit 暂时不支持吧，我们就用默认的fs好了.</p>
+<p>在make 的时候可能会遇到缺少 srclib/apr/libapr-1.la，srclib/apr-util/libaprutil-1.la 两个文件，找不到而make error.<br>
+解决办法：/usr/local/apache2/lib/ 中找到，将其复制到源代码文件夹相应的位置中.</p>
+<p>UPDATE!!!<br>
+使用 BerkeleyDB 保存数据<br>
+安装 BerkeleyDB</p>
+<p>cd /usr/local/src<br>
+$ wget <a href="http://downloads.sleepycat.com/db-4.3.29.tar.gz"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://downloads.sleepycat.com/db-4.3.29.tar.gz</span></span></a><br>
+$ tar xzvf db-4.3.29.tar.gz<br>
+$ cd /usr/local/src/db-4.3.29/build_unix<br>
+$ ../dist/configure –enable-compat185<br>
+$ make<br>
+$ make install<br>
+更新apr和apr-util源代码</p>
+<p># 清理编译后的.la文件<br>
+$ cd /usr/local/src/httpd-2.2.3<br>
+$ make clean<br>
+$ cd /usr/local/src/subversion-1.3.2<br>
+$ rm -rf apr<br>
+$ rm -rf apr-util<br>
+$ cp -rf /usr/local/src/httpd-2.2.3/srclib/apr ./<br>
+$ cp -rf /usr/local/src/httpd-2.2.3/srclib/apr-util/ ./<br>
+编译安装</p>
+<p># /configure –with-apxs=/usr/local/apache2/bin/apxs \</p>
+<blockquote>
+<p>–with-berkeley-db=/usr/local/BerkeleyDB.4.3 \<br>
+–with-ssl<br>
+# make<br>
+# make install</p>
+</blockquote>
+<p>遇到问题<br>
+BerkeleyDB 版本不能大于 4.3.否则同样会出现以下错误.<br>
+configure: error: APR-UTIL was installed independently, it won’t be<br>
+possible to use the specified Berkeley DB: /usr/local/BerkeleyDB.4.4</p>
+<p>主要是apr-util 暂时不支持4.4的版本.</p>
+<p>必须更新apr，apr-util 源代码.<br>
+subversion-1.3.2 自带的 apr-util 的版本是0.9.6的,必须升级为 1.2.7 虽然能编译过去。但在 svn checkout 的时候会提示</p>
+<p>svn: REPORT request failed on ‘/!svn/vcc/default’<br>
+svn: REPORT of ‘/!svn/vcc/default’: Could not read status line: connection was closed by server.</p>
+<p>这个问题困扰了我很长时间，Google和官方论坛都无结果。后来昨天竟然自己无意中解决了，感动的得哭了:)</p>
+<p>配置Apache和SVN，测试<br>
+成功编译svn后会在 httpd.conf 中自动加上</p>
+<p>LoadModule dav_svn_module modules/mod_dav_svn.so<br>
+LoadModule authz_svn_module modules/mod_authz_svn.so</p>
+<p>两个模块，没有的话，自行加上或检测是否真的编译成功.</p>
+<p>假设我们现在要将一个名为 Lair 的项目导入到 SVN中</p>
+<p>Apache的配置<br>
+在 conf/httpd.conf 或 conf/extra/httpd-vhosts.conf 中加入<br>
+DAV svn<br>
+SVNPath /home/svn/Lair<br>
+可以参考以下apache的配置，实现数据加密传输，用户身份验证.</p>
+<p>Listen 443</p>
+<p>AddType application/x-x509-ca-cert .crt<br>
+AddType application/x-pkcs7-crl .crl.</p>
+<p>SSLPassPhraseDialog exec:/etc/sendsslpwd<br>
+SSLSessionCache shmcb:/usr/local/apache2/logs/ssl_scache(512000)<br>
+SSLSessionCacheTimeout 300<br>
+SSLMutex file:/usr/local/apache2/logs/ssl_mutex<br>
+DocumentRoot /var/SVNRoot<br>
+ServerName svn.yousite.com:443<br>
+ServerAdmin <a href="mailto:webmaster@yousite.com"><span style="text-decoration: underline;"><span style="color: #0000ff;">webmaster@yousite.com</span></span></a><br>
+DAV svn<br>
+SVNPath /var/SVNRoot<br>
+AuthzSVNAccessFile /etc/svnserve.conf<br>
+Satisfy Any<br>
+AuthType Basic<br>
+AuthName “yousite SVN Repository”<br>
+AuthUserFile /etc/httpd-passwords.txt<br>
+Require valid-user<br>
+SSLEngine on<br>
+SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL<br>
+SSLCertificateFile /etc/ssl/server.crt<br>
+SSLCertificateKeyFile /etc/ssl/server.key<br>
+更详细的配置说明文档 <a href="http://svnbook.red-bean.com/nightly/en/svn.ref.mod_dav_svn.conf.html"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://svnbook.red-bean.com/nightly/en/svn.ref.mod_dav_svn.conf.html</span></span></a></p>
+<p>配置，并且测试SVN，<br>
+创建一个新用户,用了保存仓库.</p>
+<p>useradd -m svn</p>
+<p>创建一个新模块</p>
+<p># su daemon #(apache是以daemon用户运行的,所以要切换身份，否则可能会报目录访问权限错误)<br>
+# svnadmin create –fs-type fsfs /home/svn/Lair</p>
+<p>导入原来的项目</p>
+<p>svn import /var/www/Lair <a href="http://localhost/svn/Lair"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://localhost/svn/Lair</span></span></a> -m ‘Initial import’</p>
+<p>重新建立工作目录</p>
+<p># rm -rf /var/www/Lair ##(注意备份!!)<br>
+# svn checkout <a href="http://localhost/svn/Lair"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://localhost/svn/Lair</span></span></a></p>
+<p>测试打开 <a href="http://localhost/svn/Lair"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://localhost/svn/Lair</span></span></a></p>
+<p>如能看到一个你项目录列表，说明您成功了。</p>
+<p>其它小结<br>
+数据转移:<br>
+从 Windows 平台 SVN 服务器转移<br>
+如果windows svn储存的格式也是dbd的话，直接将SVN的文件夹copy过来即可.然后<br>
+执行 svnadmin recover /var/SVNRoot 检查一下数据库是否损坏.</p>
+<p>最后注意权限,确保 db 目录下的所有文件可写。</p>
+<p>chmod 755 db<br>
+chmod 666 db/*</p>
+<p>否则checkout时出现以下错误，多数是因为 文件或者目录权限问题 引起的，可以尝试用 chown 或者 chmod 命令修改一下权限<br>
+Could not open the requested SVN filesystem<br>
+Could not open the requested SVN filesystem<br>
+另外一种方法没有测试过，原理大致和mysqldump一样，将svn导出为文本文件，然后重新导入，好处是可以避免因为存储格式不同而导致的数据转移困难。</p>
+<p># dump data to file (assuming a repo @ c:\repo):</p>
+<p>svnadmin dump c:\repo &gt; c:\repo.txt<br>
+# Copy the file over to linux:<br>
+mkdir /repo<br>
+svnadmin create /repo<br>
+svnadmin load /repo &lt; /repo.txt</p>
+<p>设置访问控制<br>
+当 httpd.conf 中 设置 AuthzSVNAccessFile 时，可以设置不同用户对不同目录的访问控制.以下是一个例子.</p>
+<p>[groups]<br>
+root = admin.root<br>
+web = user1,user2<br>
+soft = user3,user4</p>
+<p>[/]<br>
+@root = rw</p>
+<p>[/www]</p>
+<p>@web = rw</p>
+<p>[/soft]<br>
+@soft = rw</p>
+<p>详细的说明文档：<a href="http://svnbook.red-bean.com/nightly/en/svn.serverconfig.httpd.html"><span style="text-decoration: underline;"><span style="color: #0000ff;">http://svnbook.red-bean.com/nightly/en/svn.serverconfig.httpd.html</span></span></a></p>
+<p>配置文件，使用其支持对文件中的 $Id$ 标签每次提交的时候自动更新版本信息(自动属性).<br>
+Windows : C:\Documents and Settings%USERNAME%\Application Data\Subversion\config<br>
+Linux : ~.subversion\config<br>
+[miscellany]</p>
+<p>enable-auto-props = yes<br>
+[auto-props]<br>
+*.php=svn:keywords=Id<br>
+*.html=svn:keywords=Id</p>
+<p>关于自动属性的更高级讨论</p>
+<p>几条常用svn 命令<br>
+$ svn update<br>
+$ svn add “filename”<br>
+$ svn commit</p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/176.html" class="block">原生JSON.parse解析异常问题</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/170.html" class="block">Google API – Chart – QR</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#heading"></a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#heading-1"></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

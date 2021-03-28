@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>JavaScript 与 ActionScript 3.0 交互的一些问题 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="JavaScript 跟 ActionScript 3.0 交互也是通过 flash.external.ExternalInterface 这个类，不过与跟 Flash 8 中跟 ActionScript 2.0 交互所使用的 flash.external.ExternalInterface 还是有所不同的。最大的不同就是 ExternalInterface.addCallback 方法在 ActionScript 3.0 中只有 2 个参数了，而不再有 instance 这个参数。下面要讨论的这些问题都是关于 Flash 9 中 ActionScript 3.0 的。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"JavaScript 与 ActionScript 3.0 交互的一些问题",
+      "item":"/49.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/49.html"
+    },
+    "headline": "JavaScript 与 ActionScript 3.0 交互的一些问题 | 影の域","datePublished": "2010-01-16T15:30:34+00:00",
+    "dateModified": "2010-01-16T15:30:34+00:00",
+    "wordCount":  1295 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "JavaScript 跟 ActionScript 3.0 交互也是通过 flash.external.ExternalInterface 这个类，不过与跟 Flash 8 中跟 ActionScript 2.0 交互所使用的 flash.external.ExternalInterface 还是有所不同的。最大的不同就是 ExternalInterface.addCallback 方法在 ActionScript 3.0 中只有 2 个参数了，而不再有 instance 这个参数。下面要讨论的这些问题都是关于 Flash 9 中 ActionScript 3.0 的。"
+}
+</script><meta property="og:title" content="JavaScript 与 ActionScript 3.0 交互的一些问题 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/49.html" />
+
+
+
+
+<meta property="og:description" content="JavaScript 跟 ActionScript 3.0 交互也是通过 flash.external.ExternalInterface 这个类，不过与跟 Flash 8 中跟 ActionScript 2.0 交互所使用的 flash.external.ExternalInterface 还是有所不同的。最大的不同就是 ExternalInterface.addCallback 方法在 ActionScript 3.0 中只有 2 个参数了，而不再有 instance 这个参数。下面要讨论的这些问题都是关于 Flash 9 中 ActionScript 3.0 的。" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2010-01-16T15:30:34&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2010-01-16T15:30:34&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">JavaScript 与 ActionScript 3.0 交互的一些问题</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1295字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p><span style="background-color: #ffffff;">JavaScript 跟 ActionScript 3.0 交互也是通过 flash.external.ExternalInterface 这个类，不过与跟 Flash 8 中跟 ActionScript 2.0 交互所使用的 flash.external.ExternalInterface 还是有所不同的。最大的不同就是 ExternalInterface.addCallback 方法在 ActionScript 3.0 中只有 2 个参数了，而不再有 instance 这个参数。下面要讨论的这些问题都是关于 Flash 9 中 ActionScript 3.0 的。</span></p>
+<p>先来说最常遇到的问题，就是在 JavaScript 调用 Flash 中的 ActionScript 方法时报告该方法不存在。这个问题是跟 Flash 中执行 ExternalInterface.addCallback 的时间有关的，ExternalInterface.addCallback 必须要在 HTML 的完全载入之后也就是 window.onload 事件执行后才可以执行，否则，它所发布的方法都无法在 JavaScript 中调用。</p>
+<p>解决这个问题的方法在 Flash 9 的 ActionScript 3.0 帮助中有个例子，里面包含了这个解决方法，就是首先在 js 中设置两个标志，例如 jsReady 和 swfReady 这两个变量作为标志，开始都设置为 false，当 window.onload 时，设置 jsReady 为 true，在 Flash 中一开始检查 JavaScript 中的这个 jsReady 标志是否是 true（通过 ExternalInterface.call 方法调用 JavaScript 中的返回这个标志的一个函数），如果不为 true，就设置一个定时器，经过一段时间后（例如 50 或 100 毫秒）重复这个检查这个标志，一旦为 true，则执行 ExternalInterface.addCallback 来发布 ActionScript 要提供给 JavaScript 调用的函数或方法，执行完所有的 ExternalInterface.addCallback 后，通过 ExternalInterface.call 方法调用 JavaScript 中的设置 swfReady 标志的函数设置 swfReady 为 true。之后，当 JavaScript 检测到 swfReady 为 true 后，再调用 ActionScript 中的方法就不会遇到上的说的这个问题了。</p>
+<p>如果简单一点的调用这样还可以，如果是有好多这样的调用就比较麻烦了。我是通过建立两个执行队列：jsTaskQueue 和 swfTaskQueue，当在 jsReady 为 true 之前，如果有要调用 ActionScript 的操作，就把这个操作放到 jsTaskQueue 中，当 js 在 window.onload 中执行设置 jsReady 时，把这个队列中的任务取出来执行，当 jsReady 为 true 后 swfReady 为 true 之前，如果有要调用 ActionScript 的操作，就把这个操作放到 swfTaskQueue 中，当 ActionScript 通过 ExternalInterface.call 方法调用 JavaScript 中的设置 swfReady 标志的函数设置 swfReady 为 true 时，把这个队列中的任务取出来执行。当 jsReady 和 swfReady 都为 true 时，那么如果有要调用 ActionScript 的操作，直接运行就可以了。通过这种方法把这些任务封装后，使用这些封装之后的操作，在编写代码就可以按照顺序（而不是异步）来写了，执行时也是顺序执行啦。</p>
+<p>除了这个最常遇到的问题之外，还有两个关于 IE 上的问题。</p>
+<p>如果你是通过 JavaScript 动态创建的 Flash 标签然后插入到 html 中的话（例如通过 innerHTML 赋值的方法或者 appendChild 的方法），很可能你这个操作是在 window.onload 之后才进行，在这种情况下，其它浏览器可以正常进行 JavaScript 和 ActionScript 3.0 的交互，IE 就不行。所以，为了保险，最好的方法就是直接把 flash 标签的 html 写在 html 的 body 中，或者用 JavaScript 的 document.write 来写入 html 的 body 中，后面这种方法对于 IE 来说更合适一些，因为这样的话，可以不需要点击激活 Flash。</p>
+<p>另一个问题是，不要在 ActionScript 中发布名字为 invoke 的方法，否则在 IE 中，JavaScript 调用该方法时会出错。</p>
+<p>最后一个问题，网上可以查到的比较多了，就是不要把 flash 放到 form 中，否则在 IE 中，JavaScript 调用 ActionScript 时会出错。当然，网上也给出了一个<a href="http://livedocs.adobe.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&amp;file=00002200.html">解决这个问题的脚本</a>，不过那个貌似是针对 Flash 8 的 ActionScript 2.0 的，我没有试过，不知道对 ActionScript 3.0 是否同样有效。</p>
+<p>如果在 ActionScript 中通过 ExternalInterface.call 调用 JavaScript 时，如果传递的参数有字符串，那么字符串中如果包含 \ 符号的话，那么将会调用失败。这个也是 ActionScript 和 JavaScript 交互的一个 bug，解决办法是，对传递的字符串先进行一下处理在传递，处理方法很简单，比如要传递的数据是 data，将它进行一次 data.replace(/\/, “\\”) 替换之后，在传递给 JavaScript 就可以了。</p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/53.html" class="block">新牧场物语 符石工厂 超详细攻略</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/46.html" class="block">神奇电池v8将PSP刷到5.00M33-4教程</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

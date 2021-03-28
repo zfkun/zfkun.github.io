@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>文章 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="codeing life">
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[{
+            "@type":"ListItem",
+            "position":  1 ,
+            "name": "Google API – Chart – QR",
+            "description": "谷歌的Chart API真是全啊，下面这个就是比较实用的二维码： http://code.google.com/intl/zh-CN/apis/chart/docs/gallery/qr_codes.html",
+            "url": "/170.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
+            "name": "判断 iframe 是否加载完成的完美方法",
+            "description": "网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(\u0026quot;iframe\u0026quot;); iframe.src = \u0026quot;http://www.planabc.net\u0026quot;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == \u0026quot;complete\u0026quot;){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(\u0026quot;iframe\u0026quot;); iframe.src = \u0026quot;http://www.planabc.net\u0026quot;; if (iframe.attachEvent){ iframe.attachEvent(\u0026quot;onload\u0026quot;, function(){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); }); } else { iframe.onload = function(){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。",
+            "url": "/167.html"
+        },{
+            "@type":"ListItem",
+            "position":  3 ,
+            "name": "获取 Textarea 的光标位置",
+            "description": "在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。",
+            "url": "/163.html"
+        }
+    ]
+}
+</script><meta property="og:title" content="文章 | 影の域" />
+<meta property="og:type" content="website" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/posts/" />
+
+
+
+
+
+<meta property="og:description" content="codeing life" />
+
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="影の域" />
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<article class="mx-6 my-8">
+    <h1 class="font-bold text-3xl text-primary-text">文章</h1>
+    
+</article>
+<div class="bg-secondary-bg rounded px-6">
+    <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/170.html" class="font-bold text-xl hover:text-eureka">Google API – Chart – QR</a>
+</div>
+<div class="content">
+  谷歌的Chart API真是全啊，下面这个就是比较实用的二维码： http://code.google.com/intl/zh-CN/apis/chart/docs/gallery/qr_codes.html
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-01-30</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>32字</span>
+    </div>
+    
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/167.html" class="font-bold text-xl hover:text-eureka">判断 iframe 是否加载完成的完美方法</a>
+</div>
+<div class="content">
+  网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(&amp;quot;iframe&amp;quot;); iframe.src = &amp;quot;http://www.planabc.net&amp;quot;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == &amp;quot;complete&amp;quot;){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(&amp;quot;iframe&amp;quot;); iframe.src = &amp;quot;http://www.planabc.net&amp;quot;; if (iframe.attachEvent){ iframe.attachEvent(&amp;quot;onload&amp;quot;, function(){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); }); } else { iframe.onload = function(){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-01-13</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>244字</span>
+    </div>
+    
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/163.html" class="font-bold text-xl hover:text-eureka">获取 Textarea 的光标位置</a>
+</div>
+<div class="content">
+  在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-01-13</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1089字</span>
+    </div>
+    
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+</div>
+
+
+</div>
+
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/12/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/12/">12</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/13/">13</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/14/">14</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/30/">30</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/14/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/30/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

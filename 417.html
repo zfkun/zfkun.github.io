@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>WordPress Rewrite SEO 之404方式折腾笔记 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。
+最近折腾 HTML5探索 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。
+空间是虚拟主机（还是WIN &#43; IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite。SO, 就开始大面积的调整程序 &#43; hack, 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"WordPress Rewrite SEO 之404方式折腾笔记",
+      "item":"/417.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/417.html"
+    },
+    "headline": "WordPress Rewrite SEO 之404方式折腾笔记 | 影の域",
+    "image": "/uploads/2011/07/wordpress_404_page.gif",
+    "datePublished": "2011-07-17T10:10:57+00:00",
+    "dateModified": "2011-07-17T10:10:57+00:00",
+    "wordCount":  1629 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。\n最近折腾 HTML5探索 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。\n空间是虚拟主机（还是WIN \u002b IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite。SO, 就开始大面积的调整程序 \u002b hack, 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）"
+}
+</script><meta property="og:title" content="WordPress Rewrite SEO 之404方式折腾笔记 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/417.html" />
+
+
+
+
+<meta property="og:description" content="WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。
+最近折腾 HTML5探索 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。
+空间是虚拟主机（还是WIN &#43; IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite。SO, 就开始大面积的调整程序 &#43; hack, 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2011-07-17T10:10:57&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2011-07-17T10:10:57&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">WordPress Rewrite SEO 之404方式折腾笔记</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-07-17</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1629字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="/uploads/2011/07/wordpress_404_page.gif" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。<br>
+最近折腾 <a title="HTML5探索" href="http://html5.so" target="_blank">HTML5探索</a> 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。<br>
+空间是虚拟主机（还是WIN + IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite<br>
+so, 就开始大面积的调整程序 + hack 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）<br>
+经过亲身体验，需要提醒下使用 404 Rewrite 前要明确站点是否为新建站点，若是，一切很easy，若不是，就有了我下面的那么多兼容工作要做，悲催！！<br>
+正常的对于新建站点（404支持设置为php页面前提），因为站点较新搜索引擎还未开始收录，对外分享也几乎为0。所以需要做的就相对很少，编写好404.php的处理代码，后台做好配置即可。<br>
+而有时候（其实就是我现在啦- -）, 站点运行很长时间（几年了），期间经历过无数的配置调整（还有数据丢失，我擦！），对于各种URL已经产生了很多种版本，所以需要做的工作就非常多了。<br>
+由于已经过了2天了，具体顺序都不清楚了，这里仅做下回忆录式笔记，以防以后不备之需（身在天朝，谁知哪天又天灾人祸呀！）：</p>
+<h3 id="涉及文件修改列表">涉及文件修改列表：</h3>
+<blockquote>
+<p>/404.php     /index.php     /blog/index.php</p>
+</blockquote>
+<h3 id="修改回忆录">修改回忆录：</h3>
+<ol>
+<li>/blog/index.php -&gt; /blog/index.php.bak 说白了就是备份</li>
+<li>新建 /blog/index.php, 编写一些兼容处理代码:</li>
+</ol>
+<pre><code class="php">&lt;?php
+// zfkun.com to www.zfkun.com
+if ( $_SERVER["HTTP_HOST"] === "zfkun.com") {
+doRedirect("http://www.");
+} else {
+
+// 对所有原有效URL规则做301永久重定向，从而兼容原旧历史路径
+$_qu = str_replace('/blog/index.php', '', $_SERVER['REQUEST_URI']);
+$_SERVER["REQUEST_URI"] = (empty($_qu) || $_qu == "") ? '/' : $_qu;
+doRedirect();
+}
+
+function doRedirect($prefix = "http://") {
+header( "HTTP/1.1 301 Moved Permanently" );
+header("Location: " . $prefix . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] );
+}
+?&gt;</code></pre>
+<ol start="3">
+<li>cp /blog/index.php.bak /index.php, 然后增加兼容处理:</li>
+</ol>
+<pre><code class="php">&lt;?php
+    // zfkun.com to www.zfkun.com
+    if ( $_SERVER["HTTP_HOST"] === "zfkun.com" ) {
+    header( "HTTP/1.1 301 Moved Permanently" );
+    header("Location: " . "http://www." . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] );
+    exit;
+} else {
+
+	/**
+	 * 对 /index.php/archives/* 形式URL做下过滤(历史原因)
+	 *    增加对一些特殊路径的兼容纠错,如：
+	 *        http://www.zfkun.com/index.php/archives/category/code/javascript
+	 *        http://www.zfkun.com/index.php/archives/tag/javascript
+	 *        http://www.zfkun.com/index.php/archives/205.html
+	 */
+	if (strpos($_SERVER['REQUEST_URI'], '/index.php') === 0) {
+		$_qu = str_replace( '/archives', '', str_replace('/index.php', '', $_SERVER['REQUEST_URI']) );
+		if (!empty($_qu)) {
+                    // 修正对 /index.php/archives/239 此类地址解析时忘记补充 .html 造成的BUG
+		    if (strpos($_qu, '.html') === false) {
+		        // '/205' =&gt; '/205.html'
+		         $_qu = preg_replace('/^\/(\d+)/', '$0.html', $_qu);
+		    }
+		    $_SERVER['PATH_INFO'] = $_SERVER["REQUEST_URI"] = $_qu;
+		}
+	}
+}
+
+// 解决 WordPress的中文路径在WIN + IIS 下的解析错误问题
+$_SERVER['PATH_INFO'] = mb_convert_encoding($_SERVER['PATH_INFO'],"UTF-8","GBK");
+$_SERVER['REQUEST_URI'] = mb_convert_encoding($_SERVER['REQUEST_URI'], "UTF-8", "GBK");
+.....
+?&gt;</code></pre>
+<ol start="4">
+<li>新建 /404.php 并设置虚拟主机404错误跳转至它，代码摘要：</li>
+</ol>
+<pre><code class="php">&lt;?php
+/**
+ * 重置 $_SERVER['REQUEST_URI'] 为期望访问的值
+ * 如：
+ *    当前访问  http://www.zfkun.com/date/2010/01 ,
+ *    则 404 跳转来的 $_SERVER['QUERY_STRING'] === '404;http://www.zfkun.com:80/date/2010/01'
+ */
+$_SERVER['REQUEST_URI'] = substr($_SERVER['QUERY_STRING'], strpos($_SERVER['QUERY_STRING'], ':80') + 3);
+
+// blog rule 标志位
+$isBlogRule = false;
+
+if (strpos($_SERVER['REQUEST_URI'], '/blog') === 0) {
+    $_SERVER['REQUEST_URI'] = substr($_SERVER['REQUEST_URI'], 5);
+    $isBlogRule = true;
+}
+
+if ($isBlogRule) {
+    $_SERVER['REQUEST_URI'] = str_replace('/index.php', '', $_SERVER['REQUEST_URI']);
+
+   /**
+    *    /blog/archives/205
+    *    /blog/archives/tag/php
+    *    /blog/tag/php
+    *    /blog/archives/category/code/php
+    *    /blog/category/code/php
+    */
+   if (strpos($_SERVER['REQUEST_URI'], '/archives/') === 0) {
+       $_SERVER['REQUEST_URI'] = str_replace('/archives/', '/', $_SERVER['REQUEST_URI']);
+   }
+
+    /**
+     *  对非静态化后缀的形式进行过滤检测:
+     *     可能为: '/blog/205'
+     */
+    if (strpos($_SERVER['REQUEST_URI'], '.html') === false) {
+        // '/205' =&gt; '/205.html'
+        $_SERVER['REQUEST_URI'] = preg_replace('/^\/(\d+)/', '$0.html', $_SERVER['REQUEST_URI']);
+    }
+
+   /**
+    * 检测 queryString 和 hash， 非空需特殊处理
+    */
+    if (strpos($_SERVER['REQUEST_URI'], '?') === 0 || strpos($_SERVER['REQUEST_URI'], '#') === 0) {
+        $_SERVER['REQUEST_URI'] = '/index.php' . $_SERVER['REQUEST_URI'];
+        $_SERVER['PATH_INFO'] = '';
+    } else {
+        $_SERVER['PATH_INFO'] = $_SERVER['REQUEST_URI'];
+    }
+
+    /**
+     * 修正因 404 带来的 wordpress内置分页算法的链接错误问题
+     * 比如:
+     *   访问 http://www.zfkun.com/date/2010/01 时，上一页本来期望是http://www.zfkun.com/date/2010/01/page/2
+     *   而实际，因为使用的404 rewrite技术，上一页链接却成了http://www.zfkun.com:80;/date/2010/01/page/3
+     *   这是因为wp内置的分页算法直接使用了 $_SERVER['QUERY_STRING'] 和 $_SERVER["SCRIPT_NAME"] 来生成链接地址，
+     *   当前因为是404状态下，所以 $_SERVER['QUERY_STRING'] = '404;http://www.zfkun.com:80/date/2010/01';
+     * 注意:
+     *   仅修改 $_SERVER['QUERY_STRING'] = '' 的话，并解决不了问题，因为当前执行脚本文件为/404.php 从而会导致
+     *   生成的链接到  http://www.zfkun.com/404.php/date/2010/01 上去
+     *   所以，必须还要重置 $_SERVER['SCRIPT_NAME'] = '/index.php' 从而让WP内置处理逻辑运行正常
+     */
+    $_SERVER['QUERY_STRING'] = '';
+    $_SERVER["SCRIPT_NAME"] = '/index.php';
+
+    // 启动博客主程序
+...
+} else {
+// 真正的 404 处理
+...
+}
+?&gt;</code></pre>
+<ol start="5">
+<li>
+<p>必须地，后台-&gt;固定链接-&gt;自定义结构 更新值为 /%post_id%.html<br>
+这里又发现一个让我很郁闷的问题，若自定义结构使用的形如 /archives/%post_id%.html 或之前的 /index.php/archives/%post_id%<br>
+则， 分类 和 标签的 路由默认也会增加这个前缀 /archives/tag/* /archives/category/* 擦，之前历史遗留的2种兼容结构，就是因为这个问题导致的，无奈。</p>
+</li>
+<li>
+<p>其余的乱七八糟的兼容，模糊了，回头想起来补记下</p>
+</li>
+</ol>
+<p>其实，做的工作远比现在记录的要多，只是让我印象深刻（那是好听的，其实我想说恶心的）的是这些。回头有时间继续更新好了。今天就先到这。</p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/441.html" class="block">CubeStormer II &#43; Samsung Galaxy S II ，5.35 秒暴解三阶魔方！</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/394.html" class="block">[转]利用跨域资源共享（CORS）实现ajax跨域调用</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#涉及文件修改列表">涉及文件修改列表：</a></li>
+        <li><a href="#修改回忆录">修改回忆录：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>ECMAScript 5与HTML5的支持情况 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"ECMAScript 5与HTML5的支持情况",
+      "item":"/192.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/192.html"
+    },
+    "headline": "ECMAScript 5与HTML5的支持情况 | 影の域","datePublished": "2011-03-20T09:14:50+00:00",
+    "dateModified": "2011-03-20T09:14:50+00:00",
+    "wordCount":  3934 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。"
+}
+</script><meta property="og:title" content="ECMAScript 5与HTML5的支持情况 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/192.html" />
+
+
+
+
+<meta property="og:description" content="ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2011-03-20T09:14:50&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2011-03-20T09:14:50&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">ECMAScript 5与HTML5的支持情况</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>8分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>3934字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。</p>
+<p>Object.getPrototypeOf<br>
+支持浏览器：firefox3.6 chrome4</p>
+<p><a href="http://codereview.chromium.org/518056">http://codereview.chromium.org/518056</a></p>
+<p>Object.getOwnPropertyDescriptor<br>
+支持浏览器：IE8 chrome4</p>
+<p><a href="http://code.google.com/p/chromium/issues/detail?id=20345">http://code.google.com/p/chromium/issues/detail?id=20345</a></p>
+<p>Object.keys<br>
+支持浏览器： chrome4</p>
+<p><a href="http://code.google.com/p/chromium/issues/detail?id=21767">http://code.google.com/p/chromium/issues/detail?id=21767</a></p>
+<p>Object.defineProperty<br>
+支持浏览器： IE8</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/dd548687(VS.85).aspx">http://msdn.microsoft.com/en-us/library/dd548687(VS.85).aspx</a></p>
+<p><a href="https://developer.mozilla.org/en/Core">https://developer.mozilla.org/en/Core</a>_JavaScript_1.5_Reference/Global_Objects/Object/defineProperty</p>
+<p>Object.create<br>
+支持浏览器： chrome4</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/dd548687(VS.85).aspx">http://msdn.microsoft.com/en-us/library/dd548687(VS.85).aspx</a></p>
+<p>Object.getOwnPropertyNames<br>
+支持浏览器： chrome4</p>
+<p><a href="http://code.google.com/p/v8/source/detail?r=3620">http://code.google.com/p/v8/source/detail?r=3620</a></p>
+<p>关于Object的扩展，可以看John Resig的这一篇博文《ECMAScript 5 Objects and Properties》</p>
+<p>JSON<br>
+支持浏览器： IE8 chrome1+ safari3+ firefox3+</p>
+<p>JSON.parse( text, translate )<br>
+JSON.stringify( obj, translate )<br>
+String.prototype.toJSON<br>
+Boolean.prototype.toJSON<br>
+Number.prototype.toJSON<br>
+Date.prototype.toJSON<br>
+<a href="http://blog.mozilla.com/webdev/2009/02/12/native-json-in-firefox-31/">http://blog.mozilla.com/webdev/2009/02/12/native-json-in-firefox-31/</a></p>
+<p><a href="http://blogs.msdn.com/ie/archive/2008/09/10/native-json-in-ie8.aspx">http://blogs.msdn.com/ie/archive/2008/09/10/native-json-in-ie8.aspx</a></p>
+<p>Date.now<br>
+支持浏览器： chrome4 firefox2+ safari4</p>
+<p><a href="http://trac.webkit.org/changeset/33422">http://trac.webkit.org/changeset/33422</a></p>
+<p><a href="https://developer.mozilla.org/en/Core">https://developer.mozilla.org/en/Core</a>_JavaScript_1.5_Reference/Global_Objects/Date/now</p>
+<p>Date.prototype.toISOString<br>
+支持浏览器： chrome4 firefox3.6 safari4</p>
+<p><a href="https://bugs.webkit.org/show_bug.cgi?id=26594">https://bugs.webkit.org/show_bug.cgi?id=26594</a></p>
+<p>String.prototype.trim<br>
+支持浏览器： chrome1+ firefox3+</p>
+<p><a href="https://bugs.webkit.org/show_bug.cgi?id=26590">https://bugs.webkit.org/show_bug.cgi?id=26590</a></p>
+<p><a href="http://code.google.com/p/v8/issues/detail?id=465">http://code.google.com/p/v8/issues/detail?id=465</a></p>
+<p><a href="https://developer.mozilla.org/En/Core">https://developer.mozilla.org/En/Core</a>_JavaScript_1.5_Reference/Global_Objects/String/Trim</p>
+<p>“Array extras”<br>
+Array.prototype.{indexOf,lastIndexOf,every,some,forEach,map,filter,reduce,reduceRight}</p>
+<p>IE8全部不支持，Opera不支持reduce,reduceRight，chrome与safari与firefox早就实现了</p>
+<p><a href="https://developer.mozilla.org/en/New">https://developer.mozilla.org/en/New</a>_in_JavaScript_1.6#Array_extras</p>
+<p>Array.isArray<br>
+支持浏览器： chrome4</p>
+<p><a href="http://codereview.chromium.org/271072">http://codereview.chromium.org/271072</a></p>
+<p>ECMAScript 5 Getters and Setters<br>
+这是旧有的javascript不能模拟的新特性！</p>
+<p>o = {<br>
+a:7,<br>
+get b() { return this.a+1; },<br>
+set c(x) { this.a = x/2; }<br>
+};<br>
+<a href="https://developer.mozilla.org/en/Core">https://developer.mozilla.org/en/Core</a>_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Getters_and_Setters</p>
+<p>支持浏览器：Firefox 2.0+, Safari 3.0+, Chrome 1.0+, Opera 9.5+</p>
+<p>非标准，Firefox1.5里的旧方法</p>
+<p>HTMLElement.prototype.__defineGetter__(“innerHTML”, function () {});<br>
+HTMLElement.prototype.__defineSetter__(“innerHTML”, function (val) {});<br>
+支持浏览器：Firefox 2.0+, Safari 3.0+, Google Chrome 1.0+, Opera 9.5+</p>
+<p>标准</p>
+<p>Object.defineProperty(document.body, “innerHTML”, { get : function () {} });<br>
+MSDN文档：http://msdn.microsoft.com/en-us/library/dd229916(VS.85).aspx<br>
+支持：IE8+ (只能对DOM使用)</p>
+<p>HTML5 DOM Storage<br>
+window.localStorage<br>
+window.sessionStorage //可跨域，标签页关掉就清空<br>
+支持浏览器：Firefox 3.5+, Safari 4.0+, IE 8.0+</p>
+<p><a href="http://www.w3.org/TR/webstorage/">http://www.w3.org/TR/webstorage/</a></p>
+<p><a href="http://www.quirksmode.org/dom/html5.html#localstorage">http://www.quirksmode.org/dom/html5.html#localstorage</a></p>
+<p><a href="https://developer.mozilla.org/en/DOM/Storage">https://developer.mozilla.org/en/DOM/Storage</a></p>
+<p><a href="http://msdn.microsoft.com/en-us/library/cc197062(VS.85).aspx">http://msdn.microsoft.com/en-us/library/cc197062(VS.85).aspx</a></p>
+<p>HTML5 Offline Application Cache<br>
+用一个manifest文件缓存静态资源（图片,css, js之类）在离线状态下使用，不是结构化数据</p>
+<html manifest=&#8221;foo.manifest&#8221;>  
+<h1>Entry</h1>  
+</html>  
+支持浏览器：Firefox 3.5+
+<p><a href="http://www.w3.org/TR/offline-webapps/#offline">http://www.w3.org/TR/offline-webapps/#offline</a></p>
+<p><a href="https://developer.mozilla.org/en/Offline">https://developer.mozilla.org/en/Offline</a>_resources_in_Firefox</p>
+<p>HTML5 Web SQL Database Storage<br>
+//2007年就实现了！<br>
+var database = openDatabase(“Database Name”, “Database Version”);</p>
+<p>database.executeSql(“SELECT * FROM test”, function(result1) {<br>
+// do something with the results<br>
+database.executeSql(“DROP TABLE test”, function(result2) {<br>
+// do some more stuff<br>
+alert(“My second database query finished executing!”);<br>
+});<br>
+});<br>
+支持浏览器：Safari, iPhone OS 3, Opera 10.50，chrome4</p>
+<p><a href="http://webkit.org/blog/126/webkit-does-html5-client-side-database-storage/">http://webkit.org/blog/126/webkit-does-html5-client-side-database-storage/</a></p>
+<p><a href="http://www.weboshelp.net/getting-started-with-webos/156-palm-webos-html5-database-storage-tutorial/">http://www.weboshelp.net/getting-started-with-webos/156-palm-webos-html5-database-storage-tutorial/</a></p>
+<p>HTML5 Web Workers<br>
+实现多线程！？</p>
+<p>var worker = new Worker(“worker.js”);<br>
+// Watch for messages from the worker<br>
+worker.onmessage = function(e){<br>
+// The message from the client:<br>
+e.data<br>
+};</p>
+<p>worker.postMessage(“start”);<br>
+支持浏览器：firefox3.1+</p>
+<p><a href="http://www.w3.org/TR/workers/">http://www.w3.org/TR/workers/</a></p>
+<p><a href="https://developer.mozilla.org/En/Using">https://developer.mozilla.org/En/Using</a>_web_workers</p>
+<p>日本人用它来实现的框架</p>
+<p>HTML5 Geolocation<br>
+支持浏览器：FF3.5+, iPhone OS 3</p>
+<!DOCTYPE html>  
+<html lang=&#8221;en&#8221; xmlns=&#8221;http://www.w3.org/1999/xhtml&#8221;>  
+<head>  
+<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html;charset=utf-8&#8243; />  
+<meta name=&#8221;viewport&#8221; content=&#8221;width=620&#8243; />  
+<title>HTML5 Demo: geolocation</title>  
+<style>  
+body {  
+font: normal 16px/20px Helvetica, sans-serif;  
+background: rgb(237, 237, 236);  
+margin: 0;  
+margin-top: 40px;  
+padding: 0;  
+}
+<p>section, header, footer {<br>
+display: block;<br>
+}</p>
+<p>#wrapper {<br>
+width: 600px;<br>
+margin: 0 auto;<br>
+background: #fff url(images/shade.jpg) repeat-x center bottom;<br>
+-moz-border-radius: 10px;<br>
+-webkit-border-radius: 10px;<br>
+border-top: 1px solid #fff;<br>
+padding-bottom: 76px;<br>
+}</p>
+<p>h1 {<br>
+padding-top: 10px;<br>
+}</p>
+<p>h2 {<br>
+font-size: 100%;<br>
+font-style: italic;<br>
+}</p>
+<p>header,<br>
+article &gt; *,<br>
+footer &gt; * {<br>
+margin: 20px;<br>
+}</p>
+<p>footer &gt; * {<br>
+margin: 20px;<br>
+color: #999;<br>
+}</p>
+<p>#status {<br>
+padding: 5px;<br>
+color: #fff;<br>
+background: #ccc;<br>
+}</p>
+<p>#status.fail {<br>
+background: #c00;<br>
+}</p>
+<p>#status.success {<br>
+background: #0c0;<br>
+}<br>
+</style></p>
+<script type=&#8221;text/javascript&#8221; src=&#8221;http://maps.google.com/maps/api/js?sensor=false&#8221;></script>  
+</head>  
+<body>  
+<section id=&#8221;wrapper&#8221;>  
+<header>
+<h1>Geolocation</h1>  
+</header>  
+<article>  
+<p>Finding your location: <span id=&#8221;status&#8221;>checking&#8230;</span></p>  
+</article>  
+<footer><a href=&#8221;http://www.cnblogs.com/rubylouvre/archive/2010/02/16/1668647.html&#8221;>返回</a></footer>  
+</section>
+<script>  
+function success(position) {  
+var s = document.querySelector(&#8216;#status&#8217;);
+
+if (s.className == &#8216;success&#8217;) {  
+// not sure why we&#8217;re hitting this twice in FF, I think it&#8217;s to do with a cached result coming back  
+return;  
+}
+
+s.innerHTML = &#8220;found you!&#8221;;  
+s.className = &#8216;success&#8217;;
+
+var mapcanvas = document.createElement(&#8216;div&#8217;);  
+mapcanvas.id = &#8216;mapcanvas&#8217;;  
+mapcanvas.style.height = &#8216;400px&#8217;;  
+mapcanvas.style.width = &#8216;100%&#8217;;
+
+document.querySelector(&#8216;article&#8217;).appendChild(mapcanvas);
+
+var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);  
+var myOptions = {  
+zoom: 15,  
+center: latlng,  
+mapTypeControl: false,  
+navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},  
+mapTypeId: google.maps.MapTypeId.ROADMAP  
+};  
+var map = new google.maps.Map(document.getElementById(&#8220;mapcanvas&#8221;), myOptions);
+
+var marker = new google.maps.Marker({  
+position: latlng,  
+map: map,  
+title:&#8221;You are here!&#8221;  
+});  
+}
+
+function error(msg) {  
+var s = document.querySelector(&#8216;#status&#8217;);  
+s.innerHTML = typeof msg == &#8216;string&#8217; ? msg : &#8220;failed&#8221;;  
+s.className = &#8216;fail&#8217;;
+
+// console.log(arguments);  
+}
+
+if (navigator.geolocation) {  
+navigator.geolocation.getCurrentPosition(success, error);  
+} else {  
+error(&#8216;not supported&#8217;);  
+}
+
+</script>
+</body>  
+</html>
+<p>运行代码</p>
+<p><a href="http://www.w3.org/TR/geolocation-API/">http://www.w3.org/TR/geolocation-API/</a></p>
+<p><a href="https://developer.mozilla.org/En/Using_geolocation">https://developer.mozilla.org/En/Using_geolocation</a></p>
+<p>HTML5 Drag and Drop<br>
+原生拖放API</p>
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta content=&#8221;text/html; charset=UTF-8&#8243; http-equiv=&#8221;content-type&#8221;/>  
+<title>HTML5 Drag and drop demonstration</title>  
+<style type=&#8221;text/css&#8221;>  
+* {  
+margin: 0;  
+padding: 0;  
+}
+<p>body {<br>
+margin: 50px;<br>
+font-family: helvetica, arial;<br>
+}</p>
+<p>li {<br>
+list-style: none;<br>
+}</p>
+<p>li a {<br>
+text-decoration: none;<br>
+color: #000;<br>
+margin: 10px;<br>
+width: 150px;<br>
+border: 3px dashed #999;<br>
+background: #eee;<br>
+padding: 10px;<br>
+display: block;<br>
+}</p>
+<p>*[draggable=true] {<br>
+-moz-user-select:none;<br>
+-khtml-user-drag: element;<br>
+cursor: move;<br>
+}</p>
+<p>*:-khtml-drag {<br>
+background-color: rgba(238,238,238, 0.5);<br>
+}</p>
+<p>a:hover:after {<br>
+content: ‘ (drag me)’;<br>
+}</p>
+<p>li.over {<br>
+border-color: #333;<br>
+background: #ccc;<br>
+}</p>
+<p>#bin {<br>
+background: url(<a href="http://html5demos.com/images/bin.jpg">http://html5demos.com/images/bin.jpg</a>) top right no-repeat;<br>
+height: 250px;<br>
+width: 166px;<br>
+float: right;<br>
+border: 5px solid #000;<br>
+position: relative;<br>
+}</p>
+<p>#bin.over {<br>
+background: url(images/bin.jpg) top left no-repeat;<br>
+}</p>
+<p>#bin p {<br>
+font-weight: bold;<br>
+text-align: center;<br>
+position: absolute;<br>
+bottom: 20px;<br>
+width: 166px;<br>
+font-size: 32px;<br>
+color: #fff;<br>
+text-shadow: #000 2px 2px 2px;<br>
+}</p>
+<p></style></p>
+</head>  
+<body>  
+<div id=&#8221;bin&#8221;></div>  
+<ul>  
+<li><a id=&#8221;one&#8221; href=&#8221;#&#8221;>one</a></li>  
+<li><a href=&#8221;#&#8221; id=&#8221;two&#8221;>two</a></li>  
+<li><a href=&#8221;#&#8221; id=&#8221;three&#8221;>three</a></li>  
+<li><a href=&#8221;#&#8221; id=&#8221;four&#8221;>four</a></li>  
+<li><a href=&#8221;#&#8221; id=&#8221;five&#8221;>five</a></li>  
+</ul>  
+<script src=&#8221;http://files.cnblogs.com/rubylouvre/html5.js&#8221;></script>  
+<script>
+<p>var eat = [‘yum!’, ‘gulp’, ‘burp!’, ‘nom’];<br>
+var yum = document.createElement(‘p’);<br>
+var msie = /*@cc_on!@*/0;<br>
+yum.style.opacity = 1;</p>
+<p>var links = document.querySelectorAll(‘li &gt; a’), el = null;<br>
+for (var i = 0; i &lt; links.length; i++) {<br>
+el = links[i];</p>
+<p>el.setAttribute(‘draggable’, ‘true’);</p>
+<p>addEvent(el, ‘dragstart’, function (e) {<br>
+e.dataTransfer.effectAllowed = ‘move’;<br>
+e.dataTransfer.setData(‘Text’, this.id); // required otherwise doesn’t work<br>
+});<br>
+}</p>
+<p>var bin = document.querySelector(‘#bin’);</p>
+<p>addEvent(bin, ‘dragover’, function (e) {<br>
+if (e.preventDefault) e.preventDefault(); // allows us to drop<br>
+this.className = ‘over’;<br>
+return false;<br>
+});</p>
+<p>// to get IE to work<br>
+addEvent(bin, ‘dragenter’, function (e) {<br>
+this.className = ‘over’;<br>
+return false;<br>
+});</p>
+<p>addEvent(bin, ‘dragleave’, function () {<br>
+this.className = ”;<br>
+});</p>
+<p>addEvent(bin, ‘drop’, function (e) {<br>
+if (e.stopPropagation) e.stopPropagation(); // stops the browser from redirecting…why???</p>
+<p>var el = document.getElementById(e.dataTransfer.getData(‘Text’));</p>
+<p>el.parentNode.removeChild(el);</p>
+<p>// stupid nom text + fade effect<br>
+bin.className = ”;<br>
+yum.innerHTML = eat[parseInt(Math.random() * eat.length)];</p>
+<p>var y = yum.cloneNode(true);<br>
+bin.appendChild(y);</p>
+<p>setTimeout(function () {<br>
+var t = setInterval(function () {<br>
+if (y.style.opacity &lt;= 0) {<br>
+if (msie) { // don’t bother with the animation<br>
+y.style.display = ‘none’;<br>
+}<br>
+clearInterval(t);<br>
+} else {<br>
+y.style.opacity -= 0.1;<br>
+}<br>
+}, 50);<br>
+}, 250);</p>
+<p>return false;<br>
+});</p>
+<p></script></p>
+</body>  
+</html>
+<p>运行代码</p>
+<p>支持浏览器：IE8, Safari 4, FF3.5</p>
+<p>IE8如果报错，请刷新当前页面……</p>
+<p><a href="http://www.w3.org/TR/html5/editing.html#dnd">http://www.w3.org/TR/html5/editing.html#dnd</a></p>
+<p><a href="https://developer.mozilla.org/En/DragDrop/Drag">https://developer.mozilla.org/En/DragDrop/Drag</a>_and_Drop</p>
+<p>HTML5 Video<br>
+支持浏览器：Safari 4, FF3.5,chrome3+</p>
+<!DOCTYPE html>  
+<html lang=&#8221;en&#8221; xmlns=&#8221;http://www.w3.org/1999/xhtml&#8221;>  
+<head>  
+<meta charset=utf-8 />  
+<title>HTML5 Demo: video</title>  
+<style>  
+body {  
+font: normal 16px/20px Helvetica, sans-serif;  
+background: rgb(237, 237, 236);  
+margin: 0;  
+margin-top: 40px;  
+padding: 0;  
+}
+<p>article, section, header, footer {<br>
+display: block;<br>
+}</p>
+<p>#wrapper {<br>
+width: 600px;<br>
+margin: 0 auto;<br>
+background: #fff url(<a href="http://html5demos.com/images/shade.jpg">http://html5demos.com/images/shade.jpg</a>) repeat-x center bottom;<br>
+-moz-border-radius: 10px;<br>
+-webkit-border-radius: 10px;<br>
+border-top: 1px solid #fff;<br>
+padding-bottom: 76px;<br>
+}</p>
+<p>h1 {<br>
+padding-top: 10px;<br>
+}</p>
+<p>h2 {<br>
+font-size: 100%;<br>
+font-style: italic;<br>
+}</p>
+<p>header,<br>
+article &gt; *,<br>
+footer a,<br>
+footer p {<br>
+margin: 20px;<br>
+}</p>
+<p>footer &gt; * {<br>
+margin: 20px;<br>
+color: #999;<br>
+}</p>
+<p>article {<br>
+display: block;<br>
+position: relative;<br>
+}</p>
+<p></style></p>
+</head>  
+<body>  
+<section id=&#8221;wrapper&#8221;>  
+<header>  
+<h1>Video</h1>  
+</header>  
+<article>  
+<video>  
+<source src=&#8221;http://html5demos.com/dizzy.mp4&#8243; />  
+<source src=&#8221;http://html5demos.com/dizzy.ogv&#8221; />  
+</video>  
+<p id=&#8221;controls&#8221;>  
+<input type=&#8221;button&#8221; id=&#8221;play&#8221; value=&#8221;play&#8221;>  
+<span id=&#8221;position&#8221;>00:00</span> / <span id=&#8221;duration&#8221;>loading&#8230;</span>  
+</p>  
+<p>Note that (at time of writing) <a href=&#8221;http://webkit.org/&#8221; title=&#8221;The WebKit Open Source Project&#8221;>Webkit nightly</a> supports full screen mode, which will add a button above.</p>  
+</article>  
+<footer><a href=&#8221;http://www.cnblogs.com/rubylouvre/&#8221;>返回</a></footer>  
+</section>  
+<script src=&#8221;http://html5demos.com/h5utils.js&#8221;></script>  
+<script>  
+var video = document.querySelector(&#8216;video&#8217;),  
+togglePlay = document.querySelector(&#8216;#play&#8217;),  
+position = document.querySelector(&#8216;#position&#8217;),  
+ready = false,  
+controls = document.querySelector(&#8216;#controls&#8217;),  
+fullscreen = null;
+<p>addEvent(togglePlay, ‘click’, function () {<br>
+if (ready) {<br>
+video.playbackRate = 0.5;<br>
+if (video.paused) {<br>
+if (video.ended) video.currentTime = 0;<br>
+video.play();<br>
+this.value = “pause”;<br>
+} else {<br>
+video.pause();<br>
+this.value = “play”;<br>
+}<br>
+}<br>
+});</p>
+<p>addEvent(video, ‘timeupdate’, function () {<br>
+position.innerHTML = asTime(this.currentTime);<br>
+});</p>
+<p>addEvent(video, ‘ended’, function () {<br>
+togglePlay.value = “play”;<br>
+});</p>
+<p>addEvent(video, ‘canplay’, function () {<br>
+video.muted = true;<br>
+ready = true;<br>
+document.querySelector(‘#duration’).innerHTML = asTime(this.duration);</p>
+<p>// note: .webkitSupportsFullscreen is false while the video is loading, so we bind in to the canplay event<br>
+if (video.webkitSupportsFullscreen) {<br>
+fullscreen = document.createElement(‘input’);<br>
+fullscreen.setAttribute(‘type’, ‘button’);<br>
+fullscreen.setAttribute(‘value’, ‘fullscreen’);<br>
+controls.insertBefore(fullscreen, controls.firstChild);<br>
+addEvent(fullscreen, ‘click’, function () {<br>
+video.webkitEnterFullScreen();<br>
+});<br>
+}</p>
+<p>});</p>
+<p>function asTime(t) {<br>
+t = Math.round(t);<br>
+var s = t % 60;<br>
+var m = Math.round(t / 60);</p>
+<p>return two(m) + ‘:’ + two(s);<br>
+}</p>
+<p>function two(s) {<br>
+s += “”;<br>
+if (s.length &lt; 2) s = “0” + s;<br>
+return s;<br>
+}<br>
+</script></p>
+</body>  
+</html>
+<p>运行代码</p>
+<p><a href="https://developer.mozilla.org/En/Using">https://developer.mozilla.org/En/Using</a>_audio_and_video_in_Firefox</p>
+<p><a href="http://webkit.org/blog/140/html5-media-support/">http://webkit.org/blog/140/html5-media-support/</a></p>
+<p>HTML5 audio<br>
+支持浏览器：Safari 4, FF3.5,chrome3+<br>
+&lt;!doctype html&gt;</p>
+<html dir=&#8221;ltr&#8221; lang=&#8221;zh-CN&#8221;>  
+<head>  
+<meta charset=&#8221;utf-8&#8243;/>  
+<title>阅读器</title>  
+</head>  
+<body >  
+<article id=&#8221;nativity-story-from-luke&#8221;  
+xmlns:o=&#8221;http://www.bibletechnologies.net/2003/OSIS/namespace&#8221;>  
+<style scoped=&#8221;&#8221;>  
+/*@namespace o &#8220;http://www.bibletechnologies.net/2003/OSIS/namespace&#8221;;  
+o|verse[osisID]:before,  
+verse[osisID]:before {  
+content: &#8221; &#8221; attr(osisID);  
+font-size:smaller;  
+vertical-align:super;  
+}*/  
+#nativity-story-from-luke audio {  
+display:block;  
+margin-top:1em;  
+margin-bottom:1em;  
+width:100%;  
+}  
+#nativity-story-from-luke span[data-begin]::selection { background-color:yellow; }  
+#nativity-story-from-luke span[data-begin]::-moz-selection { background-color:yellow; }  
+#nativity-story-from-luke span[data-begin] {  
+cursor:pointer;  
+}  
+#nativity-story-from-luke span[data-begin]:hover {  
+background-color:#FFFFCA;  
+}  
+#nativity-story-from-luke .error {  
+color:red;  
+}  
+#nativity-story-from-luke footer {  
+line-height:1.1em;  
+margin-top:1em;  
+}  
+html #nativity-story-from-luke h2 { /\* for appearance on my site \*/  
+font-size:1.3em;  
+margin-top:0;  
+padding-top:0.5em;  
+margin-bottom:1em;  
+}  
+</style>  
+<!&#8211;  
+<o:work osisWork=&#8221;ESV&#8221;>  
+<o:title>English Standard Version</o:title>  
+<o:type type=&#8221;OSIS&#8221;>Bible</o:type>  
+<o:identifier type=&#8221;OSIS&#8221;>Bible.en.Crossway.ESV.2001</o:identifier>  
+<o:scope>Luke.2.1-Luke.2.20</o:scope>  
+<o:refSystem>Bible</o:refSystem>  
+</o:work>  
+<o:work osisWork=&#8221;bible&#8221;>  
+<o:type type=&#8221;OSIS&#8221;>Bible</o:type>  
+<o:refSystem>Bible</o:refSystem>  
+</o:work>  
+&#8211;>
+<h2><a href=&#8221;http://www.gnpcb.org/esv/search/?q=Luke+2%3A1-20&#8243; title=&#8221;View Luke 2:1-20 at the ESV Online&#8221; target=&#8221;_blank&#8221;>Luke 2:1-20</a> (<a href=&#8221;http://www.esv.org&#8221;><abbr title=&#8221;English Standard Version&#8221;>ESV</abbr></a>)</h2>
+<p>&lt;audio controls=”” style=”width:100%; height:2em;”&gt;</p>
+<source src=&#8221;http://weston.ruter.net/projects/html5-audio-read-along/Luke.2.1-Luke.2.20.mp3&#8243; type=&#8221;audio/mp3&#8243; />  
+<source src=&#8221;http://weston.ruter.net/projects/html5-audio-read-along/Luke.2.1-Luke.2.20.ogg&#8221; type=&#8221;audio/ogg&#8221; />  
+<source src=&#8221;http://weston.ruter.net/projects/html5-audio-read-along/Luke.2.1-Luke.2.20.wav&#8221; type=&#8221;audio/wav&#8221; />  
+<em class=&#8217;error&#8217;><strong>Notice:</strong> Your browser doesn&#8217;t appear to support HTML5 Audio. Please use try Firefox 3.5, Chrome, or Safari.</em>  
+</audio>  
+<noscript>  
+<p class=&#8217;error&#8217;><em><strong>Notice:</strong> You must have JavaScript enabled/available to try this HTML5 Audio read along. If you&#8217;re  
+viewing this in a feed reader, try <a href=&#8221;http://weston.ruter.net/projects/html5-audio-read-along/#nativity-story-from-luke&#8221;>viewing outside</a>.</em></p>  
+</noscript>
+<p>&lt;!–<h3>The Birth of Jesus Christ</h3>–&gt;</p>
+<p><o:verse sID=&#8221;Luke.2.1&#8243; osisID=&#8221;Luke.2.1&#8243;/><span data-dur=&#8221;0.154&#8243; data-begin=&#8221;0.775&#8243;>In</span> <span data-dur=&#8221;0.28&#8243; data-begin=&#8221;0.929&#8243;>those</span> <span data-dur=&#8221;0.29&#8243; data-begin=&#8221;1.218&#8243;>days</span> <span data-dur=&#8221;0.131&#8243; data-begin=&#8221;1.508&#8243;>a</span> <span data-dur=&#8221;0.525&#8243; data-begin=&#8221;1.639&#8243;>decree</span> <span data-dur=&#8221;0.191&#8243; data-begin=&#8221;2.165&#8243;>went</span> <span data-dur=&#8221;0.225&#8243; data-begin=&#8221;2.355&#8243;>out</span> <span data-dur=&#8221;0.245&#8243; data-begin=&#8221;2.583&#8243;>from</span> <span data-dur=&#8221;0.438&#8243; data-begin=&#8221;2.828&#8243;>Caesar</span> <span data-dur=&#8221;0.637&#8243; data-begin=&#8221;3.267&#8243;>Augustus</span> <span data-dur=&#8221;0.166&#8243; data-begin=&#8221;4.03&#8243;>that</span> <span data-dur=&#8221;0.268&#8243; data-begin=&#8221;4.216&#8243;>all</span> <span data-dur=&#8221;0.111&#8243; data-begin=&#8221;4.486&#8243;>the</span> <span data-dur=&#8221;0.411&#8243; data-begin=&#8221;4.594&#8243;>world</span> <span data-dur=&#8221;0.205&#8243; data-begin=&#8221;5.006&#8243;>should</span> <span data-dur=&#8221;0.134&#8243; data-begin=&#8221;5.211&#8243;>be</span> <span data-dur=&#8221;0.529&#8243; data-begin=&#8221;5.344&#8243;>registered</span>. <o:verse eID=&#8221;Luke.2.1&#8243;/><o:verse sID=&#8221;Luke.2.2&#8243; osisID=&#8221;Luke.2.2&#8243;/><span data-dur=&#8221;0.201&#8243; data-begin=&#8221;6.675&#8243;>This</span> <span data-dur=&#8221;0.124&#8243; data-begin=&#8221;6.876&#8243;>was</span> <span data-dur=&#8221;0.11&#8243; data-begin=&#8221;7&#8243;>the</span> <span data-dur=&#8221;0.321&#8243; data-begin=&#8221;7.11&#8243;>first</span> <span data-dur=&#8221;0.762&#8243; data-begin=&#8221;7.431&#8243;>registration</span> <span data-dur=&#8221;0.164&#8243; data-begin=&#8221;8.193&#8243;>when</span> <span data-dur=&#8221;0.474&#8243; data-begin=&#8221;8.357&#8243;>Quirinius</span> <span data-dur=&#8221;0.206&#8243; data-begin=&#8221;8.834&#8243;>was</span> <span data-dur=&#8221;0.338&#8243; data-begin=&#8221;9.041&#8243;>governor</span> <span data-dur=&#8221;0.082&#8243; data-begin=&#8221;9.379&#8243;>of</span> <span data-dur=&#8221;0.477&#8243; data-begin=&#8221;9.46&#8243;>Syria</span>. <o:verse eID=&#8221;Luke.2.2&#8243;/><o:verse sID=&#8221;Luke.2.3&#8243; osisID=&#8221;Luke.2.3&#8243;/><span data-dur=&#8221;0.119&#8243; data-begin=&#8221;10.676&#8243;>And</span> <span data-dur=&#8221;0.24&#8243; data-begin=&#8221;10.794&#8243;>all</span> <span data-dur=&#8221;0.186&#8243; data-begin=&#8221;11.034&#8243;>went</span> <span data-dur=&#8221;0.087&#8243; data-begin=&#8221;11.22&#8243;>to</span> <span data-dur=&#8221;0.139&#8243; data-begin=&#8221;11.307&#8243;>be</span> <span data-dur=&#8221;0.592&#8243; data-begin=&#8221;11.446&#8243;>registered</span>, <span data-dur=&#8221;0.251&#8243; data-begin=&#8221;12.284&#8243;>each</span> <span data-dur=&#8221;0.093&#8243; data-begin=&#8221;12.572&#8243;>to</span> <span data-dur=&#8221;0.134&#8243; data-begin=&#8221;12.665&#8243;>his</span> <span data-dur=&#8221;0.275&#8243; data-begin=&#8221;12.799&#8243;>own</span> <span data-dur=&#8221;0.467&#8243; data-begin=&#8221;13.074&#8243;>town</span>. <o:verse eID=&#8221;Luke.2.3&#8243;/><o:verse sID=&#8221;Luke.2.4&#8243; osisID=&#8221;Luke.2.4&#8243;/><span data-dur=&#8221;0.184&#8243; data-begin=&#8221;14.369&#8243;>And</span> <span data-dur=&#8221;0.358&#8243; data-begin=&#8221;14.553&#8243;>Joseph</span> <span data-dur=&#8221;0.351&#8243; data-begin=&#8221;14.911&#8243;>also</span> <span data-dur=&#8221;0.128&#8243; data-begin=&#8221;15.262&#8243;>went</span> <span data-dur=&#8221;0.152&#8243; data-begin=&#8221;15.39&#8243;>up</span> <span data-dur=&#8221;0.215&#8243; data-begin=&#8221;15.595&#8243;>from</span> <span data-dur=&#8221;0.541&#8243; data-begin=&#8221;15.811&#8243;>Galilee</span>, <span data-dur=&#8221;0.074&#8243; data-begin=&#8221;16.557&#8243;>from</span> <span data-dur=&#8221;0.121&#8243; data-begin=&#8221;16.632&#8243;>the</span> <span data-dur=&#8221;0.236&#8243; data-begin=&#8221;16.752&#8243;>town</span> <span data-dur=&#8221;0.097&#8243; data-begin=&#8221;16.988&#8243;>of</span> <span data-dur=&#8221;0.559&#8243; data-begin=&#8221;17.085&#8243;>Nazareth</span>, <span data-dur=&#8221;0.154&#8243; data-begin=&#8221;17.966&#8243;>to</span> <span data-dur=&#8221;0.575&#8243; data-begin=&#8221;18.12&#8243;>Judea</span>, <span data-dur=&#8221;0.129&#8243; data-begin=&#8221;18.823&#8243;>to</span> <span data-dur=&#8221;0.059&#8243; data-begin=&#8221;18.952&#8243;>the</span> <span data-dur=&#8221;0.31&#8243; data-begin=&#8221;19.011&#8243;>city</span> <span data-dur=&#8221;0.166&#8243; data-begin=&#8221;19.321&#8243;>of</span> <span data-dur=&#8221;0.393&#8243; data-begin=&#8221;19.487&#8243;>David</span>, <span data-dur=&#8221;0.161&#8243; data-begin=&#8221;20.029&#8243;>which</span> <span data-dur=&#8221;0.109&#8243; data-begin=&#8221;20.19&#8243;>is</span> <span data-dur=&#8221;0.307&#8243; data-begin=&#8221;20.321&#8243;>called</span> <span data-dur=&#8221;0.642&#8243; data-begin=&#8221;20.628&#8243;>Bethlehem</span>, <span data-dur=&#8221;0.317&#8243; data-begin=&#8221;21.76&#8243;>because</span> <span data-dur=&#8221;0.116&#8243; data-begin=&#8221;22.077&#8243;>he</span> <span data-dur=&#8221;0.104&#8243; data-begin=&#8221;22.193&#8243;>was</span> <span data-dur=&#8221;0.166&#8243; data-begin=&#8221;22.297&#8243;>of</span> <span data-dur=&#8221;0.059&#8243; data-begin=&#8221;22.463&#8243;>the</span> <span data-dur=&#8221;0.412&#8243; data-begin=&#8221;22.522&#8243;>house</span> <span data-dur=&#8221;0.155&#8243; data-begin=&#8221;22.935&#8243;>and</span> <span data-dur=&#8221;0.384&#8243; data-begin=&#8221;23.09&#8243;>lineage</span> <span data-dur=&#8221;0.175&#8243; data-begin=&#8221;23.474&#8243;>of</span> <span data-dur=&#8221;0.421&#8243; data-begin=&#8221;23.648&#8243;>David</span>, <o:verse eID=&#8221;Luke.2.4&#8243;/><o:verse sID=&#8221;Luke.2.5&#8243; osisID=&#8221;Luke.2.5&#8243;/><span data-dur=&#8221;0.127&#8243; data-begin=&#8221;24.714&#8243;>to</span> <span data-dur=&#8221;0.172&#8243; data-begin=&#8221;24.84&#8243;>be</span> <span data-dur=&#8221;0.53&#8243; data-begin=&#8221;25.013&#8243;>registered</span> <span data-dur=&#8221;0.125&#8243; data-begin=&#8221;25.543&#8243;>with</span> <span data-dur=&#8221;0.515&#8243; data-begin=&#8221;25.668&#8243;>Mary</span>, <span data-dur=&#8221;0.172&#8243; data-begin=&#8221;26.183&#8243;>his</span> <span data-dur=&#8221;0.607&#8243; data-begin=&#8221;26.355&#8243;>betrothed</span>, <span data-dur=&#8221;0.123&#8243; data-begin=&#8221;27.134&#8243;>who</span> <span data-dur=&#8221;0.166&#8243; data-begin=&#8221;27.257&#8243;>was</span> <span data-dur=&#8221;0.167&#8243; data-begin=&#8221;27.423&#8243;>with</span> <span data-dur=&#8221;0.513&#8243; data-begin=&#8221;27.59&#8243;>child</span>. <o:verse eID=&#8221;Luke.2.5&#8243;/><o:verse sID=&#8221;Luke.2.6&#8243; osisID=&#8221;Luke.2.6&#8243;/><span data-dur=&#8221;0.161&#8243; data-begin=&#8221;29.448&#8243;>And</span> <span data-dur=&#8221;0.362&#8243; data-begin=&#8221;29.609&#8243;>while</span> <span data-dur=&#8221;0.159&#8243; data-begin=&#8221;29.97&#8243;>they</span> <span data-dur=&#8221;0.166&#8243; data-begin=&#8221;30.129&#8243;>were</span> <span data-dur=&#8221;0.436&#8243; data-begin=&#8221;30.295&#8243;>there</span>, <span data-dur=&#8221;0.159&#8243; data-begin=&#8221;31.072&#8243;>the</span> <span data-dur=&#8221;0.431&#8243; data-begin=&#8221;31.231&#8243;>time</span> <span data-dur=&#8221;0.277&#8243; data-begin=&#8221;31.662&#8243;>came</span> <span data-dur=&#8221;0.161&#8243; data-begin=&#8221;31.939&#8243;>for</span> <span data-dur=&#8221;0.093&#8243; data-begin=&#8221;32.1&#8243;>her</span> <span data-dur=&#8221;0.107&#8243; data-begin=&#8221;32.193&#8243;>to</span> <span data-dur=&#8221;0.233&#8243; data-begin=&#8221;32.299&#8243;>give</span> <span data-dur=&#8221;0.352&#8243; data-begin=&#8221;32.522&#8243;>birth</span>. <o:verse eID=&#8221;Luke.2.6&#8243;/><o:verse sID=&#8221;Luke.2.7&#8243; osisID=&#8221;Luke.2.7&#8243;/><span data-dur=&#8221;0.133&#8243; data-begin=&#8221;33.972&#8243;>And</span> <span data-dur=&#8221;0.213&#8243; data-begin=&#8221;34.105&#8243;>she</span> <span data-dur=&#8221;0.277&#8243; data-begin=&#8221;34.318&#8243;>gave</span> <span data-dur=&#8221;0.253&#8243; data-begin=&#8221;34.596&#8243;>birth</span> <span data-dur=&#8221;0.069&#8243; data-begin=&#8221;34.888&#8243;>to</span> <span data-dur=&#8221;0.171&#8243; data-begin=&#8221;34.957&#8243;>her</span> <span data-dur=&#8221;0.602&#8243; data-begin=&#8221;35.128&#8243;>firstborn</span> <span data-dur=&#8221;0.56&#8243; data-begin=&#8221;35.73&#8243;>son</span> <span data-dur=&#8221;0.166&#8243; data-begin=&#8221;36.491&#8243;>and</span> <span data-dur=&#8221;0.342&#8243; data-begin=&#8221;36.657&#8243;>wrapped</span> <span data-dur=&#8221;0.153&#8243; data-begin=&#8221;36.998&#8243;>him</span> <span data-dur=&#8221;0.119&#8243; data-begin=&#8221;37.152&#8243;>in</span> <span data-dur=&#8221;0.55&#8243; data-begin=&#8221;37.271&#8243;>swaddling</span> <span data-dur=&#8221;0.542&#8243; data-begin=&#8221;37.82&#8243;>cloths</span> <span data-dur=&#8221;0.154&#8243; data-begin=&#8221;38.644&#8243;>and</span> <span data-dur=&#8221;0.287&#8243; data-begin=&#8221;38.798&#8243;>laid</span> <span data-dur=&#8221;0.176&#8243; data-begin=&#8221;39.085&#8243;>him</span> <span data-dur=&#8221;0.087&#8243; data-begin=&#8221;39.261&#8243;>in</span> <span data-dur=&#8221;0.092&#8243; data-begin=&#8221;39.348&#8243;>a</span> <span data-dur=&#8221;0.604&#8243; data-begin=&#8221;39.44&#8243;>manger</span>, <span data-dur=&#8221;0.277&#8243; data-begin=&#8221;40.182&#8243;>because</span> <span data-dur=&#8221;0.131&#8243; data-begin=&#8221;40.46&#8243;>there</span> <span data-dur=&#8221;0.151&#8243; data-begin=&#8221;40.591&#8243;>was</span> <span data-dur=&#8221;0.213&#8243; data-begin=&#8221;40.742&#8243;>no</span> <span data-dur=&#8221;0.312&#8243; data-begin=&#8221;40.975&#8243;>place</span> <span data-dur=&#8221;0.121&#8243; data-begin=&#8221;41.287&#8243;>for</span> <span data-dur=&#8221;0.158&#8243; data-begin=&#8221;41.408&#8243;>them</span> <span data-dur=&#8221;0.116&#8243; data-begin=&#8221;41.566&#8243;>in</span> <span data-dur=&#8221;0.111&#8243; data-begin=&#8221;41.683&#8243;>the</span> <span data-dur=&#8221;0.406&#8243; data-begin=&#8221;41.794&#8243;>inn</span>.<o:verse eID=&#8221;Luke.2.7&#8243;/></p>  
+<!&#8211;<h3>The Shepherds and the Angels</h3>&#8211;>  
+<p><o:verse sID=&#8221;Luke.2.8&#8243; osisID=&#8221;Luke.2.8&#8243;/><span data-dur=&#8221;0.144&#8243; data-begin=&#8221;43.166&#8243;>And</span> <span data-dur=&#8221;0.089&#8243; data-begin=&#8221;43.309&#8243;>in</span> <span data-dur=&#8221;0.102&#8243; data-begin=&#8221;43.398&#8243;>the</span> <span data-dur=&#8221;0.329&#8243; data-begin=&#8221;43.5&#8243;>same</span> <span data-dur=&#8221;0.406&#8243; data-begin=&#8221;43.829&#8243;>region</span> <span data-dur=&#8221;0.146&#8243; data-begin=&#8221;44.236&#8243;>there</span> <span data-dur=&#8221;0.082&#8243; data-begin=&#8221;44.382&#8243;>were</span> <span data-dur=&#8221;0.495&#8243; data-begin=&#8221;44.463&#8243;>shepherds</span> <span data-dur=&#8221;0.154&#8243; data-begin=&#8221;44.959&#8243;>out</span> <span data-dur=&#8221;0.104&#8243; data-begin=&#8221;45.112&#8243;>in</span> <span data-dur=&#8221;0.094&#8243; data-begin=&#8221;45.216&#8243;>the</span> <span data-dur=&#8221;0.561&#8243; data-begin=&#8221;45.311&#8243;>field</span>, <span data-dur=&#8221;0.295&#8243; data-begin=&#8221;45.954&#8243;>keeping</span> <span data-dur=&#8221;0.334&#8243; data-begin=&#8221;46.249&#8243;>watch</span> <span data-dur=&#8221;0.173&#8243; data-begin=&#8221;46.583&#8243;>over</span> <span data-dur=&#8221;0.107&#8243; data-begin=&#8221;46.756&#8243;>their</span> <span data-dur=&#8221;0.401&#8243; data-begin=&#8221;46.863&#8243;>flock</span> <span data-dur=&#8221;0.124&#8243; data-begin=&#8221;47.264&#8243;>by</span> <span data-dur=&#8221;0.374&#8243; data-begin=&#8221;47.388&#8243;>night</span>. <o:verse eID=&#8221;Luke.2.8&#8243;/><o:verse sID=&#8221;Luke.2.9&#8243; osisID=&#8221;Luke.2.9&#8243;/><span data-dur=&#8221;0.144&#8243; data-begin=&#8221;48.751&#8243;>And</span> <span data-dur=&#8221;0.176&#8243; data-begin=&#8221;48.895&#8243;>an</span> <span data-dur=&#8221;0.409&#8243; data-begin=&#8221;49.071&#8243;>angel</span> <span data-dur=&#8221;0.109&#8243; data-begin=&#8221;49.479&#8243;>of</span> <span data-dur=&#8221;0.134&#8243; data-begin=&#8221;49.588&#8243;>the</span> <span data-dur=&#8221;0.233&#8243; data-begin=&#8221;49.722&#8243;>Lord</span> <span data-dur=&#8221;0.491&#8243; data-begin=&#8221;49.955&#8243;>appeared</span> <span data-dur=&#8221;0.107&#8243; data-begin=&#8221;50.446&#8243;>to</span> <span data-dur=&#8221;0.31&#8243; data-begin=&#8221;50.553&#8243;>them</span>, <span data-dur=&#8221;0.126&#8243; data-begin=&#8221;51.164&#8243;>and</span> <span data-dur=&#8221;0.186&#8243; data-begin=&#8221;51.29&#8243;>the</span> <span data-dur=&#8221;0.49&#8243; data-begin=&#8221;51.476&#8243;>glory</span> <span data-dur=&#8221;0.129&#8243; data-begin=&#8221;51.967&#8243;>of</span> <span data-dur=&#8221;0.092&#8243; data-begin=&#8221;52.095&#8243;>the</span> <span data-dur=&#8221;0.361&#8243; data-begin=&#8221;52.187&#8243;>Lord</span> <span data-dur=&#8221;0.409&#8243; data-begin=&#8221;52.548&#8243;>shone</span> <span data-dur=&#8221;0.436&#8243; data-begin=&#8221;52.957&#8243;>around</span> <span data-dur=&#8221;0.23&#8243; data-begin=&#8221;53.393&#8243;>them</span>, <span data-dur=&#8221;0.102&#8243; data-begin=&#8221;53.899&#8243;>and</span> <span data-dur=&#8221;0.084&#8243; data-begin=&#8221;54.001&#8243;>they</span> <span data-dur=&#8221;0.092&#8243; data-begin=&#8221;54.085&#8243;>were</span> <span data-dur=&#8221;0.401&#8243; data-begin=&#8221;54.177&#8243;>filled</span> <span data-dur=&#8221;0.3&#8243; data-begin=&#8221;54.578&#8243;>with</span> <span data-dur=&#8221;0.481&#8243; data-begin=&#8221;54.878&#8243;>fear</span>. <o:verse eID=&#8221;Luke.2.9&#8243;/><o:verse sID=&#8221;Luke.2.10&#8243; osisID=&#8221;Luke.2.10&#8243;/><span data-dur=&#8221;0.107&#8243; data-begin=&#8221;55.998&#8243;>And</span> <span data-dur=&#8221;0.109&#8243; data-begin=&#8221;56.104&#8243;>the</span> <span data-dur=&#8221;0.352&#8243; data-begin=&#8221;56.213&#8243;>angel</span> <span data-dur=&#8221;0.23&#8243; data-begin=&#8221;56.565&#8243;>said</span> <span data-dur=&#8221;0.102&#8243; data-begin=&#8221;56.795&#8243;>to</span> <span data-dur=&#8221;0.248&#8243; data-begin=&#8221;56.897&#8243;>them</span>, <q><span data-dur=&#8221;0.327&#8243; data-begin=&#8221;57.858&#8243;>Fear</span> <span data-dur=&#8221;0.381&#8243; data-begin=&#8221;58.185&#8243;>not</span>, <span data-dur=&#8221;0.116&#8243; data-begin=&#8221;58.767&#8243;>for</span> <span data-dur=&#8221;0.703&#8243; data-begin=&#8221;58.883&#8243;>behold</span>, <span data-dur=&#8221;0.272&#8243; data-begin=&#8221;60.051&#8243;>I</span> <span data-dur=&#8221;0.188&#8243; data-begin=&#8221;60.323&#8243;>bring</span> <span data-dur=&#8221;0.238&#8243; data-begin=&#8221;60.512&#8243;>you</span> <span data-dur=&#8221;0.248&#8243; data-begin=&#8221;60.75&#8243;>good</span> <span data-dur=&#8221;0.593&#8243; data-begin=&#8221;60.998&#8243;>news</span> <span data-dur=&#8221;0.178&#8243; data-begin=&#8221;61.749&#8243;>of</span> <span data-dur=&#8221;0.372&#8243; data-begin=&#8221;61.927&#8243;>great</span> <span data-dur=&#8221;0.622&#8243; data-begin=&#8221;62.299&#8243;>joy</span> <span data-dur=&#8221;0.114&#8243; data-begin=&#8221;63.247&#8243;>that</span> <span data-dur=&#8221;0.171&#8243; data-begin=&#8221;63.361&#8243;>will</span> <span data-dur=&#8221;0.169&#8243; data-begin=&#8221;63.532&#8243;>be</span> <span data-dur=&#8221;0.151&#8243; data-begin=&#8221;63.701&#8243;>for</span> <span data-dur=&#8221;0.315&#8243; data-begin=&#8221;63.852&#8243;>all</span> <span data-dur=&#8221;0.149&#8243; data-begin=&#8221;64.167&#8243;>the</span> <span data-dur=&#8221;0.481&#8243; data-begin=&#8221;64.316&#8243;>people</span>. <o:verse eID=&#8221;Luke.2.10&#8243;/><o:verse sID=&#8221;Luke.2.11&#8243; osisID=&#8221;Luke.2.11&#8243;/><span data-dur=&#8221;0.166&#8243; data-begin=&#8221;65.384&#8243;>For</span> <span data-dur=&#8221;0.317&#8243; data-begin=&#8221;65.55&#8243;>unto</span> <span data-dur=&#8221;0.121&#8243; data-begin=&#8221;65.867&#8243;>you</span> <span data-dur=&#8221;0.173&#8243; data-begin=&#8221;65.988&#8243;>is</span> <span data-dur=&#8221;0.287&#8243; data-begin=&#8221;66.162&#8243;>born</span> <span data-dur=&#8221;0.302&#8243; data-begin=&#8221;66.449&#8243;>this</span> <span data-dur=&#8221;0.316&#8243; data-begin=&#8221;66.751&#8243;>day</span> <span data-dur=&#8221;0.074&#8243; data-begin=&#8221;67.067&#8243;>in</span> <span data-dur=&#8221;0.069&#8243; data-begin=&#8221;67.142&#8243;>the</span> <span data-dur=&#8221;0.28&#8243; data-begin=&#8221;67.211&#8243;>city</span> <span data-dur=&#8221;0.173&#8243; data-begin=&#8221;67.491&#8243;>of</span> <span data-dur=&#8221;0.461&#8243; data-begin=&#8221;67.664&#8243;>David</span> <span data-dur=&#8221;0.087&#8243; data-begin=&#8221;68.34&#8243;>a</span> <span data-dur=&#8221;0.689&#8243; data-begin=&#8221;68.426&#8243;>Savior</span>, <span data-dur=&#8221;0.126&#8243; data-begin=&#8221;69.353&#8243;>who</span> <span data-dur=&#8221;0.184&#8243; data-begin=&#8221;69.479&#8243;>is</span> <span data-dur=&#8221;0.411&#8243; data-begin=&#8221;69.663&#8243;>Christ</span> <span data-dur=&#8221;0.146&#8243; data-begin=&#8221;70.075&#8243;>the</span> <span data-dur=&#8221;0.528&#8243; data-begin=&#8221;70.22&#8243;>Lord</span>. <o:verse eID=&#8221;Luke.2.11&#8243;/><o:verse sID=&#8221;Luke.2.12&#8243; osisID=&#8221;Luke.2.12&#8243;/><span data-dur=&#8221;0.173&#8243; data-begin=&#8221;71.32&#8243;>And</span> <span data-dur=&#8221;0.191&#8243; data-begin=&#8221;71.493&#8243;>this</span> <span data-dur=&#8221;0.131&#8243; data-begin=&#8221;71.684&#8243;>will</span> <span data-dur=&#8221;0.104&#8243; data-begin=&#8221;71.815&#8243;>be</span> <span data-dur=&#8221;0.035&#8243; data-begin=&#8221;71.919&#8243;>a</span> <span data-dur=&#8221;0.461&#8243; data-begin=&#8221;71.954&#8243;>sign</span> <span data-dur=&#8221;0.162&#8243; data-begin=&#8221;72.415&#8243;>for</span> <span data-dur=&#8221;0.436&#8243; data-begin=&#8221;72.577&#8243;>you</span>: <span data-dur=&#8221;0.119&#8243; data-begin=&#8221;73.352&#8243;>you</span> <span data-dur=&#8221;0.094&#8243; data-begin=&#8221;73.471&#8243;>will</span> <span data-dur=&#8221;0.399&#8243; data-begin=&#8221;73.565&#8243;>find</span> <span data-dur=&#8221;0.141&#8243; data-begin=&#8221;73.963&#8243;>a</span> <span data-dur=&#8221;0.463&#8243; data-begin=&#8221;74.105&#8243;>baby</span> <span data-dur=&#8221;0.416&#8243; data-begin=&#8221;74.818&#8243;>wrapped</span> <span data-dur=&#8221;0.146&#8243; data-begin=&#8221;75.234&#8243;>in</span> <span data-dur=&#8221;0.602&#8243; data-begin=&#8221;75.381&#8243;>swaddling</span> <span data-dur=&#8221;0.498&#8243; data-begin=&#8221;75.982&#8243;>cloths</span> <span data-dur=&#8221;0.185&#8243; data-begin=&#8221;76.48&#8243;>and</span> <span data-dur=&#8221;0.359&#8243; data-begin=&#8221;76.665&#8243;>lying</span> <span data-dur=&#8221;0.092&#8243; data-begin=&#8221;77.024&#8243;>in</span> <span data-dur=&#8221;0.074&#8243; data-begin=&#8221;77.116&#8243;>a</span> <span data-dur=&#8221;0.617&#8243; data-begin=&#8221;77.19&#8243;>manger</span>.</q> <o:verse eID=&#8221;Luke.2.12&#8243;/><o:verse sID=&#8221;Luke.2.13&#8243; osisID=&#8221;Luke.2.13&#8243;/><span data-dur=&#8221;0.161&#8243; data-begin=&#8221;78.542&#8243;>And</span> <span data-dur=&#8221;0.624&#8243; data-begin=&#8221;78.703&#8243;>suddenly</span> <span data-dur=&#8221;0.173&#8243; data-begin=&#8221;79.327&#8243;>there</span> <span data-dur=&#8221;0.206&#8243; data-begin=&#8221;79.501&#8243;>was</span> <span data-dur=&#8221;0.196&#8243; data-begin=&#8221;79.706&#8243;>with</span> <span data-dur=&#8221;0.136&#8243; data-begin=&#8221;79.902&#8243;>the</span> <span data-dur=&#8221;0.478&#8243; data-begin=&#8221;80.038&#8243;>angel</span> <span data-dur=&#8221;0.159&#8243; data-begin=&#8221;80.516&#8243;>a</span> <span data-dur=&#8221;0.632&#8243; data-begin=&#8221;80.675&#8243;>multitude</span> <span data-dur=&#8221;0.102&#8243; data-begin=&#8221;81.307&#8243;>of</span> <span data-dur=&#8221;0.072&#8243; data-begin=&#8221;81.408&#8243;>the</span> <span data-dur=&#8221;0.387&#8243; data-begin=&#8221;81.48&#8243;>heavenly</span> <span data-dur=&#8221;0.389&#8243; data-begin=&#8221;81.867&#8243;>host</span> <span data-dur=&#8221;0.47&#8243; data-begin=&#8221;82.657&#8243;>praising</span> <span data-dur=&#8221;0.349&#8243; data-begin=&#8221;83.126&#8243;>God</span> <span data-dur=&#8221;0.091&#8243; data-begin=&#8221;83.475&#8243;>and</span> <span data-dur=&#8221;0.508&#8243; data-begin=&#8221;83.566&#8243;>saying</span>,<o:verse eID=&#8221;Luke.2.13&#8243;/></p>  
+<blockquote>  
+<p><o:verse sID=&#8221;Luke.2.14&#8243; osisID=&#8221;Luke.2.14&#8243;/><span data-dur=&#8221;0.508&#8243; data-begin=&#8221;84.905&#8243;>Glory</span> <span data-dur=&#8221;0.178&#8243; data-begin=&#8221;85.413&#8243;>to</span> <span data-dur=&#8221;0.352&#8243; data-begin=&#8221;85.591&#8243;>God</span> <span data-dur=&#8221;0.079&#8243; data-begin=&#8221;85.943&#8243;>in</span> <span data-dur=&#8221;0.057&#8243; data-begin=&#8221;86.022&#8243;>the</span> <span data-dur=&#8221;0.58&#8243; data-begin=&#8221;86.079&#8243;>highest</span>,<br />  
+<span data-dur=&#8221;0.166&#8243; data-begin=&#8221;87.058&#8243;>and</span> <span data-dur=&#8221;0.18&#8243; data-begin=&#8221;87.224&#8243;>on</span> <span data-dur=&#8221;0.385&#8243; data-begin=&#8221;87.404&#8243;>earth</span> <span data-dur=&#8221;0.338&#8243; data-begin=&#8221;88.025&#8243;>peace</span> <span data-dur=&#8221;0.271&#8243; data-begin=&#8221;88.363&#8243;>among</span> <span data-dur=&#8221;0.314&#8243; data-begin=&#8221;88.634&#8243;>those</span> <span data-dur=&#8221;0.165&#8243; data-begin=&#8221;88.948&#8243;>with</span> <span data-dur=&#8221;0.197&#8243; data-begin=&#8221;89.113&#8243;>whom</span> <span data-dur=&#8221;0.156&#8243; data-begin=&#8221;89.31&#8243;>he</span> <span data-dur=&#8221;0.16&#8243; data-begin=&#8221;89.466&#8243;>is</span> <span data-dur=&#8221;0.715&#8243; data-begin=&#8221;89.626&#8243;>pleased</span>!<o:verse eID=&#8221;Luke.2.14&#8243;/></p>  
+</blockquote>  
+<p><o:verse sID=&#8221;Luke.2.15&#8243; osisID=&#8221;Luke.2.15&#8243;/><span data-dur=&#8221;0.145&#8243; data-begin=&#8221;91.824&#8243;>When</span> <span data-dur=&#8221;0.117&#8243; data-begin=&#8221;91.969&#8243;>the</span> <span data-dur=&#8221;0.396&#8243; data-begin=&#8221;92.086&#8243;>angels</span> <span data-dur=&#8221;0.158&#8243; data-begin=&#8221;92.482&#8243;>went</span> <span data-dur=&#8221;0.256&#8243; data-begin=&#8221;92.64&#8243;>away</span> <span data-dur=&#8221;0.215&#8243; data-begin=&#8221;92.896&#8243;>from</span> <span data-dur=&#8221;0.188&#8243; data-begin=&#8221;93.112&#8243;>them</span> <span data-dur=&#8221;0.269&#8243; data-begin=&#8221;93.3&#8243;>into</span> <span data-dur=&#8221;0.459&#8243; data-begin=&#8221;93.569&#8243;>heaven</span>, <span data-dur=&#8221;0.065&#8243; data-begin=&#8221;94.204&#8243;>the</span> <span data-dur=&#8221;0.489&#8243; data-begin=&#8221;94.269&#8243;>shepherds</span> <span data-dur=&#8221;0.236&#8243; data-begin=&#8221;94.758&#8243;>said</span> <span data-dur=&#8221;0.104&#8243; data-begin=&#8221;94.994&#8243;>to</span> <span data-dur=&#8221;0.128&#8243; data-begin=&#8221;95.098&#8243;>one</span> <span data-dur=&#8221;0.483&#8243; data-begin=&#8221;95.226&#8243;>another</span>, <q><span data-dur=&#8221;0.136&#8243; data-begin=&#8221;96.508&#8243;>Let</span> <span data-dur=&#8221;0.176&#8243; data-begin=&#8221;96.644&#8243;>us</span> <span data-dur=&#8221;0.139&#8243; data-begin=&#8221;96.82&#8243;>go</span> <span data-dur=&#8221;0.165&#8243; data-begin=&#8221;96.959&#8243;>over</span> <span data-dur=&#8221;0.156&#8243; data-begin=&#8221;97.124&#8243;>to</span> <span data-dur=&#8221;0.479&#8243; data-begin=&#8221;97.281&#8243;>Bethlehem</span> <span data-dur=&#8221;0.08&#8243; data-begin=&#8221;97.76&#8243;>and</span> <span data-dur=&#8221;0.312&#8243; data-begin=&#8221;97.84&#8243;>see</span> <span data-dur=&#8221;0.31&#8243; data-begin=&#8221;98.152&#8243;>this</span> <span data-dur=&#8221;0.253&#8243; data-begin=&#8221;98.462&#8243;>thing</span> <span data-dur=&#8221;0.093&#8243; data-begin=&#8221;98.715&#8243;>that</span> <span data-dur=&#8221;0.134&#8243; data-begin=&#8221;98.808&#8243;>has</span> <span data-dur=&#8221;0.516&#8243; data-begin=&#8221;98.942&#8243;>happened</span>, <span data-dur=&#8221;0.208&#8243; data-begin=&#8221;99.642&#8243;>which</span> <span data-dur=&#8221;0.113&#8243; data-begin=&#8221;99.85&#8243;>the</span> <span data-dur=&#8221;0.24&#8243; data-begin=&#8221;99.964&#8243;>Lord</span> <span data-dur=&#8221;0.13&#8243; data-begin=&#8221;100.203&#8243;>has</span> <span data-dur=&#8221;0.225&#8243; data-begin=&#8221;100.333&#8243;>made</span> <span data-dur=&#8221;0.281&#8243; data-begin=&#8221;100.558&#8243;>known</span> <span data-dur=&#8221;0.085&#8243; data-begin=&#8221;100.839&#8243;>to</span> <span data-dur=&#8221;0.353&#8243; data-begin=&#8221;100.924&#8243;>us</span>.</q> <o:verse eID=&#8221;Luke.2.15&#8243;/><o:verse sID=&#8221;Luke.2.16&#8243; osisID=&#8221;Luke.2.16&#8243;/><span data-dur=&#8221;0.128&#8243; data-begin=&#8221;101.996&#8243;>And</span> <span data-dur=&#8221;0.169&#8243; data-begin=&#8221;102.124&#8243;>they</span> <span data-dur=&#8221;0.279&#8243; data-begin=&#8221;102.293&#8243;>went</span> <span data-dur=&#8221;0.13&#8243; data-begin=&#8221;102.572&#8243;>with</span> <span data-dur=&#8221;0.466&#8243; data-begin=&#8221;102.702&#8243;>haste</span> <span data-dur=&#8221;0.117&#8243; data-begin=&#8221;103.168&#8243;>and</span> <span data-dur=&#8221;0.359&#8243; data-begin=&#8221;103.285&#8243;>found</span> <span data-dur=&#8221;0.355&#8243; data-begin=&#8221;103.644&#8243;>Mary</span> <span data-dur=&#8221;0.169&#8243; data-begin=&#8221;103.999&#8243;>and</span> <span data-dur=&#8221;0.416&#8243; data-begin=&#8221;104.168&#8243;>Joseph</span>, <span data-dur=&#8221;0.132&#8243; data-begin=&#8221;104.584&#8243;>and</span> <span data-dur=&#8221;0.139&#8243; data-begin=&#8221;104.716&#8243;>the</span> <span data-dur=&#8221;0.338&#8243; data-begin=&#8221;104.855&#8243;>baby</span> <span data-dur=&#8221;0.357&#8243; data-begin=&#8221;105.193&#8243;>lying</span> <span data-dur=&#8221;0.056&#8243; data-begin=&#8221;105.55&#8243;>in</span> <span data-dur=&#8221;0.058&#8243; data-begin=&#8221;105.606&#8243;>a</span> <span data-dur=&#8221;0.567&#8243; data-begin=&#8221;105.664&#8243;>manger</span>. <o:verse eID=&#8221;Luke.2.16&#8243;/><o:verse sID=&#8221;Luke.2.17&#8243; osisID=&#8221;Luke.2.17&#8243;/><span data-dur=&#8221;0.173&#8243; data-begin=&#8221;107.011&#8243;>And</span> <span data-dur=&#8221;0.199&#8243; data-begin=&#8221;107.184&#8243;>when</span> <span data-dur=&#8221;0.121&#8243; data-begin=&#8221;107.382&#8243;>they</span> <span data-dur=&#8221;0.346&#8243; data-begin=&#8221;107.503&#8243;>saw</span> <span data-dur=&#8221;0.236&#8243; data-begin=&#8221;107.849&#8243;>it</span>, <span data-dur=&#8221;0.152&#8243; data-begin=&#8221;108.382&#8243;>they</span> <span data-dur=&#8221;0.21&#8243; data-begin=&#8221;108.534&#8243;>made</span> <span data-dur=&#8221;0.373&#8243; data-begin=&#8221;108.744&#8243;>known</span> <span data-dur=&#8221;0.071&#8243; data-begin=&#8221;109.117&#8243;>the</span> <span data-dur=&#8221;0.424&#8243; data-begin=&#8221;109.188&#8243;>saying</span> <span data-dur=&#8221;0.102&#8243; data-begin=&#8221;109.611&#8243;>that</span> <span data-dur=&#8221;0.134&#8243; data-begin=&#8221;109.714&#8243;>had</span> <span data-dur=&#8221;0.189&#8243; data-begin=&#8221;109.848&#8243;>been</span> <span data-dur=&#8221;0.373&#8243; data-begin=&#8221;110.037&#8243;>told</span> <span data-dur=&#8221;0.18&#8243; data-begin=&#8221;110.411&#8243;>them</span> <span data-dur=&#8221;0.502&#8243; data-begin=&#8221;110.591&#8243;>concerning</span> <span data-dur=&#8221;0.136&#8243; data-begin=&#8221;111.092&#8243;>this</span> <span data-dur=&#8221;0.684&#8243; data-begin=&#8221;111.228&#8243;>child</span>. <o:verse eID=&#8221;Luke.2.17&#8243;/><o:verse sID=&#8221;Luke.2.18&#8243; osisID=&#8221;Luke.2.18&#8243;/><span data-dur=&#8221;0.152&#8243; data-begin=&#8221;112.668&#8243;>And</span> <span data-dur=&#8221;0.336&#8243; data-begin=&#8221;112.82&#8243;>all</span> <span data-dur=&#8221;0.137&#8243; data-begin=&#8221;113.157&#8243;>who</span> <span data-dur=&#8221;0.271&#8243; data-begin=&#8221;113.294&#8243;>heard</span> <span data-dur=&#8221;0.262&#8243; data-begin=&#8221;113.565&#8243;>it</span> <span data-dur=&#8221;0.446&#8243; data-begin=&#8221;113.827&#8243;>wondered</span> <span data-dur=&#8221;0.113&#8243; data-begin=&#8221;114.273&#8243;>at</span> <span data-dur=&#8221;0.176&#8243; data-begin=&#8221;114.387&#8243;>what</span> <span data-dur=&#8221;0.078&#8243; data-begin=&#8221;114.563&#8243;>the</span> <span data-dur=&#8221;0.505&#8243; data-begin=&#8221;114.641&#8243;>shepherds</span> <span data-dur=&#8221;0.345&#8243; data-begin=&#8221;115.147&#8243;>told</span> <span data-dur=&#8221;0.318&#8243; data-begin=&#8221;115.492&#8243;>them</span>. <o:verse eID=&#8221;Luke.2.18&#8243;/><o:verse sID=&#8221;Luke.2.19&#8243; osisID=&#8221;Luke.2.19&#8243;/><span data-dur=&#8221;0.188&#8243; data-begin=&#8221;116.538&#8243;>But</span> <span data-dur=&#8221;0.476&#8243; data-begin=&#8221;116.726&#8243;>Mary</span> <span data-dur=&#8221;0.371&#8243; data-begin=&#8221;117.201&#8243;>treasured</span> <span data-dur=&#8221;0.16&#8243; data-begin=&#8221;117.572&#8243;>up</span> <span data-dur=&#8221;0.241&#8243; data-begin=&#8221;117.731&#8243;>all</span> <span data-dur=&#8221;0.282&#8243; data-begin=&#8221;117.973&#8243;>these</span> <span data-dur=&#8221;0.533&#8243; data-begin=&#8221;118.254&#8243;>things</span>, <span data-dur=&#8221;0.537&#8243; data-begin=&#8221;119.178&#8243;>pondering</span> <span data-dur=&#8221;0.139&#8243; data-begin=&#8221;119.715&#8243;>them</span> <span data-dur=&#8221;0.098&#8243; data-begin=&#8221;119.854&#8243;>in</span> <span data-dur=&#8221;0.18&#8243; data-begin=&#8221;119.952&#8243;>her</span> <span data-dur=&#8221;0.528&#8243; data-begin=&#8221;120.133&#8243;>heart</span>. <o:verse eID=&#8221;Luke.2.19&#8243;/><o:verse sID=&#8221;Luke.2.20&#8243; osisID=&#8221;Luke.2.20&#8243;/><span data-dur=&#8221;0.085&#8243; data-begin=&#8221;121.551&#8243;>And</span> <span data-dur=&#8221;0.071&#8243; data-begin=&#8221;121.636&#8243;>the</span> <span data-dur=&#8221;0.429&#8243; data-begin=&#8221;121.707&#8243;>shepherds</span> <span data-dur=&#8221;0.659&#8243; data-begin=&#8221;122.136&#8243;>returned</span>, <span data-dur=&#8221;0.749&#8243; data-begin=&#8221;123.144&#8243;>glorifying</span> <span data-dur=&#8221;0.258&#8243; data-begin=&#8221;123.893&#8243;>and</span> <span data-dur=&#8221;0.563&#8243; data-begin=&#8221;124.151&#8243;>praising</span> <span data-dur=&#8221;0.377&#8243; data-begin=&#8221;124.715&#8243;>God</span> <span data-dur=&#8221;0.247&#8243; data-begin=&#8221;125.092&#8243;>for</span> <span data-dur=&#8221;0.217&#8243; data-begin=&#8221;125.339&#8243;>all</span> <span data-dur=&#8221;0.167&#8243; data-begin=&#8221;125.556&#8243;>they</span> <span data-dur=&#8221;0.197&#8243; data-begin=&#8221;125.723&#8243;>had</span> <span data-dur=&#8221;0.329&#8243; data-begin=&#8221;125.92&#8243;>heard</span> <span data-dur=&#8221;0.119&#8243; data-begin=&#8221;126.249&#8243;>and</span> <span data-dur=&#8221;0.591&#8243; data-begin=&#8221;126.368&#8243;>seen</span>, <span data-dur=&#8221;0.154&#8243; data-begin=&#8221;127.239&#8243;>as</span> <span data-dur=&#8221;0.073&#8243; data-begin=&#8221;127.394&#8243;>it</span> <span data-dur=&#8221;0.173&#8243; data-begin=&#8221;127.467&#8243;>had</span> <span data-dur=&#8221;0.174&#8243; data-begin=&#8221;127.641&#8243;>been</span> <span data-dur=&#8221;0.31&#8243; data-begin=&#8221;127.815&#8243;>told</span> <span data-dur=&#8221;0.249&#8243; data-begin=&#8221;128.125&#8243;>them</span>.<o:verse eID=&#8221;Luke.2.20&#8243;/></p>
+<script type=&#8221;text/javascript&#8221;>  
+/\* CDATA section stripped due to WordPress bug: https://core.trac.wordpress.org/ticket/3670 \*/  
+(function(){  
+var root = document.getElementById(&#8216;nativity-story-from-luke&#8217;);  
+var audio = root.getElementsByTagName(&#8216;audio&#8217;)[0];
+
+/**  
+* Build an index of all of the words that can be read along with their begin,  
+* and end times, and the DOM element representing the word.  
+*/  
+var wordTimes = [];  
+Array.prototype.forEach.call(root.querySelectorAll(&#8220;[data-begin]&#8221;), function(word){  
+var wordTime = {  
+begin : parseFloat(word.getAttribute(&#8220;data-begin&#8221;)),  
+dur   : parseFloat(word.getAttribute(&#8220;data-dur&#8221;)),  
+word  : word  
+};  
+wordTime.index = wordTimes.length;  
+wordTime.end = wordTime.begin + wordTime.dur;  
+word.setAttribute(&#8216;data-timeindex&#8217;, wordTime.index);  
+wordTimes.push(wordTime);  
+});  
+/**  
+* Find the next word that should be played (or that is currently being played)  
+* @todo Note: this would better be implemented as a binary search  
+*/  
+function getNextWordTime(){  
+var wordTime = null,currentTime = audio.currentTime;  
+for(var i = 0, len = wordTimes.length; i < len; i++){  
+var thisWordTime = wordTimes[i];  
+if((currentTime >= thisWordTime.begin && currentTime < thisWordTime.end) || currentTime < wordTimes[i].begin)  
+{  
+return thisWordTime;  
+}  
+}  
+return null;  
+}  
+var selection = window.getSelection();  
+var timeoutSelectNext;
+
+/**  
+* Select the next word that is going to be read or the word that is being  
+* read right now  
+* @param Boolean hold  Whether or not the subsequent word should automatically be selected  
+*/  
+function selectNextWord(hold){  
+clearTimeout(timeoutSelectNext);  
+var next = getNextWordTime();  
+if(next){  
+function select(hold){  
+selection.removeAllRanges();  
+var range = document.createRange();  
+range.selectNode(next.word);  
+selection.addRange(range);  
+if(!hold){  
+timeoutSelectNext = setTimeout(function(){  
+selection.removeAllRanges();  
+if(!audio.paused)  
+selectNextWord();  
+}, Math.round((next.end &#8211; audio.currentTime)*1000));  
+}  
+}
+
+//Select now  
+if(hold || audio.currentTime >= next.begin){  
+select(hold);  
+}  
+//Select later  
+else {  
+timeoutSelectNext = setTimeout(function(){  
+select();  
+}, Math.round((next.begin &#8211; audio.currentTime)*1000));  
+}  
+}  
+}  
+/**  
+* Select next word (at audio.currentTime) when playing starts  
+*/  
+audio.addEventListener(&#8216;play&#8217;, function(e){  
+selectNextWord();  
+}, false);  
+/**  
+* Abandon seeking the next word because we&#8217;re paused  
+*/  
+audio.addEventListener(&#8216;pause&#8217;, function(e){  
+clearTimeout(timeoutSelectNext);  
+}, false);  
+/**  
+* Seek by clicking (event delegation)  
+*/  
+root.addEventListener(&#8216;click&#8217;, function(e){  
+if(e.target.hasAttribute(&#8216;data-begin&#8217;)){  
+var i = e.target.getAttribute(&#8216;data-timeindex&#8217;);  
+//audio.currentTime = wordTimes[i].begin + wordTimes[i].dur/2; //@TODO  
+audio.currentTime = wordTimes[i].begin + 0.001; //Note: times apparently cannot be exactly set and sometimes select too early  
+selectNextWord();  
+}  
+}, false);  
+/**  
+* Play a word when double-clicking (event delegation)  
+* Only plays the single word.  
+*/  
+root.addEventListener(&#8216;dblclick&#8217;, function(e){  
+audio.play();  
+}, false);  
+/**  
+* Select a word when seeking  
+*/  
+audio.addEventListener(&#8216;seeked&#8217;, function(e){  
+selectNextWord(e.target.paused /\* for hold, probably always true \*/);  
+}, false);
+
+})();  
+/\* CDATA section stripped due to WordPress bug: https://core.trac.wordpress.org/ticket/3670 \*/  
+</script>
+<hr />  
+<footer>  
+<small>Scripture taken from The Holy Bible, English Standard Version. Copyright  
+©2001 by <a href=&#8221;http://www.crosswaybibles.org&#8221; target=&#8221;_blank&#8221;>Crossway Bibles</a>, a  
+publishing ministry of Good News Publishers. Used by permission. All rights  
+reserved. Text provided by the <a href=&#8221;http://www.gnpcb.org/esv/share/services/&#8221; target=&#8221;_blank&#8221;>Crossway Bibles Web  
+Service</a>.</small>  
+</footer>  
+</article>  
+</body>  
+</html>
+<p>运行代码</p>
+<p>HTML5 canvas<br>
+支持浏览器：IE以外所有新锐浏览器<br>
+&lt;!doctype html&gt;</p>
+<html dir=&#8221;ltr&#8221; lang=&#8221;zh-CN&#8221;>  
+<head>  
+<meta charset=&#8221;utf-8&#8243;/>  
+<meta content=&#8221;IE=8&#8243; http-equiv=&#8221;X-UA-Compatible&#8221;/>  
+<title>canvas by 司徒正美</title>  
+</head>  
+<body id=&#8221;id10&#8243;>  
+<section id=&#8221;wrapper&#8221;>  
+<header>  
+<h1>Canvas</h1>  
+</header>  
+<article></article>  
+<p><a href=&#8221;http://www.cnblogs.com/rubylouvre/&#8221;>返回</a></p>  
+</section>  
+<script src=&#8221;http://html5demos.com/h5utils.js&#8221;></script>  
+<script>
+<p>buildSpinner({ x : 50, y : 50, size : 20, degrees : 30 });</p>
+<p>function buildSpinner(data) {</p>
+<p>var canvas = document.createElement(‘canvas’);<br>
+canvas.height = 100;<br>
+canvas.width = 300;<br>
+document.getElementsByTagName(‘article’)[0].appendChild(canvas);<br>
+var ctx = canvas.getContext(“2d”),<br>
+i = 0, degrees = data.degrees, loops = 0, degreesList = [];</p>
+<p>for (i = 0; i &lt; degrees; i++) {<br>
+degreesList.push(i);<br>
+}</p>
+<p>// reset<br>
+i = 0;</p>
+<p>// so I can kill it later<br>
+window.canvasTimer = setInterval(draw, 1000/degrees);</p>
+<p>function reset() {<br>
+ctx.clearRect(0,0,100,100); // clear canvas</p>
+<p>var left = degreesList.slice(0, 1);<br>
+var right = degreesList.slice(1, degreesList.length);<br>
+degreesList = right.concat(left);<br>
+}</p>
+<p>function draw() {<br>
+var c, s, e;</p>
+<p>var d = 0;</p>
+<p>if (i == 0) {<br>
+reset();<br>
+}</p>
+<p>ctx.save();</p>
+<p>d = degreesList[i];<br>
+c = Math.floor(255/degrees<em>i);<br>
+ctx.strokeStyle = ‘rgb(‘ + c + ‘, ‘ + c + ‘, ‘ + c + ‘)’;<br>
+ctx.lineWidth = data.size;<br>
+ctx.beginPath();<br>
+s = Math.floor(360/degrees</em>(d));<br>
+e = Math.floor(360/degrees*(d+1)) – 1;</p>
+<p>ctx.arc(data.x, data.y, data.size, (Math.PI/180)*s, (Math.PI/180)*e, false);<br>
+ctx.stroke();</p>
+<p>ctx.restore();</p>
+<p>i++;<br>
+if (i &gt;= degrees) {<br>
+i = 0;<br>
+}<br>
+}<br>
+}<br>
+</script></p>
+</body>  
+</html>
+<p>运行代码</p>
+<p><a href="https://developer.mozilla.org/en/Canvas_tutorial">https://developer.mozilla.org/en/Canvas_tutorial</a></p>
+<p>HTML5 SVG<br>
+支持浏览器：Firefox 1.5+, Safari 3.0+, Chrome 1.0+, Opera 9.0+</p>
+<p><a href="http://www.w3.org/TR/SVG12/">http://www.w3.org/TR/SVG12/</a></p>
+<p><a href="http://www.ibm.com/developerworks/cn/views/xml/tutorials.jsp?cv">http://www.ibm.com/developerworks/cn/views/xml/tutorials.jsp?cv</a>_doc_id=84896</p>
+<p>HTML5 XMLHttpRequest 2与跨域<br>
+支持浏览器：IE8与firefox3.5+各实现了部分</p>
+<p><a href="http://www.w3.org/TR/XMLHttpRequest2/">http://www.w3.org/TR/XMLHttpRequest2/</a></p>
+<p><a href="https://developer.mozilla.org/En/Using">https://developer.mozilla.org/En/Using</a>_XMLHttpRequest#Monitoring_progress</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/cc197057(VS.85).aspx">http://msdn.microsoft.com/en-us/library/cc197057(VS.85).aspx</a></p>
+<p><a href="http://www.w3.org/TR/cors/">http://www.w3.org/TR/cors/</a></p>
+<p><a href="https://developer.mozilla.org/En/HTTP">https://developer.mozilla.org/En/HTTP</a>_Access_Control</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/cc197057(VS.85).aspx">http://msdn.microsoft.com/en-us/library/cc197057(VS.85).aspx</a></p>
+<p>HTML5的标签变更情况：<br>
+<a href="http://www.w3schools.com/html5/html5_reference.asp">http://www.w3schools.com/html5/html5_reference.asp</a></p>
+<p>——————————————————————————–</p>
+<p>上述特征的支持情况只对目前有效……</p>
+<p> </p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/196.html" class="block">Repaint 跟踪浏览器的渲染</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/190.html" class="block">javascript中的Get/Set访问器</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

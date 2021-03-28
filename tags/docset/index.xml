@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docset on 影の域</title>
+    <link>/tags/docset/</link>
+    <description>Recent content in docset on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Thu, 03 Oct 2013 17:42:37 +0000</lastBuildDate><atom:link href="/tags/docset/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emmet DocSet for Dash 1.0</title>
+      <link>/513.html</link>
+      <pubDate>Thu, 03 Oct 2013 17:42:37 +0000</pubDate>
+      
+      <guid>/513.html</guid>
+      <description>Emmet-DocSet v1.0 Released!!  Emmet DocSet for Dash</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>contains vs compareDocumentPosition | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"contains vs compareDocumentPosition",
+      "item":"/125.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/125.html"
+    },
+    "headline": "contains vs compareDocumentPosition | 影の域","datePublished": "2010-03-07T11:04:34+00:00",
+    "dateModified": "2021-03-28T16:20:45+08:00",
+    "wordCount":  1524 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）"
+}
+</script><meta property="og:title" content="contains vs compareDocumentPosition | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/125.html" />
+
+
+
+
+<meta property="og:description" content="一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2010-03-07T11:04:34&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2021-03-28T16:20:45&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">contains vs compareDocumentPosition</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-07</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1524字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>    一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）。</p>
+<p>    1、DOMElement.contains(DOMNode)</p>
+<p>    这个方法起先用在 IE ，用来确定 DOM Node 是否包含在另一个 DOM Element 中。</p>
+<p>    当尝试优化 CSS 选择器遍历（像：“#id1 #id2”），这个方法很有用。你可以通过 getElementById 得到元素，然后使用 .contains() 确定 #id1 实际上是否包含 #id2。</p>
+<p>    注意点：如果 DOM Node 和 DOM Element 相一致，.contains() 将返回 true ，虽然，一个元素不能包含自己。</p>
+<p>    这里有一个简单的执行包装，可以运行在：Internet Explorer, Firefox, Opera, and Safari。</p>
+<table border="1" cellspacing="1" cellpadding="1" width="80%" align="center">
+  <tr>
+    <td bgcolor="#c0c0c0">
+       function contains(a, b) {<br />  return a.contains ? a != b && a.contains(b) : !!(a.compareDocumentPosition(arg) & 16);<br /> }
+    </td>
+  </tr>
+</table>
+<p>    2、NodeA.compareDocumentPosition(NodeB)</p>
+<p>    这个方法是 DOM Level 3 specification 的一部分，允许你确定 2 个 DOM Node 之间的相互位置。这个方法比 .contains() 强大。这个方法的一个可能应用是排序 DOM Node 成一个详细精确的顺序。</p>
+<p>    使用这个方法你可以确定关于一个元素位置的一连串的信息。所有的这些信息将返回一个比特码（Bit，比特，亦称二进制位）。</p>
+<p>    对于那些，人们知之甚少。比特码是将多重数据存储为一个简单的数字（译者注：0 或 1）。你最终打开 / 关闭个别数目（译者注：打开/关闭对应 0 /1），将给你一个最终的结果。</p>
+<p>    这里是从 NodeA.compareDocumentPosition(NodeB) 返回的结果，包含你可以得到的信息。</p>
+<table border="1" cellspacing="1" cellpadding="1" width="80%" align="center">
+  <tr>
+    <td bgcolor="#c0c0c0">
+       Bits          Number        Meaning<br /> 000000         0              元素一致<br /> 000001         1              节点在不同的文档（或者一个在文档之外）<br /> 000010         2              节点 B 在节点 A 之前<br /> 000100         4              节点 A 在节点 B 之前<br /> 001000         8              节点 B 包含节点 A<br /> 010000         16             节点 A 包含节点 B<br /> 100000         32             浏览器的私有使用
+    </td>
+  </tr>
+</table>
+<p>    现在，这意味着一个可能的结果类似于：</p>
+<table border="1" cellspacing="1" cellpadding="1" width="80%" align="center">
+  <tr>
+    <td bgcolor="#c0c0c0">
+       <div id=&#8221;a&#8221;><br />  <div id=&#8221;b&#8221;></div><br /> </div><br /> <script><br />  alert( document.getElementById(&#8220;a&#8221;).compareDocumentPosition(document.getElementById(&#8220;b&#8221;)) == 20);<br /> </script>
+    </td>
+  </tr>
+</table>
+<p>    一旦一个节点 A 包含另一个节点 B，包含 B（+16） 且在 B 之前（+4），则最后的结果是数字 20 。如果你查看比特发生的变化，将增加你的理解。</p>
+<p>000100 (4) + 010000 (16) = 010100 (20)</p>
+<p>    这个，毫无疑问，有助于理解单个最混乱的 DOM API 方法。当然，他的价值当之无愧的。</p>
+<p>    现在，DOMNode.compareDocumentPosition 在 Firefox 和 Opera 中是可用的。然而，有一些技巧，我们可以用来在 IE 中执行他。</p>
+<table border="1" cellspacing="1" cellpadding="1" width="80%" align="center">
+  <tr>
+    <td bgcolor="#c0c0c0">
+       // Compare Position &#8211; MIT Licensed, John Resig<br /> function comparePosition(a, b){<br />  return a.compareDocumentPosition ?<br />  a.compareDocumentPosition(b) :<br />  a.contains ?<br />   ( a != b && a.contains(b) && 16 ) +<br />   ( a != b && b.contains(a) && 8 ) +<br />   ( a.sourceIndex >= 0 && b.sourceIndex >= 0 ?<br />    (a.sourceIndex < b.sourceIndex && 4 ) +<br />    (a.sourceIndex > b.sourceIndex && 2 ) :<br />    1 ) :<br />   0;<br /> }
+    </td>
+  </tr>
+</table>
+<p>    IE 提供给我们一些可以使用的方法和属性。开始，使用 .contains() 方法（如我们前面所讨论的），以便给我们包含（+16）或者被包含（+8）的结果。IE 还有一个 .sourceIndex 属性在所有的 DOM Element 对应着元素在文档中的位置，例如：document.documentElement.sourceIndex == 0。因为我们有这个信息，我们可以完成两个 compareDocumentPosition 难题：在前面（+2）和在后面（+4）。另外，如果一个元素不在当前的文档，.sourceIndex 将等于 -1，这个给我们另外一个回答（+1）。最后，通过这个过程的推断，我们可以确定如果一个元素等于他本身，返回一个空的比特码（+0）。</p>
+<p>    这个函数可以在 Internet Explorer、Firefox 和 Opera 中运行。但在 Safari 中却有残缺功能（因为他只有 contains() 方法，而没有 .sourceIndex 属性。我们只能得到包含（+16），被包含（+8），其他的所有结果都将返回（+1）代表一个断开）。</p>
+<p>    PPK 提供了一个关于通过创建一个 getElementsByTagNames 方法使新功能可以被使用的很棒的例子。让我们改编他到我们的新方法中：</p>
+<table border="1" cellspacing="1" cellpadding="1" width="80%" align="center">
+  <tr>
+    <td bgcolor="#c0c0c0">
+      // Original by PPK quirksmode.org<br /> function getElementsByTagNames(list, elem) {<br />         elem = elem || document;                 var tagNames = list.split(’,’), results = [];         </p> 
+<pre><code>  &lt;p&gt;
+            for ( var i = 0; i &lt; tagNames.length; i++ ) {&lt;br /&gt;                 var tags = elem.getElementsByTagName( tagNames[i] );&lt;br /&gt;                 for ( var j = 0; j &lt; tags.length; j++ )&lt;br /&gt;                         results.push( tags[j] );&lt;br /&gt;         }         
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+            return results.sort(function(a, b){&lt;br /&gt;                 return 3 &amp;#8211; (comparePosition(a, b) &amp; 6);&lt;br /&gt;         });&lt;br /&gt; }&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+    
+    &lt;p&gt;
+          我们现在可以使用他来按次序构建一个站点的目录：
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      getElementsByTagNames(&amp;#8220;h1, h2, h3&amp;#8221;);
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+          虽然 Firefox 和 Opera 都采取了一些主动落实这一方法。我依然期待看到更多的浏览器进入，以帮助向前推动
+    &lt;/p&gt;</code></pre>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/127.html" class="block">PureMVC Standard for JavaScript</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/117.html" class="block">JS闭包之词法作用域</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

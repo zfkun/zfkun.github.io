@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>[转]IE6、IE7、IE8 CSS Bug兼容解决记录 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="一份值得看下的IE6、IE7、IE8 CSS Bug兼容解决记录">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"[转]IE6、IE7、IE8 CSS Bug兼容解决记录",
+      "item":"/275.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/275.html"
+    },
+    "headline": "[转]IE6、IE7、IE8 CSS Bug兼容解决记录 | 影の域","datePublished": "2011-06-14T10:05:04+00:00",
+    "dateModified": "2011-06-14T10:05:04+00:00",
+    "wordCount":  8224 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "一份值得看下的IE6、IE7、IE8 CSS Bug兼容解决记录"
+}
+</script><meta property="og:title" content="[转]IE6、IE7、IE8 CSS Bug兼容解决记录 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/275.html" />
+
+
+
+
+<meta property="og:description" content="一份值得看下的IE6、IE7、IE8 CSS Bug兼容解决记录" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2011-06-14T10:05:04&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2011-06-14T10:05:04&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">[转]IE6、IE7、IE8 CSS Bug兼容解决记录</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-06-14</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>17分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>8224字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>1：li边距“无故”增加</p>
+<p>任何事情都是有原因的，li边距也不例外。</p>
+<p>先描述一下具体状况：有些时候li边距会突然增 加很多，值也不固定（只在IE6/IE7有这种现象），让人摸不着头脑，仔细“研究”发现是由于其低级元素ul的padding引 起，padding的上下值对li有影响，左右无影 响。所以只好笨手笨脚地把padding去掉，换成margin。这是能解决问题，但往往不是我们想要的结果，或许 还会引起其他不必要的怪现象。</p>
+<p>现在终于发现解决这个问题的方法，其实很简单，既然是有ul引 起的，就设置ul的显示形式为*display:inline-block;即可，前面加*是只 针对IE6/IE7有效，其他浏览器并不渲染这个属性。</p>
+<p>2：分页数字 字体用“Arial ”加粗不抖动</p>
+<pre class="html">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type"content="text/html; charset=gb2312"/&gt;
+&lt;title&gt;无标题文档&lt;/title&gt;
+&lt;link href="css/style.css"rel="stylesheet"type="text/css"/&gt;
+&lt;style type="text/css"&gt;
+body, ul, h1 {
+font-family:Arial;
+font-size:12px;
+}
+
+.page {
+text-align:center;
+}
+
+.page a {
+display:inline-block;
+padding:5px 8px;
+text-decoration:none;
+border:1px solid #09F;
+background-color:#0CF;
+color:#FFF;
+}
+
+.page a:hover, .page .selected {
+border:1px solid #CCC;
+background-color:#FFF;
+color:#000;
+font-weight:bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;分页样式&lt;/h1&gt;
+&lt;div&gt; &lt;a href="#"&gt;1&lt;/a&gt; &lt;a href="#"class="selected"&gt;2&lt;/a&gt; &lt;a href="#"&gt;3&lt;/a&gt; &lt;a href="#"&gt;4&lt;/a&gt; &lt;a href="#"&gt;5&lt;/a&gt;
+
+&lt;a href="#"&gt;6&lt;/a&gt; &lt;a href="#"&gt;7&lt;/a&gt; &lt;a href="#"&gt;8&lt;/a&gt; &lt;a href="#"&gt;9&lt;/a&gt; &lt;a href="#"&gt;10&lt;/a&gt; &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>3：IE6 CSS选择器区分IE6</p>
+<p>IE6不支持子选择器；先针对IE6使用常规申明CSS选择器，然后再用子选择器针对IE7+及其他浏览器。</p>
+<pre class="css">/*IE6 专用 */
+.content {color:red;}
+
+/* 其他浏览器 */
+div&gt;p .content {color:blue;}</code></pre>
+<p>4：IE6最小高度</p>
+<p>IE6 不支持min-height属性，但它却认为height就是最小高度。解决方法：</p>
+<p>使用ie6不支持但其余浏览器支持的属性!important。</p>
+<pre class="css">#container{min-height:200px; height:auto !important; height:200px;}</code></pre>
+<p>5：IE6100% 高度</p>
+<p>在IE6下，如果要给元素定义100%高度，必须要明确定义它的父级元素的高度，如果你需要给元素定义满屏的高度，就得先给html和body定义height:100%;。</p>
+<p>6：IE6躲猫猫bug</p>
+<p>在IE6和IE7下，躲猫猫bug是一个非常恼人的问题。一个撑破了容器的浮动元素，如果在他之后有不浮动的内容，并且有一些定义了:hover的链接，当鼠标移到那些链接上时，在IE6下就会触发躲猫猫。</p>
+<p>解决方法很简单：</p>
+<p>1.在（那个未浮动的）内容之后添加一个&lt;span style=”clear: both;”&gt; </span><br>
+2.触发包含了这些链接的容器的hasLayout，一个简单的方法就是给其定义height:1%;</p>
+<p>7:IE6绝对定位元素的1像素间距bug</p>
+<p>IE6下的这个错误是由于进位处理误差造成（IE7已修复），当绝对定位元素的父元素高或宽为奇数时，bottom和right会<br>
+产生错误。唯一的解决办法就是给父元素定义明确的高宽值，但对于液态布局没有完美的解决方法。</p>
+<p>8: IE下z-index的bug</p>
+<p>在IE浏览器中，定位元素的z-index层级是相对于各自的父级容器，所以会导致z-index出现错误的表现。解决方法是给其父级元素定义z-index，有些情况下还需要定义position:relative。</p>
+<p>9: Overflow Bug</p>
+<p>在IE6/7中，overflow无法正确的隐藏有相对定位position:relative;的子元素。解决方法就是给外包容器.wrap加上position:relative;。</p>
+<p>10: 横向列表宽度bug</p>
+<p>如果你使用float:left;把<li>横向摆列，并且<li>内包含的<a>（或其他）触发了 hasLayout，在IE6下就会有错误的表现。解决方法很简单，只需要给<a>定义同样的float:left;即可。</p>
+<p>11: 列表阶梯bug</p>
+<p>列表阶梯bug通常会在给<li>的子元素<a>使用float:left;时触发，我们本意是要做一个横向的列表(通常 是导航栏)，但IE却可能呈现出垂直的或者阶梯状。<br>
+解决办法就是给<li>定义float:left;而非子元素<a>，或者 给<li>定义display:inline;也可以解决。</p>
+<p>12: 垂直列表间隙bug</p>
+<p>当我们使用<li> 包含一个块级子元素时，IE6(IE7也有可能)会错误地给每条列表元素（<li>）之间添加空隙。<br>
+解决方法：把<a>flaot并且清除float来解决这个问题；另外一个办法就是触发<a>的hasLayout（如定 义高宽、使用zoom:1;）；也可以给<li> 定义display:inline;来解决此问题；另外还有一个极有趣的方法，给包含的文本末尾添加一个空格。</p>
+<p>13: IE6调整窗口大小的 Bug</p>
+<p>当把body居中放置，改变IE浏览器大小的时候，任何在body里面的相对定位元素都会固定不动了。解决办法：</p>
+<p>给body定义position:relative;就行了。</p>
+<p>14: 文本重复Bug</p>
+<p>在IE6中，一些隐藏的元素（如注释、display:none;的元素）被包含在一个浮动元素里，就有可能引发文本重复bug。</p>
+<p>解决办法：给浮动元素添加display:inline;。</p>
+<p>15：链接a的title属性中的文字换行</p>
+<p>啥也不说，先上个图</p>
+<p>我们都知道，可以给链接a加上title属性，这样鼠标移动上去会显示title属性定义的 文字，常常用来加一些提示语句，</p>
+<p>比如说点击查看详情之类的，代码形如：</p>
+<p><a href=”#” title=”点击查看详情”>链接xx</a></p>
+<p>。之前一直没有仔细注意过这个东西。如果鼠标浮动上去要显示更多东西的话，怎么实现呢。第一 反应是jquery的tooltip插件。今天无意中发现某个学院的网站鼠标移动上去可以显示这么完整的信息，效果看起来似乎还可以，就想看看怎么做的， 找了下，没发现有Javascript脚本，再往链接的地方一看，终于让我发现了门道了：</p>
+<p>&lt;a href=’#’ target=”_blank” title=”标题: 关于对我校2006年至2009年发展党员工作情况进…</p>
+<p>发布日期: 2010-5-31 16:05:08 类别：院务通知 点击: 139″&gt;</p>
+<p>[05-31]  关于对我校2006年至2009年发展党员工作情况进…</p>
+</a>
+<p>注意到了吗。。很简单，只要使用 这样的转义符号,即可实现换行。在一些tooltip要求定制性不高的情况下，这样的显示效果相 当不错，而且是浏览器原生的效果，安逸。</p>
+<p>哎，虽然号称精通div+css，但是发现一些小小但是很实用的技巧自己还不知道，看来html还有很多东西可以挖掘。</p>
+<p>16：如何去掉点击链接时的虚线</p>
+<p>解决方案1：在&lt;a href=”http://blog.sina.com/wangfengteacher”onFocus=”this.blur()&gt; Mike blog</a></p>
+<p>解决方案2：在标签中加入 hidefocus<a href=&#8221;http://blog.sina.com/wangfengteacher&#8221;hidefocus> Mike blog</a></p>
+<p>解决方案3: 如果连接太多，可以用外部链接 .HTC 文件。如，blur.htc</p>
+<p>文件内容如下：</p>
+<p>&lt;public:attach event=”onfocus”</p>
+<p>onevent=”makeblur()”&gt;&lt;/public:attach&gt;</p>
+<SCRIPT language=javascript>
+
+function makeblur(){
+
+this.blur();
+
+}
+
+</SCRIPT>
+<p>在 CSS 中加入如下代码：</p>
+<p>A { behavior:url(blur.htc); }</p>
+<p>解决方案4 ( 推荐 )：使用CSS样式，可加入代码：a {blr:expression_r(this.onFocus=this.blur())}</p>
+<p>如果是FF等浏览器的话可这样写 a{ouline:none;}</p>
+<p>17:制作1px细线表格</p>
+<p>解决方案1 ( 推荐)：我们只要给这个table一个border-collapse:collapse的样式，就可以达到这个效果了。</p>
+<p>具体如下：</p>
+<p>1、HTML结构:</p>
+<table width=&#8221;300&#8243; border=&#8221;1&#8243; cellpadding=&#8221;0&#8243;cellspacing=&#8221;0&#8243; bordercolor=&#8221;#C0C0C0&#8243;
+<p>style=”border-collapse:collapse;”&gt;</p>
+<tr>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+<p>18：IE6 下z-index无效</p>
+<p>在CSS中，通过z-index这个属性改变层级，要让z-index起作用有个前提，就是元素的position属性要 是relative，absolute或是fixed。</p>
+<p>z-index层级越高，内容越应该在上面显示。在大部分的浏览器在大部分的情况下，确实如此，但是不绝对，尤其遇到IE6。</p>
+<p>1、关于效果截图的些必要说明</p>
+<p>下面的不是废话，是为了更容易的理解我下面唾沫横飞的内容。</p>
+<p>以下所有结果截图的大背景如下：</p>
+<p>1、页面上固定不动的，一成不变的，送豪宅也不会从良的是一个黑色背景，透明度 40%，几乎满屏显示的层级为1的绝对定位层。HTML为：</p>
+<div></div>
+<p>对应CSS为：#blank{width:100%; height:600px; background:black; opacity:0.4; filter:alpha(opacity=40); position:absolute; left:0; top:0; z-index:1;}</p>
+<p>作用是为了让层级关系一目了然。看：</p>
+<p>这说明内容在z-index为1的绝对定位层之下。</p>
+<p>这说明内容在z-index为1的绝对定位层之上。</p>
+<p>2、页面上做对比的是美女图片，图片在半透明黑色绝对定位层的上面还是下面很容易辨别，这样，您就能够对我所说的z- index不起作用有很直观的认识了。</p>
+<p>2、IE6的抱怨：浮动让我沉沦</p>
+<p>现在开始真正的讲述 问题的产生，原因以及解决了。首先讲讲第一种z-index无论设置多高都不起作用情况。这种情况发生的条件有三个：1、父标签 position属性为relative；2、问题标签无position属性（不包括static）；3、问题标签含有浮动(float)属性。</p>
+<p>您 可以拿下面的代码自己做个简单测试：</p>
+<div></div>
+<div style=&#8221;position:relative; z-index:9999;&#8221;>
+<p><img style=&#8221;float:left;&#8221; src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm2.jpg&#8221; /></p>
+</div>
+<p>丫的，这z-index都9999了，层级够高吧，但是，看下面的图：</p>
+<p>这一对比就知道问题了，可能有人会疑问，这会不会是IE6的relative自己感冒了，而不是浮动(float)携带 了“甲流病毒”。好，我现在去掉浮动，HTML代码如下：</p>
+<div></div>
+<div style=&#8221;position:relative; z-index:9999;&#8221;>
+<p><img src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm2.jpg&#8221; /></p>
+</div>
+<p>结果IE6下：</p>
+<p>我想，问题应该都清楚了，至于原因，我起初以为是haslayout搞的鬼，后来，用zoom一测试，发现不是（IE7 下无此bug也证明不是 haslayout的原因），似乎就是这个float会让z-index失效。由于将外部div的position:relative属性改为 absolute可以解决这一问题，我就怀疑是不是浮动让relative发生了些变化，float与relative在水平定位上可以说是近亲，会不会 是因为这两者搅和在一起所以什么“畸形”“体弱多病”就出现了。这仅是我的猜测而已，真正的原因还是去问IE6的后妈吧。</p>
+<p>解决方法，解决方法有三，1、position:relative改 为position:absolute；2、去除浮动；3、浮动 元素添加position属性（如relative，absolute等）。</p>
+<p>3、固执的IE6：它只认第一个爸爸</p>
+<p>可能不少人知 道，这IE6下，层级的高低不仅要看自己，还要看自己的老爸这个后台是否够硬。用术语具体描述为：</p>
+<p>父标签position属性为relative 或absolute时，子标签的absolute属性是相对于父标签而言的。而在IE6下，层级的表现有时候不是看子标签的z-index多高，而要看它 们的父标签的z-index谁高谁低。</p>
+<p>有一定经验的人可能都知道上面的事实。但是，相信这里面很多人不知道IE6下，决定层级高低的不是当前的父标签，而是整 个DOM tree（节点树）的第一个relative属性的父标签。有时平时我们多处理一个父标签，z-index层级多而复杂的情况不多见，所以难免会有认识上 的小小偏差。</p>
+<p>好，下面展示这个bug。</p>
+<p>条件很简单，只要绝对定位的第一个元素的第一个爸爸，或者说是最老的那个爸爸级别的人的relative属性小于黑色半 透明层的z-index层级。例如下面的HTML代码：</p>
+<div></div>
+<div style=&#8221;position:relative;&#8221;>
+<div style=&#8221;position:relative; z-index:1000;&#8221;>
+<div style=&#8221;position:absolute; z-index:9999;&#8221;>
+<p><img src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm3.jpg&#8221; /></p>
+</div>
+</div>
+</div>
+<p>可以看到，mm3图片的父标签div 是绝对定位，层级9999，比1大多了，绝对定位的父标签层级1000(10000也一样)，也比黑色半透明层的z-index:1大多了，但是，我们可 怜的IE6童鞋——</p>
+<p>再看看以Firefox为代表的其他童鞋：</p>
+<p>IE7与IE6有着同样的bug，原因很简单，虽然图片所在div当前的老爸层级很高(1000)，但是由于老爸的老爸 不顶用，可怜了9999如此强势的孩子没有出头之日啊！</p>
+<p>知道原因解决就很轻松了，给第一任老爸添加z-index后的HTML代 码如下：</p>
+<div></div>
+<div style=&#8221;position:relative; z-index:1;&#8221;>
+<div style=&#8221;position:relative; z-index:1000;&#8221;>
+<div style=&#8221;position:absolute; z-index:9999;&#8221;>
+<p><img src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm3.jpg&#8221; /></p>
+</div>
+</div>
+</div>
+<p>结果IE6童鞋喜笑颜开，春光灿烂：</p>
+<p>19：css reset中的list-style:none</p>
+<p>在IE6,7下,当UL不具有float:left;display:inline;时:</p>
+<p>无论有没有list-style:none这个属性,列 表符都被隐藏,不占位置(下面代码中的5,6)</p>
+<p>当UL具有float:left;display:inline;属性时</p>
+<p>list- style:none,列表符被隐藏,但是仍然留有位置(list-style-position:inside);</p>
+<p>未 设置list-style:none;列表符被隐藏,也不占位(list-style-position:outside)</p>
+<p>在firefox中只要list-style-type为none ,则 无论list-stype-position的值为outside或inside , list-style都能很好的被隐藏</p>
+<p>而在IE6,7中,仅 设置list-style:none,并不足以解决所有问题</p>
+<p>所以我认为在css reset的时候使用 list-style:none outside none 更好</p>
+<p>20：链接去边线（完全兼容）</p>
+<p>a,a:hover{outline:none; blur:expression(this.onFocus=this.blur());}</p>
+<p>21: display:inline-block 额外产生的6PX 或者4px margin</p>
+<p>今天在做一个Timeline的模块的时候遇到一个棘手的问题： 给元素添加display:inline-block 属性的时候会产生额外的4px的margin-right。</p>
+<p>原始代码</p>
+<p>.YP_timelineChart_box li{</p>
+<p>display:-moz-inline-stack;</p>
+<p>display:inline-block;</p>
+<p>zoom:1;</p>
+<p>*display:inline;</p>
+<p>text-indent:-3000px;</p>
+<p>width:5px;</p>
+<p>vertical-align:bottom;</p>
+<p>background-color:#00FF00;</p>
+<p>position:relative;</p>
+<p>}</p>
+<p>页面渲染结果：</p>
+<p>每一列都会向右产生外边距4px，苦思不得其解，尝试负的外边距，但是涉及到其他的问题:每个li标签会重叠1-2个px，妨碍到鼠标hover状 态的事件。尝试修改doctype类型也不见效果。后来尝试了另外一个方法：</p>
+<p>把原来的HTML 代码结构：</p>
+<p>更改为：</p>
+<p>这样就不会产生额外的外边距，也弄不清楚为什么会出现这种问题。先暂时记下，以后再研究研究。</p>
+<p> </p>
+<p>22: IE6中伪类:hover的使用及BUG</p>
+<p>以前未曾遇到类似的问题，一番google，才知道这是IE6处理CSS伪类:hover的Bug。例如如下的代码：</p>
+<style>
+
+a {color: #333;}
+
+a span {color: green;}
+
+a:hover {}
+
+a:hover span {color: red; }
+
+</style>
+<p><a href=”http://www.taobao.com“> 淘宝网 <span> 淘你喜欢 </span></a></p>
+<p>在IE7/FF中，鼠标移动到链接上时，”淘你喜欢”字样会变为红色，但IE6则无反应。所以IE6的bug就是如果a 与 a:hover 的css定义是一样的，也就是说如果a:hover 中没有样式的改变，hover就不会被触发。但如果在a:hover{}增加一些特定的属性，例如</p>
+<p>a:hover{border:none;}</p>
+<p>或者</p>
+<p>a:hover{padding:0;}</p>
+<p>又或者</p>
+<p>a:hover{background: none;}</p>
+<p>此时hover就可以触发了。</p>
+<p>23：原来IE6支持!important</p>
+<p>.demo { color:#F00!important; color:#000; }/*IE6显示错误理解：.demo显示为黑色*/</p>
+<p>/*而下面IE6是正确理解的：.demo显示为红色*/</p>
+<p>.demo { color:#F00!important;}</p>
+<p>.demo { color:#000; }</p>
+<p>24:去掉button按钮左右两边的留白</p>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=&#8221;utf-8&#8243; />
+<style>
+
+*{padding:0; margin:0}
+
+input,button{overflow:visible;padding:0;}
+
+</style>
+</head>
+<body>
+<form id=&#8221;form1&#8243; name=&#8221;form1&#8243; method=&#8221;post&#8221; action=&#8221;&#8221;>
+<p><input type=&#8221;submit&#8221; name=&#8221;button&#8221; id=&#8221;button&#8221; value=&#8221;button按钮左右留白的解决方法&#8221; /></p>
+</form>
+<p><button><span>button按钮左右留白的解决方法</span></button></p>
+</body>
+</html>
+<p>25:中文字体在css中的写法</p>
+<p>黑体SimHei\9ED1\4F53黑体</p>
+<p>宋体SimSun\5B8B\4F53宋体</p>
+<p>新宋体 NSimSun\65B0\5B8B\4F53新宋体</p>
+<p>仿宋FangSong\4EFF\5B8B仿宋</p>
+<p>楷体KaiTi\6977\4F53 楷体</p>
+<p>微软正黑体Microsoft JhengHei\5FAE\x8F6F\6B63\9ED1\4F53微软正黑体</p>
+<p>微软雅黑Microsoft YaHei\5FAE\8F6F\96C5\9ED1微软雅黑</p>
+<p>幼圆 YouYuan\5E7C\5706幼圆</p>
+<p>26： ie6里width:100%是相对于上有高度设置的元素 其他浏览器是相对于上个相对定位或绝对定位的元素</p>
+<div style=&#8221; width:600px; height:600px; background:#000;&#8221;>
+<div style=&#8221; width:500px; height:500px; background:#333;&#8221;>
+<div style=&#8221; float:left; background:#666; width:400px;&#8221; >
+<div style=&#8221; width:300px; height:300px; background:#999;&#8221;>
+<div style=&#8221; width:100%; height:100%; background:#f00; position:absolute; left:0; top:0;&#8221;>
+<p>在非ie6的浏览器中都是满屏幕的红， 说明非ie6的浏览器的width和height的百分比，都是相对的上个相对定位或者绝对定位的元素，没有就为html元素，而ie6中的width和height 的百分比，相对的是上个有高宽显示设置的元素，而且height的百分比设置失效，所以上述代码在ie6中就出现宽度穿越了他的父元素而遇见width:500px;的元素的时候，边把自己设置成了width:500px;而height的设置则失效， 这个， 让人很蛋疼！ie6，真的该早点走了！</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>27： ie不缓存背景图片的解决办法</p>
+<p>高性能web开发中，一张小小的图片请求能省的就省，可IE6存在不缓存背景图的bug.如果重复使用了一个图片作为背景，那么每用一次就会重新去服务器拉一次。。。给服务器带来巨大的压力。解决方法有两种，</p>
+<p>1：采用JS</p>
+<p>var ua = navigator.userAgent.toLowerCase();</p>
+<p>var isIE6 = ua.indexOf(“msie 6”) &gt; -1;//判断是否为IE6</p>
+<p>// remove css image flicker</p>
+<p>//IE6下默认不缓存背景图片，CSS里每次更改图片的位置时都会重新发起请求，用这个方法告诉IE6缓存背景图片</p>
+<p>if(isIE6){</p>
+<p>try{</p>
+<p>document.execCommand(“BackgroundImageCache”, false, true);</p>
+<p>}catch(e){}</p>
+<p>}</p>
+<p>2.在页面上直接使用1个DIV元素来加载该图片，这样加载图片就能真正被缓存，鼠标移动也不会发送请求了。</p>
+<p>28:ie6下css实现max/min-width/height</p>
+<p>_width:expression(this.width&gt;300?”300px”:ture); max-width:300px;</p>
+<p>_height:expression(this.height&gt;300?”300px”:ture); max-height:300px;</p>
+<p>29：css空白外边距互相叠加的解决方法</p>
+<p>body{width:300px; font-family:’微软雅黑’; font-size:1em; text-indent:10px; line-height:1.25;}</p>
+<p>div{background:#000;margin:10px;}</p>
+<p>div p{background:#f60;margin:15px}</p>
+<p>这是一个div元素内嵌套p的简单样例,先别复制保存为html测试,在你看完上面的代码后,你是否以为它出为你呈现如下图的效果?</p>
+<p>好,现在你可以复制上面代码,保存到本地,然后在浏览器中打开.你会惊讶的发现,它呈现给你的效果是这样的:</p>
+<p>为什么会这样呢?按CSS中,对于有块级子元素的元素计算高度的方式,如果元素没有垂直边框和填充,那其高度就是其子元素顶部和底部边框边缘之间的距离.故,子元素的顶部和底部空白边就突出到元素的外围了.p元素的15px外边距与div元素的10px的外边距形成一个单一的15px垂直空白边,另外,形式的这个空白边并非为div所包围,而是呈现在div的外围.所以,我们看到了第二张效果图.</p>
+<p>如何解决?本人比较推荐两种解决方式:</p>
+<p>其一,为外围元素定义透明边框.具体到本例,即在样式div中加入border:1px solid #ddd;</p>
+<p>其二,为外围元素定义内边距填充..具体到本例,即在样式div中加入padding:1px</p>
+<p>另外,还可以通过外围元素绝对定位,或者定义子元素浮动等方式实现.</p>
+<p>30：纯css解决多行文字垂直居中</p>
+<style type=&#8221;text/css&#8221;>
+
+.alert{
+
+width:400px;
+
+height:250px;
+
+display:table-cell;
+
+vertical-align:middle;
+
+line-height:1.5em;
+
+border:1px solid red;
+
+}
+
+.alert_blank{
+
+height:100%;
+
+width:0;
+
+display:inline;
+
+vertical-align:middle;
+
+zoom:1;
+
+}
+
+.alert_con{
+
+width:100%;
+
+zoom:1;
+
+display:inline;
+
+vertical-align:middle;
+
+}
+
+</style>
+<div>
+<div>哥乃多行文字垂直居中～哥乃多行文字垂直居中～哥乃多行文字垂直居中～哥乃多行文字垂直居中～</div>
+</div>
+<p>其大概原理为：第一个alert_blank容器，display:inline以后作为行内元素，它的高度为100%，宽度却为0，相当于紧贴外层容器左边框的一条透明的线，这样就使得外层容器里面只存在一行。外层容易的vertical-align:middle使得其内部相当于一行文字垂直居中。真正盛放内容的div也是display:inline，它对外和blank垂直居中，只要内部文字不超过blank的高度，这个效果将是完美的。虽然从语义化上讲，用空白div布局说不太过去，但是瑕不掩瑜。另：zoom:1是为了触发hasLayout。</p>
+<p>31:关于flash遮盖div浮动层</p>
+<p>(a) place Flash embed script in <div> container (I use SWFObject.js)[将flash嵌入脚本放到一个div容器中]</p>
+<p>(b) add wmode=transparent to Flash embed script[增加wmode=transparent 到flash嵌入脚本]</p>
+<p>(c) set <div id=&#8221;flashcontent&#8221;> container with z-index:-1; [将外层容器的z-index设置为-1]</p>
+<p>(d) set <body> tag with style .. position:relative;left:0px;top:0px;z-index:0;</p>
+<p>(otherwise Firefox does not accept negative z-index)</p>
+<p>(e) set floating iframe in container with z-index: 99;[将浮动的iframe在容器中的zindex设置为99]</p>
+<p>(f) use CSS to position flashcontent and htmlcontent containers.[使用css来调整flash容器和html容器的位置]</p>
+<p>其他方案网上比较多见,不做阐述.在此说下使用第一个方案如何解决:</p>
+<p>var so = new SWFObject(“XXX.swf”, “flashId”, “宽度”, “高度”, “版本”, “背景色”);</p>
+<p>//设置flash不遮盖div层</p>
+<p>so.addParam(“wmode”, “opaque”);</p>
+<p>so.write(“flashcontent”);</p>
+<p>如此设置即可让flash无法遮盖住div</p>
+<p>32:如何处理ie6的文字行高</p>
+<p>ie6下汉字就会显示偏上位置，而在标准浏览器中不存在这个问题字体 Tahoma,试下</p>
+<p>不过如果有规定第一个字体是用啥的，那就只能忽略这个问题..我终于明白淘宝为啥把Tahoma字体放到第一位了</p>
+<!DOCTYPE html PUBLIC &#8220;-//W3C//DTD XHTML 1.0 Transitional//EN&#8221; &#8220;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&#8221;>
+<html xmlns=&#8221;http://www.w3.org/1999/xhtml&#8221;>
+<head>
+<meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=utf-8&#8243; />
+<title>测试ie6的文字行高表现</title>
+<style type=&#8221;text/css&#8221;>
+
+body,ul,li,p {margin:0;padding:0;}
+
+body { font:12px/1.5  Tahoma,&#8221;宋体&#8221;,Arial, Helvetica, sans-serif; }
+
+ul {float:left;list-style:none; margin-bottom:10px;}
+
+ul li, p { margin-top:4px;background:silver;clear:left;}
+
+ul li {float:left;margin-top:4px;}
+
+</style>
+</head>
+<body>
+<ul>
+<li>岁月不饶人哪</li>
+<li>hjgt</li>
+</ul>
+<p>岁月不饶人哪</p>
+<p>hjgt</p>
+</body>
+</html>
+<p>33:利用 CSS 跨浏览器地隐藏文字一法</p>
+<p>ont-size:0;        // for firefox &amp; opera</p>
+<p>color: transparent; // for webkit</p>
+<p>overflow:hidden;    // for IE</p>
+<p>font-size:0;</p>
+<p>filter:alpha(opacity=0);</p>
+<p>自测后兼容的浏览器如下：</p>
+<p>IE 6-8</p>
+<p>Firefox 1-4</p>
+<p>Opera 9-10</p>
+<p>Safari 3-5</p>
+<p>Chrome 1-6</p>
+<p>34:button在chrome下默认有2px的margin</p>
+<p><button>在chrome下有两像素margin</button></p>
+<p>35:ie6和ie7里面margin失效</p>
+<div style=&#8221;padding:20px;background:#f00;&#8221;>
+<div style=&#8221;background:#fff;height:200px;margin:50px;&#8221;>我的margin在ie里面失效了</div>
+<p>解决办法去掉里面div的高度</p>
+<p> </p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/344.html" class="block">WordPress 中文Tag 显示404错误的BUG修正</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/236.html" class="block">Ubuntu安装之wubi方式默认自动BT下载iso的问题</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

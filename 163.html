@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>获取 Textarea 的光标位置 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"获取 Textarea 的光标位置",
+      "item":"/163.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/163.html"
+    },
+    "headline": "获取 Textarea 的光标位置 | 影の域","datePublished": "2011-01-13T06:55:22+00:00",
+    "dateModified": "2011-01-13T06:55:22+00:00",
+    "wordCount":  1089 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。"
+}
+</script><meta property="og:title" content="获取 Textarea 的光标位置 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/163.html" />
+
+
+
+
+<meta property="og:description" content="在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2011-01-13T06:55:22&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2011-01-13T06:55:22&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">获取 Textarea 的光标位置</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-01-13</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1089字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>网络看到，记录下。</p>
+<p>在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。</p>
+<p>下面我们一起来看看如何获取到 Textarea 元素中的光标位置（<a href="http://www.planabc.net/demo/range/textarea-cursor-position.html" target="_blank">测试地址</a>）。</p>
+<p>首先，我们用 rangeData 对象作为数据存储，并获得焦点：</p>
+<pre><code>var rangeData = {start: 0, end: 0, text: &quot;&quot; }; textarea.focus();
+</code></pre>
+<p>对于非 IE 浏览器获取选区的起始和末尾位置其实非常容易：</p>
+<pre><code>rangeData.start= el.selectionStart; rangeData.end = el.selectionEnd;
+</code></pre>
+<p>通过截取我们可以得到光标的选区内容：</p>
+<pre><code>rangeData.text = (rangeData.start != rangeData.end) ? el.value.substring(rangeData.start, rangeData.end): &quot;&quot;;
+</code></pre>
+<p>而对于 IE 浏览器处理起来就比较麻烦了，但我们依旧可以获取到选区：</p>
+<pre><code>oS = document.selection.createRange();
+</code></pre>
+<p>同时还可获取 Textarea 元素的选区：</p>
+<pre><code>// 为了使 oR 与 oS 在同一等级上比较，请勿使用：oR = textarea.createTextRange() oR = document.body.createTextRange(); oR.moveToElementText(textarea);
+</code></pre>
+<p>如果光标在 Textarea 元素内，很自然 oS.text 就是我们需要的选区内容：</p>
+<pre><code>rangeData.text = oS.text;
+</code></pre>
+<p>并且我们可以通过 oS.getBookmark() 方法获取到选区的位置数据，该位置数据可以通过 moveToBookmark() 方法设置回去。</p>
+<blockquote>
+<p><a title="getBookmark Method" href="http://msdn.microsoft.com/en-us/library/ms536432%28v=VS.85%29.aspx" target="_blank">getBookmark</a>: Retrieves a bookmark (opaque string) that can be used with moveToBookmark to return to the same range.</p>
+<p><a title="moveToBookmark Method" href="http://msdn.microsoft.com/en-us/library/ms536628%28v=VS.85%29.aspx" target="_blank">moveToBookmark</a>: Moves to a bookmark.</p>
+</blockquote>
+<p>我们用 rangeData.bookmark 来记录该位置数据：</p>
+<pre><code>rangeData.bookmark = oS.getBookmark();
+</code></pre>
+<p>下面是最重要的步骤：我们比较 oR 与 oS 的选区起始位置（使用 <code>object.compareEndPoints(sType, oRange)</code> 方法比较），如果 oR 的起始位置在 oS 之前，我们向前移动 oS 的起始位置1个字符（使用 <code>object.moveStart(sUnit [, iCount])</code> 方法移动），一直当 oS 的起始位置在 oR 之前停止，移动的位置，则是选区的起始位置。</p>
+<blockquote>
+<p><a title="compareEndPoints Method" href="http://msdn.microsoft.com/en-us/library/ms536373%28v=VS.85%29.aspx" target="_blank">compareEndPoints</a>: Compares an end point of a TextRange object with an end point of another range.</p>
+<p><a title="moveStart Method" href="http://msdn.microsoft.com/en-us/library/ms536623%28v=VS.85%29.aspx" target="_blank">moveStart</a>: Changes the start position of the range.</p>
+</blockquote>
+<pre><code>for (i = 0; oR.compareEndPoints('StartToStart', oS) &lt; 0 &amp;&amp; oS.moveStart(&quot;character&quot;, -1) !== 0; i ++) {} rangeData.start = i;
+</code></pre>
+<p>但由于在 IE 中，Textarea 元素中的所有换行符都占 1 个字符，可以通过 <code>alert(textarea.value.length)</code> 查看，故要对上面的代码做部分处理：</p>
+<pre><code>for (i = 0; oR.compareEndPoints('StartToStart', oS) &lt; 0 &amp;&amp; oS.moveStart(&quot;character&quot;, -1) !== 0; i ++) {     // Why? You can alert(textarea.value.length)     if (textarea.value.charAt(i) == '\n') {         i ++;     } } rangeData.start = i;
+</code></pre>
+<p>既然得到了选区的起始位置和选区字符串的字符，很自然我们可以计算得到选区的末尾位置：</p>
+<pre><code>rangeData.end = rangeData.text.length + rangeData.start;
+</code></pre>
+<p>获取 Textarea 的光标位置的 getCursorPosition 函数方法整理如下：</p>
+<pre><code>/** * getCursorPosition Method * * Created by Blank Zheng on 2010/11/12. * Copyright (c) 2010 PlanABC.net. All rights reserved. * * The copyrights embodied in the content of this file are licensed under the BSD (revised) open source license. */ function getCursorPosition(textarea) {     var rangeData = {text: &quot;&quot;, start: 0, end: 0 };         textarea.focus();     if (textarea.setSelectionRange) { // W3C         rangeData.start= textarea.selectionStart;         rangeData.end = textarea.selectionEnd;         rangeData.text = (rangeData.start != rangeData.end) ? textarea.value.substring(rangeData.start, rangeData.end): &quot;&quot;;     } else if (document.selection) { // IE         var i,             oS = document.selection.createRange(),             // Don't: oR = textarea.createTextRange()             oR = document.body.createTextRange();         oR.moveToElementText(textarea);         rangeData.text = oS.text;         rangeData.bookmark = oS.getBookmark();         // object.moveStart(sUnit [, iCount])         // Return Value: Integer that returns the number of units moved.         for (i = 0; oR.compareEndPoints('StartToStart', oS) &lt; 0 &amp;&amp; oS.moveStart(&quot;character&quot;, -1) !== 0; i ++) {             // Why? You can alert(textarea.value.length)             if (textarea.value.charAt(i) == '\n') {                 i ++;             }         }         rangeData.start = i;         rangeData.end = rangeData.text.length + rangeData.start;     }     return rangeData; }
+</code></pre>
+<p>得到 Textarea 元素光标位置，当Textarea 中的光标丢失了，再设置回来就简单多了：</p>
+<pre><code>/** * setCursorPosition Method * * Created by Blank Zheng on 2010/11/12. * Copyright (c) 2010 PlanABC.net. All rights reserved. * * The copyrights embodied in the content of this file are licensed under the BSD (revised) open source license. */ function setCursorPosition(textarea, rangeData) {     if(!rangeData) {         alert(&quot;You must get cursor position first.&quot;)     }     if (textarea.setSelectionRange) { // W3C         textarea.focus();         textarea.setSelectionRange(rangeData.start, rangeData.end);     } else if (textarea.createTextRange) { // IE         var oR = textarea.createTextRange();         // Fixbug :         // In IE, if cursor position at the end of textarea, the setCursorPosition function don't work         if(textarea.value.length === rangeData.start) {             oR.collapse(false)             oR.select();         } else {             oR.moveToBookmark(rangeData.bookmark);             oR.select();         }     } }
+</code></pre>
+<p>测试地址：<a href="http://www.planabc.net/demo/range/textarea-cursor-position.html" target="_blank"><a href="http://www.planabc.net/demo/range/textarea-cursor-position.html">http://www.planabc.net/demo/range/textarea-cursor-position.html</a></a></p>
+<p>扩展阅读：</p>
+<ul>
+<li><a title="TextRange Prototype" href="http://msdn.microsoft.com/en-us/library/dd347140%28v=VS.85%29.aspx" target="_blank">《TextRange Prototype》</a></li>
+<li><a title="TextArea Cursor Position with JavaScript" href="http://geekswithblogs.net/svanvliet/archive/2005/03/24/textarea-cursor-position-with-javascript.aspx" target="_blank">《TextArea Cursor Position with JavaScript》</a></li>
+</ul>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/167.html" class="block">判断 iframe 是否加载完成的完美方法</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/161.html" class="block">如何获取当前 select 元素的值</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

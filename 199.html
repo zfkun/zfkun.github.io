@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>XHR与浏览器导航冲突解决方案 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"XHR与浏览器导航冲突解决方案",
+      "item":"/199.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/199.html"
+    },
+    "headline": "XHR与浏览器导航冲突解决方案 | 影の域","datePublished": "2011-03-20T09:45:11+00:00",
+    "dateModified": "2011-03-20T09:45:11+00:00",
+    "wordCount":  1829 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。"
+}
+</script><meta property="og:title" content="XHR与浏览器导航冲突解决方案 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/199.html" />
+
+
+
+
+<meta property="og:description" content="最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2011-03-20T09:45:11&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2011-03-20T09:45:11&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">XHR与浏览器导航冲突解决方案</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1829字</span>
+    </div>
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>历史：</p>
+<p>最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。</p>
+<p> </p>
+<p>使用：</p>
+<p>当一个页面嵌入一个iframe时，当javascript变动iframe的 src（或者操作document open 与 close），会在浏览器上生成一条历史记录，点击后退的话，主页面没有变化，但是iframe会加载历史记录中的上一条src（或者文档），因此可以解 决传统用户体验的浏览器导航部分。</p>
+<p> </p>
+<p>适用范围：</p>
+<p>一般用于界面切换，当界面有大的变化，且没有修改或删除操作时 ，可以由用户点击浏览器的返回操作来达到上一个操作界面。</p>
+<p> </p>
+<p>技术描述：(firefox 适用，ie不适用)</p>
+<p> </p>
+<p>主页面 javascript 设置里面的 iframe 的 src （向服务器传递信息），当iframe 加载完毕后，在iframe的页面调用主页面的回调函数，达到更新主页面的作用，并向浏览器添加一条历史记录。当用户点击后退后，iframe会加载历史记录的上一条页面，重新调用上一个页面所应该的主页面callback，修改主页面到上一个功能界面，达到是主页面回退的效果. iframe 一般是设置样式 display:none，排除在文档流中，不参与用户界面。</p>
+<p> </p>
+<p>示例 (firefox 适用)：</p>
+<p> </p>
+<p>主页面 ：index.html</p>
+<pre title="XHR与浏览器导航冲突解决方案">&lt;iframe id='i' style='display:none'&gt;&lt;/iframe&gt;
+&lt;div id='d'&gt;&lt;/div&gt;
+&lt;div id='d2'&gt;&lt;/div&gt;
+&lt;input type='button' onclick='bclick();' value='change'/&gt;
+&lt;script&gt;
+	var ii=0;
+	function callback(str){
+		//alert(ii);
+		document.getElementById('d').innerHTML='iframe call back :'+str;
+	}
+
+	function bclick() {
+		document.getElementById('d2').innerHTML='mimic ajax '+ii;
+		document.getElementById('i').src='iframe.html?i='+(ii++);
+	}
+
+	window.onload=function(){
+		document.getElementById('i').src='iframe.html';
+	}
+	&lt;/script&gt;</code></pre>
+<p> </p>
+<p>隐藏帧页面 :iframe.html</p>
+<pre title="XHR与浏览器导航冲突解决方案">&lt;script&gt;
+	window.onload=function(){
+		parent.callback(window.location);
+
+	}	
+&lt;/script&gt;</code></pre>
+<p> </p>
+<p><strong>实战（多浏览器解决方案）</strong></p>
+<p> </p>
+<p>根据 advanced dom scripting 以及 YUI <strong>YAHOO.util.History</strong> 提出的方案，可以解决浏览器导航问题以及书签功能。</p>
+<p> </p>
+<p> </p>
+<p><strong>对于 firefox,ie8 可以直接给url添加 hash ，则firefox,ie8会把变动的 url加到浏览器history中，而ie6,7 则不会。</strong></p>
+<p> </p>
+<p><strong>firefox</strong></p>
+<p> </p>
+<p>每次操作添加 hash 到 url，并后台 setInterval 监控 url hash 的变化，根据当前的hash 进行 ajax 操作，（ 用户点击后退只会改变hash值。 ）</p>
+<p> </p>
+<p><strong>updated 2010-12-29 :</strong></p>
+<p>firefox chrome 已经支持 <a href="http://www.w3.org/TR/html5/history.html" target="_blank">hashchange</a> 事件，不再需要定时器监控了，监听事件即可。</p>
+<p> </p>
+<p> </p>
+<p><strong>ie 6,7</strong></p>
+<p> </p>
+<p>设 置隐藏的iframe，每次操作用脚本设置iframe的内容 (注意：如果仅仅设置 src 参数 ?x=xx 不同，ie6,7 并不会产生历史纪录，必须src不同，直接脚本产生 iframe 新document（open,write,close）也可以产生历史纪录)，将当前hash 插入到生成的iframe内容中，后台监控 setInterval  iframe 内容中 hash 的变化，如果变化（ 用户点击后退会使当前页面iframe的内容变化 ），则提取hash值，添加到主页面url，执行相关ajax 操作。</p>
+<p> </p>
+<p><strong>YUI BHM 相关操作：</strong></p>
+<pre title="XHR与浏览器导航冲突解决方案">/**
+     * Update the IFrame with our new state.
+     *
+     * @method _updateIFrame
+     * @private
+     * @return {boolean} true if successful. false otherwise.
+     */
+    function _updateIFrame (fqstate) {
+
+        var html, doc;
+
+        html = '&lt;html&gt;&lt;body&gt;&lt;div id="state"&gt;' + fqstate + '&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;';
+
+        try {
+            doc = _histFrame.contentWindow.document;
+            doc.open();
+            doc.write(html);
+            doc.close();
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }</code></pre>
+<p> </p>
+<p>关键是 <strong>open() ,close() 会增加历史</strong> ，之后可以将数据附在 doc 上，后退的话数据就会回来，但是注意 close() 后会触发 iframe load 事件，yui3 采用 hash 来存储数据：</p>
+<p><span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; font-size: 12px; line-height: 18px; white-space: pre;">HistoryHash._updateIframe = function (hash, replace) {</span></p>
+<pre title="XHR与浏览器导航冲突解决方案">var iframeDoc      = iframe.contentWindow.document,
+            iframeLocation = iframeDoc.location;
+
+        iframeDoc.open().close();
+
+        if (replace) {
+            iframeLocation.replace(hash.charAt(0) === '#' ? hash : '#' + hash);
+        } else {
+            iframeLocation.hash = hash;
+        }
+    };</code></pre>
+<p> </p>
+<p><strong>ie8</strong></p>
+<p> </p>
+<p>很简单，由于有相关事件直接监控 Hash 变动即可 ，不用像firefox一样轮循查看 ：</p>
+<p><span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; font-size: 12px; line-height: 18px; white-space: pre;">if (YAHOO.env.ua.ie) {</span></p>
+<pre title="XHR与浏览器导航冲突解决方案">if (typeof document.documentMode === "undefined" || document.documentMode &lt; 8) {
+
+                // IE &lt; 8 or IE8 in quirks mode or IE7 standards mode
+                //利用 iframe 来生成历史纪录
+                _checkIframeLoaded();
+
+            } else {
+
+                // IE8 in IE8 standards mode
+                //直接利用特有事件
+                YAHOO.util.Event.on(top, "hashchange",
+                    function () {
+                        var hash = _getHash();
+                        _handleFQStateChange(hash);
+                        _storeStates();
+                    });
+
+                _initialized = true;
+                YAHOO.util.History.onLoadEvent.fire();
+
+            }
+
+        } else {
+            //其他浏览器，轮训hash值变化
+            // Start the thread that will have the responsibility to
+            // periodically check whether a navigate operation has been
+            // requested on the main window. This will happen when
+            // YAHOO.util.History.navigate has been called or after
+            // the user has hit the back/forward button.
+
+            // On Safari 1.x and 2.0, the only way to catch a back/forward
+            // operation is to watch history.length... We basically exploit
+            // what I consider to be a bug (history.length is not supposed
+            // to change when going back/forward in the history...) This is
+            // why, in the following thread, we first compare the hash,
+            // because the hash thing will be fixed in the next major
+            // version of Safari. So even if they fix the history.length
+            // bug, all this will still work!
+            counter = history.length;
+
+            // On Gecko and Opera, we just need to watch the hash...
+            hash = _getHash();
+
+            setInterval(function () {
+
+                var state, newHash, newCounter;
+
+                newHash = _getHash();
+                newCounter = history.length;
+                if (newHash !== hash) {
+                    hash = newHash;
+                    counter = newCounter;
+                    _handleFQStateChange(hash);
+                    _storeStates();
+                } else if (newCounter !== counter && YAHOO.env.ua.webkit) {
+                    hash = newHash;
+                    counter = newCounter;
+                    state = _fqstates[counter - 1];
+                    _handleFQStateChange(state);
+                    _storeStates();
+                }
+
+            }, 50);</code></pre>
+<p><strong>书签问题：</strong></p>
+<p> </p>
+<p>多个浏览器都可以通过，添加书签附带了当前页面的hash值。载入书签时，首先读取Hash值进入相应的ajax操作。</p>
+<h1 id="demo"><strong>demo:</strong></h1>
+<p> </p>
+<p><strong>updated : 2010-12-29</strong></p>
+<p> </p>
+<p>由于 ie&gt;7 以及 firefox ,chrome 都已经支持 hashchange 事件以及历史存储，那么实际上难点就是 ie6,7 下使用 iframe 来记录导航历史 ：</p>
+<p> </p>
+<p><a href="http://lite-ext.googlecode.com/svn/trunk/lite-ext/playground/hash_history/test.html" target="_blank">simple hashchange for ie6,7 @ google code</a></p>
+<p> </p>
+<p>kissy 采用先进的事件补丁技术<a href="https://github.com/yiminghe/kissy/blob/master/src/event/event-hashchange.js" target="_blank">优雅地解决了这个问题</a> ，在任何浏览器下都可以<a href="http://lite-ext.googlecode.com/svn/trunk/lite-ext/playground/hash_history/kissy.html" target="_blank">直接</a> ：</p>
+<pre title="XHR与浏览器导航冲突解决方案">function t() {
+        alert("current hash :" + window.location.hash);
+    }
+    KISSY.Event.on(window, "hashchange", t);</code></pre>
+<p>即可 ！</p>
+<p> </p>
+<p>PS：<strong>html5 提出了新的标准</strong> ，目前 chrome 下已经实现：</p>
+<p> </p>
+<p><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html" target="_blank">session history and navigation</a></p>
+<p> </p>
+<p>github 也做了尝试：</p>
+<p> </p>
+<p><a href="http://stackoverflow.com/questions/4371705/how-to-rewrite-url-without-refresh-like-github-com" target="_blank">how to rewrite url without refresh like github</a></p>
+<p> </p>
+<p>PS2: 如果不想使得修改 hash 而引起浏览器增加历史记录，可使用 <a href="http://msdn.microsoft.com/en-us/library/ms536712%28v=vs.85%29.aspx" target="_blank">location.replace(‘#xx’)</a> ，对于 ie6,7 模拟的iframe，情况则只需要只修改 body 的 innerHtml :</p>
+<p>iframe.contentWindow.document.body.innerHTML=’#xx’</p>
+<p> </p>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/202.html" class="block">Google 的疯狂面试题</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/196.html" class="block">Repaint 跟踪浏览器的渲染</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

@@ -9,6 +9,15 @@
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright><atom:link href="/authors/zfkun/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>C4D工作流设置 (1) - Arnold (C4DToA) 阿诺德工作流</title>
+      <link>/c4d-project-workflow.html</link>
+      <pubDate>Sat, 10 Apr 2021 12:43:13 +0800</pubDate>
+      
+      <guid>/c4d-project-workflow.html</guid>
+      <description>主要记录自己习惯的C4D工程 (阿诺德渲染器) 基本配置</description>
+    </item>
+    
+    <item>
       <title>node-airplay 0.1.0 release</title>
       <link>/525.html</link>
       <pubDate>Fri, 20 Dec 2013 09:44:02 +0000</pubDate>

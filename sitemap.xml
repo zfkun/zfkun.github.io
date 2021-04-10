@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/aces/</loc>
+    <lastmod>2021-04-10T12:43:13+08:00</lastmod>
+  </url><url>
+    <loc>/tags/arnold/</loc>
+    <lastmod>2021-04-10T12:43:13+08:00</lastmod>
+  </url><url>
+    <loc>/authors/</loc>
+    <lastmod>2021-04-10T12:43:13+08:00</lastmod>
+  </url><url>
+    <loc>/tags/c4d/</loc>
+    <lastmod>2021-04-10T12:43:13+08:00</lastmod>
+  </url><url>
+    <loc>/categories/c4d/</loc>
+    <lastmod>2021-04-10T12:43:13+08:00</lastmod>
+  </url><url>
+    <loc>/series/c4d-workflow/</loc>
+    <lastmod>2021-04-10T12:43:13+08:00</lastmod>
+  </url><url>
+    <loc>/c4d-project-workflow.html</loc>
+    <lastmod>2021-04-10T12:43:13+08:00</lastmod>
+  </url><url>
+    <loc>/categories/design/</loc>
+    <lastmod>2021-04-10T12:43:13+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2021-04-10T12:43:13+08:00</lastmod>
+  </url><url>
     <loc>/tags/airplay/</loc>
     <lastmod>2021-03-28T16:20:45+08:00</lastmod>
   </url><url>
     <loc>/tags/apple/</loc>
-    <lastmod>2021-03-28T16:20:45+08:00</lastmod>
-  </url><url>
-    <loc>/authors/</loc>
     <lastmod>2021-03-28T16:20:45+08:00</lastmod>
   </url><url>
     <loc>/series/frontend/</loc>
@@ -21,9 +45,6 @@
     <lastmod>2021-03-28T16:20:45+08:00</lastmod>
   </url><url>
     <loc>/categories/web/</loc>
-    <lastmod>2021-03-28T16:20:45+08:00</lastmod>
-  </url><url>
-    <loc>/</loc>
     <lastmod>2021-03-28T16:20:45+08:00</lastmod>
   </url><url>
     <loc>/tags/dash/</loc>

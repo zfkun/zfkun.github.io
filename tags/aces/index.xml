@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aces on 影の域</title>
+    <link>/tags/aces/</link>
+    <description>Recent content in aces on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 10 Apr 2021 12:43:13 +0800</lastBuildDate><atom:link href="/tags/aces/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C4D工作流设置 (1) - Arnold (C4DToA) 阿诺德工作流</title>
+      <link>/c4d-project-workflow.html</link>
+      <pubDate>Sat, 10 Apr 2021 12:43:13 +0800</pubDate>
+      
+      <guid>/c4d-project-workflow.html</guid>
+      <description>主要记录自己习惯的C4D工程 (阿诺德渲染器) 基本配置</description>
+    </item>
+    
+  </channel>
+</rss>

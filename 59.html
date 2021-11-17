@@ -59,12 +59,8 @@
 </script>
 
 
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
   content="最近腾讯TT4.5版发布后，为了兼容一处FLASH的WMODE参数异常的BUG使用到了新版检测方法，特此记录一下，省的以后忘记。 TT4.5 检测方法: 调用 external.getTTVerStr() 返回 浏览器信息，非TT或此版本均会抛出异常。 TT通用版检测方法: 首先检测 navigator.userAgent 是否含有 Tencent 特征串，继而调用 external.ShowBrowserUI(’ku6′) ，非TT均会抛出异常 顺便提一下 遨游 的检测方法： 也是通过 external 对象来辅助检测，调用 external.tab_count 不抛异常即为 遨游浏览器。">
@@ -244,14 +240,13 @@
         <i class="fas fa-keyboard mr-1"></i>
         <span>203字</span>
     </div>
-    
-    <div class="mr-6 my-2">
+    <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
+
 <span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
 
     </div>
-    
     
     
 
@@ -410,7 +405,24 @@
     <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
-</div></div>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
   </footer>
 </body>
 

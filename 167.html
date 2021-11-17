@@ -59,12 +59,8 @@
 </script>
 
 
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
   content="网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(&quot;iframe&quot;); iframe.src = &quot;http://www.planabc.net&quot;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(&quot;Local iframe is now loaded.&quot;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == &quot;complete&quot;){ alert(&quot;Local iframe is now loaded.&quot;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(&quot;iframe&quot;); iframe.src = &quot;http://www.planabc.net&quot;; if (iframe.attachEvent){ iframe.attachEvent(&quot;onload&quot;, function(){ alert(&quot;Local iframe is now loaded.&quot;); }); } else { iframe.onload = function(){ alert(&quot;Local iframe is now loaded.&quot;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。">
@@ -244,14 +240,13 @@
         <i class="fas fa-keyboard mr-1"></i>
         <span>244字</span>
     </div>
-    
-    <div class="mr-6 my-2">
+    <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
+
 <span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
 
     </div>
-    
     
     
 
@@ -445,7 +440,24 @@ document.body.appendChild(iframe);
     <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
-</div></div>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
   </footer>
 </body>
 

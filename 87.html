@@ -59,12 +59,8 @@
 </script>
 
 
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
   content="纯CSS实现圆角框是一件大家都说烂了的事件，我也写过两篇总结文章，为什么还会有这篇文章呢，事情是这样的。在我们的以前的项目中，实现圆角框往往是用背景图片来实现的，但是，当这些项目发布上线后，在维护过程中，有时需要添加一些新的需求，因为以前的项目中大量采用了圆角图片，并且这些图片全部采用了CSS sprites方式合并的图，为了不增加更多的额外工作，并且也不想用JS来添加更多的http请求，所以需要一些简单的CSS方案来解决这个问题。而我的个人爱好，也喜欢采用无图片的方式来处理这些效果。总觉得CSS能完成的工作，为什么不让它来实现呢？">
@@ -244,14 +240,13 @@
         <i class="fas fa-keyboard mr-1"></i>
         <span>1973字</span>
     </div>
-    
-    <div class="mr-6 my-2">
+    <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
+
 <span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
 
     </div>
-    
     
     
 
@@ -268,7 +263,7 @@
 <p>纯CSS实现圆角框是一件大家都说烂了的事件，我也写过两篇总结文章，为什么还会有这篇文章呢，事情是这样的。在我们的以前的项目中，实现圆角框往往是用背景图片来实现的，但是，当这些项目发布上线后，在维护过程中，有时需要添加一些新的需求，因为以前的项目中大量采用了圆角图片，并且这些图片全部采用了CSS sprites方式合并的图，为了不增加更多的额外工作，并且也不想用JS来添加更多的http请求，所以需要一些简单的CSS方案来解决这个问题。而我的个人爱好，也喜欢采用无图片的方式来处理这些效果。总觉得CSS能完成的工作，为什么不让它来实现呢？</p>
 <p><strong>实现原理</strong>：</p>
 <p>纯CSS方式实现圆角框的原理在网络上已经有很多人详细解说了，下面这个示意图是我将其中的一个圆角进行放大后的效果。</p>
-<p><img src="http://www.blueidea.com/articleimg/2010/01/7347/01.png" border="0" alt="" width="451" height="321" /></p>
+<img src="http://www.blueidea.com/articleimg/2010/01/7347/01.png" border="0" alt="" width="451" height="321" /> 
 <p>图一</p>
 <p>从上面效果图中我们可以看到其实这种圆角框是靠一个个容器堆砌而成的，每一个容器的宽度不同，这个宽度是由margin外边距来实现的，如：margin:0 5px;就是左右两侧的外边距5像素，从上到下有5条线，其外边距分别为5px，3px，2px，1px，依次递减。因此根据这个原理我们可以实现简单的html结构和样式。</p>
 <p><strong>1、Html结构层：</strong></p>
@@ -306,7 +301,7 @@
 <p>这儿除了b1和b8外，其它的标签都包含进来了，并且包括content容器，将它们的背景色全部设置一个颜色，这样除了线框外的所有地方都成为一种颜色了。在这儿我也用到包含选择符，给它们都加了一个color1，这是颜色方案1的类名，依照这个原理可以设置不同的换肤方案。</p>
 <p>好了，我们将上面的所有代码集中起来，就完成一个纯CSS圆角框的实例模型，在源码中，我设置了六套颜色方案，其它的颜色方案就看你的了。</p>
 <p>下面是源码演示后的截图：</p>
-<p><img src="http://www.blueidea.com/articleimg/2010/01/7347/02.jpg" border="0" alt="" width="510" height="445" /></p>
+<img src="http://www.blueidea.com/articleimg/2010/01/7347/02.jpg" border="0" alt="" width="510" height="445" /> 
 <p>图二</p>
 <p>为了演示效果，本模型的宽度值全部采用百分比实现的，你可以随意伸缩宽度，看看它能否适应弹性的变化。</p>
 <p>本模型在以下浏览器中完美通过：<br>
@@ -455,7 +450,24 @@
     <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
-</div></div>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
   </footer>
 </body>
 

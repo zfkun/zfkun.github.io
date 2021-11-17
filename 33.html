@@ -59,12 +59,8 @@
 </script>
 
 
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
   content="问题的解决方法：http://bugs.php.net/bug.php?id=45538 php5 在 windows 下运行时，不需要在 php.ini 里声明 php_domxml.dll，加个分号注释起来就行了。 If you use PHP 5 in windows, you don’t need to declare php_domxml.dll in your php.ini file. so u can give comment in the line php_domxml.dll in your php.ini file. you only need to comment it out, but do not delete the php_domxml.dll file in the ext directory.">
@@ -244,14 +240,13 @@
         <i class="fas fa-keyboard mr-1"></i>
         <span>139字</span>
     </div>
-    
-    <div class="mr-6 my-2">
+    <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
+
 <span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
 
     </div>
-    
     
     
 
@@ -410,7 +405,24 @@ you only need to comment it out, but do not delete the php_domxml.dll file in th
     <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
-</div></div>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
   </footer>
 </body>
 

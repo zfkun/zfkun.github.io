@@ -59,12 +59,8 @@
 </script>
 
 
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
   content="下载并安装Cygwin 及Node.js安装依赖的附加组件 cygwin下载: http://cygwin.com/setup.exe (下载点最好选择台湾或日本的临近点，速度快) 附加组件选择: Devel : gcc-g&#43;&#43;: C&#43;&#43; compiler gcc-mingw-g&#43;&#43;: Mingw32 support headers and libraries for GCC C&#43;&#43; gcc4-g&#43;&#43;: G&#43;&#43; subpackage git: Fast Version Control System – core files (github方式下载时用) make: The GNU version of the ‘make’ utility openssl-devel: The OpenSSL development environment pkg-config: A utility used to retrieve information about installed libraries zlib-devel: The zlib compression/decompression library (development) Editor: vim: Vi IMproved – enhanced vi editor Python: 全部 Web: wget: Utility to retrieve files from the WWW via HTTP and FTP curl: Multi-protocol file transfer command-line tool 由于操作系统为 windows 7 (Windows Vista以后版本)，需要在ash模式下执行rebaseall才能保证 node.js的编译通过 a. 进入 cygwin安装目录/bin/ b. 运行ash.exe">
@@ -246,14 +242,13 @@
         <i class="fas fa-keyboard mr-1"></i>
         <span>700字</span>
     </div>
-    
-    <div class="mr-6 my-2">
+    <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
+
 <span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
 
     </div>
-    
     
     
 
@@ -476,7 +471,24 @@ $ node /workspace/test.js</code></pre>
     <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
-</div></div>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
   </footer>
 </body>
 

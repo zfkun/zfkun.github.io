@@ -59,12 +59,8 @@
 </script>
 
 
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
   content="一份值得看下的IE6、IE7、IE8 CSS Bug兼容解决记录">
@@ -244,14 +240,13 @@
         <i class="fas fa-keyboard mr-1"></i>
         <span>8224字</span>
     </div>
-    
-    <div class="mr-6 my-2">
+    <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
+
 <span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
 
     </div>
-    
     
     
 
@@ -416,13 +411,13 @@ this.blur();
 <p>您 可以拿下面的代码自己做个简单测试：</p>
 <div></div>
 <div style=&#8221;position:relative; z-index:9999;&#8221;>
-<p><img style=&#8221;float:left;&#8221; src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm2.jpg&#8221; /></p>
+<img style=&#8221;float:left;&#8221; src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm2.jpg&#8221; />
 </div>
 <p>丫的，这z-index都9999了，层级够高吧，但是，看下面的图：</p>
 <p>这一对比就知道问题了，可能有人会疑问，这会不会是IE6的relative自己感冒了，而不是浮动(float)携带 了“甲流病毒”。好，我现在去掉浮动，HTML代码如下：</p>
 <div></div>
 <div style=&#8221;position:relative; z-index:9999;&#8221;>
-<p><img src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm2.jpg&#8221; /></p>
+<img src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm2.jpg&#8221; />
 </div>
 <p>结果IE6下：</p>
 <p>我想，问题应该都清楚了，至于原因，我起初以为是haslayout搞的鬼，后来，用zoom一测试，发现不是（IE7 下无此bug也证明不是 haslayout的原因），似乎就是这个float会让z-index失效。由于将外部div的position:relative属性改为 absolute可以解决这一问题，我就怀疑是不是浮动让relative发生了些变化，float与relative在水平定位上可以说是近亲，会不会 是因为这两者搅和在一起所以什么“畸形”“体弱多病”就出现了。这仅是我的猜测而已，真正的原因还是去问IE6的后妈吧。</p>
@@ -437,7 +432,7 @@ this.blur();
 <div style=&#8221;position:relative;&#8221;>
 <div style=&#8221;position:relative; z-index:1000;&#8221;>
 <div style=&#8221;position:absolute; z-index:9999;&#8221;>
-<p><img src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm3.jpg&#8221; /></p>
+<img src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm3.jpg&#8221; />
 </div>
 </div>
 </div>
@@ -449,7 +444,7 @@ this.blur();
 <div style=&#8221;position:relative; z-index:1;&#8221;>
 <div style=&#8221;position:relative; z-index:1000;&#8221;>
 <div style=&#8221;position:absolute; z-index:9999;&#8221;>
-<p><img src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm3.jpg&#8221; /></p>
+<img src=&#8221;http://image.zhangxinxu.com/image/study/s/s256/mm3.jpg&#8221; />
 </div>
 </div>
 </div>
@@ -526,7 +521,7 @@ input,button{overflow:visible;padding:0;}
 </head>
 <body>
 <form id=&#8221;form1&#8243; name=&#8221;form1&#8243; method=&#8221;post&#8221; action=&#8221;&#8221;>
-<p><input type=&#8221;submit&#8221; name=&#8221;button&#8221; id=&#8221;button&#8221; value=&#8221;button按钮左右留白的解决方法&#8221; /></p>
+<input type=&#8221;submit&#8221; name=&#8221;button&#8221; id=&#8221;button&#8221; value=&#8221;button按钮左右留白的解决方法&#8221; />
 </form>
 <p><button><span>button按钮左右留白的解决方法</span></button></p>
 </body>
@@ -836,7 +831,24 @@ ul li {float:left;margin-top:4px;}
     <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
-</div></div>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
   </footer>
 </body>
 

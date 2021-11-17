@@ -59,12 +59,8 @@
 </script>
 
 
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_2.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
   content="这篇文章介绍了 5 个实用的 CSS 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。">
@@ -244,14 +240,13 @@
         <i class="fas fa-keyboard mr-1"></i>
         <span>1004字</span>
     </div>
-    
-    <div class="mr-6 my-2">
+    <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
+
 <span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
 
     </div>
-    
     
     
 
@@ -265,10 +260,10 @@
             <p>这篇文章介绍了 5 个实用的 <strong>CSS</strong> 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。因此，千万不要错过这篇文章，因为你可能发现它们竟有如此之大的用途。</p>
 <p><strong>1、CSS Clip</strong></p>
 <p>剪辑 (clip) 属性就像一个面具。它允许你使用矩形掩盖页面元素的内容。要剪辑一个元素：你必须指定其 position 属性为 absolute，然后指定相对于元素的 top，right，bottom，left 值。</p>
-<p><img src="http://www.blueidea.com/articleimg/2010/03/7410/01.gif" border="0" alt="" width="470" height="349" /></p>
+<img src="http://www.blueidea.com/articleimg/2010/03/7410/01.gif" border="0" alt="" width="470" height="349" /> 
 <p><strong>图片剪辑实例（<a href="http://www.webdesignerwall.com/wp-content/uploads/2009/11/css-clip.html" target="_blank">演示</a>）</strong></p>
 <p>以下示例演示了如何使用 clip 属性掩盖一张图片。首先，指定 <div> 元素为 position:relative，然后指定 <img> 元素为 position:absolute，并且根据实际需要设定 rect 值。</p>
-<p><img src="http://www.blueidea.com/articleimg/2010/03/7410/02.gif" border="0" alt="" width="470" height="219" /></p>
+<img src="http://www.blueidea.com/articleimg/2010/03/7410/02.gif" border="0" alt="" width="470" height="219" /> 
 <pre><code class="css">.clip {
   position: relative;
   height: 130px;
@@ -282,7 +277,7 @@
 </code></pre>
 <pre><strong>图像调整尺寸和剪辑（<a href="http://www.webdesignerwall.com/wp-content/uploads/2009/11/css-clip.html" target="_blank">演示</a>）</strong></code></pre>
 <p>在这个示例中，我将展示如何调整图像尺寸和剪辑图片。素材图片是矩形的，我想将其削减至 50％ 的尺寸，用来创建一个正方形格式的缩略图。因此，我用宽度和高度属性来调整图像，并使用 clip 剪辑属性予以掩盖。然后用 left 属性将图片移开左侧 15px 的距离。</p>
-<p><img src="http://www.blueidea.com/articleimg/2010/03/7410/03.gif" border="0" alt="" width="470" height="422" /></p>
+<img src="http://www.blueidea.com/articleimg/2010/03/7410/03.gif" border="0" alt="" width="470" height="422" /> 
 <pre><code class="css">.gallery li {
   float: left;
   margin: 0 10px 0 0;
@@ -301,7 +296,7 @@
 </code></pre>
 <pre><strong>2、Min-height （<a href="http://www.webdesignerwall.com/wp-content/uploads/2009/11/min-height.html" target="_blank">演示</a>）</strong></code></pre>
 <p>min-height 属性允许你指定元素的最小高度，适用于需要平衡布局的情况。我将它用于 <a href="http://jobs.webdesignerwall.com/" target="_blank">Job 面板</a>上，以确保内容区域高于侧边栏。</p>
-<p><img src="http://www.blueidea.com/articleimg/2010/03/7410/04.gif" border="0" alt="" width="470" height="270" /></p>
+<img src="http://www.blueidea.com/articleimg/2010/03/7410/04.gif" border="0" alt="" width="470" height="270" /> 
 <pre><code class="css">.with_minheight {
   min-height: 550px;
 }
@@ -316,14 +311,14 @@
 </code></pre>
 <pre><strong>3、White-space（<a href="http://www.webdesignerwall.com/wp-content/uploads/2009/11/white-space.html" target="_blank">演示</a>）</strong></code></pre>
 <p>white-space 属性指定了元素中空白的处理方式。比如，指定 white-space:nowrap 会阻止文本自动换行。</p>
-<p><img src="http://www.blueidea.com/articleimg/2010/03/7410/05.gif" border="0" alt="" width="470" height="258" /></p>
+<img src="http://www.blueidea.com/articleimg/2010/03/7410/05.gif" border="0" alt="" width="470" height="258" /> 
 <pre><code class="css">em {
   white-space: nowrap;
 }
 </code></pre>
 <p><strong>4、Cursor（<a href="http://www.webdesignerwall.com/wp-content/uploads/2009/11/cursor.html" target="_blank">演示</a>）</strong></p>
 <p>如果你改变了按钮的行为，其指针也应该随之改变。比如，当一个按钮不可用时，指针应该改变为默认的箭头，来表明它不可点击。因此，cursor 属性在开发 Web 应用程序时相当有用。</p>
-<p><img src="http://www.blueidea.com/articleimg/2010/03/7410/06.gif" border="0" alt="" width="470" height="200" /></p>
+<img src="http://www.blueidea.com/articleimg/2010/03/7410/06.gif" border="0" alt="" width="470" height="200" /> 
 <pre><code class="css">.disabled {
   cursor: default;
 }
@@ -338,7 +333,7 @@
 </code></pre>
 <pre><strong>5、Display inline / block（<a href="http://www.webdesignerwall.com/wp-content/uploads/2009/11/display.html" target="_blank">演示</a>）</strong></code></pre>
 <p>如果你不知道：块级元素是作为独立的一行来渲染的，而行内元素是在同一行被渲染的。<div>，<h1> 和 <p> 标签都是块级元素，<em>，<span>，<strong> 都是行内元素。通过 display:inline 或 block 的方式，你可以重设这些元素的 display 样式。</p>
-<p><img src="http://www.blueidea.com/articleimg/2010/03/7410/07.gif" border="0" alt="" width="470" height="206" /></p>
+<img src="http://www.blueidea.com/articleimg/2010/03/7410/07.gif" border="0" alt="" width="470" height="206" /> 
 <pre><code class="css">.block em {
   display: block;
 }
@@ -493,7 +488,24 @@
     <p class="text-sm text-tertiary-text">Copyright &copy; 2021 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
-</div></div>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
   </footer>
 </body>
 

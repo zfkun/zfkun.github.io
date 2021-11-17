@@ -80,21 +80,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "ECMAScript 5与HTML5的支持情况",
-            "description": "ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。",
-            "url": "/192.html"
+            "name": "Google 的疯狂面试题",
+            "description": "Google 的疯狂面试题",
+            "url": "/202.html"
         },{
             "@type":"ListItem",
             "position":  2 ,
-            "name": "javascript中的Get/Set访问器",
-            "description": "JavaScript中的Get和Set访问器，和C#中的访问器非常相似。 标准的Get和Set访问器的实现 function Field(val){ this.value = val; } Field.prototype = { get value(){ return this._value; }, set value(val){ this._value = val; } }; var field = new Field(\u0026#8220;test\u0026#8221;); field.value=\u0026#8221;test2\u0026#8243;; //field.value will now return \u0026#8220;test2\u0026#8221; 在如下浏览器能正常工作： 我们常用的实现方法可能是这样的： function Field(val){ var value = val; \u0026lt;p\u0026gt; this.getValue = function(){\u0026lt;br /\u0026gt; return value;\u0026lt;br /\u0026gt; }; \u0026lt;/p\u0026gt; \u0026lt;p\u0026gt; this.setValue = function(val){\u0026lt;br /\u0026gt; value = val;\u0026lt;br /\u0026gt; };\u0026lt;br /\u0026gt; }\u0026lt;br /\u0026gt; var field = new Field(\u0026amp;#8220;test\u0026amp;#8221;);\u0026lt;br /\u0026gt; field.setValue(\u0026amp;#8220;test2\u0026amp;#8221;)\u0026lt;br /\u0026gt; field.getValue() // return \u0026amp;#8220;test2\u0026amp;#8221; \u0026lt;/p\u0026gt; 在DOM元素上Get和Set访问器的实现 HTMLElement.prototype.__defineGetter__(\u0026#8220;description\u0026#8221;, function () { return this.desc; }); HTMLElement.prototype.__defineSetter__(\u0026#8220;description\u0026#8221;, function (val) { this.desc = val; }); document.body.description = \u0026#8220;Beautiful body\u0026#8221;; // document.body.description will now return \u0026#8220;Beautiful body\u0026#8221;; 在如下浏览器能正常工作： \u0026nbsp; \u0026nbsp; 通过Object.defineProperty实现访问器 将来ECMAScript标",
-            "url": "/190.html"
+            "name": "XHR与浏览器导航冲突解决方案",
+            "description": "最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。",
+            "url": "/199.html"
         },{
             "@type":"ListItem",
             "position":  3 ,
-            "name": "IE9允许前端开发获取到页面性能数据",
-            "description": "长期以来，为了改善站点的用户体验，我们一直都是在页面顶端加上一个_ **(new Date()).getTime()**_ 来获取用户打开页面的时间，使用httpwatch来分析页面打开的解释时间。httpwatch虽然强大，但是还是无法让我们深入到用户的环境去了解用户打开页面前的一些情况，例如:DNS解释时间，请求和响应时间，以及更加深入的页面渲染时间等重要信息。这些信息对用户环境分析是至关重要的。 如今，这个情况即将改变，微软的IE9将给前端开发们提供有力的性能分析接口让我们能够深入分析页面的性能，这就是强大的msPerformance接口。这个接口其实是",
-            "url": "/187.html"
+            "name": "Repaint 跟踪浏览器的渲染",
+            "description": "前端优化，从很久就开始了。随着研究的深入，关注的点就越来越多。最近也有不少的前端开发同学在研究浏览器的Reflow和Repaint",
+            "url": "/196.html"
         }
     ]
 }
@@ -221,10 +221,10 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/192.html" class="font-bold text-xl hover:text-eureka">ECMAScript 5与HTML5的支持情况</a>
+  <a href="/202.html" class="font-bold text-xl hover:text-eureka">Google 的疯狂面试题</a>
 </div>
 <div class="content">
-  ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。
+  Google 的疯狂面试题
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -234,11 +234,11 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>8分钟阅读时长</span>
+        <span>2分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>3934字</span>
+        <span>964字</span>
     </div>
     
     
@@ -259,10 +259,10 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/190.html" class="font-bold text-xl hover:text-eureka">javascript中的Get/Set访问器</a>
+  <a href="/199.html" class="font-bold text-xl hover:text-eureka">XHR与浏览器导航冲突解决方案</a>
 </div>
 <div class="content">
-  JavaScript中的Get和Set访问器，和C#中的访问器非常相似。 标准的Get和Set访问器的实现 function Field(val){ this.value = val; } Field.prototype = { get value(){ return this._value; }, set value(val){ this._value = val; } }; var field = new Field(&amp;#8220;test&amp;#8221;); field.value=&amp;#8221;test2&amp;#8243;; //field.value will now return &amp;#8220;test2&amp;#8221; 在如下浏览器能正常工作： 我们常用的实现方法可能是这样的： function Field(val){ var value = val; &amp;lt;p&amp;gt; this.getValue = function(){&amp;lt;br /&amp;gt; return value;&amp;lt;br /&amp;gt; }; &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; this.setValue = function(val){&amp;lt;br /&amp;gt; value = val;&amp;lt;br /&amp;gt; };&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt; var field = new Field(&amp;amp;#8220;test&amp;amp;#8221;);&amp;lt;br /&amp;gt; field.setValue(&amp;amp;#8220;test2&amp;amp;#8221;)&amp;lt;br /&amp;gt; field.getValue() // return &amp;amp;#8220;test2&amp;amp;#8221; &amp;lt;/p&amp;gt; 在DOM元素上Get和Set访问器的实现 HTMLElement.prototype.__defineGetter__(&amp;#8220;description&amp;#8221;, function () { return this.desc; }); HTMLElement.prototype.__defineSetter__(&amp;#8220;description&amp;#8221;, function (val) { this.desc = val; }); document.body.description = &amp;#8220;Beautiful body&amp;#8221;; // document.body.description will now return &amp;#8220;Beautiful body&amp;#8221;; 在如下浏览器能正常工作： &amp;nbsp; &amp;nbsp; 通过Object.defineProperty实现访问器 将来ECMAScript标
+  最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -272,11 +272,11 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>2分钟阅读时长</span>
+        <span>4分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>736字</span>
+        <span>1829字</span>
     </div>
     
     
@@ -297,10 +297,10 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/187.html" class="font-bold text-xl hover:text-eureka">IE9允许前端开发获取到页面性能数据</a>
+  <a href="/196.html" class="font-bold text-xl hover:text-eureka">Repaint 跟踪浏览器的渲染</a>
 </div>
 <div class="content">
-  长期以来，为了改善站点的用户体验，我们一直都是在页面顶端加上一个_ **(new Date()).getTime()**_ 来获取用户打开页面的时间，使用httpwatch来分析页面打开的解释时间。httpwatch虽然强大，但是还是无法让我们深入到用户的环境去了解用户打开页面前的一些情况，例如:DNS解释时间，请求和响应时间，以及更加深入的页面渲染时间等重要信息。这些信息对用户环境分析是至关重要的。 如今，这个情况即将改变，微软的IE9将给前端开发们提供有力的性能分析接口让我们能够深入分析页面的性能，这就是强大的msPerformance接口。这个接口其实是
+  前端优化，从很久就开始了。随着研究的深入，关注的点就越来越多。最近也有不少的前端开发同学在研究浏览器的Reflow和Repaint
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -310,11 +310,11 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>2分钟阅读时长</span>
+        <span>1分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>537字</span>
+        <span>371字</span>
     </div>
     
     
@@ -366,13 +366,13 @@
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/30/">30</a>
+    <a class="page-link" href="/posts/page/31/">31</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/12/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/30/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/31/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

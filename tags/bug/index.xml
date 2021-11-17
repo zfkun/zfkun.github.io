@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bug on 影の域</title>
+    <link>/tags/bug/</link>
+    <description>Recent content in bug on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Wed, 17 Nov 2021 11:34:03 +0800</lastBuildDate><atom:link href="/tags/bug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blender 疑难实用操作汇总</title>
+      <link>/blender-bug-hotkey.html</link>
+      <pubDate>Wed, 17 Nov 2021 11:34:03 +0800</pubDate>
+      
+      <guid>/blender-bug-hotkey.html</guid>
+      <description>主要记录较为常见的BUG解决方法及实用操作方式</description>
+    </item>
+    
+  </channel>
+</rss>

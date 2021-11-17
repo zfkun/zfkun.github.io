@@ -80,21 +80,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "前端资源文件缓存清除一法",
-            "description": "\u003cp\u003e|\n对于前端开发来说，经常要面对JS，CSS，图片等资源的缓存更新问题（CDN永久缓存的就另当别论）。\u003c/p\u003e\n\u003cp\u003e大部分情况，为了节省服务器压力及带宽且又不失可维护性，习惯对这些资源文件添加比较久的缓存时间，这样就给前端开发人员带来一个自动更新的棘手问题。\u003c/p\u003e\n\u003cp\u003e其实，较简单的解决办法，就是固定周期或有条件的或每次（这样要缓存何用？）的增加随机数击穿缓存，强制更新即可。\u003c/p\u003e\n\u003cp\u003e这里说一个也较为简单的方式，利用AJAX的访问来更新本地缓存。\u003c/p\u003e\n\u003cp\u003e原理很简单，使用http协议的 If-Modified-Since 和 Cache-Control 两个header头参数即可。\u003c/p\u003e\n",
-            "url": "/147.html"
+            "name": "MooTools Upgrade from 1.2 to 1.3",
+            "description": "This is a list of the API changes made from 1.2 to 1.3. It allows you to drop the compatibility layer mostly by doing search and replace. If you just want to update to MooTools Core 1.3 with your existing code, see Update from 1.2 to 1.3.",
+            "url": "/157.html"
         },{
             "@type":"ListItem",
             "position":  2 ,
-            "name": "现在",
-            "description": "疲惫、累、烦。",
-            "url": "/145.html"
+            "name": "随机颜色",
+            "description": "var getRandomColor = function() { return ‘#’ + (‘00000’ + (Math.random() * 0x1000000 \u0026laquo; 0).toString(16)).substr(-6); } 网上看到，记录一下。",
+            "url": "/154.html"
         },{
             "@type":"ListItem",
             "position":  3 ,
-            "name": "IE6+和FF的CSS Hack",
-            "description": "一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) #wrapper { width: 100px!important; /\\* IE7+FF \\*/ width: 80px; /\\* IE6 \\*/ } 2, IE6/IE77对FireFox *+html 与 *html 是IE特有的标签, firefox 暂不支持.而*+html 又为 IE7特有标签. #wrapper { #wrapper { width: 120px; } /\\* FireFox \\*/ \\*html #wrapper { width: 80px;} /\\* ie6 fixed */ \\*+html #wrapper { width: 60px;} /\\* ie7 fixed, 注意顺序 */ } 注意: *+html 对IE7的HACK 必须保证HTML顶部有如下声明： 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global",
-            "url": "/142.html"
+            "name": "今夜",
+            "description": "冰冷的夜，守在窗边，期待归来。 忏悔的心，坐在床头，渴望重来。 对视，哀叹，奇怪又无奈。 说不出话来。 上望着熬过这一晚。",
+            "url": "/150.html"
         }
     ]
 }
@@ -221,21 +221,16 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/147.html" class="font-bold text-xl hover:text-eureka">前端资源文件缓存清除一法</a>
+  <a href="/157.html" class="font-bold text-xl hover:text-eureka">MooTools Upgrade from 1.2 to 1.3</a>
 </div>
 <div class="content">
-  | 对于前端开发来说，经常要面对JS，CSS，图片等资源的缓存更新问题（CDN永久缓存的就另当别论）。
-大部分情况，为了节省服务器压力及带宽且又不失可维护性，习惯对这些资源文件添加比较久的缓存时间，这样就给前端开发人员带来一个自动更新的棘手问题。
-其实，较简单的解决办法，就是固定周期或有条件的或每次（这样要缓存何用？）的增加随机数击穿缓存，强制更新即可。
-这里说一个也较为简单的方式，利用AJAX的访问来更新本地缓存。
-原理很简单，使用http协议的 If-Modified-Since 和 Cache-Control 两个header头参数即可。
-
+  This is a list of the API changes made from 1.2 to 1.3. It allows you to drop the compatibility layer mostly by doing search and replace. If you just want to update to MooTools Core 1.3 with your existing code, see Update from 1.2 to 1.3.
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2010-11-25</span>
+        <span>2011-01-13</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -243,7 +238,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>611字</span>
+        <span>360字</span>
     </div>
     
     
@@ -264,16 +259,16 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/145.html" class="font-bold text-xl hover:text-eureka">现在</a>
+  <a href="/154.html" class="font-bold text-xl hover:text-eureka">随机颜色</a>
 </div>
 <div class="content">
-  疲惫、累、烦。
+  var getRandomColor = function() { return ‘#’ &#43; (‘00000’ &#43; (Math.random() * 0x1000000 &amp;laquo; 0).toString(16)).substr(-6); } 网上看到，记录一下。
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2010-04-29</span>
+        <span>2011-01-12</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -281,7 +276,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>7字</span>
+        <span>35字</span>
     </div>
     
     
@@ -302,24 +297,24 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/142.html" class="font-bold text-xl hover:text-eureka">IE6&#43;和FF的CSS Hack</a>
+  <a href="/150.html" class="font-bold text-xl hover:text-eureka">今夜</a>
 </div>
 <div class="content">
-  一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) #wrapper { width: 100px!important; /\* IE7&#43;FF \*/ width: 80px; /\* IE6 \*/ } 2, IE6/IE77对FireFox *&#43;html 与 *html 是IE特有的标签, firefox 暂不支持.而*&#43;html 又为 IE7特有标签. #wrapper { #wrapper { width: 120px; } /\* FireFox \*/ \*html #wrapper { width: 80px;} /\* ie6 fixed */ \*&#43;html #wrapper { width: 60px;} /\* ie7 fixed, 注意顺序 */ } 注意: *&#43;html 对IE7的HACK 必须保证HTML顶部有如下声明： 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global
+  冰冷的夜，守在窗边，期待归来。 忏悔的心，坐在床头，渴望重来。 对视，哀叹，奇怪又无奈。 说不出话来。 上望着熬过这一晚。
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2010-04-22</span>
+        <span>2010-12-15</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>5分钟阅读时长</span>
+        <span>1分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>2408字</span>
+        <span>57字</span>
     </div>
     
     
@@ -371,13 +366,13 @@
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/30/">30</a>
+    <a class="page-link" href="/posts/page/31/">31</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/17/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/30/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/31/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

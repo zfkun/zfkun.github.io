@@ -80,21 +80,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "Understanding and Solving Internet Explorer Leak Patterns",
-            "description": "\u003cp\u003eIn the past, memory leaks haven\u0026rsquo;t posed huge problems for Web developers. Pages were kept relatively simple and navigation between different locations within a site was a great way to clean up any loose memory. If there was a leak, it was most likely small enough to go unnoticed.\u003c/p\u003e\n\u003cp\u003eNew Web applications live up to higher standards. A page might run for hours without being navigated and retrieve updated information dynamically through Web services. Language features are pushed to the breaking point by combining complex event schemes, object-oriented JScript, and closures to produce entire applications. With these and other changes, certain memory leak patterns are becoming more prominent, especially those previously hidden by navigation.\u003c/p\u003e\n\u003cp\u003eThe good news is that memory leak patterns can be easily spotted if you know what to look for. Most of the troublesome patterns you might face have known workarounds requiring only a small amount of extra work on your behalf. While some pages might still fall prey to small memory leaks, the most noticeable ones can be easily removed.\u003c/p\u003e\n",
-            "url": "/109.html"
+            "name": "JS闭包之词法作用域",
+            "description": "var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic",
+            "url": "/117.html"
         },{
             "@type":"ListItem",
             "position":  2 ,
-            "name": "结婚了",
-            "description": "结婚了 ，有情人终是要成眷属的。",
-            "url": "/107.html"
+            "name": "Comet—“服务器推”技术",
+            "description": "Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。",
+            "url": "/115.html"
         },{
             "@type":"ListItem",
             "position":  3 ,
-            "name": "好累",
-            "description": "太久了， 没安稳的睡过，烦躁、犹豫、无奈、恐惧。 凌乱的压力压的我透不过气，咬牙。 不求可怜、不求同情、也不求理解。 只相信， 最终， 做到想做的、得到想要的、给予能给的、看到想看的…… 好累。",
-            "url": "/104.html"
+            "name": "Javascript的变量与delete操作符",
+            "description": "Javascript中的delete操作虽然是一个小小的delete操作符，其行为却异常复杂",
+            "url": "/112.html"
         }
     ]
 }
@@ -221,27 +221,24 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/109.html" class="font-bold text-xl hover:text-eureka">Understanding and Solving Internet Explorer Leak Patterns</a>
+  <a href="/117.html" class="font-bold text-xl hover:text-eureka">JS闭包之词法作用域</a>
 </div>
 <div class="content">
-  In the past, memory leaks haven&amp;rsquo;t posed huge problems for Web developers. Pages were kept relatively simple and navigation between different locations within a site was a great way to clean up any loose memory. If there was a leak, it was most likely small enough to go unnoticed.
-New Web applications live up to higher standards. A page might run for hours without being navigated and retrieve updated information dynamically through Web services. Language features are pushed to the breaking point by combining complex event schemes, object-oriented JScript, and closures to produce entire applications. With these and other changes, certain memory leak patterns are becoming more prominent, especially those previously hidden by navigation.
-The good news is that memory leak patterns can be easily spotted if you know what to look for. Most of the troublesome patterns you might face have known workarounds requiring only a small amount of extra work on your behalf. While some pages might still fall prey to small memory leaks, the most noticeable ones can be easily removed.
-
+  var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2010-02-28</span>
+        <span>2010-03-05</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>15分钟阅读时长</span>
+        <span>11分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>3182字</span>
+        <span>5055字</span>
     </div>
     
     
@@ -262,24 +259,24 @@ The good news is that memory leak patterns can be easily spotted if you know wha
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/107.html" class="font-bold text-xl hover:text-eureka">结婚了</a>
+  <a href="/115.html" class="font-bold text-xl hover:text-eureka">Comet—“服务器推”技术</a>
 </div>
 <div class="content">
-  结婚了 ，有情人终是要成眷属的。
+  Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2010-02-23</span>
+        <span>2010-03-03</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
+        <span>4分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>15字</span>
+        <span>1693字</span>
     </div>
     
     
@@ -300,24 +297,24 @@ The good news is that memory leak patterns can be easily spotted if you know wha
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/104.html" class="font-bold text-xl hover:text-eureka">好累</a>
+  <a href="/112.html" class="font-bold text-xl hover:text-eureka">Javascript的变量与delete操作符</a>
 </div>
 <div class="content">
-  太久了， 没安稳的睡过，烦躁、犹豫、无奈、恐惧。 凌乱的压力压的我透不过气，咬牙。 不求可怜、不求同情、也不求理解。 只相信， 最终， 做到想做的、得到想要的、给予能给的、看到想看的…… 好累。
+  Javascript中的delete操作虽然是一个小小的delete操作符，其行为却异常复杂
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2010-01-30</span>
+        <span>2010-03-01</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
+        <span>4分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>90字</span>
+        <span>1758字</span>
     </div>
     
     
@@ -369,13 +366,13 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/30/">30</a>
+    <a class="page-link" href="/posts/page/31/">31</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/21/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/30/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/31/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

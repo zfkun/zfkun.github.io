@@ -80,21 +80,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "add bookmark for ie \u0026 ff \u0026 opera",
-            "description": "add bookmark for ie \u0026amp; ff \u0026amp; opera",
-            "url": "/182.html"
+            "name": "ECMAScript 5与HTML5的支持情况",
+            "description": "ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。",
+            "url": "/192.html"
         },{
             "@type":"ListItem",
             "position":  2 ,
-            "name": "WordPress 3.1升级后无法访问",
-            "description": "杯具，Wordpress 3.1升级后，竟然无法访问，原因提示如下： ………网页页生成了 过多的重定向。清除此网站的 Cookie 或允许第三方 Cookie 可能会解决该问题。如果 不能解决，则可能是服务器配置的问题，而不是您的 计算机有问题。以下是一些建议：请稍后重新载入此网页。……….. 很是郁闷，弄了半天是空间本身的设置及 3.1的代码逻辑处理 综合作用的结果。 无奈，空间是没权限动了，只能修改wordpress 代码了： 找到 wp-include/template-loader.php 修改第一行处代码： if ( defined(‘WP_USE_THEMES’) \u0026amp;\u0026amp; WP_USE_THEMES ) 改为（红色为增加部分） if ( false \u0026amp;\u0026amp; define",
-            "url": "/179.html"
+            "name": "javascript中的Get/Set访问器",
+            "description": "JavaScript中的Get和Set访问器，和C#中的访问器非常相似。 标准的Get和Set访问器的实现 function Field(val){ this.value = val; } Field.prototype = { get value(){ return this._value; }, set value(val){ this._value = val; } }; var field = new Field(\u0026#8220;test\u0026#8221;); field.value=\u0026#8221;test2\u0026#8243;; //field.value will now return \u0026#8220;test2\u0026#8221; 在如下浏览器能正常工作： 我们常用的实现方法可能是这样的： function Field(val){ var value = val; \u0026lt;p\u0026gt; this.getValue = function(){\u0026lt;br /\u0026gt; return value;\u0026lt;br /\u0026gt; }; \u0026lt;/p\u0026gt; \u0026lt;p\u0026gt; this.setValue = function(val){\u0026lt;br /\u0026gt; value = val;\u0026lt;br /\u0026gt; };\u0026lt;br /\u0026gt; }\u0026lt;br /\u0026gt; var field = new Field(\u0026amp;#8220;test\u0026amp;#8221;);\u0026lt;br /\u0026gt; field.setValue(\u0026amp;#8220;test2\u0026amp;#8221;)\u0026lt;br /\u0026gt; field.getValue() // return \u0026amp;#8220;test2\u0026amp;#8221; \u0026lt;/p\u0026gt; 在DOM元素上Get和Set访问器的实现 HTMLElement.prototype.__defineGetter__(\u0026#8220;description\u0026#8221;, function () { return this.desc; }); HTMLElement.prototype.__defineSetter__(\u0026#8220;description\u0026#8221;, function (val) { this.desc = val; }); document.body.description = \u0026#8220;Beautiful body\u0026#8221;; // document.body.description will now return \u0026#8220;Beautiful body\u0026#8221;; 在如下浏览器能正常工作： \u0026nbsp; \u0026nbsp; 通过Object.defineProperty实现访问器 将来ECMAScript标",
+            "url": "/190.html"
         },{
             "@type":"ListItem",
             "position":  3 ,
-            "name": "原生JSON.parse解析异常问题",
-            "description": "昨天开发新类库，做到Json模块，使用了json2官方类为底层，使用中频遇异常，甚是不爽。看了下源码，json2 采用了优化处理机制，优先使用浏览器原生JSON处理。（事实是json自己的实现也如此）",
-            "url": "/176.html"
+            "name": "IE9允许前端开发获取到页面性能数据",
+            "description": "长期以来，为了改善站点的用户体验，我们一直都是在页面顶端加上一个_ **(new Date()).getTime()**_ 来获取用户打开页面的时间，使用httpwatch来分析页面打开的解释时间。httpwatch虽然强大，但是还是无法让我们深入到用户的环境去了解用户打开页面前的一些情况，例如:DNS解释时间，请求和响应时间，以及更加深入的页面渲染时间等重要信息。这些信息对用户环境分析是至关重要的。 如今，这个情况即将改变，微软的IE9将给前端开发们提供有力的性能分析接口让我们能够深入分析页面的性能，这就是强大的msPerformance接口。这个接口其实是",
+            "url": "/187.html"
         }
     ]
 }
@@ -221,10 +221,10 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/182.html" class="font-bold text-xl hover:text-eureka">add bookmark for ie &amp; ff &amp; opera</a>
+  <a href="/192.html" class="font-bold text-xl hover:text-eureka">ECMAScript 5与HTML5的支持情况</a>
 </div>
 <div class="content">
-  add bookmark for ie &amp;amp; ff &amp;amp; opera
+  ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -234,11 +234,11 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
+        <span>8分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>134字</span>
+        <span>3934字</span>
     </div>
     
     
@@ -259,10 +259,10 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/179.html" class="font-bold text-xl hover:text-eureka">WordPress 3.1升级后无法访问</a>
+  <a href="/190.html" class="font-bold text-xl hover:text-eureka">javascript中的Get/Set访问器</a>
 </div>
 <div class="content">
-  杯具，Wordpress 3.1升级后，竟然无法访问，原因提示如下： ………网页页生成了 过多的重定向。清除此网站的 Cookie 或允许第三方 Cookie 可能会解决该问题。如果 不能解决，则可能是服务器配置的问题，而不是您的 计算机有问题。以下是一些建议：请稍后重新载入此网页。……….. 很是郁闷，弄了半天是空间本身的设置及 3.1的代码逻辑处理 综合作用的结果。 无奈，空间是没权限动了，只能修改wordpress 代码了： 找到 wp-include/template-loader.php 修改第一行处代码： if ( defined(‘WP_USE_THEMES’) &amp;amp;&amp;amp; WP_USE_THEMES ) 改为（红色为增加部分） if ( false &amp;amp;&amp;amp; define
+  JavaScript中的Get和Set访问器，和C#中的访问器非常相似。 标准的Get和Set访问器的实现 function Field(val){ this.value = val; } Field.prototype = { get value(){ return this._value; }, set value(val){ this._value = val; } }; var field = new Field(&amp;#8220;test&amp;#8221;); field.value=&amp;#8221;test2&amp;#8243;; //field.value will now return &amp;#8220;test2&amp;#8221; 在如下浏览器能正常工作： 我们常用的实现方法可能是这样的： function Field(val){ var value = val; &amp;lt;p&amp;gt; this.getValue = function(){&amp;lt;br /&amp;gt; return value;&amp;lt;br /&amp;gt; }; &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; this.setValue = function(val){&amp;lt;br /&amp;gt; value = val;&amp;lt;br /&amp;gt; };&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt; var field = new Field(&amp;amp;#8220;test&amp;amp;#8221;);&amp;lt;br /&amp;gt; field.setValue(&amp;amp;#8220;test2&amp;amp;#8221;)&amp;lt;br /&amp;gt; field.getValue() // return &amp;amp;#8220;test2&amp;amp;#8221; &amp;lt;/p&amp;gt; 在DOM元素上Get和Set访问器的实现 HTMLElement.prototype.__defineGetter__(&amp;#8220;description&amp;#8221;, function () { return this.desc; }); HTMLElement.prototype.__defineSetter__(&amp;#8220;description&amp;#8221;, function (val) { this.desc = val; }); document.body.description = &amp;#8220;Beautiful body&amp;#8221;; // document.body.description will now return &amp;#8220;Beautiful body&amp;#8221;; 在如下浏览器能正常工作： &amp;nbsp; &amp;nbsp; 通过Object.defineProperty实现访问器 将来ECMAScript标
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -272,11 +272,11 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
+        <span>2分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>276字</span>
+        <span>736字</span>
     </div>
     
     
@@ -297,24 +297,24 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/176.html" class="font-bold text-xl hover:text-eureka">原生JSON.parse解析异常问题</a>
+  <a href="/187.html" class="font-bold text-xl hover:text-eureka">IE9允许前端开发获取到页面性能数据</a>
 </div>
 <div class="content">
-  昨天开发新类库，做到Json模块，使用了json2官方类为底层，使用中频遇异常，甚是不爽。看了下源码，json2 采用了优化处理机制，优先使用浏览器原生JSON处理。（事实是json自己的实现也如此）
+  长期以来，为了改善站点的用户体验，我们一直都是在页面顶端加上一个_ **(new Date()).getTime()**_ 来获取用户打开页面的时间，使用httpwatch来分析页面打开的解释时间。httpwatch虽然强大，但是还是无法让我们深入到用户的环境去了解用户打开页面前的一些情况，例如:DNS解释时间，请求和响应时间，以及更加深入的页面渲染时间等重要信息。这些信息对用户环境分析是至关重要的。 如今，这个情况即将改变，微软的IE9将给前端开发们提供有力的性能分析接口让我们能够深入分析页面的性能，这就是强大的msPerformance接口。这个接口其实是
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-03-18</span>
+        <span>2011-03-20</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
+        <span>2分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>204字</span>
+        <span>537字</span>
     </div>
     
     
@@ -366,13 +366,13 @@
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/30/">30</a>
+    <a class="page-link" href="/posts/page/31/">31</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/13/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/30/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/31/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

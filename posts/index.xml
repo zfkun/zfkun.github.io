@@ -9,6 +9,33 @@
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Wireguard Setup</title>
+      <link>/vps-wireguard-setup.html</link>
+      <pubDate>Wed, 17 Nov 2021 12:48:33 +0800</pubDate>
+      
+      <guid>/vps-wireguard-setup.html</guid>
+      <description>简要记录下VPS的wireguard配置</description>
+    </item>
+    
+    <item>
+      <title>Autocad Uninstall Clean Script</title>
+      <link>/autocad-uninstall-clean-script.html</link>
+      <pubDate>Wed, 17 Nov 2021 12:36:00 +0800</pubDate>
+      
+      <guid>/autocad-uninstall-clean-script.html</guid>
+      <description>autocad 卸载清理脚本</description>
+    </item>
+    
+    <item>
+      <title>Blender 疑难实用操作汇总</title>
+      <link>/blender-bug-hotkey.html</link>
+      <pubDate>Wed, 17 Nov 2021 11:34:03 +0800</pubDate>
+      
+      <guid>/blender-bug-hotkey.html</guid>
+      <description>主要记录较为常见的BUG解决方法及实用操作方式</description>
+    </item>
+    
+    <item>
       <title>C4D工作流设置 (1) - Arnold (C4DToA) 阿诺德工作流</title>
       <link>/c4d-project-workflow.html</link>
       <pubDate>Sat, 10 Apr 2021 12:43:13 +0800</pubDate>

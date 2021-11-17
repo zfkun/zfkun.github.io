@@ -185,10 +185,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -226,7 +227,9 @@
   <a href="/220.html" class="font-bold text-xl hover:text-eureka">HTML5 canvas 初级入门教程</a>
 </div>
 <div class="content">
-  HTML5 canvas 即HTML5画布，是一个现代浏览器都支持的HTML5非插件绘图的功能，本文将展示如何通过HTML5 canvas API操作canvas元素、绘制图形、改变绘图颜色以及删除图形，让我们开始进入这很酷的新技术的短暂旅行吧。
+  
+    HTML5 canvas 即HTML5画布，是一个现代浏览器都支持的HTML5非插件绘图的功能，本文将展示如何通过HTML5 canvas API操作canvas元素、绘制图形、改变绘图颜色以及删除图形，让我们开始进入这很酷的新技术的短暂旅行吧。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -268,7 +271,9 @@
   <a href="/218.html" class="font-bold text-xl hover:text-eureka">如何检测HTML表单已经发生改变</a>
 </div>
 <div class="content">
-  表单是Web应用不可缺少的功能，它是服务器端与浏览器端数据交换的最基本的方法。你应该已经读过很多关于HTML5和Javascript的表单标签和数据验证的文章，今天我们来讨论下如何检查表单数据是否被改变了。
+  
+    表单是Web应用不可缺少的功能，它是服务器端与浏览器端数据交换的最基本的方法。你应该已经读过很多关于HTML5和Javascript的表单标签和数据验证的文章，今天我们来讨论下如何检查表单数据是否被改变了。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -306,7 +311,9 @@
   <a href="/216.html" class="font-bold text-xl hover:text-eureka">Javascript浏览器另类探测技巧</a>
 </div>
 <div class="content">
-  下面是一些另类的但挺高效的浏览器探测技巧，主要利用了各浏览器的私有特征完成。
+  
+    下面是一些另类的但挺高效的浏览器探测技巧，主要利用了各浏览器的私有特征完成。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

@@ -185,10 +185,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -226,7 +227,9 @@
   <a href="/388.html" class="font-bold text-xl hover:text-eureka">window.open() 之句柄保持和重连</a>
 </div>
 <div class="content">
-  window.open()是挺常用的弹窗方式，大部分时候用在一些会话框提示、上传、第三方应用交互等，这时若需要面对资源保持的问题时，就需要一些特殊的技巧来fix。
+  
+    window.open()是挺常用的弹窗方式，大部分时候用在一些会话框提示、上传、第三方应用交互等，这时若需要面对资源保持的问题时，就需要一些特殊的技巧来fix。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -268,9 +271,11 @@
   <a href="/372.html" class="font-bold text-xl hover:text-eureka">apk文件的MIME类型</a>
 </div>
 <div class="content">
-  今天更新日志时刚好需要提供apk文件的本地下载，测试下果然该死的WIN&#43;IIS的虚拟主机不给力，因为缺少MIME识别而提示404。
+  
+    今天更新日志时刚好需要提供apk文件的本地下载，测试下果然该死的WIN&#43;IIS的虚拟主机不给力，因为缺少MIME识别而提示404。
 其实文件路径是真实有效的，只是主机没有手动增加对apk文件类型的识别配置，所以默认给了404（体验还真好，FK）。
 so, fix it !!
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -312,8 +317,10 @@ so, fix it !!
   <a href="/344.html" class="font-bold text-xl hover:text-eureka">WordPress 中文Tag 显示404错误的BUG修正</a>
 </div>
 <div class="content">
-  今天无意间查看站点的谷歌统计数据时发现，存在200&#43;的错误页面。 - -!
+  
+    今天无意间查看站点的谷歌统计数据时发现，存在200&#43;的错误页面。 - -!
 分析了下，最终锁定WordPress 的中文支持问题。由于WordPress对中文的支持不好，主要体现在路由的解析上，导致了中文Tag的URL解析异常，从而显示了404结果页。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

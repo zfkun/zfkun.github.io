@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/57.html" class="font-bold text-xl hover:text-eureka">5.50GEN用PSone模拟游戏模块Popsloader For 5.50GEN-A（含完整版）</a>
 </div>
 <div class="content">
-  十分感谢PSPGEN小组，他们不但发布了让PSP3000实现运行ISO的5.03GEN for HEN，还为PSP1000和非PSP2000-3的老玩家们带来了解决5.50游戏问题的自制系统5.50GEN-A。这次为解决玩家们在5.50系统下无法正常运行PSone模拟游戏的问题，发布了Popsloader For 5.50GEN-A，喜欢PSone模拟游戏的5.50GEN-A用户赶快试试！
+  
+    十分感谢PSPGEN小组，他们不但发布了让PSP3000实现运行ISO的5.03GEN for HEN，还为PSP1000和非PSP2000-3的老玩家们带来了解决5.50游戏问题的自制系统5.50GEN-A。这次为解决玩家们在5.50系统下无法正常运行PSone模拟游戏的问题，发布了Popsloader For 5.50GEN-A，喜欢PSone模拟游戏的5.50GEN-A用户赶快试试！
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/55.html" class="font-bold text-xl hover:text-eureka">绝对震撼!10款动感图片展示js代码</a>
 </div>
 <div class="content">
-  绝对震撼!10款动感图片展示js代码 http://pcedu.pconline.com.cn/empolder/wz/javascript/0809/1421645.html
+  
+    绝对震撼!10款动感图片展示js代码 http://pcedu.pconline.com.cn/empolder/wz/javascript/0809/1421645.html
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/53.html" class="font-bold text-xl hover:text-eureka">新牧场物语 符石工厂 超详细攻略</a>
 </div>
 <div class="content">
-  新牧场物语 符石工厂 超详细攻略 http://tieba.baidu.com/f?kz=210242288
+  
+    新牧场物语 符石工厂 超详细攻略 http://tieba.baidu.com/f?kz=210242288
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

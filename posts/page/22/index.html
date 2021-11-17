@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/102.html" class="font-bold text-xl hover:text-eureka">Windows 下 Nginx &#43; PHP5 的安装与配置</a>
 </div>
 <div class="content">
-  Nginx 是一个轻量级的高性能 Http WebServer，以事件驱动方式编写，因此相比 Apache 而言，Nginx 更加稳定、性能更好，而且配置简单，资源占用较低。以下是在 Windows 7 安装中 Nginx 和 PHP5.3 的步骤。
+  
+    Nginx 是一个轻量级的高性能 Http WebServer，以事件驱动方式编写，因此相比 Apache 而言，Nginx 更加稳定、性能更好，而且配置简单，资源占用较低。以下是在 Windows 7 安装中 Nginx 和 PHP5.3 的步骤。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/95.html" class="font-bold text-xl hover:text-eureka">Nginx 0.8.x &#43; PHP 5.2.10（FastCGI）搭建胜过Apache十倍的Web服务器（第5版）</a>
 </div>
 <div class="content">
-  本文是张宴撰写的关于搭建“Nginx &#43; PHP（FastCGI）”Web服务器的第5篇文章。本系列文章作为国内最早详细介绍 Nginx &#43; PHP 安装、配置、使用的资料之一，为推动 Nginx 在国内的发展产生了积极的作用。这是一篇关于Nginx 0.7.x系列版本的文章，安装、配置方式与第4篇文章相差不大，但增加了MySQL安装配置的信息、PHP 5.2.10 的 php-fpm 补丁。Nginx 0.7.x系列版本虽然为开发版，但在很多大型网站的生产环境中已经使用。
+  
+    本文是张宴撰写的关于搭建“Nginx &#43; PHP（FastCGI）”Web服务器的第5篇文章。本系列文章作为国内最早详细介绍 Nginx &#43; PHP 安装、配置、使用的资料之一，为推动 Nginx 在国内的发展产生了积极的作用。这是一篇关于Nginx 0.7.x系列版本的文章，安装、配置方式与第4篇文章相差不大，但增加了MySQL安装配置的信息、PHP 5.2.10 的 php-fpm 补丁。Nginx 0.7.x系列版本虽然为开发版，但在很多大型网站的生产环境中已经使用。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/93.html" class="font-bold text-xl hover:text-eureka">房贷：等额本息和等额本金有什么区别？</a>
 </div>
 <div class="content">
-  等额本息：本金逐月递增，利息逐月递减，月还款数不变。等额本金：本金保持相同，利息逐月递减，月还款数递减。适合于有计划提前还贷。利息少的是等额本金方式的还款。
+  
+    等额本息：本金逐月递增，利息逐月递减，月还款数不变。等额本金：本金保持相同，利息逐月递减，月还款数递减。适合于有计划提前还贷。利息少的是等额本金方式的还款。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

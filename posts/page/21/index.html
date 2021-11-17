@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,10 +225,12 @@
   <a href="/109.html" class="font-bold text-xl hover:text-eureka">Understanding and Solving Internet Explorer Leak Patterns</a>
 </div>
 <div class="content">
-  In the past, memory leaks haven&amp;rsquo;t posed huge problems for Web developers. Pages were kept relatively simple and navigation between different locations within a site was a great way to clean up any loose memory. If there was a leak, it was most likely small enough to go unnoticed.
+  
+    In the past, memory leaks haven’t posed huge problems for Web developers. Pages were kept relatively simple and navigation between different locations within a site was a great way to clean up any loose memory. If there was a leak, it was most likely small enough to go unnoticed.
 New Web applications live up to higher standards. A page might run for hours without being navigated and retrieve updated information dynamically through Web services. Language features are pushed to the breaking point by combining complex event schemes, object-oriented JScript, and closures to produce entire applications. With these and other changes, certain memory leak patterns are becoming more prominent, especially those previously hidden by navigation.
 The good news is that memory leak patterns can be easily spotted if you know what to look for. Most of the troublesome patterns you might face have known workarounds requiring only a small amount of extra work on your behalf. While some pages might still fall prey to small memory leaks, the most noticeable ones can be easily removed.
 
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -265,7 +268,9 @@ The good news is that memory leak patterns can be easily spotted if you know wha
   <a href="/107.html" class="font-bold text-xl hover:text-eureka">结婚了</a>
 </div>
 <div class="content">
-  结婚了 ，有情人终是要成眷属的。
+  
+    结婚了 ，有情人终是要成眷属的。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -303,7 +308,9 @@ The good news is that memory leak patterns can be easily spotted if you know wha
   <a href="/104.html" class="font-bold text-xl hover:text-eureka">好累</a>
 </div>
 <div class="content">
-  太久了， 没安稳的睡过，烦躁、犹豫、无奈、恐惧。 凌乱的压力压的我透不过气，咬牙。 不求可怜、不求同情、也不求理解。 只相信， 最终， 做到想做的、得到想要的、给予能给的、看到想看的…… 好累。
+  
+    太久了， 没安稳的睡过，烦躁、犹豫、无奈、恐惧。 凌乱的压力压的我透不过气，咬牙。 不求可怜、不求同情、也不求理解。 只相信， 最终， 做到想做的、得到想要的、给予能给的、看到想看的…… 好累。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

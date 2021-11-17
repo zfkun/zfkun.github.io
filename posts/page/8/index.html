@@ -184,10 +184,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -225,7 +226,9 @@
   <a href="/229.html" class="font-bold text-xl hover:text-eureka">fastcgi_finish_request提速程序执行</a>
 </div>
 <div class="content">
-  当PHP运行在FastCGI模式时，PHP FPM提供了一个名为fastcgi_finish_request的方法。
+  
+    当PHP运行在FastCGI模式时，PHP FPM提供了一个名为fastcgi_finish_request的方法。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -263,7 +266,9 @@
   <a href="/226.html" class="font-bold text-xl hover:text-eureka">Windows7下搭建Node.js环境</a>
 </div>
 <div class="content">
-  下载并安装Cygwin 及Node.js安装依赖的附加组件 cygwin下载: http://cygwin.com/setup.exe (下载点最好选择台湾或日本的临近点，速度快) 附加组件选择: Devel : gcc-g&#43;&#43;: C&#43;&#43; compiler gcc-mingw-g&#43;&#43;: Mingw32 support headers and libraries for GCC C&#43;&#43; gcc4-g&#43;&#43;: G&#43;&#43; subpackage git: Fast Version Control System – core files (github方式下载时用) make: The GNU version of the ‘make’ utility openssl-devel: The OpenSSL development environment pkg-config: A utility used to retrieve information about installed libraries zlib-devel: The zlib compression/decompression library (development) Editor: vim: Vi IMproved – enhanced vi editor Python: 全部 Web: wget: Utility to retrieve files from the WWW via HTTP and FTP curl: Multi-protocol file transfer command-line tool 由于操作系统为 windows 7 (Windows Vista以后版本)，需要在ash模式下执行rebaseall才能保证 node.js的编译通过 a. 进入 cygwin安装目录/bin/ b. 运行ash.exe
+  
+    下载并安装Cygwin 及Node.js安装依赖的附加组件 cygwin下载: http://cygwin.com/setup.exe (下载点最好选择台湾或日本的临近点，速度快) 附加组件选择: Devel : gcc-g&#43;&#43;: C&#43;&#43; compiler gcc-mingw-g&#43;&#43;: Mingw32 support headers and libraries for GCC C&#43;&#43; gcc4-g&#43;&#43;: G&#43;&#43; subpackage git: Fast Version Control System – core files (github方式下载时用) make: The GNU version of the ‘make’ utility openssl-devel: The OpenSSL development environment pkg-config: A utility used to retrieve information about installed libraries zlib-devel: The zlib compression/decompression library (development) Editor: vim: Vi IMproved – enhanced vi editor Python: 全部 Web: wget: Utility to retrieve files from the WWW via HTTP and FTP curl: Multi-protocol file transfer command-line tool 由于操作系统为 windows 7 (Windows Vista以后版本)，需要在ash模式下执行rebaseall才能保证 node.js的编译通过 a. 进入 cygwin安装目录/bin/ b. 运行ash.exe
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -305,7 +310,9 @@
   <a href="/223.html" class="font-bold text-xl hover:text-eureka">动态生成windows快捷方式文件</a>
 </div>
 <div class="content">
-  近期改版中涉及到此小需求。就看了下，其实挺简单，这里就做个简单记录，不需要分析了。简单的使用了PHP语言（其他也一样），扩展性很容易做（稍微做点可变处理就行），所以就没去刻意做，写死效率最高 - -。
+  
+    近期改版中涉及到此小需求。就看了下，其实挺简单，这里就做个简单记录，不需要分析了。简单的使用了PHP语言（其他也一样），扩展性很容易做（稍微做点可变处理就行），所以就没去刻意做，写死效率最高 - -。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

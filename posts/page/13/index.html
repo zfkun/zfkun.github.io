@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/182.html" class="font-bold text-xl hover:text-eureka">add bookmark for ie &amp; ff &amp; opera</a>
 </div>
 <div class="content">
-  add bookmark for ie &amp;amp; ff &amp;amp; opera
+  
+    add bookmark for ie &amp; ff &amp; opera
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/179.html" class="font-bold text-xl hover:text-eureka">WordPress 3.1升级后无法访问</a>
 </div>
 <div class="content">
-  杯具，Wordpress 3.1升级后，竟然无法访问，原因提示如下： ………网页页生成了 过多的重定向。清除此网站的 Cookie 或允许第三方 Cookie 可能会解决该问题。如果 不能解决，则可能是服务器配置的问题，而不是您的 计算机有问题。以下是一些建议：请稍后重新载入此网页。……….. 很是郁闷，弄了半天是空间本身的设置及 3.1的代码逻辑处理 综合作用的结果。 无奈，空间是没权限动了，只能修改wordpress 代码了： 找到 wp-include/template-loader.php 修改第一行处代码： if ( defined(‘WP_USE_THEMES’) &amp;amp;&amp;amp; WP_USE_THEMES ) 改为（红色为增加部分） if ( false &amp;amp;&amp;amp; define
+  
+    杯具，Wordpress 3.1升级后，竟然无法访问，原因提示如下： ………网页页生成了 过多的重定向。清除此网站的 Cookie 或允许第三方 Cookie 可能会解决该问题。如果 不能解决，则可能是服务器配置的问题，而不是您的 计算机有问题。以下是一些建议：请稍后重新载入此网页。……….. 很是郁闷，弄了半天是空间本身的设置及 3.1的代码逻辑处理 综合作用的结果。 无奈，空间是没权限动了，只能修改wordpress 代码了： 找到 wp-include/template-loader.php 修改第一行处代码： if ( defined(‘WP_USE_THEMES’) &amp;&amp; WP_USE_THEMES ) 改为（红色为增加部分） if ( false &amp;&amp; define
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/176.html" class="font-bold text-xl hover:text-eureka">原生JSON.parse解析异常问题</a>
 </div>
 <div class="content">
-  昨天开发新类库，做到Json模块，使用了json2官方类为底层，使用中频遇异常，甚是不爽。看了下源码，json2 采用了优化处理机制，优先使用浏览器原生JSON处理。（事实是json自己的实现也如此）
+  
+    昨天开发新类库，做到Json模块，使用了json2官方类为底层，使用中频遇异常，甚是不爽。看了下源码，json2 采用了优化处理机制，优先使用浏览器原生JSON处理。（事实是json自己的实现也如此）
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

@@ -202,10 +202,11 @@ MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由R
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -309,6 +310,8 @@ MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由R
         
         
         
+
+
         
         
         <div class="py-2">

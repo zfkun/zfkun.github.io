@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/163.html" class="font-bold text-xl hover:text-eureka">获取 Textarea 的光标位置</a>
 </div>
 <div class="content">
-  在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。
+  
+    在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/161.html" class="font-bold text-xl hover:text-eureka">如何获取当前 select 元素的值</a>
 </div>
 <div class="content">
-  如何获取当前 select 元素的值
+  
+    如何获取当前 select 元素的值
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/159.html" class="font-bold text-xl hover:text-eureka">如何在事件代理中正确使用 focus 和 blur 事件</a>
 </div>
 <div class="content">
-  如何在事件代理中正确使用 focus 和 blur 事件
+  
+    如何在事件代理中正确使用 focus 和 blur 事件
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

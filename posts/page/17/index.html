@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,12 +225,14 @@
   <a href="/147.html" class="font-bold text-xl hover:text-eureka">前端资源文件缓存清除一法</a>
 </div>
 <div class="content">
-  | 对于前端开发来说，经常要面对JS，CSS，图片等资源的缓存更新问题（CDN永久缓存的就另当别论）。
+  
+    | 对于前端开发来说，经常要面对JS，CSS，图片等资源的缓存更新问题（CDN永久缓存的就另当别论）。
 大部分情况，为了节省服务器压力及带宽且又不失可维护性，习惯对这些资源文件添加比较久的缓存时间，这样就给前端开发人员带来一个自动更新的棘手问题。
 其实，较简单的解决办法，就是固定周期或有条件的或每次（这样要缓存何用？）的增加随机数击穿缓存，强制更新即可。
 这里说一个也较为简单的方式，利用AJAX的访问来更新本地缓存。
 原理很简单，使用http协议的 If-Modified-Since 和 Cache-Control 两个header头参数即可。
 
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -267,7 +270,9 @@
   <a href="/145.html" class="font-bold text-xl hover:text-eureka">现在</a>
 </div>
 <div class="content">
-  疲惫、累、烦。
+  
+    疲惫、累、烦。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -305,7 +310,9 @@
   <a href="/142.html" class="font-bold text-xl hover:text-eureka">IE6&#43;和FF的CSS Hack</a>
 </div>
 <div class="content">
-  一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) #wrapper { width: 100px!important; /\* IE7&#43;FF \*/ width: 80px; /\* IE6 \*/ } 2, IE6/IE77对FireFox *&#43;html 与 *html 是IE特有的标签, firefox 暂不支持.而*&#43;html 又为 IE7特有标签. #wrapper { #wrapper { width: 120px; } /\* FireFox \*/ \*html #wrapper { width: 80px;} /\* ie6 fixed */ \*&#43;html #wrapper { width: 60px;} /\* ie7 fixed, 注意顺序 */ } 注意: *&#43;html 对IE7的HACK 必须保证HTML顶部有如下声明： 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global
+  
+    一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) #wrapper { width: 100px!important; /\* IE7&#43;FF \*/ width: 80px; /\* IE6 \*/ } 2, IE6/IE77对FireFox *&#43;html 与 *html 是IE特有的标签, firefox 暂不支持.而*&#43;html 又为 IE7特有标签. #wrapper { #wrapper { width: 120px; } /\* FireFox \*/ \*html #wrapper { width: 80px;} /\* ie6 fixed */ \*&#43;html #wrapper { width: 60px;} /\* ie7 fixed, 注意顺序 */ } 注意: *&#43;html 对IE7的HACK 必须保证HTML顶部有如下声明： 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

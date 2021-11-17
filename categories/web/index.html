@@ -196,10 +196,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -237,7 +238,9 @@
   <a href="/525.html" class="font-bold text-xl hover:text-eureka">node-airplay 0.1.0 release</a>
 </div>
 <div class="content">
-  这是一个专为兼容 AirPlay 协议的设备（Apple TV）使用的 node.js 客户端库 项目地址: node-airplay 此项目是搞 iPlay 的时候分离出来的模块。 当时写的匆忙，没注意已有类似的项目(Ben Vanik搞的)，不过年久失修，已跟不上时代了。 so, 借鉴升华了下，加上了 HLS 直播流支持，本地自动实时转码。 PS： 后来发现，Ben Vanik 也搞了 node-livestreaming 和 node-transcoding ，C&#43;&#43;的node模块，但因年久失修，已经不好利用了，连编译都是个问题，还得自己收工 从node-waf 迁移到 node-gyp
+  
+    这是一个专为兼容 AirPlay 协议的设备（Apple TV）使用的 node.js 客户端库 项目地址: node-airplay 此项目是搞 iPlay 的时候分离出来的模块。 当时写的匆忙，没注意已有类似的项目(Ben Vanik搞的)，不过年久失修，已跟不上时代了。 so, 借鉴升华了下，加上了 HLS 直播流支持，本地自动实时转码。 PS： 后来发现，Ben Vanik 也搞了 node-livestreaming 和 node-transcoding ，C&#43;&#43;的node模块，但因年久失修，已经不好利用了，连编译都是个问题，还得自己收工 从node-waf 迁移到 node-gyp
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -293,7 +296,9 @@
   <a href="/513.html" class="font-bold text-xl hover:text-eureka">Emmet DocSet for Dash 1.0</a>
 </div>
 <div class="content">
-  Emmet-DocSet v1.0 Released!!  Emmet DocSet for Dash
+  
+    Emmet-DocSet v1.0 Released!!  Emmet DocSet for Dash
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

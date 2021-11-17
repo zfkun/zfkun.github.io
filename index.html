@@ -159,10 +159,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -427,7 +428,9 @@
   <a href="/vps-wireguard-setup.html" class="font-bold text-xl hover:text-eureka">Wireguard Setup</a>
 </div>
 <div class="content">
-  简要记录下VPS的wireguard配置
+  
+    简要记录下VPS的wireguard配置
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -441,7 +444,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>287字</span>
+        <span>358字</span>
     </div>
     
     
@@ -480,7 +483,9 @@
   <a href="/autocad-uninstall-clean-script.html" class="font-bold text-xl hover:text-eureka">Autocad Uninstall Clean Script</a>
 </div>
 <div class="content">
-  autocad 卸载清理脚本
+  
+    autocad 卸载清理脚本
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -533,7 +538,9 @@
   <a href="/blender-bug-hotkey.html" class="font-bold text-xl hover:text-eureka">Blender 疑难实用操作汇总</a>
 </div>
 <div class="content">
-  主要记录较为常见的BUG解决方法及实用操作方式
+  
+    主要记录较为常见的BUG解决方法及实用操作方式
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -589,7 +596,9 @@
   <a href="/c4d-project-workflow.html" class="font-bold text-xl hover:text-eureka">C4D工作流设置 (1) - Arnold (C4DToA) 阿诺德工作流</a>
 </div>
 <div class="content">
-  主要记录自己习惯的C4D工程 (阿诺德渲染器) 基本配置
+  
+    主要记录自己习惯的C4D工程 (阿诺德渲染器) 基本配置
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -649,7 +658,9 @@
   <a href="/525.html" class="font-bold text-xl hover:text-eureka">node-airplay 0.1.0 release</a>
 </div>
 <div class="content">
-  这是一个专为兼容 AirPlay 协议的设备（Apple TV）使用的 node.js 客户端库 项目地址: node-airplay 此项目是搞 iPlay 的时候分离出来的模块。 当时写的匆忙，没注意已有类似的项目(Ben Vanik搞的)，不过年久失修，已跟不上时代了。 so, 借鉴升华了下，加上了 HLS 直播流支持，本地自动实时转码。 PS： 后来发现，Ben Vanik 也搞了 node-livestreaming 和 node-transcoding ，C&#43;&#43;的node模块，但因年久失修，已经不好利用了，连编译都是个问题，还得自己收工 从node-waf 迁移到 node-gyp
+  
+    这是一个专为兼容 AirPlay 协议的设备（Apple TV）使用的 node.js 客户端库 项目地址: node-airplay 此项目是搞 iPlay 的时候分离出来的模块。 当时写的匆忙，没注意已有类似的项目(Ben Vanik搞的)，不过年久失修，已跟不上时代了。 so, 借鉴升华了下，加上了 HLS 直播流支持，本地自动实时转码。 PS： 后来发现，Ben Vanik 也搞了 node-livestreaming 和 node-transcoding ，C&#43;&#43;的node模块，但因年久失修，已经不好利用了，连编译都是个问题，还得自己收工 从node-waf 迁移到 node-gyp
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

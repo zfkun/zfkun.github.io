@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/vps-wireguard-setup.html" class="font-bold text-xl hover:text-eureka">Wireguard Setup</a>
 </div>
 <div class="content">
-  简要记录下VPS的wireguard配置
+  
+    简要记录下VPS的wireguard配置
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -238,7 +241,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>287字</span>
+        <span>358字</span>
     </div>
     
     
@@ -277,7 +280,9 @@
   <a href="/autocad-uninstall-clean-script.html" class="font-bold text-xl hover:text-eureka">Autocad Uninstall Clean Script</a>
 </div>
 <div class="content">
-  autocad 卸载清理脚本
+  
+    autocad 卸载清理脚本
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -330,7 +335,9 @@
   <a href="/blender-bug-hotkey.html" class="font-bold text-xl hover:text-eureka">Blender 疑难实用操作汇总</a>
 </div>
 <div class="content">
-  主要记录较为常见的BUG解决方法及实用操作方式
+  
+    主要记录较为常见的BUG解决方法及实用操作方式
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

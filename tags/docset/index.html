@@ -189,10 +189,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -230,7 +231,9 @@
   <a href="/513.html" class="font-bold text-xl hover:text-eureka">Emmet DocSet for Dash 1.0</a>
 </div>
 <div class="content">
-  Emmet-DocSet v1.0 Released!!  Emmet DocSet for Dash
+  
+    Emmet-DocSet v1.0 Released!!  Emmet DocSet for Dash
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

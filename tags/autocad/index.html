@@ -188,10 +188,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -229,7 +230,9 @@
   <a href="/autocad-uninstall-clean-script.html" class="font-bold text-xl hover:text-eureka">Autocad Uninstall Clean Script</a>
 </div>
 <div class="content">
-  autocad 卸载清理脚本
+  
+    autocad 卸载清理脚本
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

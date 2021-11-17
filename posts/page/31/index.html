@@ -177,10 +177,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -218,11 +219,13 @@
   <a href="/18.html" class="font-bold text-xl hover:text-eureka">时间的档案</a>
 </div>
 <div class="content">
-  一渺秒（十亿分之一秒的十亿分之一）
+  
+    一渺秒（十亿分之一秒的十亿分之一）
 科学家是用渺秒来对瞬时事件进行计时的。
 研究人员已经用稳定的高速激光产生了仅持续250渺秒的光脉冲。
 尽管这一时间间隔短得无法想像，但是和普朗克常数相比还是很长的。
 普朗克常数大约为10-43渺秒，被认为是可能持续的最短时间。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -260,7 +263,9 @@
   <a href="/15.html" class="font-bold text-xl hover:text-eureka">Java UnicodeHelper</a>
 </div>
 <div class="content">
-  public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return &#34;&#34;; char c = &#39;\0&#39;; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j &amp;lt; k; j&#43;&#43;) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // &#39;&#34;&#39; case 92: // &#39;\\&#39; stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 47: // &#39;/&#39; if (i == 60) stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 8: // &#39;\b&#39; stringbuffer.append(&#34;\\b&#34;); break; case 9: // &#39;\t&#39; stringbuffer.append(&#34;\\t&#34;); break; case 10: // &#39;\n&#39; stringbuffer.append(&#34;\\n&#34;); break; case 12: // &#39;\f&#39; stringbuffer.append(&#34;\\f&#34;); break; case 13: // &#39;\r&#39; stringbuffer.append(&#34;\\r&#34;); break; default: if (c = &#39;0&#39; &amp;&amp; c &amp;lt;= &#39;9&#39; || c = &#39;A&#39; &amp;&amp; c &amp;lt;= &#39;z&#39;) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(&#34;000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(&#34;\\u&#34;).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = &#34;&#34;; while (start -1) { end = unicodeStr.indexOf(&#34;\\u&#34;, start &#43; 2); if (end == -1) { if (unicodeStr.length()
+  
+    public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return &#34;&#34;; char c = &#39;\0&#39;; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j &lt; k; j&#43;&#43;) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // &#39;&#34;&#39; case 92: // &#39;\\&#39; stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 47: // &#39;/&#39; if (i == 60) stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 8: // &#39;\b&#39; stringbuffer.append(&#34;\\b&#34;); break; case 9: // &#39;\t&#39; stringbuffer.append(&#34;\\t&#34;); break; case 10: // &#39;\n&#39; stringbuffer.append(&#34;\\n&#34;); break; case 12: // &#39;\f&#39; stringbuffer.append(&#34;\\f&#34;); break; case 13: // &#39;\r&#39; stringbuffer.append(&#34;\\r&#34;); break; default: if (c = &#39;0&#39; &amp;&amp; c &lt;= &#39;9&#39; || c = &#39;A&#39; &amp;&amp; c &lt;= &#39;z&#39;) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(&#34;000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(&#34;\\u&#34;).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = &#34;&#34;; while (start -1) { end = unicodeStr.indexOf(&#34;\\u&#34;, start &#43; 2); if (end == -1) { if (unicodeStr.length()
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

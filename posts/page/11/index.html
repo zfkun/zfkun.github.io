@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/202.html" class="font-bold text-xl hover:text-eureka">Google 的疯狂面试题</a>
 </div>
 <div class="content">
-  Google 的疯狂面试题
+  
+    Google 的疯狂面试题
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/199.html" class="font-bold text-xl hover:text-eureka">XHR与浏览器导航冲突解决方案</a>
 </div>
 <div class="content">
-  最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。
+  
+    最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/196.html" class="font-bold text-xl hover:text-eureka">Repaint 跟踪浏览器的渲染</a>
 </div>
 <div class="content">
-  前端优化，从很久就开始了。随着研究的深入，关注的点就越来越多。最近也有不少的前端开发同学在研究浏览器的Reflow和Repaint
+  
+    前端优化，从很久就开始了。随着研究的深入，关注的点就越来越多。最近也有不少的前端开发同学在研究浏览器的Reflow和Repaint
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

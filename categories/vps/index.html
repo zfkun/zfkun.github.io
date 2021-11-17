@@ -188,10 +188,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -229,7 +230,9 @@
   <a href="/vps-wireguard-setup.html" class="font-bold text-xl hover:text-eureka">Wireguard Setup</a>
 </div>
 <div class="content">
-  简要记录下VPS的wireguard配置
+  
+    简要记录下VPS的wireguard配置
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -243,7 +246,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>287字</span>
+        <span>358字</span>
     </div>
     
     

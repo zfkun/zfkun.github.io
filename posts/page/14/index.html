@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/174.html" class="font-bold text-xl hover:text-eureka">apache2.2的优化及模块安装</a>
 </div>
 <div class="content">
-  一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 &amp;lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L
+  
+    一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 &lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/170.html" class="font-bold text-xl hover:text-eureka">Google API – Chart – QR</a>
 </div>
 <div class="content">
-  谷歌的Chart API真是全啊，下面这个就是比较实用的二维码： http://code.google.com/intl/zh-CN/apis/chart/docs/gallery/qr_codes.html
+  
+    谷歌的Chart API真是全啊，下面这个就是比较实用的二维码： http://code.google.com/intl/zh-CN/apis/chart/docs/gallery/qr_codes.html
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/167.html" class="font-bold text-xl hover:text-eureka">判断 iframe 是否加载完成的完美方法</a>
 </div>
 <div class="content">
-  网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(&amp;quot;iframe&amp;quot;); iframe.src = &amp;quot;http://www.planabc.net&amp;quot;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == &amp;quot;complete&amp;quot;){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(&amp;quot;iframe&amp;quot;); iframe.src = &amp;quot;http://www.planabc.net&amp;quot;; if (iframe.attachEvent){ iframe.attachEvent(&amp;quot;onload&amp;quot;, function(){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); }); } else { iframe.onload = function(){ alert(&amp;quot;Local iframe is now loaded.&amp;quot;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。
+  
+    网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(&#34;iframe&#34;); iframe.src = &#34;http://www.planabc.net&#34;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(&#34;Local iframe is now loaded.&#34;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == &#34;complete&#34;){ alert(&#34;Local iframe is now loaded.&#34;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(&#34;iframe&#34;); iframe.src = &#34;http://www.planabc.net&#34;; if (iframe.attachEvent){ iframe.attachEvent(&#34;onload&#34;, function(){ alert(&#34;Local iframe is now loaded.&#34;); }); } else { iframe.onload = function(){ alert(&#34;Local iframe is now loaded.&#34;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

@@ -185,10 +185,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -226,9 +227,11 @@
   <a href="/454.html" class="font-bold text-xl hover:text-eureka">Path UI by CSS3</a>
 </div>
 <div class="content">
-  Path的UI惊起哇声一片，最大的亮点无疑是左下角的菜单展开效果。于是有各个版本的仿Path菜单出现，比如我们之前报道过的国内某牛人的作品，这里还有若干个关于Path菜单的讨论。但最引人注意的还是来自法国小伙Victor的作品：用纯CSS3制作的Path菜单效果。
+  
+    Path的UI惊起哇声一片，最大的亮点无疑是左下角的菜单展开效果。于是有各个版本的仿Path菜单出现，比如我们之前报道过的国内某牛人的作品，这里还有若干个关于Path菜单的讨论。但最引人注意的还是来自法国小伙Victor的作品：用纯CSS3制作的Path菜单效果。
 他说他喜欢Path的新界面，尤其是添加菜单，作为一个前端设计师的他打算在浏览器里实现同样的效果。
 
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -270,7 +273,9 @@
   <a href="/449.html" class="font-bold text-xl hover:text-eureka">Thinkpad 全系列驱动程序官方安装光盘下载</a>
 </div>
 <div class="content">
-  Lenovo 这次厚道一次了，知道提高用户体验了。对于经常反复装系统的孩子们应该用的着。当然就不要要求实时更新了，估计很难。先装了再update也无妨，总比装完发现，网卡，声卡，显卡驱动均无 &#43; 无另外上网设备的尴尬好的多吧。
+  
+    Lenovo 这次厚道一次了，知道提高用户体验了。对于经常反复装系统的孩子们应该用的着。当然就不要要求实时更新了，估计很难。先装了再update也无妨，总比装完发现，网卡，声卡，显卡驱动均无 &#43; 无另外上网设备的尴尬好的多吧。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -312,7 +317,9 @@
   <a href="/445.html" class="font-bold text-xl hover:text-eureka">移动 Web 开发平台 Rexsee 开源</a>
 </div>
 <div class="content">
-  国内移动Web开发平台Rexsee正式开源，其开发者社区也于本周上线。访问社区可以查看详细开发手册、API说明与示例以及全部源码，并可在线编译免费生成移动应用客户端。
+  
+    国内移动Web开发平台Rexsee正式开源，其开发者社区也于本周上线。访问社区可以查看详细开发手册、API说明与示例以及全部源码，并可在线编译免费生成移动应用客户端。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

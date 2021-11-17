@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/76.html" class="font-bold text-xl hover:text-eureka">Google Closure Tools</a>
 </div>
 <div class="content">
-  Web applications have evolved from simple HTML pages into rich, interactive applications that provide a great user experience. Today&amp;rsquo;s web apps pose a challenge for developers, however: how do you create and maintain efficient JavaScript code that downloads quickly and works across different browsers?
+  
+    Web applications have evolved from simple HTML pages into rich, interactive applications that provide a great user experience. Today’s web apps pose a challenge for developers, however: how do you create and maintain efficient JavaScript code that downloads quickly and works across different browsers?
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/74.html" class="font-bold text-xl hover:text-eureka">wp_list_categories()参数说明</a>
 </div>
 <div class="content">
-  show_option_all 值：任意填。 如果你写”那啥’，那么在列表第一个分类就显示“那啥”两字，不过连接是连接到blog首页的，正好可以利用此参数加个“首页”。 orderby 值：ID、name（默认值）、count。 作用是按这3个值来排序。 order 值：ASC（默认值）、DESC。 ASC为升序，DESC为降序。 show_last_updated 值：0（默认值）、1。 0无作用，1为最近更新的分类显示在前面。 style 值：list（默认值）、none。 例6中已经举例了。none无作用。 show_count 值：0、1（默认值） 1在每个分类后面显示日志数量，0不显示。 hide_empty 值：0、1（默认值） 1是隐藏没有发表日志的分
+  
+    show_option_all 值：任意填。 如果你写”那啥’，那么在列表第一个分类就显示“那啥”两字，不过连接是连接到blog首页的，正好可以利用此参数加个“首页”。 orderby 值：ID、name（默认值）、count。 作用是按这3个值来排序。 order 值：ASC（默认值）、DESC。 ASC为升序，DESC为降序。 show_last_updated 值：0（默认值）、1。 0无作用，1为最近更新的分类显示在前面。 style 值：list（默认值）、none。 例6中已经举例了。none无作用。 show_count 值：0、1（默认值） 1在每个分类后面显示日志数量，0不显示。 hide_empty 值：0、1（默认值） 1是隐藏没有发表日志的分
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,8 +305,10 @@
   <a href="/67.html" class="font-bold text-xl hover:text-eureka">Mootools Sortables插件BUG修正</a>
 </div>
 <div class="content">
-  前阵子新版专辑管理项目开发中碰到比较郁闷的问题，经测试最终决定给Sortables打个小补丁。
+  
+    前阵子新版专辑管理项目开发中碰到比较郁闷的问题，经测试最终决定给Sortables打个小补丁。
 由于对选择状态的文本内容、连接和图片等进行拖放操作会触发系统的默认动作，例如ie中拖动图片鼠标会变成禁止操作状态，这样会导致这个拖放程序执行失败，所以Mootools 的Drag基类配置里其实有preventDefault配置项来给使用者解决此类问题，默认值为false，需要处理时设置为true即可。 然而郁闷的是，开发时才发现，Sortables类里内部创建的Drag.Move实例却只能使用preventDefault的默认值，因为Sortables没有给出配置项用来设置内部(this.drag)这个DragMove实例的preventDefault参数项。无奈之下，只能打补丁了。 另打补丁期间又发现另一个问题，甚是郁闷。Sortables的start方法仅判断是否空闲进而决定是否真正执行。而实际项目需求有时需要屏蔽鼠标右键(带来的问题很多)，而看了办法发现，找到的唯一办法仍旧是打补丁。 最终，打上2处补丁后，世界清静了。。。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

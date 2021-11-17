@@ -188,10 +188,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -229,7 +230,9 @@
   <a href="/blender-bug-hotkey.html" class="font-bold text-xl hover:text-eureka">Blender 疑难实用操作汇总</a>
 </div>
 <div class="content">
-  主要记录较为常见的BUG解决方法及实用操作方式
+  
+    主要记录较为常见的BUG解决方法及实用操作方式
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

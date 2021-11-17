@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/275.html" class="font-bold text-xl hover:text-eureka">[转]IE6、IE7、IE8 CSS Bug兼容解决记录</a>
 </div>
 <div class="content">
-  一份值得看下的IE6、IE7、IE8 CSS Bug兼容解决记录
+  
+    一份值得看下的IE6、IE7、IE8 CSS Bug兼容解决记录
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/236.html" class="font-bold text-xl hover:text-eureka">Ubuntu安装之wubi方式默认自动BT下载iso的问题</a>
 </div>
 <div class="content">
-  正在研究一基于c的qqrobot，无奈需搭建linux开发环境。经过 Dev-cpp，Cygwin（已通过编译但运行异常，怀疑环境有关）的尝试，各有不足，遂选择新装ubuntu来解决。
+  
+    正在研究一基于c的qqrobot，无奈需搭建linux开发环境。经过 Dev-cpp，Cygwin（已通过编译但运行异常，怀疑环境有关）的尝试，各有不足，遂选择新装ubuntu来解决。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/232.html" class="font-bold text-xl hover:text-eureka">解决VMware Tools installation cannot be started manually while Easy Install is in progress.</a>
 </div>
 <div class="content">
-  很多尝试VMware 7虚拟机的朋友都会发现，用Ghost xp安装Windows以后，在开始安装VMware Tools时，会弹出显示如下内容的警告框： VMware Tools installation cannot be started manually while Easy Install is in progress. 解决方法： 在开启虚拟机操作系统的情况下，在虚拟机设置中更改floppy为auto detect。然后点击菜单中的安装VMWare Tools，虚拟操作系统中的光驱里就会有VMWare Tools的安装程序了，自行安装即
+  
+    很多尝试VMware 7虚拟机的朋友都会发现，用Ghost xp安装Windows以后，在开始安装VMware Tools时，会弹出显示如下内容的警告框： VMware Tools installation cannot be started manually while Easy Install is in progress. 解决方法： 在开启虚拟机操作系统的情况下，在虚拟机设置中更改floppy为auto detect。然后点击菜单中的安装VMWare Tools，虚拟操作系统中的光驱里就会有VMWare Tools的安装程序了，自行安装即
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

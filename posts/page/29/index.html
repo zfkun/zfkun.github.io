@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/33.html" class="font-bold text-xl hover:text-eureka">domdocument::domdocument() expects at least 1 parameter解决办法</a>
 </div>
 <div class="content">
-  问题的解决方法：http://bugs.php.net/bug.php?id=45538 php5 在 windows 下运行时，不需要在 php.ini 里声明 php_domxml.dll，加个分号注释起来就行了。 If you use PHP 5 in windows, you don’t need to declare php_domxml.dll in your php.ini file. so u can give comment in the line php_domxml.dll in your php.ini file. you only need to comment it out, but do not delete the php_domxml.dll file in the ext directory.
+  
+    问题的解决方法：http://bugs.php.net/bug.php?id=45538 php5 在 windows 下运行时，不需要在 php.ini 里声明 php_domxml.dll，加个分号注释起来就行了。 If you use PHP 5 in windows, you don’t need to declare php_domxml.dll in your php.ini file. so u can give comment in the line php_domxml.dll in your php.ini file. you only need to comment it out, but do not delete the php_domxml.dll file in the ext directory.
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/30.html" class="font-bold text-xl hover:text-eureka">久违了。。。</a>
 </div>
 <div class="content">
-  昨天无意中看到《寄生前夜III》的介绍，这让我突然又怀念起高中时代孤身一人、深更半夜、冥思苦想、浴血奋战的时光了。 于是决定下载(非合盘不死机美版镜像)下来在我的小P(PSP200 5.00M33-6)上玩一把。 终于，偷鸡摸狗的下载了下来却被无尽的重启、卡屏给彻底打败了。 晚上，看龙珠的时候，不知怎么突然的想到小P中的FC软件了，总有一种感觉告诉我跟FC有点关系。 于是乎，关机、重启、进入恢复模式、调整plugin中FC为禁用、保存退出、重启、进入游戏、调出popsloader选择3.11核心进入、经典PS开机画
+  
+    昨天无意中看到《寄生前夜III》的介绍，这让我突然又怀念起高中时代孤身一人、深更半夜、冥思苦想、浴血奋战的时光了。 于是决定下载(非合盘不死机美版镜像)下来在我的小P(PSP200 5.00M33-6)上玩一把。 终于，偷鸡摸狗的下载了下来却被无尽的重启、卡屏给彻底打败了。 晚上，看龙珠的时候，不知怎么突然的想到小P中的FC软件了，总有一种感觉告诉我跟FC有点关系。 于是乎，关机、重启、进入恢复模式、调整plugin中FC为禁用、保存退出、重启、进入游戏、调出popsloader选择3.11核心进入、经典PS开机画
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/28.html" class="font-bold text-xl hover:text-eureka">最新@msn.com邮箱帐号注册方法</a>
 </div>
 <div class="content">
-  最新 @msn.com 邮箱帐号注册方法。 访问https://accountservices.passport.net/reg.srf?ns=msn.com&amp;amp;sl=1&amp;amp;lc=2052 即可
+  
+    最新 @msn.com 邮箱帐号注册方法。 访问https://accountservices.passport.net/reg.srf?ns=msn.com&amp;sl=1&amp;lc=2052 即可
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

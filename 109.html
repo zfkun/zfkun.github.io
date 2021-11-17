@@ -206,10 +206,11 @@ The good news is that memory leak patterns can be easily spotted if you know wha
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -548,6 +549,8 @@ Microsoft Corporation</p>
         
         
         
+
+
         
         
         <div class="py-2">

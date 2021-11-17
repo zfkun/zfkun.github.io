@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/131.html" class="font-bold text-xl hover:text-eureka">5 个简单实用的 CSS 属性</a>
 </div>
 <div class="content">
-  这篇文章介绍了 5 个实用的 CSS 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。
+  
+    这篇文章介绍了 5 个实用的 CSS 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/127.html" class="font-bold text-xl hover:text-eureka">PureMVC Standard for JavaScript</a>
 </div>
 <div class="content">
-  PureMVC is a lightweight framework for creating applications based upon the classic  Model-View-Controller design meta-pattern. This is the specific implementation for the JavaScript language.
+  
+    PureMVC is a lightweight framework for creating applications based upon the classic  Model-View-Controller design meta-pattern. This is the specific implementation for the JavaScript language.
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/125.html" class="font-bold text-xl hover:text-eureka">contains vs compareDocumentPosition</a>
 </div>
 <div class="content">
-  一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）
+  
+    一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

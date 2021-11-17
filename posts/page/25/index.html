@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/64.html" class="font-bold text-xl hover:text-eureka">选择性复活</a>
 </div>
 <div class="content">
-  博客选择性复活！ 经过几天的捣腾，终于恢复了部分数据(其他的我已回天无力)。 能有幸捣腾这非天灾，真是感谢党的关怀、感谢领导的决策、感谢祖国的和谐！ 从零开始….
+  
+    博客选择性复活！ 经过几天的捣腾，终于恢复了部分数据(其他的我已回天无力)。 能有幸捣腾这非天灾，真是感谢党的关怀、感谢领导的决策、感谢祖国的和谐！ 从零开始….
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,7 +265,9 @@
   <a href="/61.html" class="font-bold text-xl hover:text-eureka">用硬盘玩《银河战士：三部曲》（ Metroid Prime Trilogy 美版）的方法</a>
 </div>
 <div class="content">
-  首先，据说目前最完美的方法还是刻盘。我没有D9的空盘，也懒得试验。。。
+  
+    首先，据说目前最完美的方法还是刻盘。我没有D9的空盘，也懒得试验。。。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -300,7 +305,9 @@
   <a href="/59.html" class="font-bold text-xl hover:text-eureka">腾讯TT、遨游浏览器检测</a>
 </div>
 <div class="content">
-  最近腾讯TT4.5版发布后，为了兼容一处FLASH的WMODE参数异常的BUG使用到了新版检测方法，特此记录一下，省的以后忘记。 TT4.5 检测方法: 调用 external.getTTVerStr() 返回 浏览器信息，非TT或此版本均会抛出异常。 TT通用版检测方法: 首先检测 navigator.userAgent 是否含有 Tencent 特征串，继而调用 external.ShowBrowserUI(’ku6′) ，非TT均会抛出异常 顺便提一下 遨游 的检测方法： 也是通过 external 对象来辅助检测，调用 external.tab_count 不抛异常即为 遨游浏览器。
+  
+    最近腾讯TT4.5版发布后，为了兼容一处FLASH的WMODE参数异常的BUG使用到了新版检测方法，特此记录一下，省的以后忘记。 TT4.5 检测方法: 调用 external.getTTVerStr() 返回 浏览器信息，非TT或此版本均会抛出异常。 TT通用版检测方法: 首先检测 navigator.userAgent 是否含有 Tencent 特征串，继而调用 external.ShowBrowserUI(’ku6′) ，非TT均会抛出异常 顺便提一下 遨游 的检测方法： 也是通过 external 对象来辅助检测，调用 external.tab_count 不抛异常即为 遨游浏览器。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

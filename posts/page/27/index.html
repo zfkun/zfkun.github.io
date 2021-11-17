@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/49.html" class="font-bold text-xl hover:text-eureka">JavaScript 与 ActionScript 3.0 交互的一些问题</a>
 </div>
 <div class="content">
-  JavaScript 跟 ActionScript 3.0 交互也是通过 flash.external.ExternalInterface 这个类，不过与跟 Flash 8 中跟 ActionScript 2.0 交互所使用的 flash.external.ExternalInterface 还是有所不同的。最大的不同就是 ExternalInterface.addCallback 方法在 ActionScript 3.0 中只有 2 个参数了，而不再有 instance 这个参数。下面要讨论的这些问题都是关于 Flash 9 中 ActionScript 3.0 的。
+  
+    JavaScript 跟 ActionScript 3.0 交互也是通过 flash.external.ExternalInterface 这个类，不过与跟 Flash 8 中跟 ActionScript 2.0 交互所使用的 flash.external.ExternalInterface 还是有所不同的。最大的不同就是 ExternalInterface.addCallback 方法在 ActionScript 3.0 中只有 2 个参数了，而不再有 instance 这个参数。下面要讨论的这些问题都是关于 Flash 9 中 ActionScript 3.0 的。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,10 +265,12 @@
   <a href="/46.html" class="font-bold text-xl hover:text-eureka">神奇电池v8将PSP刷到5.00M33-4教程</a>
 </div>
 <div class="content">
-  本教程不适用以下主机：PSP3000、PSP2000（TA88V3），这两种主机无法按照本教程制作神奇电池、无法进行刷机操作。如果你是以上两种主机，请使用5.03HEN R2进行破解。
+  
+    本教程不适用以下主机：PSP3000、PSP2000（TA88V3），这两种主机无法按照本教程制作神奇电池、无法进行刷机操作。如果你是以上两种主机，请使用5.03HEN R2进行破解。
 部分适用以下主机：PSP2000（TA88V2），这种主机无法按照本教程制作神奇电池，但如果已经拥有神奇电池，则可按照本教程进行刷机操作。
 其余PSP1000及PSP2000主机完全适用本教程。
 本教程将指导玩家制作两个东西：神奇电池以及神奇记忆棒，这两者相配合可以实现将任何好用的不好用（仅限软件层面的损坏）的PSP主机修复到5.00M33-4系统。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -303,7 +308,9 @@
   <a href="/44.html" class="font-bold text-xl hover:text-eureka">DOS命令之netstat</a>
 </div>
 <div class="content">
-  经常调试程序需要占用80端口来跑WEB服务，可是总有乱七八糟的软件给抢了先，哎。 无奈只能自己动手查出进程 KILL 掉才行。netstat命令还算可以满足需求。 cmd&amp;gt; netstat -abn | grep :80 最后一列就是PID 这样通过任务管理器里就可以查看这个进程的详细信息了，当然还通过DOS去查看也行，不过我懒得敲了。
+  
+    经常调试程序需要占用80端口来跑WEB服务，可是总有乱七八糟的软件给抢了先，哎。 无奈只能自己动手查出进程 KILL 掉才行。netstat命令还算可以满足需求。 cmd&gt; netstat -abn | grep :80 最后一列就是PID 这样通过任务管理器里就可以查看这个进程的详细信息了，当然还通过DOS去查看也行，不过我懒得敲了。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

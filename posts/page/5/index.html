@@ -186,10 +186,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -227,7 +228,9 @@
   <a href="/441.html" class="font-bold text-xl hover:text-eureka">CubeStormer II &#43; Samsung Galaxy S II ，5.35 秒暴解三阶魔方！</a>
 </div>
 <div class="content">
-  CubeStormer II &#43; Samsung Galaxy S II ，5.35 秒暴解三阶魔方！
+  
+    CubeStormer II &#43; Samsung Galaxy S II ，5.35 秒暴解三阶魔方！
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -269,9 +272,11 @@
   <a href="/417.html" class="font-bold text-xl hover:text-eureka">WordPress Rewrite SEO 之404方式折腾笔记</a>
 </div>
 <div class="content">
-  WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。
+  
+    WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。
 最近折腾 HTML5探索 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。
 空间是虚拟主机（还是WIN &#43; IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite。SO, 就开始大面积的调整程序 &#43; hack, 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -313,7 +318,9 @@
   <a href="/394.html" class="font-bold text-xl hover:text-eureka">[转]利用跨域资源共享（CORS）实现ajax跨域调用</a>
 </div>
 <div class="content">
-  几年前，网站开发者都因为ajax的同源策略而撞了南墙。当我们惊叹于XMLHttpRequest对象跨浏览器支持所带来的巨大进步时，我们很快发现没有一个方法可以使我们用JavaScript实现请求跨域访问，对此我们哀叹不已。每个人在他们自己的网站上建立代理来摆脱这种限制。虽然开发者利用服务器代理和其它技巧避开了这种限制，而在社区的抗议者允许ajax在本地跨域调用。许多人还没意识到当前几乎所有的浏览器（Internet Explorer 8&#43;， Firefox 3.5&#43;， Safari 4&#43;和 Chrome）都可通过名为Cross-Origin Resource Sharing的协议支持ajax跨域调用。
+  
+    几年前，网站开发者都因为ajax的同源策略而撞了南墙。当我们惊叹于XMLHttpRequest对象跨浏览器支持所带来的巨大进步时，我们很快发现没有一个方法可以使我们用JavaScript实现请求跨域访问，对此我们哀叹不已。每个人在他们自己的网站上建立代理来摆脱这种限制。虽然开发者利用服务器代理和其它技巧避开了这种限制，而在社区的抗议者允许ajax在本地跨域调用。许多人还没意识到当前几乎所有的浏览器（Internet Explorer 8&#43;， Firefox 3.5&#43;， Safari 4&#43;和 Chrome）都可通过名为Cross-Origin Resource Sharing的协议支持ajax跨域调用。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

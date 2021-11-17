@@ -183,10 +183,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -224,7 +225,9 @@
   <a href="/140.html" class="font-bold text-xl hover:text-eureka">JavaScript的valueOf和toString</a>
 </div>
 <div class="content">
-  JavaScript中valueOf函数方法是返回指定对象的原始值。JavaScript中toString函数方法是返回对象的字符串表示
+  
+    JavaScript中valueOf函数方法是返回指定对象的原始值。JavaScript中toString函数方法是返回对象的字符串表示
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -262,8 +265,10 @@
   <a href="/138.html" class="font-bold text-xl hover:text-eureka">Data URI 和 MHTML</a>
 </div>
 <div class="content">
-  Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。
+  
+    Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。
 MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -301,7 +306,9 @@ MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由R
   <a href="/135.html" class="font-bold text-xl hover:text-eureka">挑战 hax.tor.hu 申请带ssh的免费php&#43;mysql空间</a>
 </div>
 <div class="content">
-  hax.tor.hu 是一家提供带ssh的免费php&#43;mysql虚拟主机的空间服务商，而且它的SSH隧道是开通的,但是想获得这一免费午餐，却让我大伤脑筋，因为它要求通 过它的五道变态难题才行
+  
+    hax.tor.hu 是一家提供带ssh的免费php&#43;mysql虚拟主机的空间服务商，而且它的SSH隧道是开通的,但是想获得这一免费午餐，却让我大伤脑筋，因为它要求通 过它的五道变态难题才行
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

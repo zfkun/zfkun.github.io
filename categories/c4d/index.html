@@ -189,10 +189,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -230,7 +231,9 @@
   <a href="/c4d-project-workflow.html" class="font-bold text-xl hover:text-eureka">C4D工作流设置 (1) - Arnold (C4DToA) 阿诺德工作流</a>
 </div>
 <div class="content">
-  主要记录自己习惯的C4D工程 (阿诺德渲染器) 基本配置
+  
+    主要记录自己习惯的C4D工程 (阿诺德渲染器) 基本配置
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

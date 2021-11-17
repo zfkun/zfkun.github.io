@@ -186,10 +186,11 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == null || storageColorScheme == 'Auto') {
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Light") {
         element.firstElementChild.classList.remove('fa-adjust')
@@ -227,7 +228,9 @@
   <a href="/512.html" class="font-bold text-xl hover:text-eureka">阿里-智勇大闯关第三季 参考答案</a>
 </div>
 <div class="content">
-  阿里-智勇大闯关第三季 各关非官方参考答案, 自己随意弄的，不一定够标准。基本 console 敲入回车即可。
+  
+    阿里-智勇大闯关第三季 各关非官方参考答案, 自己随意弄的，不一定够标准。基本 console 敲入回车即可。
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -269,12 +272,14 @@
   <a href="/478.html" class="font-bold text-xl hover:text-eureka">KISSY Snippets for Sublime Text 2</a>
 </div>
 <div class="content">
-  KISSY Snippets for Sublime Text 2 v1.0.9 Released!!
+  
+    KISSY Snippets for Sublime Text 2 v1.0.9 Released!!
 If you are interested in this package, join us !!
 Try it now :
   by Package Control, search for “KISSY” (Recommend)
   by Source, “git clone https://github.com/zfkun/sublime-kissy-snippets.git”
   Come on !!
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
@@ -316,7 +321,9 @@ Try it now :
   <a href="/461.html" class="font-bold text-xl hover:text-eureka">KISSY DataLazyLoad组件之事件BUG</a>
 </div>
 <div class="content">
-  正在随手弄一Photo App， 为了性能和效率，不得不使用LazyLoad，至此，为此BUG的浮现做好了铺垫。 为图快速制作出原型，暂且使用KISSY辅助开发，App自身只有一个重要需求： 弹性、自适应。 所以，很自然的对 windows 对象做了 Resize Event 的监听处理。 %……（&amp;amp;%%……*（，(此处省略1000字)，coding-complete &amp;amp;&amp;amp; unit-test-ok ! 然后，准备添加 LazyLoad支持以提高体验和性能，降低成本。（殊不知，杯具就此发生）
+  
+    正在随手弄一Photo App， 为了性能和效率，不得不使用LazyLoad，至此，为此BUG的浮现做好了铺垫。 为图快速制作出原型，暂且使用KISSY辅助开发，App自身只有一个重要需求： 弹性、自适应。 所以，很自然的对 windows 对象做了 Resize Event 的监听处理。 %……（&amp;%%……*（，(此处省略1000字)，coding-complete &amp;&amp; unit-test-ok ! 然后，准备添加 LazyLoad支持以提高体验和性能，降低成本。（殊不知，杯具就此发生）
+  
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>flutter on 影の域</title>
+    <link>/categories/flutter/</link>
+    <description>Recent content in flutter on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 28 Nov 2021 18:50:51 +0800</lastBuildDate><atom:link href="/categories/flutter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flutter 开发环境初始化</title>
+      <link>/vps-wireguard-setup.html</link>
+      <pubDate>Sun, 28 Nov 2021 18:50:51 +0800</pubDate>
+      
+      <guid>/vps-wireguard-setup.html</guid>
+      <description>几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧</description>
+    </item>
+    
+  </channel>
+</rss>

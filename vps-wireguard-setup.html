@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width">
 
 
-<title>Wireguard Setup | 影の域</title>
+<title>Flutter 开发环境初始化 | 影の域</title>
 <link rel="stylesheet" href="/css/eureka.min.css">
 <script defer src="/dist/eureka.min.js"></script>
 
@@ -63,7 +63,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="简要记录下VPS的wireguard配置">
+  content="几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -75,7 +75,7 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Wireguard Setup",
+      "name":"Flutter 开发环境初始化",
       "item":"/vps-wireguard-setup.html"}]
 }
 </script>
@@ -90,9 +90,9 @@
         "@type": "WebPage",
         "@id": "/vps-wireguard-setup.html"
     },
-    "headline": "Wireguard Setup | 影の域","datePublished": "2021-11-17T12:48:33+08:00",
-    "dateModified": "2021-11-17T14:16:37+08:00",
-    "wordCount":  358 ,
+    "headline": "Flutter 开发环境初始化 | 影の域","datePublished": "2021-11-28T18:50:51+08:00",
+    "dateModified": "2021-11-28T18:50:51+08:00",
+    "wordCount":  239 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -105,9 +105,9 @@
             "url": "/images/me.png"
         }
         },
-    "description": "简要记录下VPS的wireguard配置"
+    "description": "几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧"
 }
-</script><meta property="og:title" content="Wireguard Setup | 影の域" />
+</script><meta property="og:title" content="Flutter 开发环境初始化 | 影の域" />
 <meta property="og:type" content="article" />
 
 
@@ -119,7 +119,7 @@
 
 
 
-<meta property="og:description" content="简要记录下VPS的wireguard配置" />
+<meta property="og:description" content="几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧" />
 
 
 
@@ -136,21 +136,23 @@
 
 
 
-<meta property="article:published_time" content="2021-11-17T12:48:33&#43;08:00" />
+<meta property="article:published_time" content="2021-11-28T18:50:51&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2021-11-17T14:16:37&#43;08:00" />
+<meta property="article:modified_time" content="2021-11-28T18:50:51&#43;08:00" />
 
 
 
 <meta property="article:section" content="posts" />
 
 
-<meta property="article:tag" content="wireguard" />
+<meta property="article:tag" content="flutter" />
 
-<meta property="article:tag" content="vpn" />
+<meta property="article:tag" content="develop" />
 
-<meta property="article:tag" content="vps" />
+<meta property="article:tag" content="web" />
+
+<meta property="article:tag" content="setup" />
 
 
 
@@ -234,11 +236,11 @@
 <div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
     <div
         class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-        <h1 class="font-bold text-3xl text-primary-text">Wireguard Setup</h1>
+        <h1 class="font-bold text-3xl text-primary-text">Flutter 开发环境初始化</h1>
         <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2021-11-17</span>
+        <span>2021-11-28</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -246,7 +248,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>358字</span>
+        <span>239字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -260,15 +262,11 @@
     <div class="mr-6 my-2">
         <i class="fas fa-folder mr-1"></i>
         
-        <a href="/categories/vps/" class="hover:text-eureka">vps</a>
+        <a href="/categories/flutter/" class="hover:text-eureka">flutter</a>
         
         
         <span>, </span>
-        <a href="/categories/vpn/" class="hover:text-eureka">vpn</a>
-        
-        
-        <span>, </span>
-        <a href="/categories/wireguard/" class="hover:text-eureka">wireguard</a>
+        <a href="/categories/web/" class="hover:text-eureka">web</a>
         
     </div>
     
@@ -280,82 +278,57 @@
         
 
         <div class="content">
-            <p>很久没用自己的VPS了, 最近临时用下, 才发现早期安装的wireguard已经废了, ipv4的 udp端口已经不行了。</p>
-<p>索性就修改下配置，改为了 ipv6的方式。
-这里简单记录下关键配置，方便以后复用</p>
-<h2 id="注意">注意</h2>
-<p>每次修改 服务端配置 前</p>
-<ol>
-<li>
-<p>先要停掉服务 (<code>wg-quick down wg0</code>)</p>
-</li>
-<li>
-<p>再修改 (<code>vim /etc/wireguard/wg0.conf</code>)</p>
-</li>
-<li>
-<p>最后恢复服务 (<code>wg-quick up wg0</code>)</p>
-</li>
-</ol>
-<h2 id="客户端配置模板">客户端配置模板</h2>
-<p><code>/etc/wireguard/client.conf</code></p>
-<pre><code>[Interface]
-PrivateKey = ?????????????
-Address = 10.0.0.?/24, 2001:20:2333::?/28
-DNS = 8.8.8.8, 2001:4860:4860::8888
-
-[Peer]
-PublicKey = b09ncrsip88vyHJFBFuGuNni98xbAAAOlayExmT6ABE=
-Endpoint = ?.?.?.?:?
-AllowedIPs = 0.0.0.0/0, ::0/0
-PersistentKeepalive = 25
+            <p>几年前的flutter项目需二次开发复用。
+可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。</p>
+<blockquote>
+<p>决定还一些之前的欠下的技术债吧</p>
+</blockquote>
+<h2 id="jdk">JDK</h2>
+<p>没有 JDK 环境, 基本玩不转
+自行下载 <a href="https://www.oracle.com/java/technologies/downloads/#java8-mac">JDK8</a></p>
+<pre><code>export JAVA_8_HOME=&quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home&quot;
+export JAVA_11_HOME=&quot;$(/usr/libexec/java_home -v 11)&quot;
+alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
+alias jdk11='export JAVA_HOME=$JAVA_11_HOME'
+export JAVA_HOME=$JAVA_8_HOME
 </code></pre>
-<h2 id="服务端配置">服务端配置</h2>
-<p><code>/etc/wireguard/wg0.conf</code></p>
-<pre><code>[Interface]
-PrivateKey = ???????????????
-Address = 10.0.0.1/24, 2001:20:2333::1/28
-ListenPort = ?????
-MTU = 1420
-DNS = 8.8.8.8, 2001:4860:4860::8888
-SaveConfig = true
-
-PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -A FORWARD -o wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
-
-[Peer]
-PublicKey = ???????????????
-AllowedIPs = 10.0.0.2/32, 2001:20:2333::2/28
-
-[Peer]
-PublicKey = ???????????????
-AllowedIPs = 10.0.0.3/32, 2001:20:2333::3/28
+<h2 id="adk">ADK</h2>
+<p>没有 Android SDK 环境, 也没戏</p>
+<blockquote>
+<p>下载 <a href="https://developer.android.com/studio">Android Studio</a> 后, IDE里可方便管理</p>
+</blockquote>
+<pre><code>export ANDROID_HOME=/Users/zfkun/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 </code></pre>
-<h2 id="转发配置">转发配置</h2>
-<pre><code>vim /etc/sysctl.conf
-
-# net.ipv4.ip_forward=1
-# net.ipv6.conf.all.forwarding=1
-
-# 0：不接受路由通告
-# 1：当forwarding禁止时接受路由通告
-# 2：任何情况下都接受路由通告
-# net.ipv6.conf.all.accept_ra=2
-
-sysctl -p
+<h2 id="sdk">SDK</h2>
+<p>Flutter 的SDK，不下载也没戏</p>
+<blockquote>
+<p>由于二次开发 和 旧项目 需要，必须要保留 多版本， 需借助 <a href="">fvm</a> 管理</p>
+</blockquote>
+<pre><code>brew tap leoafarias/fvm
+brew install fvm
 </code></pre>
-<h2 id="开机启动">开机启动</h2>
-<pre><code>systemctl enable wg-quick@wg0
+<pre><code>fvm install stable
+fvm install 1.17.5
+</code></pre>
+<h2 id="env">ENV</h2>
+<p>镜像加速</p>
+<pre><code>FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+PUB_HOSTED_URL=https://pub.flutter-io.cn
 </code></pre>
 
         </div>
         
         <div class="my-4">
     
-    <a href="/tags/wireguard/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#wireguard</a>
+    <a href="/tags/flutter/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#flutter</a>
     
-    <a href="/tags/vpn/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#vpn</a>
+    <a href="/tags/develop/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#develop</a>
     
-    <a href="/tags/vps/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#vps</a>
+    <a href="/tags/web/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#web</a>
+    
+    <a href="/tags/setup/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#setup</a>
     
 </div>
         
@@ -456,7 +429,7 @@ sysctl -p
     <div class="md:text-right mt-4 md:mt-0">
         
         <span class="block font-bold">下一页</span>
-        <a href="/autocad-uninstall-clean-script.html" class="block">Autocad Uninstall Clean Script</a>
+        <a href="/vps-wireguard-setup.html" class="block">Wireguard Setup</a>
         
     </div>
 </div>
@@ -486,11 +459,10 @@ sysctl -p
 <div class="sticky-toc hidden lg:block px-6 pb-6 ">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#注意">注意</a></li>
-    <li><a href="#客户端配置模板">客户端配置模板</a></li>
-    <li><a href="#服务端配置">服务端配置</a></li>
-    <li><a href="#转发配置">转发配置</a></li>
-    <li><a href="#开机启动">开机启动</a></li>
+    <li><a href="#jdk">JDK</a></li>
+    <li><a href="#adk">ADK</a></li>
+    <li><a href="#sdk">SDK</a></li>
+    <li><a href="#env">ENV</a></li>
   </ul>
 </nav>
 </div>

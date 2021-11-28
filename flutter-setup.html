@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width">
 
 
-<title>web | 影の域</title>
+<title>Flutter 开发环境初始化 | 影の域</title>
 <link rel="stylesheet" href="/css/eureka.min.css">
 <script defer src="/dist/eureka.min.js"></script>
 
@@ -63,7 +63,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="codeing life">
+  content="几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,60 +71,55 @@
   "itemListElement": [{
       "@type": "ListItem",
       "position": 1 ,
-      "name":"分类",
-      "item":"/categories/"},{
+      "name":"文章",
+      "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"web",
-      "item":"/categories/web/"}]
+      "name":"Flutter 开发环境初始化",
+      "item":"/flutter-setup.html"}]
 }
 </script>
 
 
 
-
 <script type="application/ld+json">
 {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[{
-            "@type":"ListItem",
-            "position":  1 ,
-            "name": "Flutter 开发环境初始化",
-            "description": "几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧",
-            "url": "/flutter-setup.html"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "node-airplay 0.1.0 release",
-            "description": "这是一个专为兼容 AirPlay 协议的设备（Apple TV）使用的 node.js 客户端库 项目地址: node-airplay 此项目是搞 iPlay 的时候分离出来的模块。 当时写的匆忙，没注意已有类似的项目(Ben Vanik搞的)，不过年久失修，已跟不上时代了。 so, 借鉴升华了下，加上了 HLS 直播流支持，本地自动实时转码。 PS： 后来发现，Ben Vanik 也搞了 node-livestreaming 和 node-transcoding ，C++的node模块，但因年久失修，已经不好利用了，连编译都是个问题，还得自己收工 从node-waf 迁移到 node-gyp",
-            "image": "/uploads/2013/12/a.jpg",
-            "url": "/525.html"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "Emmet DocSet for Dash 1.0",
-            "description": "Emmet-DocSet v1.0 Released!!  Emmet DocSet for Dash",
-            "image": "/uploads/2013/10/emmet-docset3.jpg",
-            "url": "/513.html"
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/flutter-setup.html"
+    },
+    "headline": "Flutter 开发环境初始化 | 影の域","datePublished": "2021-11-28T18:50:51+08:00",
+    "dateModified": "2021-11-28T23:26:57+08:00",
+    "wordCount":  239 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
         }
-    ]
+        },
+    "description": "几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧"
 }
-</script><meta property="og:title" content="web | 影の域" />
-<meta property="og:type" content="website" />
+</script><meta property="og:title" content="Flutter 开发环境初始化 | 影の域" />
+<meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/me.png">
 
 
-<meta property="og:url" content="/categories/web/" />
+<meta property="og:url" content="/flutter-setup.html" />
 
 
 
 
-
-<meta property="og:description" content="codeing life" />
-
+<meta property="og:description" content="几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧" />
 
 
 
@@ -141,14 +136,27 @@
 
 
 
-<meta property="og:updated_time" content="2021-11-28T18:50:51&#43;08:00" />
+<meta property="article:published_time" content="2021-11-28T18:50:51&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-11-28T23:26:57&#43;08:00" />
 
 
 
-<meta property="article:section" content="categories" />
+<meta property="article:section" content="posts" />
 
 
-<link rel="alternate" type="application/rss+xml" href="/categories/web/index.xml" title="影の域" />
+<meta property="article:tag" content="flutter" />
+
+<meta property="article:tag" content="develop" />
+
+<meta property="article:tag" content="web" />
+
+<meta property="article:tag" content="setup" />
+
+
+
+
 
 <body class="flex flex-col min-h-screen">
   <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
@@ -169,7 +177,7 @@
         <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
             <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
             <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
-            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">分类</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
             <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
             <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
             <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
@@ -223,27 +231,13 @@
   <main class="flex-grow pt-16">
     <div class="pl-scrollbar">
       <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
-<article class="mx-6 my-8">
-    <h1 class="font-bold text-3xl text-primary-text">web</h1>
-    
-</article>
-<div class="bg-secondary-bg rounded px-6">
-    <div class="overflow-hidden divide-y">
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/flutter-setup.html" class="font-bold text-xl hover:text-eureka">Flutter 开发环境初始化</a>
-</div>
-<div class="content">
-  
-    几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧
-  
-</div>
 
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Flutter 开发环境初始化</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
         <span>2021-11-28</span>
@@ -279,144 +273,216 @@
 
     
 </div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full lg:w-2/3">
-    <div class="mb-4">
-  <a href="/525.html" class="font-bold text-xl hover:text-eureka">node-airplay 0.1.0 release</a>
-</div>
-<div class="content">
-  
-    这是一个专为兼容 AirPlay 协议的设备（Apple TV）使用的 node.js 客户端库 项目地址: node-airplay 此项目是搞 iPlay 的时候分离出来的模块。 当时写的匆忙，没注意已有类似的项目(Ben Vanik搞的)，不过年久失修，已跟不上时代了。 so, 借鉴升华了下，加上了 HLS 直播流支持，本地自动实时转码。 PS： 后来发现，Ben Vanik 也搞了 node-livestreaming 和 node-transcoding ，C&#43;&#43;的node模块，但因年久失修，已经不好利用了，连编译都是个问题，还得自己收工 从node-waf 迁移到 node-gyp
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2013-12-20</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>199字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
+        
+        
         
 
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+        <div class="content">
+            <p>几年前的flutter项目需二次开发复用。
+可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。</p>
+<blockquote>
+<p>决定还一些之前的欠下的技术债吧</p>
+</blockquote>
+<h2 id="jdk">JDK</h2>
+<p>没有 JDK 环境, 基本玩不转
+自行下载 <a href="https://www.oracle.com/java/technologies/downloads/#java8-mac">JDK8</a></p>
+<pre><code>export JAVA_8_HOME=&quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home&quot;
+export JAVA_11_HOME=&quot;$(/usr/libexec/java_home -v 11)&quot;
+alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
+alias jdk11='export JAVA_HOME=$JAVA_11_HOME'
+export JAVA_HOME=$JAVA_8_HOME
+</code></pre>
+<h2 id="adk">ADK</h2>
+<p>没有 Android SDK 环境, 也没戏</p>
+<blockquote>
+<p>下载 <a href="https://developer.android.com/studio">Android Studio</a> 后, IDE里可方便管理</p>
+</blockquote>
+<pre><code>export ANDROID_HOME=/Users/zfkun/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+</code></pre>
+<h2 id="sdk">SDK</h2>
+<p>Flutter 的SDK，不下载也没戏</p>
+<blockquote>
+<p>由于二次开发 和 旧项目 需要，必须要保留 多版本， 需借助 <a href="">fvm</a> 管理</p>
+</blockquote>
+<pre><code>brew tap leoafarias/fvm
+brew install fvm
+</code></pre>
+<pre><code>fvm install stable
+fvm install 1.17.5
+</code></pre>
+<h2 id="env">ENV</h2>
+<p>镜像加速</p>
+<pre><code>FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+PUB_HOSTED_URL=https://pub.flutter-io.cn
+</code></pre>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/flutter/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#flutter</a>
+    
+    <a href="/tags/develop/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#develop</a>
+    
+    <a href="/tags/web/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#web</a>
+    
+    <a href="/tags/setup/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#setup</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/vps-wireguard-setup.html" class="block">Wireguard Setup</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
 
     </div>
     
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
+    <div class="col-span-2">
         
-        <a href="/categories/web/" class="hover:text-eureka">web</a>
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#jdk">JDK</a></li>
+    <li><a href="#adk">ADK</a></li>
+    <li><a href="#sdk">SDK</a></li>
+    <li><a href="#env">ENV</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
         
     </div>
     
 
     
-    <div class="mr-6 my-2">
-        <i class="fas fa-th-list mr-1"></i>
-        
-        <a href="/series/frontend/" class="hover:text-eureka">frontend</a>
-        
-    </div>
     
 </div>
-
-  </div>
-
-  
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2013/12/a.jpg" class="w-full" alt="Featured Image">
-  </div>
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full lg:w-2/3">
-    <div class="mb-4">
-  <a href="/513.html" class="font-bold text-xl hover:text-eureka">Emmet DocSet for Dash 1.0</a>
-</div>
-<div class="content">
-  
-    Emmet-DocSet v1.0 Released!!  Emmet DocSet for Dash
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2013-10-03</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>43字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
-        
-        <a href="/categories/web/" class="hover:text-eureka">web</a>
-        
-    </div>
-    
-
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-th-list mr-1"></i>
-        
-        <a href="/series/frontend/" class="hover:text-eureka">frontend</a>
-        
-    </div>
-    
-</div>
-
-  </div>
-
-  
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2013/10/emmet-docset3.jpg" class="w-full" alt="Featured Image">
-  </div>
-  
-</div>
-  </div>
-  
-</div>
-
-
-</div>
-
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
 
       </div>
     </div>

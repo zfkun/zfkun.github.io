@@ -75,21 +75,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "判断 iframe 是否加载完成的完美方法",
+            "description": "网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(\u0026quot;iframe\u0026quot;); iframe.src = \u0026quot;http://www.planabc.net\u0026quot;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == \u0026quot;complete\u0026quot;){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(\u0026quot;iframe\u0026quot;); iframe.src = \u0026quot;http://www.planabc.net\u0026quot;; if (iframe.attachEvent){ iframe.attachEvent(\u0026quot;onload\u0026quot;, function(){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); }); } else { iframe.onload = function(){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。",
+            "url": "/167.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "获取 Textarea 的光标位置",
             "description": "在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。",
             "url": "/163.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "如何获取当前 select 元素的值",
             "description": "如何获取当前 select 元素的值",
             "url": "/161.html"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "如何在事件代理中正确使用 focus 和 blur 事件",
-            "description": "如何在事件代理中正确使用 focus 和 blur 事件",
-            "url": "/159.html"
         }
     ]
 }
@@ -216,6 +216,51 @@
   
   <div class="w-full ">
     <div class="mb-4">
+  <a href="/167.html" class="font-bold text-xl hover:text-eureka">判断 iframe 是否加载完成的完美方法</a>
+</div>
+<div class="content">
+  
+    网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(&#34;iframe&#34;); iframe.src = &#34;http://www.planabc.net&#34;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(&#34;Local iframe is now loaded.&#34;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == &#34;complete&#34;){ alert(&#34;Local iframe is now loaded.&#34;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(&#34;iframe&#34;); iframe.src = &#34;http://www.planabc.net&#34;; if (iframe.attachEvent){ iframe.attachEvent(&#34;onload&#34;, function(){ alert(&#34;Local iframe is now loaded.&#34;); }); } else { iframe.onload = function(){ alert(&#34;Local iframe is now loaded.&#34;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-01-13</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>244字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
   <a href="/163.html" class="font-bold text-xl hover:text-eureka">获取 Textarea 的光标位置</a>
 </div>
 <div class="content">
@@ -281,51 +326,6 @@
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
         <span>257字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/159.html" class="font-bold text-xl hover:text-eureka">如何在事件代理中正确使用 focus 和 blur 事件</a>
-</div>
-<div class="content">
-  
-    如何在事件代理中正确使用 focus 和 blur 事件
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2011-01-13</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>2分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>563字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>

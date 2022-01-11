@@ -75,21 +75,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "contains vs compareDocumentPosition",
+            "description": "一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）",
+            "url": "/125.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "JS闭包之词法作用域",
             "description": "var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic",
             "url": "/117.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "Comet—“服务器推”技术",
             "description": "Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。",
             "url": "/115.html"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "Javascript的变量与delete操作符",
-            "description": "Javascript中的delete操作虽然是一个小小的delete操作符，其行为却异常复杂",
-            "url": "/112.html"
         }
     ]
 }
@@ -216,6 +216,51 @@
   
   <div class="w-full ">
     <div class="mb-4">
+  <a href="/125.html" class="font-bold text-xl hover:text-eureka">contains vs compareDocumentPosition</a>
+</div>
+<div class="content">
+  
+    一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-07</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1524字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
   <a href="/117.html" class="font-bold text-xl hover:text-eureka">JS闭包之词法作用域</a>
 </div>
 <div class="content">
@@ -281,51 +326,6 @@
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
         <span>1693字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/112.html" class="font-bold text-xl hover:text-eureka">Javascript的变量与delete操作符</a>
-</div>
-<div class="content">
-  
-    Javascript中的delete操作虽然是一个小小的delete操作符，其行为却异常复杂
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2010-03-01</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>4分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>1758字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>

@@ -92,7 +92,7 @@
     },
     "headline": "Blender 疑难实用操作汇总 | 影の域","datePublished": "2021-11-17T11:34:03+08:00",
     "dateModified": "2022-02-13T17:01:00+08:00",
-    "wordCount":  781 ,
+    "wordCount":  960 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -254,7 +254,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>781字</span>
+        <span>960字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -405,7 +405,16 @@
 <h3 id="exoside-quadremesher">Exoside QuadRemesher</h3>
 <blockquote>
 <p>重拓扑神器, 可以将原来三角面的模型，重新转换成四边形模型</p>
+<p>网上大都是 WIN 版本的, 而 MAC 版我就用 <strong>C4D</strong> 正在使用的版本里的引擎, 也是通用的 (毕竟 <code>Quad Remesher</code> 引擎是独立运行的)</p>
+<p>链接: <a href="https://pan.baidu.com/s/14RjEvr4x_hBqrimEjFTjIw">https://pan.baidu.com/s/14RjEvr4x_hBqrimEjFTjIw</a> 提取码: 7dp4</p>
 </blockquote>
+<p>安装方法</p>
+<ol>
+<li>将 <code>quad_remesher_1_2</code> 目录复制到 <code>~/Library/Application\ Support/Blender/3.0/scripts/addons</code> 目录下 (相当于手工注册插件)</li>
+<li>回到 <code>Blender</code> 打开 <code>偏好设置</code> - <code>插件</code>, 搜索 <code>Quad</code> 找到 <code>Mesh: Quad Remesher Bridge</code> 打钩 (启用插件)</li>
+<li>场景中随便选中一个物体, 按 <code>N</code> 打开导航, 切换到 <code>Quad Remesh</code> 面板, 点击 <code>REMESH IT</code> 按钮 (触发引擎初始化下载及安装)</li>
+<li>将 <code>QuadRemesherEngine</code> 目录内所有文件复制到 <code>/Users/Shared/Exoside/QuadRemesher/Datas_Blender/QuadRemesherEngine_1.0</code> 下覆盖即可</li>
+</ol>
 
         </div>
         

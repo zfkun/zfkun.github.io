@@ -75,21 +75,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "现在",
+            "description": "疲惫、累、烦。",
+            "url": "/145.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "IE6+和FF的CSS Hack",
             "description": "一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) #wrapper { width: 100px!important; /\\* IE7+FF \\*/ width: 80px; /\\* IE6 \\*/ } 2, IE6/IE77对FireFox *+html 与 *html 是IE特有的标签, firefox 暂不支持.而*+html 又为 IE7特有标签. #wrapper { #wrapper { width: 120px; } /\\* FireFox \\*/ \\*html #wrapper { width: 80px;} /\\* ie6 fixed */ \\*+html #wrapper { width: 60px;} /\\* ie7 fixed, 注意顺序 */ } 注意: *+html 对IE7的HACK 必须保证HTML顶部有如下声明： 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global",
             "url": "/142.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "JavaScript的valueOf和toString",
             "description": "JavaScript中valueOf函数方法是返回指定对象的原始值。JavaScript中toString函数方法是返回对象的字符串表示",
             "url": "/140.html"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "Data URI 和 MHTML",
-            "description": "Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。\nMHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。",
-            "url": "/138.html"
         }
     ]
 }
@@ -216,6 +216,51 @@
   
   <div class="w-full ">
     <div class="mb-4">
+  <a href="/145.html" class="font-bold text-xl hover:text-eureka">现在</a>
+</div>
+<div class="content">
+  
+    疲惫、累、烦。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-04-29</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>7字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
   <a href="/142.html" class="font-bold text-xl hover:text-eureka">IE6&#43;和FF的CSS Hack</a>
 </div>
 <div class="content">
@@ -301,52 +346,6 @@
 </div>
   </div>
   
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/138.html" class="font-bold text-xl hover:text-eureka">Data URI 和 MHTML</a>
-</div>
-<div class="content">
-  
-    Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。
-MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2010-04-10</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>4分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>1830字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
 </div>
 
 
@@ -378,7 +377,7 @@ MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由R
         <a href="/posts/page/20/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/32/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/posts/page/33/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 

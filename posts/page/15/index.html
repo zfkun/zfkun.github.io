@@ -75,21 +75,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "add bookmark for ie \u0026 ff \u0026 opera",
+            "description": "add bookmark for ie \u0026amp; ff \u0026amp; opera",
+            "url": "/182.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "WordPress 3.1升级后无法访问",
             "description": "杯具，Wordpress 3.1升级后，竟然无法访问，原因提示如下： ………网页页生成了 过多的重定向。清除此网站的 Cookie 或允许第三方 Cookie 可能会解决该问题。如果 不能解决，则可能是服务器配置的问题，而不是您的 计算机有问题。以下是一些建议：请稍后重新载入此网页。……….. 很是郁闷，弄了半天是空间本身的设置及 3.1的代码逻辑处理 综合作用的结果。 无奈，空间是没权限动了，只能修改wordpress 代码了： 找到 wp-include/template-loader.php 修改第一行处代码： if ( defined(‘WP_USE_THEMES’) \u0026amp;\u0026amp; WP_USE_THEMES ) 改为（红色为增加部分） if ( false \u0026amp;\u0026amp; define",
             "url": "/179.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "原生JSON.parse解析异常问题",
             "description": "昨天开发新类库，做到Json模块，使用了json2官方类为底层，使用中频遇异常，甚是不爽。看了下源码，json2 采用了优化处理机制，优先使用浏览器原生JSON处理。（事实是json自己的实现也如此）",
             "url": "/176.html"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "apache2.2的优化及模块安装",
-            "description": "一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 \u0026lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L",
-            "url": "/174.html"
         }
     ]
 }
@@ -216,6 +216,51 @@
   
   <div class="w-full ">
     <div class="mb-4">
+  <a href="/182.html" class="font-bold text-xl hover:text-eureka">add bookmark for ie &amp; ff &amp; opera</a>
+</div>
+<div class="content">
+  
+    add bookmark for ie &amp; ff &amp; opera
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>134字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
   <a href="/179.html" class="font-bold text-xl hover:text-eureka">WordPress 3.1升级后无法访问</a>
 </div>
 <div class="content">
@@ -281,51 +326,6 @@
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
         <span>204字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/174.html" class="font-bold text-xl hover:text-eureka">apache2.2的优化及模块安装</a>
-</div>
-<div class="content">
-  
-    一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 &lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2011-03-10</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>15分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>7108字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>

@@ -75,21 +75,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "ECMAScript 5与HTML5的支持情况",
+            "description": "ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。",
+            "url": "/192.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "javascript中的Get/Set访问器",
             "description": "JavaScript中的Get和Set访问器，和C#中的访问器非常相似。 标准的Get和Set访问器的实现 function Field(val){ this.value = val; } Field.prototype = { get value(){ return this._value; }, set value(val){ this._value = val; } }; var field = new Field(\u0026#8220;test\u0026#8221;); field.value=\u0026#8221;test2\u0026#8243;; //field.value will now return \u0026#8220;test2\u0026#8221; 在如下浏览器能正常工作： 我们常用的实现方法可能是这样的： function Field(val){ var value = val; \u0026lt;p\u0026gt; this.getValue = function(){\u0026lt;br /\u0026gt; return value;\u0026lt;br /\u0026gt; }; \u0026lt;/p\u0026gt; \u0026lt;p\u0026gt; this.setValue = function(val){\u0026lt;br /\u0026gt; value = val;\u0026lt;br /\u0026gt; };\u0026lt;br /\u0026gt; }\u0026lt;br /\u0026gt; var field = new Field(\u0026amp;#8220;test\u0026amp;#8221;);\u0026lt;br /\u0026gt; field.setValue(\u0026amp;#8220;test2\u0026amp;#8221;)\u0026lt;br /\u0026gt; field.getValue() // return \u0026amp;#8220;test2\u0026amp;#8221; \u0026lt;/p\u0026gt; 在DOM元素上Get和Set访问器的实现 HTMLElement.prototype.__defineGetter__(\u0026#8220;description\u0026#8221;, function () { return this.desc; }); HTMLElement.prototype.__defineSetter__(\u0026#8220;description\u0026#8221;, function (val) { this.desc = val; }); document.body.description = \u0026#8220;Beautiful body\u0026#8221;; // document.body.description will now return \u0026#8220;Beautiful body\u0026#8221;; 在如下浏览器能正常工作： \u0026nbsp; \u0026nbsp; 通过Object.defineProperty实现访问器 将来ECMAScript标",
             "url": "/190.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "IE9允许前端开发获取到页面性能数据",
             "description": "长期以来，为了改善站点的用户体验，我们一直都是在页面顶端加上一个_ (new Date()).getTime()_ 来获取用户打开页面的时间，使用httpwatch来分析页面打开的解释时间。httpwatch虽然强大，但是还是无法让我们深入到用户的环境去了解用户打开页面前的一些情况，例如:DNS解释时间，请求和响应时间，以及更加深入的页面渲染时间等重要信息。这些信息对用户环境分析是至关重要的。 如今，这个情况即将改变，微软的IE9将给前端开发们提供有力的性能分析接口让我们能够深入分析页面的性能，这就是强大的msPerformance接口。这个接口其实是",
             "url": "/187.html"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "add bookmark for ie \u0026 ff \u0026 opera",
-            "description": "add bookmark for ie \u0026amp; ff \u0026amp; opera",
-            "url": "/182.html"
         }
     ]
 }
@@ -216,6 +216,51 @@
   
   <div class="w-full ">
     <div class="mb-4">
+  <a href="/192.html" class="font-bold text-xl hover:text-eureka">ECMAScript 5与HTML5的支持情况</a>
+</div>
+<div class="content">
+  
+    ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-03-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>8分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>3934字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
   <a href="/190.html" class="font-bold text-xl hover:text-eureka">javascript中的Get/Set访问器</a>
 </div>
 <div class="content">
@@ -281,51 +326,6 @@
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
         <span>537字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/182.html" class="font-bold text-xl hover:text-eureka">add bookmark for ie &amp; ff &amp; opera</a>
-</div>
-<div class="content">
-  
-    add bookmark for ie &amp; ff &amp; opera
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2011-03-20</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>134字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>

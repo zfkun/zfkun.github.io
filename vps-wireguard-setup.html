@@ -92,7 +92,7 @@
     },
     "headline": "Wireguard Setup | 影の域","datePublished": "2021-11-17T12:48:33+08:00",
     "dateModified": "2021-11-17T17:42:54+08:00",
-    "wordCount":  358 ,
+    "wordCount":  372 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -246,7 +246,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>358字</span>
+        <span>372字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -296,6 +296,9 @@
 <p>最后恢复服务 (<code>wg-quick up wg0</code>)</p>
 </li>
 </ol>
+<h2 id="密钥生成">密钥生成</h2>
+<pre><code>wg genkey | tee client_???_privatekey | wg pubkey &gt; client_???_publickey
+</code></pre>
 <h2 id="客户端配置模板">客户端配置模板</h2>
 <p><code>/etc/wireguard/client.conf</code></p>
 <pre><code>[Interface]
@@ -490,6 +493,7 @@ sysctl -p
     <nav id="TableOfContents">
   <ul>
     <li><a href="#注意">注意</a></li>
+    <li><a href="#密钥生成">密钥生成</a></li>
     <li><a href="#客户端配置模板">客户端配置模板</a></li>
     <li><a href="#服务端配置">服务端配置</a></li>
     <li><a href="#转发配置">转发配置</a></li>

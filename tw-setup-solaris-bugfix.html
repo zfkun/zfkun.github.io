@@ -91,7 +91,7 @@
         "@id": "/tw-setup-solaris-bugfix.html"
     },
     "headline": "天翼之链单机 - Solaris10 虚拟机启动问题修复 | 影の域","datePublished": "2022-03-13T00:00:00+08:00",
-    "dateModified": "2022-03-13T00:50:53+08:00",
+    "dateModified": "2023-09-06T18:10:39+08:00",
     "wordCount":  228 ,
     "author": {
         "@type": "Person",
@@ -139,7 +139,7 @@
 <meta property="article:published_time" content="2022-03-13T00:00:00&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2022-03-13T00:50:53&#43;08:00" />
+<meta property="article:modified_time" content="2023-09-06T18:10:39&#43;08:00" />
 
 
 
@@ -281,7 +281,7 @@
             <p>Long long ago, 满是蜘蛛网的一套《天翼之链》单机环境文件 (v4.22 中文端), 被我想起来了。
 当时由于各种原因, 并没有部署成功, 于是觉得有必要善终（主要是想玩一把 —— _——）。</p>
 <p>其实问题主要就是一个 Solaris10 虚拟机(使用 VMWare) 启动不起来, 硬盘识别错误(具体错误信息忘截图了, 时间久了懒的再去截了),
-再一次偶然的机会看到一篇文章提到 Solaris10 启动问题解决的方法, 于是我尝试性的借用了其中的修复手段, 结果奇迹诞生了, 银盘识别成功, 系统顺利进入~</p>
+再一次偶然的机会看到一篇文章提到 Solaris10 启动问题解决的方法, 于是我尝试性的借用了其中的修复手段, 结果奇迹诞生了, 硬盘识别成功, 系统顺利进入~</p>
 <p>其实主要是需要 <strong>进入安全模式</strong>, 然后通过命令 生成 ramdisk 就可以了</p>
 <pre><code>/boot/solaris/bin/create_ramdisk -R /a
 </code></pre>

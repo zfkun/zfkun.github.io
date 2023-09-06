@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Aseprite 手工编译流程 (Mac) | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="记录下 Aseprite 手工编译桌面端的基本流程 (Mac)">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Aseprite 手工编译流程 (Mac)",
+      "item":"/aseprite-compile-app.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/aseprite-compile-app.html"
+    },
+    "headline": "Aseprite 手工编译流程 (Mac) | 影の域","datePublished": "2023-09-04T00:00:00+08:00",
+    "dateModified": "2023-09-06T12:00:00+08:00",
+    "wordCount":  1018 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "记录下 Aseprite 手工编译桌面端的基本流程 (Mac)"
+}
+</script><meta property="og:title" content="Aseprite 手工编译流程 (Mac) | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/aseprite-compile-app.html" />
+
+
+
+
+<meta property="og:description" content="记录下 Aseprite 手工编译桌面端的基本流程 (Mac)" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2023-09-04T00:00:00&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2023-09-06T12:00:00&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="aseprite" />
+
+<meta property="article:tag" content="compile" />
+
+<meta property="article:tag" content="app" />
+
+<meta property="article:tag" content="mac" />
+
+
+
+
+
+<meta property="og:see_also" content="/mac-reinstall-setup.html" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Aseprite 手工编译流程 (Mac)</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2023-09-04</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1018字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/tech/" class="hover:text-eureka">tech</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/mac/" class="hover:text-eureka">mac</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>主要记录 Mac 环境的编译构建流程 (app &amp; dmg 流程, 官方未加入)</p>
+<blockquote>
+<p>其他系统 (<strong>Windows</strong>、<strong>Linux</strong>) 根据官方文档，适当调整即可, 较为简单</p>
+</blockquote>
+<h2 id="安装依赖">安装依赖</h2>
+<p><a href="https://cmake.org/">CMake</a></p>
+<pre><code class="language-shell">brew install cmake
+</code></pre>
+<p><a href="https://ninja-build.org/">Ninja</a></p>
+<pre><code class="language-shell">brew install ninja
+</code></pre>
+<p><a href="https://github.com/aseprite/skia">Skia</a></p>
+<p><strong>注意, 这里依赖的是 Aseprite 维护的 fork 版本 (aseprite 和 laf 依赖使用</strong>)</p>
+<blockquote>
+<p>直接下 <a href="https://github.com/aseprite/skia/releases">预编译二进制包</a> 更省事点</p>
+</blockquote>
+<h2 id="初始化项目">初始化项目</h2>
+<p>直接下载工程源码</p>
+<pre><code class="language-shell">git clone --recursive https://github.com/aseprite/aseprite.git
+</code></pre>
+<h2 id="编译构建">编译构建</h2>
+<p>官方 <a href="https://github.com/aseprite/aseprite/blob/main/INSTALL.md">INSTALL.md</a> 够简洁高效了, 复制命令内容 <strong>适当调整参数</strong> 即可</p>
+<blockquote>
+<p>PS: <strong>Skia</strong> 我是直接下载的预编译二进制包, 存储位置 <code>$HOME/skia/m102</code></p>
+</blockquote>
+<pre><code class="language-shell">cd aseprite
+mkdir build
+cd build
+cmake \
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+  -DCMAKE_OSX_ARCHITECTURES=arm64 \
+  -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 \
+  -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk \
+  -DLAF_BACKEND=skia \
+  -DSKIA_DIR=$HOME/skia/m102 \
+  -DSKIA_LIBRARY_DIR=$HOME/skia/m102/out/Release-arm64 \
+  -DSKIA_LIBRARY=$HOME/skia/m102/out/Release-arm64/libskia.a \
+  -DPNG_ARM_NEON:STRING=on \
+  -G Ninja \
+  ..
+</code></pre>
+<p>编译正常结束后 <code>./build/bin</code> 目录下即编译产物:</p>
+<ul>
+<li><code>aseprite</code> (应用程序入口)</li>
+<li><code>data</code> (应用依赖资源)</li>
+<li><code>gen</code> (没用上, 可以忽略)</li>
+</ul>
+<p>到这里, 就可以直接使用了 (双击运行 <code>./build/bin/aseprite</code> 文件即可)</p>
+<h2 id="打包-app">打包 APP</h2>
+<p>较为简易偷懒的做法: 直接基于官方 <strong>Trial (试用版)</strong> 的 DMG 替换改造即可。</p>
+<ol>
+<li>
+<p>下载 <a href="https://www.aseprite.org/trial/">试用版 DMG</a></p>
+</li>
+<li>
+<p>双击打开下载的 dmg, 将 <code>Aseprite.app</code> 拖入到 <code>Applications</code> 文件夹中</p>
+</li>
+<li>
+<p>进入 <code>Applications</code> 找到 <code>Aseprite</code>, 点击 <strong>右键</strong> 并选择 <strong>显示包内容</strong></p>
+</li>
+<li>
+<p>使用 <strong>源码项目下</strong> 的 <strong>编译产物</strong> 替换资源</p>
+</li>
+</ol>
+<ul>
+<li><code>./build/bin/aseprite</code> (<strong>源码项目下</strong>) 覆盖替换文件 <code>Contents/MacOS/aseprite</code> (<strong>最好先删除文件</strong>)</li>
+<li><code>./build/bin/data</code> (<strong>源码项目下</strong>) 覆盖替换目录 <code>Contents/Resources/data</code> (<strong>最好先删除目录</strong>)</li>
+</ul>
+<blockquote>
+<p>到这里，就可以直接使用了 (需修正下 app 签名即可)</p>
+</blockquote>
+<pre><code class="language-shell"># 没有正经开发者签名的app, 首次使用都需要修正下
+sudo xattr -r -d com.apple.quarantine /Applications/Aseprite.app
+</code></pre>
+<h2 id="打包-dmg">打包 DMG</h2>
+<p>想再方便一些, 方便分享他人, 那就重新打包 DMG 即可</p>
+<blockquote>
+<p>命令行方式, 也可以, 不过我也有懒的敲代码的时候</p>
+</blockquote>
+<ol>
+<li>打开 <code>磁盘工具</code>, 新建空白磁盘, 设置好相关参数</li>
+</ol>
+<ul>
+<li>存储文件名: 按自己喜好</li>
+<li>名称: 按自己喜好</li>
+<li>大小: 适当即可, 能容纳下 <code>Aseprite.app</code> 即可</li>
+<li>格式: Mac OS (日志扩展) 即可</li>
+</ul>
+<p><img src="/uploads/2023/09/aseprite_dmg_1.png" alt="新建空白磁盘"></p>
+<ol start="2">
+<li>确定后, 通过 <code>访达 (Finder)</code> 打开刚新建的 <strong>空白磁盘</strong></li>
+</ol>
+<p><img src="/uploads/2023/09/aseprite_dmg_2.png" alt="打开空白磁盘"></p>
+<p>首次打开系统默认一般都是 <code>图标视图</code> 方式, 这种显示模式下, 才可以通过 <code>查看显示选项</code> 去做更多的美化设置</p>
+<blockquote>
+<p>如果, 期间自己关闭过窗口, 或者在其他 <code>访达 (Finder)</code> 里重新访问打开 <strong>空白磁盘</strong> 的话</p>
+<p>大概率会以 <code>分栏视图</code> 或 <code>列表视图</code> 或 <code>画廊视图</code> 打开</p>
+<p>那么这时 <code>右键 - 查看显示选项</code> 后的设置窗口是不太一样的 (比如没有 <code>背景图</code> 设置的)</p>
+<p>那么, <code>右键 - 显示 - 为图标</code> 就可以切回 <code>图标视图</code> 模式</p>
+</blockquote>
+<p><img src="/uploads/2023/09/aseprite_dmg_5.png" alt="图标视图模式"></p>
+<ol start="3">
+<li>创建 <strong>应用文件夹</strong> (<code>Applications</code>) 的软连接 (方便使用者直接拖拽安装)</li>
+</ol>
+<pre><code class="language-shell">ln -s /Applications Applications
+</code></pre>
+<blockquote>
+<p>不是在 <strong>空白磁盘目录</strong> 下执行命令的话, 记得软连接生成后, 手工移动过去到 <strong>空白磁盘目录</strong> 下即可</p>
+</blockquote>
+<p><img src="/uploads/2023/09/aseprite_dmg_3.png" alt="打开空白磁盘"></p>
+<ol start="4">
+<li>复制 <code>/Applications/Aseprite.app</code> 到 <strong>空白磁盘</strong></li>
+</ol>
+<p><img src="/uploads/2023/09/aseprite_dmg_4.png" alt="打开空白磁盘"></p>
+<ol start="5">
+<li>想要更美观些的话 (可选, 不做也无所谓)</li>
+</ol>
+<p>在窗口空白区 <code>右键 - 查看显示选项</code>, 设置美化配置:</p>
+<blockquote>
+<p>确保当前窗口在 <code>图标视图</code> 模式下</p>
+</blockquote>
+<ul>
+<li>
+<p>背景图: 可以自行 PS 制作一张背景图 (按自己喜好)</p>
+<blockquote>
+<p>尺寸 与 当前窗口 大小贴合即可 (窗口大小可随意调整系统会自动记录)</p>
+</blockquote>
+</li>
+<li>
+<p>图标大小: 100 * 100 (按自己喜好)</p>
+</li>
+<li>
+<p>文字大小: 16 (按自己喜好)</p>
+</li>
+</ul>
+<p><img src="/uploads/2023/09/aseprite_dmg_6.png" alt="设置显示选项"></p>
+<p><img src="/uploads/2023/09/aseprite_dmg_7.png" alt="美化排版后"></p>
+<ol start="6">
+<li>转换压缩 DMG</li>
+</ol>
+<p>能省则省, 点两下鼠标的事</p>
+<blockquote>
+<p>原本 30M 的 dmg，压缩后 8.7M</p>
+</blockquote>
+<p><img src="/uploads/2023/09/aseprite_dmg_8.png" alt="图标视图模式"></p>
+<p><img src="/uploads/2023/09/aseprite_dmg_9.png" alt="图标视图模式"></p>
+<p><img src="/uploads/2023/09/aseprite_dmg_10.png" alt="图标视图模式"></p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/aseprite/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#aseprite</a>
+    
+    <a href="/tags/compile/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#compile</a>
+    
+    <a href="/tags/app/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#app</a>
+    
+    <a href="/tags/mac/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#mac</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/unreal-mac-bug.html" class="block">Unreal 开发在 Mac 环境的疑难杂症处理汇总</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装依赖">安装依赖</a></li>
+    <li><a href="#初始化项目">初始化项目</a></li>
+    <li><a href="#编译构建">编译构建</a></li>
+    <li><a href="#打包-app">打包 APP</a></li>
+    <li><a href="#打包-dmg">打包 DMG</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="/mac-reinstall-setup.html">Mac重装初始化最小习惯设置</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2023 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+  </footer>
+</body>
+
+</html>

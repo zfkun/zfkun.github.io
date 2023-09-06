@@ -9,6 +9,87 @@
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>app</title>
+      <link>/tags/app/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aseprite</title>
+      <link>/tags/aseprite/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/aseprite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>compile</title>
+      <link>/tags/compile/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/compile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>/tags/mac/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bug</title>
+      <link>/tags/bug/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/bug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>problem</title>
+      <link>/tags/problem/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/problem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unreal</title>
+      <link>/tags/unreal/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/unreal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reinstall</title>
+      <link>/tags/reinstall/</link>
+      <pubDate>Fri, 09 Jun 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/reinstall/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>setup</title>
+      <link>/tags/setup/</link>
+      <pubDate>Fri, 09 Jun 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/setup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>blender</title>
       <link>/tags/blender/</link>
       <pubDate>Sun, 13 Mar 2022 09:03:00 +0800</pubDate>
@@ -23,15 +104,6 @@
       <pubDate>Sun, 13 Mar 2022 09:03:00 +0800</pubDate>
       
       <guid>/tags/bridge/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bug</title>
-      <link>/tags/bug/</link>
-      <pubDate>Sun, 13 Mar 2022 09:03:00 +0800</pubDate>
-      
-      <guid>/tags/bug/</guid>
       <description></description>
     </item>
     
@@ -104,15 +176,6 @@
       <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
       
       <guid>/tags/game/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>setup</title>
-      <link>/tags/setup/</link>
-      <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
-      
-      <guid>/tags/setup/</guid>
       <description></description>
     </item>
     

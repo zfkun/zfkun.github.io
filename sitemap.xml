@@ -2,8 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/app/</loc>
+    <lastmod>2023-09-06T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/aseprite/</loc>
+    <lastmod>2023-09-06T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/aseprite-compile-app.html</loc>
+    <lastmod>2023-09-06T12:00:00+08:00</lastmod>
+  </url><url>
     <loc>/authors/</loc>
-    <lastmod>2023-04-30T12:14:11+08:00</lastmod>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
+  </url><url>
+    <loc>/tags/compile/</loc>
+    <lastmod>2023-09-06T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/mac/</loc>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
+  </url><url>
+    <loc>/categories/mac/</loc>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
+  </url><url>
+    <loc>/categories/tech/</loc>
+    <lastmod>2023-09-06T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
+  </url><url>
+    <loc>/tags/bug/</loc>
+    <lastmod>2023-09-02T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/develop/</loc>
+    <lastmod>2023-09-02T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/game/</loc>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
+  </url><url>
+    <loc>/tags/problem/</loc>
+    <lastmod>2023-09-02T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/unreal/</loc>
+    <lastmod>2023-09-02T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/unreal/</loc>
+    <lastmod>2023-09-02T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/series/unreal-workflow/</loc>
+    <lastmod>2023-09-02T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/unreal-mac-bug.html</loc>
+    <lastmod>2023-09-02T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/mac-reinstall-setup.html</loc>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
+  </url><url>
+    <loc>/tags/reinstall/</loc>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
+  </url><url>
+    <loc>/tags/setup/</loc>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
   </url><url>
     <loc>/tags/blender/</loc>
     <lastmod>2022-03-13T10:07:02+08:00</lastmod>
@@ -20,9 +77,6 @@
     <loc>/tags/bridge/</loc>
     <lastmod>2022-03-13T10:07:02+08:00</lastmod>
   </url><url>
-    <loc>/tags/bug/</loc>
-    <lastmod>2022-03-13T10:07:02+08:00</lastmod>
-  </url><url>
     <loc>/categories/design/</loc>
     <lastmod>2022-03-13T10:07:02+08:00</lastmod>
   </url><url>
@@ -32,37 +86,28 @@
     <loc>/tags/plugin/</loc>
     <lastmod>2022-03-13T10:07:02+08:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2023-04-30T12:14:11+08:00</lastmod>
-  </url><url>
-    <loc>/categories/game/</loc>
-    <lastmod>2022-03-13T00:50:53+08:00</lastmod>
-  </url><url>
     <loc>/tags/solaris/</loc>
-    <lastmod>2022-03-13T00:50:53+08:00</lastmod>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
   </url><url>
     <loc>/tags/tw/</loc>
-    <lastmod>2022-03-13T00:50:53+08:00</lastmod>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
   </url><url>
     <loc>/categories/%E5%8D%95%E6%9C%BA/</loc>
-    <lastmod>2022-03-13T00:50:53+08:00</lastmod>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
   </url><url>
     <loc>/tags/%E5%A4%A9%E7%BF%BC%E4%B9%8B%E9%93%BE/</loc>
-    <lastmod>2022-03-13T00:50:53+08:00</lastmod>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
   </url><url>
     <loc>/tw-setup-solaris-bugfix.html</loc>
-    <lastmod>2022-03-13T00:50:53+08:00</lastmod>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
   </url><url>
     <loc>/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
-    <lastmod>2022-03-13T00:50:53+08:00</lastmod>
+    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
   </url><url>
     <loc>/tags/develop/</loc>
     <lastmod>2022-01-11T11:12:24+08:00</lastmod>
   </url><url>
     <loc>/tags/game/</loc>
-    <lastmod>2022-01-11T11:12:24+08:00</lastmod>
-  </url><url>
-    <loc>/tags/setup/</loc>
     <lastmod>2022-01-11T11:12:24+08:00</lastmod>
   </url><url>
     <loc>/tags/unity/</loc>
@@ -78,9 +123,6 @@
     <lastmod>2022-01-11T11:12:24+08:00</lastmod>
   </url><url>
     <loc>/tags/tech/</loc>
-    <lastmod>2021-12-19T15:48:44+08:00</lastmod>
-  </url><url>
-    <loc>/categories/tech/</loc>
     <lastmod>2021-12-19T15:48:44+08:00</lastmod>
   </url><url>
     <loc>/tags/up/</loc>
@@ -492,7 +534,7 @@
     <lastmod>2021-03-28T16:20:45+08:00</lastmod>
   </url><url>
     <loc>/authors/zfkun/</loc>
-    <lastmod>2023-04-30T12:14:11+08:00</lastmod>
+    <lastmod>2023-04-30T13:01:06+08:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
     <lastmod>2021-03-28T16:20:45+08:00</lastmod>

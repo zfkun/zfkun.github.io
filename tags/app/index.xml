@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>app on 影の域</title>
+    <link>/tags/app/</link>
+    <description>Recent content in app on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 04 Sep 2023 00:00:00 +0800</lastBuildDate><atom:link href="/tags/app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aseprite 手工编译流程 (Mac)</title>
+      <link>/aseprite-compile-app.html</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/aseprite-compile-app.html</guid>
+      <description>记录下 Aseprite 手工编译桌面端的基本流程 (Mac)</description>
+    </item>
+    
+  </channel>
+</rss>

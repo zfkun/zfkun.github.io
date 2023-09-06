@@ -75,24 +75,63 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "CubeStormer II + Samsung Galaxy S II ，5.35 秒暴解三阶魔方！",
-            "description": "CubeStormer II + Samsung Galaxy S II ，5.35 秒暴解三阶魔方！",
-            "image": "/uploads/2011/10/cubestormer-ii-finished-cube.jpg",
-            "url": "/441.html"
+            "name": "JavaScript的valueOf和toString",
+            "description": "JavaScript中valueOf函数方法是返回指定对象的原始值。JavaScript中toString函数方法是返回对象的字符串表示",
+            "url": "/140.html"
         },{
             "@type":"ListItem",
             "position":  2 ,
-            "name": "WordPress Rewrite SEO 之404方式折腾笔记",
-            "description": "WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。\n最近折腾 HTML5探索 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。\n空间是虚拟主机（还是WIN + IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite。SO, 就开始大面积的调整程序 + hack, 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）",
-            "image": "/uploads/2011/07/wordpress_404_page.gif",
-            "url": "/417.html"
+            "name": "Data URI 和 MHTML",
+            "description": "Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。\nMHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。",
+            "url": "/138.html"
         },{
             "@type":"ListItem",
             "position":  3 ,
-            "name": "[转]利用跨域资源共享（CORS）实现ajax跨域调用",
-            "description": "几年前，网站开发者都因为ajax的同源策略而撞了南墙。当我们惊叹于XMLHttpRequest对象跨浏览器支持所带来的巨大进步时，我们很快发现没有一个方法可以使我们用JavaScript实现请求跨域访问，对此我们哀叹不已。每个人在他们自己的网站上建立代理来摆脱这种限制。虽然开发者利用服务器代理和其它技巧避开了这种限制，而在社区的抗议者允许ajax在本地跨域调用。许多人还没意识到当前几乎所有的浏览器（Internet Explorer 8+， Firefox 3.5+， Safari 4+和 Chrome）都可通过名为Cross-Origin Resource Sharing的协议支持ajax跨域调用。",
-            "image": "/uploads/2011/07/cors.jpg",
-            "url": "/394.html"
+            "name": "挑战 hax.tor.hu 申请带ssh的免费php+mysql空间",
+            "description": "hax.tor.hu 是一家提供带ssh的免费php+mysql虚拟主机的空间服务商，而且它的SSH隧道是开通的,但是想获得这一免费午餐，却让我大伤脑筋，因为它要求通 过它的五道变态难题才行",
+            "url": "/135.html"
+        },{
+            "@type":"ListItem",
+            "position":  4 ,
+            "name": "5 个简单实用的 CSS 属性",
+            "description": "这篇文章介绍了 5 个实用的 CSS 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。",
+            "url": "/131.html"
+        },{
+            "@type":"ListItem",
+            "position":  5 ,
+            "name": "PureMVC Standard for JavaScript",
+            "description": "PureMVC is a lightweight framework for creating applications based upon the classic  Model-View-Controller design meta-pattern. This is the specific implementation for the JavaScript language.",
+            "url": "/127.html"
+        },{
+            "@type":"ListItem",
+            "position":  6 ,
+            "name": "contains vs compareDocumentPosition",
+            "description": "一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）",
+            "url": "/125.html"
+        },{
+            "@type":"ListItem",
+            "position":  7 ,
+            "name": "JS闭包之词法作用域",
+            "description": "var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic",
+            "url": "/117.html"
+        },{
+            "@type":"ListItem",
+            "position":  8 ,
+            "name": "Comet—“服务器推”技术",
+            "description": "Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。",
+            "url": "/115.html"
+        },{
+            "@type":"ListItem",
+            "position":  9 ,
+            "name": "Javascript的变量与delete操作符",
+            "description": "Javascript中的delete操作虽然是一个小小的delete操作符，其行为却异常复杂",
+            "url": "/112.html"
+        },{
+            "@type":"ListItem",
+            "position":  10 ,
+            "name": "Understanding and Solving Internet Explorer Leak Patterns",
+            "description": "\u003cp\u003eIn the past, memory leaks haven\u0026rsquo;t posed huge problems for Web developers. Pages were kept relatively simple and navigation between different locations within a site was a great way to clean up any loose memory. If there was a leak, it was most likely small enough to go unnoticed.\u003c/p\u003e\n\u003cp\u003eNew Web applications live up to higher standards. A page might run for hours without being navigated and retrieve updated information dynamically through Web services. Language features are pushed to the breaking point by combining complex event schemes, object-oriented JScript, and closures to produce entire applications. With these and other changes, certain memory leak patterns are becoming more prominent, especially those previously hidden by navigation.\u003c/p\u003e\n\u003cp\u003eThe good news is that memory leak patterns can be easily spotted if you know what to look for. Most of the troublesome patterns you might face have known workarounds requiring only a small amount of extra work on your behalf. While some pages might still fall prey to small memory leaks, the most noticeable ones can be easily removed.\u003c/p\u003e\n",
+            "url": "/109.html"
         }
     ]
 }
@@ -217,28 +256,28 @@
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
   
-  <div class="w-full lg:w-2/3">
+  <div class="w-full ">
     <div class="mb-4">
-  <a href="/441.html" class="font-bold text-xl hover:text-eureka">CubeStormer II &#43; Samsung Galaxy S II ，5.35 秒暴解三阶魔方！</a>
+  <a href="/140.html" class="font-bold text-xl hover:text-eureka">JavaScript的valueOf和toString</a>
 </div>
 <div class="content">
   
-    CubeStormer II &#43; Samsung Galaxy S II ，5.35 秒暴解三阶魔方！
+    JavaScript中valueOf函数方法是返回指定对象的原始值。JavaScript中toString函数方法是返回对象的字符串表示
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-10-26</span>
+        <span>2010-04-22</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
+        <span>2分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>231字</span>
+        <span>733字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -256,32 +295,27 @@
   </div>
 
   
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2011/10/cubestormer-ii-finished-cube.jpg" class="w-full" alt="Featured Image">
-  </div>
-  
 </div>
   </div>
   
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
   
-  <div class="w-full lg:w-2/3">
+  <div class="w-full ">
     <div class="mb-4">
-  <a href="/417.html" class="font-bold text-xl hover:text-eureka">WordPress Rewrite SEO 之404方式折腾笔记</a>
+  <a href="/138.html" class="font-bold text-xl hover:text-eureka">Data URI 和 MHTML</a>
 </div>
 <div class="content">
   
-    WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。
-最近折腾 HTML5探索 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。
-空间是虚拟主机（还是WIN &#43; IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite。SO, 就开始大面积的调整程序 &#43; hack, 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）
+    Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。
+MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-07-17</span>
+        <span>2010-04-10</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -289,7 +323,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>1629字</span>
+        <span>1830字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -306,10 +340,6 @@
 
   </div>
 
-  
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2011/07/wordpress_404_page.gif" class="w-full" alt="Featured Image">
-  </div>
   
 </div>
   </div>
@@ -317,28 +347,28 @@
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
   
-  <div class="w-full lg:w-2/3">
+  <div class="w-full ">
     <div class="mb-4">
-  <a href="/394.html" class="font-bold text-xl hover:text-eureka">[转]利用跨域资源共享（CORS）实现ajax跨域调用</a>
+  <a href="/135.html" class="font-bold text-xl hover:text-eureka">挑战 hax.tor.hu 申请带ssh的免费php&#43;mysql空间</a>
 </div>
 <div class="content">
   
-    几年前，网站开发者都因为ajax的同源策略而撞了南墙。当我们惊叹于XMLHttpRequest对象跨浏览器支持所带来的巨大进步时，我们很快发现没有一个方法可以使我们用JavaScript实现请求跨域访问，对此我们哀叹不已。每个人在他们自己的网站上建立代理来摆脱这种限制。虽然开发者利用服务器代理和其它技巧避开了这种限制，而在社区的抗议者允许ajax在本地跨域调用。许多人还没意识到当前几乎所有的浏览器（Internet Explorer 8&#43;， Firefox 3.5&#43;， Safari 4&#43;和 Chrome）都可通过名为Cross-Origin Resource Sharing的协议支持ajax跨域调用。
+    hax.tor.hu 是一家提供带ssh的免费php&#43;mysql虚拟主机的空间服务商，而且它的SSH隧道是开通的,但是想获得这一免费午餐，却让我大伤脑筋，因为它要求通 过它的五道变态难题才行
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-07-15</span>
+        <span>2010-03-19</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>5分钟阅读时长</span>
+        <span>3分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>2505字</span>
+        <span>1163字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -356,9 +386,323 @@
   </div>
 
   
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2011/07/cors.jpg" class="w-full" alt="Featured Image">
+</div>
   </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/131.html" class="font-bold text-xl hover:text-eureka">5 个简单实用的 CSS 属性</a>
+</div>
+<div class="content">
+  
+    这篇文章介绍了 5 个实用的 CSS 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-09</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1004字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/127.html" class="font-bold text-xl hover:text-eureka">PureMVC Standard for JavaScript</a>
+</div>
+<div class="content">
+  
+    PureMVC is a lightweight framework for creating applications based upon the classic  Model-View-Controller design meta-pattern. This is the specific implementation for the JavaScript language.
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-08</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>132字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/125.html" class="font-bold text-xl hover:text-eureka">contains vs compareDocumentPosition</a>
+</div>
+<div class="content">
+  
+    一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-07</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1524字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/117.html" class="font-bold text-xl hover:text-eureka">JS闭包之词法作用域</a>
+</div>
+<div class="content">
+  
+    var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-05</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>11分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>5055字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/115.html" class="font-bold text-xl hover:text-eureka">Comet—“服务器推”技术</a>
+</div>
+<div class="content">
+  
+    Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-03</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1693字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/112.html" class="font-bold text-xl hover:text-eureka">Javascript的变量与delete操作符</a>
+</div>
+<div class="content">
+  
+    Javascript中的delete操作虽然是一个小小的delete操作符，其行为却异常复杂
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-01</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1758字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/109.html" class="font-bold text-xl hover:text-eureka">Understanding and Solving Internet Explorer Leak Patterns</a>
+</div>
+<div class="content">
+  
+    In the past, memory leaks haven’t posed huge problems for Web developers. Pages were kept relatively simple and navigation between different locations within a site was a great way to clean up any loose memory. If there was a leak, it was most likely small enough to go unnoticed.
+New Web applications live up to higher standards. A page might run for hours without being navigated and retrieve updated information dynamically through Web services. Language features are pushed to the breaking point by combining complex event schemes, object-oriented JScript, and closures to produce entire applications. With these and other changes, certain memory leak patterns are becoming more prominent, especially those previously hidden by navigation.
+The good news is that memory leak patterns can be easily spotted if you know what to look for. Most of the troublesome patterns you might face have known workarounds requiring only a small amount of extra work on your behalf. While some pages might still fall prey to small memory leaks, the most noticeable ones can be easily removed.
+
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-02-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>15分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>3182字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
   
 </div>
   </div>
@@ -394,7 +738,7 @@
         <a href="/posts/page/8/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/33/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/posts/page/11/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 

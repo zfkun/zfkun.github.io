@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="记录下 Chrome 访问 nginx https 站点报错提示 ERR_SSL_PROTOCOL_ERROR 的问题及解决办法">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR",
+      "item":"/chrome-ssl-protocol-error.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/chrome-ssl-protocol-error.html"
+    },
+    "headline": "Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR | 影の域","datePublished": "2023-11-29T00:00:00+08:00",
+    "dateModified": "2023-12-01T19:08:27+08:00",
+    "wordCount":  1360 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "记录下 Chrome 访问 nginx https 站点报错提示 ERR_SSL_PROTOCOL_ERROR 的问题及解决办法"
+}
+</script><meta property="og:title" content="Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/chrome-ssl-protocol-error.html" />
+
+
+
+
+<meta property="og:description" content="记录下 Chrome 访问 nginx https 站点报错提示 ERR_SSL_PROTOCOL_ERROR 的问题及解决办法" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2023-11-29T00:00:00&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2023-12-01T19:08:27&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="chrome" />
+
+<meta property="article:tag" content="ssl" />
+
+<meta property="article:tag" content="openssl" />
+
+<meta property="article:tag" content="nginx" />
+
+<meta property="article:tag" content="bug" />
+
+
+
+
+
+<meta property="og:see_also" content="/unreal-mac-bug.html" />
+
+<meta property="og:see_also" content="/blender-pbrbridge-bugfix.html" />
+
+<meta property="og:see_also" content="/blender-bug-hotkey.html" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2023-11-29</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1360字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/tech/" class="hover:text-eureka">tech</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/linux/" class="hover:text-eureka">linux</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/nginx/" class="hover:text-eureka">nginx</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/chrome/" class="hover:text-eureka">chrome</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>最近时间, 偶然发现曾经正常服务的某个 HTTPS 域名无法正常打开, 提示 <code>ERR_SSL_PROTOCOL_ERROR</code> 错误。</p>
+<h2 id="问题表现">问题表现</h2>
+<p>Chrome 访问特定域名(https) 页面显示系统错误页:</p>
+<pre><code>This site can't provide a secure connection
+....
+ERR_SSL_PROTOCOL_ERROR
+</code></pre>
+<h2 id="排查过程">排查过程</h2>
+<ol start="0">
+<li>无脑的习惯预判 SSL 证书 过期了 或 忘更新了</li>
+</ol>
+<p>搂了一眼, 并不是</p>
+<ol>
+<li>于是再次习惯性的预判是 <code>nginx</code> 配置问题</li>
+</ol>
+<p>查看了下 <code>nginx</code> 的 vhost 站点 ssl 配置, 并无明显问题,
+但还是尝试调整了 <code>ssl_protocols</code>、<code>ssl_ciphers</code> 的设置，然并卵, 依旧无用。</p>
+<blockquote>
+<p>开始觉得问题可能没那么简单了</p>
+</blockquote>
+<ol start="2">
+<li>思索了几秒, 判断大概率服务器自身问题了</li>
+</ol>
+<p>毕竟是 <strong>SSL</strong> 错误, 如果 <code>nginx</code> 设置没问题，那么很可能是系统 <a href="https://www.openssl.org">openssl</a> 版本问题</p>
+<p>核查了下系统版本:</p>
+<pre><code class="language-shell">$ openssl version -a
+
+OpenSSL 1.0.1e-fips 11 Feb 2013
+built on: Thu Nov  6 12:33:36 UTC 2014
+platform: linux-x86_64
+options:  bn(64,64) md2(int) rc4(16x,int) des(idx,cisc,16,int) idea(int) blowfish(idx)
+compiler: gcc -fPIC -DOPENSSL_PIC -DZLIB -DOPENSSL_THREADS -D_REENTRANT -DDSO_DLFCN -DHAVE_DLFCN_H -DKRB5_MIT -m64 -DL_ENDIAN -DTERMIO -Wall -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -Wa,--noexecstack -DPURIFY -DOPENSSL_IA32_SSE2 -DOPENSSL_BN_ASM_MONT -DOPENSSL_BN_ASM_MONT5 -DOPENSSL_BN_ASM_GF2m -DSHA1_ASM -DSHA256_ASM -DSHA512_ASM -DMD5_ASM -DAES_ASM -DVPAES_ASM -DBSAES_ASM -DWHIRLPOOL_ASM -DGHASH_ASM
+OPENSSLDIR: &quot;/etc/pki/tls&quot;
+engines:  rdrand dynamic
+</code></pre>
+<blockquote>
+<p>好像文字也无法描述此时的表情（早期系统的运维很薄弱很随意, so）</p>
+</blockquote>
+<p>于是, 就 <strong>自以为是</strong> 的决定换上常用的 <a href="https://www.openssl.org/source/openssl-1.1.1w.tar.gz">1.1.1w</a> 版本应该就会好</p>
+<pre><code class="language-shell"># 准备 &amp; 下载
+cd /usr/local/src
+wget --no-check-certificate https://www.openssl.org/source/openssl-1.1.1w.tar.gz
+tar -xvzf openssl-1.1.1w.tar.gz
+
+# 编译安装
+cd openssl-1.1.w
+set OPENSSL_HOME=/usr/local/server/openssl-1.1.1w
+./config shared \
+    --openssldir=$OPENSSL_HOME \
+    --prefix=$OPENSSL_HOME
+make &amp;&amp; make install
+
+# 备份
+mv /usr/bin/openssl /usr/bin/openssl.bak
+mv /usr/include/openssl /usr/include/openssl.bak
+
+# 替换
+ln -s $OPENSSL_HOME/bin/openssl /usr/bin/openssl
+
+# 注册更新
+touch /etc/ld.so.conf.d/openssl.conf
+echo &quot;$OPENSSL_HOME/lib&quot; &gt;&gt; /etc/ld.so.conf.d/openssl.conf
+
+ldconfig -v | grep openssl
+</code></pre>
+<blockquote>
+<p>一顿操作猛如虎, 然而, 奇迹并未发生, WTF ~
+总不能重新编译 nginx 尝试修正吧 ~
+毕竟是生产机器, 上面服务和站点非常多, 不到万不得已先不这么搞（好吧，给自己刨坑了）</p>
+</blockquote>
+<ol start="3">
+<li>遂, 祭出搜索大法, 没有什么问题是搜索解决不了的</li>
+</ol>
+<blockquote>
+<p>浑浑噩噩 2B 搬砖的这些年, 虽然还在保持着与时俱进，尽力站在前沿，尽力撑住广度的认知,
+但各种不可抗力 以及 可抗(可不抗) 因素也时刻缠绕, 也许我真的已经不是曾经的那个少年了。</p>
+</blockquote>
+<p>发现这个问题出现一段时间了, 但并不久远, 说明可能是某种更新行为引起的。
+网上各种说法和解法也是参差不齐，最终我觉得应该是 chrome 搞出来的事。</p>
+<ol start="4">
+<li>换了个电脑使用 Chrome 访问一切正常</li>
+</ol>
+<p>访问正常的 chrome 版本不是最新, 比有问题的 chrome 版本落后了好几个版本。
+那么，基本是确定了，是由于 Chrome 更新了跟安全相关的某些功能调整引起的兼容问题。</p>
+<p>同时看到一篇文章里提到最终的祸首: <a href="https://chromium-review.googlesource.com/c/chromium/src/+/4898836">Disable SHA1 in TLS server handshakes by default</a></p>
+<blockquote>
+<p>由于 chrome 的这次更新后, 默认禁用了 TLS 握手时的 SHA1 的加密方式，
+但一些 <strong>老</strong>系统（比如 现在这台）仍旧使用着 <strong>低版本</strong> 的 openssl，
+而 <strong>低版本</strong> 的 openssl 存在 BUG，会 <strong>强制使用 SHA1</strong>
+那么，问题就是这么产生的了</p>
+</blockquote>
+<p>最简单处理 (<code>掩耳盗铃</code>), 客户端浏览器修改配置:</p>
+<blockquote>
+<p>把 <code>Allow SHA-1 server signatures in TLS.</code> 的配置项改为 <code>Disabled</code></p>
+</blockquote>
+<p><img src="/uploads/2023/11/chrome_flags_use_sha1_server_handshakes.png" alt="chrome系统配置选项"></p>
+<ol start="5">
+<li>尝试最终修正</li>
+</ol>
+<p>话说回来, 一开始就给服务器升级了 <code>openssl</code> 到 <code>1.1.1</code>, 为什么没作用呢，
+想了许久，突然返过味儿来了，毕竟是 <code>nginx</code> 提供的 web 服务, SSL 错误不见得是配置问题，应该是 <code>nginx</code> 的编译配置问题。</p>
+<blockquote>
+<p>于是核查 <code>nginx</code> 编译配置</p>
+</blockquote>
+<pre><code class="language-shell">$ nginx -V
+
+nginx version: nginx/1.6.1
+built by gcc 4.4.7 20120313 (Red Hat 4.4.7-11) (GCC)
+TLS SNI support enabled
+configure arguments: --prefix=/usr/local/server/nginx --error-log-path=/data/log/nginx/error.log --http-log-path=/data/log/nginx/access.log --http-client-body-temp-path=/usr/local/server/nginx/cache/client_temp --http-proxy-temp-path=/usr/local/server/nginx/cache/proxy_temp --http-fastcgi-temp-path=/usr/local/server/nginx/cache/fastcgi_temp --http-uwsgi-temp-path=/usr/local/server/nginx/cache/uwsgi_temp --http-scgi-temp-path=/usr/local/server/nginx/cache/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-mail --with-mail_ssl_module --with-file-aio --with-ipv6 --with-http_spdy_module --with-cc-opt='-O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic'
+</code></pre>
+<blockquote>
+<p>果然, 没有 <code>--with-openssl</code> 配置</p>
+<p>那么只能重新编译更新了</p>
+</blockquote>
+<pre><code class="language-shell">cd /usr/local/src/nginx1.6.1
+
+./configure \
+--prefix=/usr/local/server/nginx \
+--error-log-path=/data/log/nginx/error.log \
+--http-log-path=/data/log/nginx/access.log \
+--http-client-body-temp-path=/usr/local/server/nginx/cache/client_temp \
+--http-proxy-temp-path=/usr/local/server/nginx/cache/proxy_temp \
+--http-fastcgi-temp-path=/usr/local/server/nginx/cache/fastcgi_temp \
+--http-uwsgi-temp-path=/usr/local/server/nginx/cache/uwsgi_temp \
+--http-scgi-temp-path=/usr/local/server/nginx/cache/scgi_temp \
+--user=nginx \
+--group=nginx \
+--with-http_ssl_module \
+--with-http_realip_module \
+--with-http_addition_module \
+--with-http_sub_module \
+--with-http_dav_module \
+--with-http_flv_module \
+--with-http_mp4_module \
+--with-http_gunzip_module \
+--with-http_gzip_static_module \
+--with-http_random_index_module \
+--with-http_secure_link_module \
+--with-http_stub_status_module \
+--with-http_auth_request_module \
+--with-mail \
+--with-mail_ssl_module \
+--with-file-aio \
+--with-ipv6 \
+--with-http_spdy_module \
+--with-cc-opt='-O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic' \
+
+# 增加 openssl 源码目录
+--with-openssl=/usr/local/src/openssl-1.1.1w
+
+# 仅编译 (不 install)
+make
+</code></pre>
+<p>结果, 编译失败!!!</p>
+<ol start="6">
+<li>修正编译</li>
+</ol>
+<p>发现 nginx 与 openssl 也存在一定的 版本匹配问题</p>
+<p>nginx 肯定不能随便升级, 那么只能降低 openssl 的版本, nginx 当时编译时依赖的 1.0.1 的 openssl， 那么需要降低到 1.0.x 系列的最新版应该就行 (实际也是如此, 当时这 BUG 也是在 1.0.2 就被官方补丁修正了)</p>
+<pre><code class="language-shell"># 重新下载 openssl
+cd /usr/local/src
+wget --no-check-certificate https://www.openssl.org/source/openssl-1.0.2u.tar.gz
+tar -xvzf openssl-1.0.2u.tar.gz
+
+# 重新编译 nginx
+cd /usr/local/src/nginx
+./configure \
+# ...其他参数略
+--with-openssl=/usr/local/src/openssl-1.0.2u
+
+# 备份 nginx
+cp /usr/local/server/nginx/sbin/nginx /usr/local/server/nginx/sbin/nginx_bak
+
+# 热更 nginx
+cd /usr/local/src/nginx
+make upgrade
+</code></pre>
+<ol start="7">
+<li>chrome 浏览器重新访问确认已正常</li>
+</ol>
+<p>结束手工</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/chrome/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#chrome</a>
+    
+    <a href="/tags/ssl/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#ssl</a>
+    
+    <a href="/tags/openssl/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#openssl</a>
+    
+    <a href="/tags/nginx/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#nginx</a>
+    
+    <a href="/tags/bug/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#bug</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/aseprite-compile-app.html" class="block">Aseprite 手工编译流程 (Mac)</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题表现">问题表现</a></li>
+    <li><a href="#排查过程">排查过程</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="/unreal-mac-bug.html">Unreal 开发在 Mac 环境的疑难杂症处理汇总</a>
+            <br />
+            
+            <a href="/blender-pbrbridge-bugfix.html">Blender PBR材质工作流 (Pbr Bridge) - Mac兼容问题修正</a>
+            <br />
+            
+            <a href="/blender-bug-hotkey.html">Blender 疑难实用操作汇总</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2023 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+  </footer>
+</body>
+
+</html>

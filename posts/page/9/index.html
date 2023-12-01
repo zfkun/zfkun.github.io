@@ -75,63 +75,63 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "wp_list_categories()参数说明",
+            "description": "show_option_all 值：任意填。 如果你写”那啥’，那么在列表第一个分类就显示“那啥”两字，不过连接是连接到blog首页的，正好可以利用此参数加个“首页”。 orderby 值：ID、name（默认值）、count。 作用是按这3个值来排序。 order 值：ASC（默认值）、DESC。 ASC为升序，DESC为降序。 show_last_updated 值：0（默认值）、1。 0无作用，1为最近更新的分类显示在前面。 style 值：list（默认值）、none。 例6中已经举例了。none无作用。 show_count 值：0、1（默认值） 1在每个分类后面显示日志数量，0不显示。 hide_empty 值：0、1（默认值） 1是隐藏没有发表日志的分",
+            "url": "/74.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "Mootools Sortables插件BUG修正",
             "description": "前阵子新版专辑管理项目开发中碰到比较郁闷的问题，经测试最终决定给Sortables打个小补丁。\n由于对选择状态的文本内容、连接和图片等进行拖放操作会触发系统的默认动作，例如ie中拖动图片鼠标会变成禁止操作状态，这样会导致这个拖放程序执行失败，所以Mootools 的Drag基类配置里其实有preventDefault配置项来给使用者解决此类问题，默认值为false，需要处理时设置为true即可。 然而郁闷的是，开发时才发现，Sortables类里内部创建的Drag.Move实例却只能使用preventDefault的默认值，因为Sortables没有给出配置项用来设置内部(this.drag)这个DragMove实例的preventDefault参数项。无奈之下，只能打补丁了。 另打补丁期间又发现另一个问题，甚是郁闷。Sortables的start方法仅判断是否空闲进而决定是否真正执行。而实际项目需求有时需要屏蔽鼠标右键(带来的问题很多)，而看了办法发现，找到的唯一办法仍旧是打补丁。 最终，打上2处补丁后，世界清静了。。。",
             "url": "/67.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "选择性复活",
             "description": "博客选择性复活！ 经过几天的捣腾，终于恢复了部分数据(其他的我已回天无力)。 能有幸捣腾这非天灾，真是感谢党的关怀、感谢领导的决策、感谢祖国的和谐！ 从零开始….",
             "url": "/64.html"
         },{
             "@type":"ListItem",
-            "position":  3 ,
+            "position":  4 ,
             "name": "用硬盘玩《银河战士：三部曲》（ Metroid Prime Trilogy 美版）的方法",
             "description": "首先，据说目前最完美的方法还是刻盘。我没有D9的空盘，也懒得试验。。。",
             "url": "/61.html"
         },{
             "@type":"ListItem",
-            "position":  4 ,
+            "position":  5 ,
             "name": "腾讯TT、遨游浏览器检测",
             "description": "最近腾讯TT4.5版发布后，为了兼容一处FLASH的WMODE参数异常的BUG使用到了新版检测方法，特此记录一下，省的以后忘记。 TT4.5 检测方法: 调用 external.getTTVerStr() 返回 浏览器信息，非TT或此版本均会抛出异常。 TT通用版检测方法: 首先检测 navigator.userAgent 是否含有 Tencent 特征串，继而调用 external.ShowBrowserUI(’ku6′) ，非TT均会抛出异常 顺便提一下 遨游 的检测方法： 也是通过 external 对象来辅助检测，调用 external.tab_count 不抛异常即为 遨游浏览器。",
             "url": "/59.html"
         },{
             "@type":"ListItem",
-            "position":  5 ,
+            "position":  6 ,
             "name": "5.50GEN用PSone模拟游戏模块Popsloader For 5.50GEN-A（含完整版）",
             "description": "十分感谢PSPGEN小组，他们不但发布了让PSP3000实现运行ISO的5.03GEN for HEN，还为PSP1000和非PSP2000-3的老玩家们带来了解决5.50游戏问题的自制系统5.50GEN-A。这次为解决玩家们在5.50系统下无法正常运行PSone模拟游戏的问题，发布了Popsloader For 5.50GEN-A，喜欢PSone模拟游戏的5.50GEN-A用户赶快试试！",
             "url": "/57.html"
         },{
             "@type":"ListItem",
-            "position":  6 ,
+            "position":  7 ,
             "name": "绝对震撼!10款动感图片展示js代码",
             "description": "绝对震撼!10款动感图片展示js代码 http://pcedu.pconline.com.cn/empolder/wz/javascript/0809/1421645.html",
             "url": "/55.html"
         },{
             "@type":"ListItem",
-            "position":  7 ,
+            "position":  8 ,
             "name": "新牧场物语 符石工厂 超详细攻略",
             "description": "新牧场物语 符石工厂 超详细攻略 http://tieba.baidu.com/f?kz=210242288",
             "url": "/53.html"
         },{
             "@type":"ListItem",
-            "position":  8 ,
+            "position":  9 ,
             "name": "JavaScript 与 ActionScript 3.0 交互的一些问题",
             "description": "JavaScript 跟 ActionScript 3.0 交互也是通过 flash.external.ExternalInterface 这个类，不过与跟 Flash 8 中跟 ActionScript 2.0 交互所使用的 flash.external.ExternalInterface 还是有所不同的。最大的不同就是 ExternalInterface.addCallback 方法在 ActionScript 3.0 中只有 2 个参数了，而不再有 instance 这个参数。下面要讨论的这些问题都是关于 Flash 9 中 ActionScript 3.0 的。",
             "url": "/49.html"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "神奇电池v8将PSP刷到5.00M33-4教程",
             "description": "本教程不适用以下主机：PSP3000、PSP2000（TA88V3），这两种主机无法按照本教程制作神奇电池、无法进行刷机操作。如果你是以上两种主机，请使用5.03HEN R2进行破解。\n部分适用以下主机：PSP2000（TA88V2），这种主机无法按照本教程制作神奇电池，但如果已经拥有神奇电池，则可按照本教程进行刷机操作。\n其余PSP1000及PSP2000主机完全适用本教程。\n本教程将指导玩家制作两个东西：神奇电池以及神奇记忆棒，这两者相配合可以实现将任何好用的不好用（仅限软件层面的损坏）的PSP主机修复到5.00M33-4系统。",
             "url": "/46.html"
-        },{
-            "@type":"ListItem",
-            "position":  10 ,
-            "name": "DOS命令之netstat",
-            "description": "经常调试程序需要占用80端口来跑WEB服务，可是总有乱七八糟的软件给抢了先，哎。 无奈只能自己动手查出进程 KILL 掉才行。netstat命令还算可以满足需求。 cmd\u0026gt; netstat -abn | grep :80 最后一列就是PID 这样通过任务管理器里就可以查看这个进程的详细信息了，当然还通过DOS去查看也行，不过我懒得敲了。",
-            "url": "/44.html"
         }
     ]
 }
@@ -252,6 +252,51 @@
 </article>
 <div class="bg-secondary-bg rounded px-6">
     <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/74.html" class="font-bold text-xl hover:text-eureka">wp_list_categories()参数说明</a>
+</div>
+<div class="content">
+  
+    show_option_all 值：任意填。 如果你写”那啥’，那么在列表第一个分类就显示“那啥”两字，不过连接是连接到blog首页的，正好可以利用此参数加个“首页”。 orderby 值：ID、name（默认值）、count。 作用是按这3个值来排序。 order 值：ASC（默认值）、DESC。 ASC为升序，DESC为降序。 show_last_updated 值：0（默认值）、1。 0无作用，1为最近更新的分类显示在前面。 style 值：list（默认值）、none。 例6中已经举例了。none无作用。 show_count 值：0、1（默认值） 1在每个分类后面显示日志数量，0不显示。 hide_empty 值：0、1（默认值） 1是隐藏没有发表日志的分
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-18</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>568字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
   
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
@@ -642,51 +687,6 @@
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
         <span>1452字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/44.html" class="font-bold text-xl hover:text-eureka">DOS命令之netstat</a>
-</div>
-<div class="content">
-  
-    经常调试程序需要占用80端口来跑WEB服务，可是总有乱七八糟的软件给抢了先，哎。 无奈只能自己动手查出进程 KILL 掉才行。netstat命令还算可以满足需求。 cmd&gt; netstat -abn | grep :80 最后一列就是PID 这样通过任务管理器里就可以查看这个进程的详细信息了，当然还通过DOS去查看也行，不过我懒得敲了。
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2010-01-16</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>138字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>

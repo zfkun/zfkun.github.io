@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/authors/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/tags/bug/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/tags/chrome/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/categories/chrome/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/chrome-ssl-protocol-error.html</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/tags/nginx/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/categories/nginx/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/tags/openssl/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/tags/ssl/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/categories/tech/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
+  </url><url>
     <loc>/tags/app/</loc>
     <lastmod>2023-09-06T12:00:00+08:00</lastmod>
   </url><url>
@@ -11,9 +47,6 @@
     <loc>/aseprite-compile-app.html</loc>
     <lastmod>2023-09-06T12:00:00+08:00</lastmod>
   </url><url>
-    <loc>/authors/</loc>
-    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
-  </url><url>
     <loc>/tags/compile/</loc>
     <lastmod>2023-09-06T12:00:00+08:00</lastmod>
   </url><url>
@@ -22,15 +55,6 @@
   </url><url>
     <loc>/categories/mac/</loc>
     <lastmod>2023-09-06T18:10:39+08:00</lastmod>
-  </url><url>
-    <loc>/categories/tech/</loc>
-    <lastmod>2023-09-06T12:00:00+08:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2023-09-06T18:10:39+08:00</lastmod>
-  </url><url>
-    <loc>/tags/bug/</loc>
-    <lastmod>2023-09-02T12:00:00+08:00</lastmod>
   </url><url>
     <loc>/categories/develop/</loc>
     <lastmod>2023-09-02T12:00:00+08:00</lastmod>

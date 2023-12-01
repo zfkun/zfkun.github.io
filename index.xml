@@ -8,7 +8,16 @@
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Mon, 04 Sep 2023 00:00:00 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR</title>
+      <link>/chrome-ssl-protocol-error.html</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/chrome-ssl-protocol-error.html</guid>
+      <description>记录下 Chrome 访问 nginx https 站点报错提示 ERR_SSL_PROTOCOL_ERROR 的问题及解决办法</description>
+    </item>
+    
     <item>
       <title>Aseprite 手工编译流程 (Mac)</title>
       <link>/aseprite-compile-app.html</link>

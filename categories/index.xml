@@ -9,20 +9,47 @@
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>mac</title>
-      <link>/categories/mac/</link>
-      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
+      <title>chrome</title>
+      <link>/categories/chrome/</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
       
-      <guid>/categories/mac/</guid>
+      <guid>/categories/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>/categories/linux/</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>/categories/nginx/</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/categories/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech</title>
       <link>/categories/tech/</link>
-      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
       
       <guid>/categories/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>/categories/mac/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/categories/mac/</guid>
       <description></description>
     </item>
     

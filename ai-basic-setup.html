@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>AI共享环境基本设置和优化 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="AI 潮流当下，玩玩是必须的，了解和运用是自然的。拖延了几个月，先更一篇基础实用内容, 作为入门把玩基础还是有一定必要的">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"AI共享环境基本设置和优化",
+      "item":"/ai-basic-setup.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/ai-basic-setup.html"
+    },
+    "headline": "AI共享环境基本设置和优化 | 影の域","datePublished": "2023-06-10T00:00:00+08:00",
+    "dateModified": "2023-12-26T22:11:12+08:00",
+    "wordCount":  934 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "AI 潮流当下，玩玩是必须的，了解和运用是自然的。拖延了几个月，先更一篇基础实用内容, 作为入门把玩基础还是有一定必要的"
+}
+</script><meta property="og:title" content="AI共享环境基本设置和优化 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/ai-basic-setup.html" />
+
+
+
+
+<meta property="og:description" content="AI 潮流当下，玩玩是必须的，了解和运用是自然的。拖延了几个月，先更一篇基础实用内容, 作为入门把玩基础还是有一定必要的" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2023-06-10T00:00:00&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2023-12-26T22:11:12&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="ai" />
+
+<meta property="article:tag" content="stable diffusion" />
+
+<meta property="article:tag" content="webui" />
+
+<meta property="article:tag" content="comfyui" />
+
+<meta property="article:tag" content="model" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">AI共享环境基本设置和优化</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2023-06-10</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>934字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/tech/" class="hover:text-eureka">tech</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/linux/" class="hover:text-eureka">linux</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/macos/" class="hover:text-eureka">macos</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/ai/" class="hover:text-eureka">ai</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>不知不觉，又搬了半年的砖，不出意外的又拖延了更新。</p>
+<blockquote>
+<p>搬砖并不可怕，可怕的是为什么搬砖，可悲的是又进一步拉高了我的极限和侮辱我的三观</p>
+</blockquote>
+<p>回正题</p>
+<p>AI 潮流当下，玩玩是必须的，了解和运用是自然的</p>
+<blockquote>
+<p>否则, 在听到一些自以为是的小丑的言论时, 就没有那么多笑点可发掘了</p>
+</blockquote>
+<p>拖延了几个月的文章，先更一篇占位, 开篇先记录下最基础也相对实用（经济）的一些技巧:</p>
+<p>本着 <code>模型资源最大化共享复用</code> 和 <code>磁盘最小化占用</code> 的立场, 需要稍微对环境做一些简单配置</p>
+<blockquote>
+<p>以下内容, 相对需要一点 linux 基础 和 macos 环境了解, 主要以自身情况为切入点举例</p>
+</blockquote>
+<h2 id="基本环境配置">基本环境配置</h2>
+<pre><code class="language-shell">set SHARED_HOME=~/ai/shared
+set SHARED_COMFYUI=$SHARED_HOME/comfyui
+
+set SD_HOME=~/ai/sd
+set SD_COMFYUI_HOME=$SD_HOME/ComfyUI
+set SD_WEBUI_HOME=$SD_HOME/stable-diffusion-webui
+
+set CACHE_HOME=~/.cache
+set INSIGHTFACE_HOME=~/.insightface
+</code></pre>
+<h2 id="comfyui-相关">ComfyUI 相关</h2>
+<h3 id="共享模型路径优化">共享模型路径优化</h3>
+<ul>
+<li>插件 <code>was-node-suite-comfyui</code> 依赖的 <code>clipseg分割模型</code></li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>: 插件安装后, 正常使用一次 <code>CLIPSeg Model Loader</code>(<code>CLIP分割模型加载器</code>) 后, 才会自动下载 <a href="https://huggingface.co/CIDAS/clipseg-rd64-refined">CIDAS/clipseg-rd64-refined</a> 的项目代码到本地缓存目录</p>
+</blockquote>
+<pre><code class="language-shell">mkdir -p $SD_COMFYUI_HOME/models/clipseg
+ln -s $CACHE_HOME/huggingface/hub/models--CIDAS--clipseg-rd64-refined $SD_COMFYUI_HOME/models/clipseg/models--CIDAS--clipseg-rd64-refined
+</code></pre>
+<ul>
+<li>插件 <code>comfyui_controlnet_aux</code> 依赖的预处理器</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>: 插件安装后, 正常使用一遍 (把所有预处理器都使用一次) 后, 才会有以下的这些自动下载的模型文件</p>
+</blockquote>
+<pre><code class="language-shell">ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/openpose/yolox_l.onnx $SHARED_COMFYUI/controlnet_aux_annotator_ckpts/yzd-v/DWPose/yolox_l.onnx
+ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/openpose/dw-ll_ucoco_384.onnx $SHARED_COMFYUI/controlnet_aux_annotator_ckpts/yzd-v/DWPose/dw-ll_ucoco_384.onnx
+ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/hed/ControlNetHED.pth $SHARED_COMFYUI/controlnet_aux_annotator_ckpts/lllyasviel/Annotators/ControlNetHED.pth
+ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/normal_bae/scannet.pt $SHARED_COMFYUI/controlnet_aux_annotator_ckpts/lllyasviel/Annotators/scannet.pt
+ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/midas/dpt_hybrid-midas-501f0c75.pt $SHARED_COMFYUI/controlnet_aux_annotator_ckpts/lllyasviel/Annotators/dpt_hybrid-midas-501f0c75.pt
+ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/oneformer/150_16_swin_l_oneformer_coco_100ep.pth $SHARED_COMFYUI/controlnet_aux_annotator_ckpts/lllyasviel/Annotators/150_16_swin_l_oneformer_coco_100ep.pth
+ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/lineart/sk_model.pth $SHARED_COMFYUI/controlnet_aux_annotator_ckpts/lllyasviel/Annotators/sk_model.pth
+ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/lineart/sk_model2.pth $SHARED_COMFYUI/controlnet_aux_annotator_ckpts/lllyasviel/Annotators/sk_model2.pth
+ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/pidinet/table5_pidinet.pth $SHARED_COMFYUI/controlnet_aux_annotator_ckpts/lllyasviel/Annotators/table5_pidinet.pth
+</code></pre>
+<ul>
+<li>插件 <code>comfyui_segment_anything</code> 依赖的模型文件</li>
+</ul>
+<pre><code class="language-shell">ln -s $SHARED_HOME/models/sam $SD_COMFYUI_HOME/models/sams
+ln -s $SHARED_HOME/models/grounding-dino $SD_COMFYUI_HOME/models/grounding-dino
+</code></pre>
+<ul>
+<li>插件 <code>ReActor</code> 依赖的模型文件</li>
+</ul>
+<pre><code class="language-shell">ln -s $INSIGHTFACE_HOME $SD_COMFYUI_HOME/models/insightface
+ln -s $SD_WEBUI_HOME/models/Codeformer/codeformer-v0.1.0.pth $SD_COMFYUI_HOME/models/facerestore_models/codeformer.pth
+ln -s $SD_WEBUI_HOME/models/GFPGAN/GFPGANv1.4.pth $SD_COMFYUI_HOME/models/facerestore_models/GFPGANv1.4.pth
+</code></pre>
+<ul>
+<li>插件 <code>ComfyUI_toyxyz_test_nodes</code> 依赖的模型文件</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>: 需要先安装 <code>ComfyUI_IPAdapter_plus</code> 插件并正常可用后 (因复用的是这个插件自动下载到自己插件目录内的模型文件)</p>
+</blockquote>
+<pre><code class="language-shell">ln -s $SD_COMFYUI_HOME/custom_nodes/ComfyUI_IPAdapter_plus/models $SD_COMFYUI_HOME/custom_nodes/ComfyUI_toyxyz_test_nodes/CaptureCam/models
+</code></pre>
+<ul>
+<li>插件 <code>ComfyUI-AnimatedDiff-Evolved</code> 检索路径优化 (改为可支持自定义)</li>
+</ul>
+<p>此插件 <strong>硬编码</strong> 了三个关键的检索路径, 不支持自定义修改, 只能手工调整下其源码, 使其支持 <code>ComfyUI</code> 的 <code>extra_model_paths.yaml</code> 的自定义控制</p>
+<ol>
+<li>修改 <code>ComfyUI`` 的 </code>folder_paths.py<code>, 在文件头部的合适位置 ( </code>folder_names_and_paths` 声明定义之后即可)，补充以下几条检索路径定义:</li>
+</ol>
+<pre><code class="language-python">folder_names_and_paths[&quot;AnimateDiffEvolved_Models&quot;] = ([os.path.join(models_dir, &quot;animatediff_evolved_models&quot;)], supported_pt_extensions)
+folder_names_and_paths[&quot;AnimateDiffMotion_LoRA&quot;] = ([os.path.join(models_dir, &quot;animatediff_motion_lora&quot;)], supported_pt_extensions)
+folder_names_and_paths[&quot;AnimateDiffEvolved_video_formats&quot;] = ([os.path.join(base_path, &quot;video_formats&quot;)], &quot;.json&quot;)
+</code></pre>
+<ol start="2">
+<li>修改 <code>custom_nodes/ComfyUI-AnimatedDiff-Evolved/animated/model_utils.py</code>, 调整检索路径的定义逻辑</li>
+</ol>
+<pre><code class="language-python"># register motion models folder(s)
+# folder_paths.folder_names_and_paths[Folders.ANIMATEDIFF_MODELS] = (
+#     [
+#         str(Path(__file__).parent.parent / &quot;models&quot;)
+#     ],
+#     folder_paths.supported_pt_extensions
+# )
+folder_paths.add_model_folder_path(Folders.ANIMATEDIFF_MODELS, str(Path(__file__).parent.parent / &quot;models&quot;))
+
+# register motion LoRA folder(s)
+# folder_paths.folder_names_and_paths[Folders.MOTION_LORA] = (
+#     [
+#         str(Path(__file__).parent.parent / &quot;motion_lora&quot;)
+#     ],
+#     folder_paths.supported_pt_extensions
+# )
+folder_paths.add_model_folder_path(Folders.MOTION_LORA, str(Path(__file__).parent.parent / &quot;motion_lora&quot;))
+
+
+#Register video_formats folder
+# folder_paths.folder_names_and_paths[Folders.VIDEO_FORMATS] = (
+#     [
+#         str(Path(__file__).parent.parent / &quot;video_formats&quot;)
+#     ],
+#     [&quot;.json&quot;]
+# )
+folder_paths.add_model_folder_path(Folders.VIDEO_FORMATS, str(Path(__file__).parent.parent / &quot;video_formats&quot;))
+</code></pre>
+<h3 id="各种问题">各种问题</h3>
+<h4 id="modulenotfounderror-no-module-named-torchvisiontransformsfunctional_tensor">ModuleNotFoundError: No module named &lsquo;torchvision.transforms.functional_tensor&rsquo;</h4>
+<p>编辑 <code>basicsr</code> 模块的文件 <code>./venv/lib/python3.10/site-packages/basicsr/data/degradations.py</code> 调整 <code>rgb_to_grayscale</code> 的导出包名</p>
+<blockquote>
+<p>我习惯基于 <code>venv</code> 虚拟环境（其他虚拟环境 或 非虚拟环境, 换对应 <code>lib</code> 目录即可)</p>
+</blockquote>
+<pre><code class="language-python"># from torchvision.transforms.functional_tensor import rgb_to_grayscale
+from torchvision.transforms.functional import rgb_to_grayscale
+</code></pre>
+<h2 id="webui-相关">WebUI 相关</h2>
+<h3 id="共享模型路径优化-1">共享模型路径优化</h3>
+<ul>
+<li>插件 <code>openpose-editor</code> 依赖的模型文件</li>
+</ul>
+<pre><code class="language-shell">ln -s $SD_WEBUI_HOME/extensions/sd-webui-controlnet/annotator/downloads/openpose $SD_WEBUI_HOME/models/openpose
+</code></pre>
+<ul>
+<li>插件 <code>sd-webui-segment-anything</code> 依赖的模型文件</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>: 由于此插件内置了 <code>grounding-dino</code> 的 2 个模型的对应配置文件, 这里就只把两个模型映射过来即可</p>
+</blockquote>
+<pre><code class="language-shell">ln -s $SHARED_HOME/models/sam $SD_WEBUI_HOME/models/sam
+ln -s $SHARED_HOME/models/grounding-dino/groundingdino_swint_ogc.pth $SD_WEBUI_HOME/extensions/sd-webui-segment-anything/models/grounding-dino/groundingdino_swint_ogc.pth
+ln -s $SHARED_HOME/models/grounding-dino/groundingdino_swinb_cogcoor.pth $SD_WEBUI_HOME/extensions/sd-webui-segment-anything/models/grounding-dino/groundingdino_swinb_cogcoor.pth
+</code></pre>
+<ul>
+<li>插件 <code>sd-webui-roop</code> 依赖的模型文件</li>
+</ul>
+<pre><code class="language-shell">ln -s $INSIGHTFACE_HOME $SD_WEBUI_HOME/models/roop
+</code></pre>
+<ul>
+<li>插件 <code>sd-webui-reactor</code> 依赖的模型文件</li>
+</ul>
+<pre><code class="language-shell">ln -s $INSIGHTFACE_HOME $SD_WEBUI_HOME/models/insightface
+</code></pre>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/ai/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#ai</a>
+    
+    <a href="/tags/stable-diffusion/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#stable diffusion</a>
+    
+    <a href="/tags/webui/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#webui</a>
+    
+    <a href="/tags/comfyui/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#comfyui</a>
+    
+    <a href="/tags/model/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#model</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/unreal-mac-bug.html" class="block">Unreal 开发在 Mac 环境的疑难杂症处理汇总</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/mac-reinstall-setup.html" class="block">Mac重装初始化最小习惯设置</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本环境配置">基本环境配置</a></li>
+    <li><a href="#comfyui-相关">ComfyUI 相关</a>
+      <ul>
+        <li><a href="#共享模型路径优化">共享模型路径优化</a></li>
+        <li><a href="#各种问题">各种问题</a>
+          <ul>
+            <li><a href="#modulenotfounderror-no-module-named-torchvisiontransformsfunctional_tensor">ModuleNotFoundError: No module named &lsquo;torchvision.transforms.functional_tensor&rsquo;</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#webui-相关">WebUI 相关</a>
+      <ul>
+        <li><a href="#共享模型路径优化-1">共享模型路径优化</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2023 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+  </footer>
+</body>
+
+</html>

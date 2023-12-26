@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stable diffusion on 影の域</title>
+    <link>/tags/stable-diffusion/</link>
+    <description>Recent content in stable diffusion on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 10 Jun 2023 00:00:00 +0800</lastBuildDate><atom:link href="/tags/stable-diffusion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI共享环境基本设置和优化</title>
+      <link>/ai-basic-setup.html</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
+      
+      <guid>/ai-basic-setup.html</guid>
+      <description>AI 潮流当下，玩玩是必须的，了解和运用是自然的。拖延了几个月，先更一篇基础实用内容, 作为入门把玩基础还是有一定必要的</description>
+    </item>
+    
+  </channel>
+</rss>

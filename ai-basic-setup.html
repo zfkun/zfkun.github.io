@@ -91,7 +91,7 @@
         "@id": "/ai-basic-setup.html"
     },
     "headline": "AI共享环境基本设置和优化 | 影の域","datePublished": "2023-06-10T00:00:00+08:00",
-    "dateModified": "2023-12-26T22:11:12+08:00",
+    "dateModified": "2023-12-26T22:15:19+08:00",
     "wordCount":  934 ,
     "author": {
         "@type": "Person",
@@ -139,7 +139,7 @@
 <meta property="article:published_time" content="2023-06-10T00:00:00&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2023-12-26T22:11:12&#43;08:00" />
+<meta property="article:modified_time" content="2023-12-26T22:15:19&#43;08:00" />
 
 
 
@@ -366,7 +366,7 @@ ln -s $SD_WEBUI_HOME/models/GFPGAN/GFPGANv1.4.pth $SD_COMFYUI_HOME/models/facere
 </ul>
 <p>此插件 <strong>硬编码</strong> 了三个关键的检索路径, 不支持自定义修改, 只能手工调整下其源码, 使其支持 <code>ComfyUI</code> 的 <code>extra_model_paths.yaml</code> 的自定义控制</p>
 <ol>
-<li>修改 <code>ComfyUI`` 的 </code>folder_paths.py<code>, 在文件头部的合适位置 ( </code>folder_names_and_paths` 声明定义之后即可)，补充以下几条检索路径定义:</li>
+<li>修改 <code>ComfyUI</code> 的 <code>folder_paths.py</code>, 在文件头部的合适位置 ( <code>folder_names_and_paths</code> 声明定义之后即可)，补充以下几条检索路径定义:</li>
 </ol>
 <pre><code class="language-python">folder_names_and_paths[&quot;AnimateDiffEvolved_Models&quot;] = ([os.path.join(models_dir, &quot;animatediff_evolved_models&quot;)], supported_pt_extensions)
 folder_names_and_paths[&quot;AnimateDiffMotion_LoRA&quot;] = ([os.path.join(models_dir, &quot;animatediff_motion_lora&quot;)], supported_pt_extensions)

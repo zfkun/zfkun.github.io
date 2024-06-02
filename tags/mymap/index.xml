@@ -8,15 +8,21 @@
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 19 Dec 2021 10:26:03 +0800</lastBuildDate><atom:link href="/tags/mymap/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Dec 2021 10:26:03 +0800</lastBuildDate>
+    <atom:link href="/tags/mymap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ja-netfilter mymap plugin</title>
       <link>/ja-netfilter-mymapy-plugin.html</link>
       <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
-      
       <guid>/ja-netfilter-mymapy-plugin.html</guid>
       <description>前段时间升级全家桶, 发现新版之后官方总算出了杀手锏用以反制”欢乐重置“. 为了&amp;quot;欢乐永驻&amp;quot;和&amp;quot;学习交流&amp;quot;, 就有了如下&amp;quot;学习心得&amp;quot;</description>
     </item>
-    
+    <item>
+      <title>ja-netfilter mymap plugin</title>
+      <link>/ja-netfilter-mymapy-plugin.html</link>
+      <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
+      <guid>/ja-netfilter-mymapy-plugin.html</guid>
+      <description>前段时间升级全家桶, 发现新版之后官方总算出了杀手锏用以反制”欢乐重置“. 为了&amp;quot;欢乐永驻&amp;quot;和&amp;quot;学习交流&amp;quot;, 就有了如下&amp;quot;学习心得&amp;quot;</description>
+    </item>
   </channel>
 </rss>

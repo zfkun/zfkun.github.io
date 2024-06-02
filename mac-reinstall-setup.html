@@ -63,7 +63,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="记录下 aseprite 手工编译桌面端的基本流程 (Mac)">
+  content="主要记录下自己比较习惯的 Mac 系统重装后的最小化基础设置工作流">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,10 +71,14 @@
   "itemListElement": [{
       "@type": "ListItem",
       "position": 1 ,
-      "name":"文章",
-      "item":"/posts/"},{
+      "name":"Zhs",
+      "item":"/zh/"},{
       "@type": "ListItem",
       "position": 2 ,
+      "name":"文章",
+      "item":"/zh/posts/"},{
+      "@type": "ListItem",
+      "position": 3 ,
       "name":"Mac重装初始化最小习惯设置",
       "item":"/mac-reinstall-setup.html"}]
 }
@@ -92,7 +96,7 @@
     },
     "headline": "Mac重装初始化最小习惯设置 | 影の域","datePublished": "2023-06-09T00:00:00+08:00",
     "dateModified": "2023-09-06T18:10:39+08:00",
-    "wordCount":  356 ,
+    "wordCount":  828 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -105,7 +109,7 @@
             "url": "/images/me.png"
         }
         },
-    "description": "记录下 aseprite 手工编译桌面端的基本流程 (Mac)"
+    "description": "主要记录下自己比较习惯的 Mac 系统重装后的最小化基础设置工作流"
 }
 </script><meta property="og:title" content="Mac重装初始化最小习惯设置 | 影の域" />
 <meta property="og:type" content="article" />
@@ -119,7 +123,7 @@
 
 
 
-<meta property="og:description" content="记录下 aseprite 手工编译桌面端的基本流程 (Mac)" />
+<meta property="og:description" content="主要记录下自己比较习惯的 Mac 系统重装后的最小化基础设置工作流" />
 
 
 
@@ -143,7 +147,7 @@
 
 
 
-<meta property="article:section" content="posts" />
+<meta property="article:section" content="zh" />
 
 
 <meta property="article:tag" content="mac" />
@@ -156,7 +160,13 @@
 
 
 
+<meta property="og:see_also" content="/mac-reinstall-setup.html" />
+
 <meta property="og:see_also" content="/unity-development-setup-for-vscode.html" />
+
+<meta property="og:see_also" content="/unity-development-setup-for-vscode.html" />
+
+<meta property="og:see_also" content="/flutter-setup.html" />
 
 <meta property="og:see_also" content="/flutter-setup.html" />
 
@@ -248,11 +258,11 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
+        <span>2分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>356字</span>
+        <span>828字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -336,42 +346,175 @@
 <li><code>选择 “输入法” 菜单中的下一个输入法</code> 改为 <code>⌘ + 空格键</code></li>
 </ul>
 <h2 id="基础环境">基础环境</h2>
+<h3 id="魔法">魔法</h3>
+<p><a href="https://github.com/yanue/v2rayu">V2rayU</a></p>
+<blockquote>
+<p>导入 (或添加) vps 配置</p>
+</blockquote>
+<p><a href="https://www.wireguard.com/install/">WireGuard</a> (美区 app store)</p>
+<blockquote>
+<p>导入 (或添加) 配置</p>
+</blockquote>
 <h3 id="zsh">ZSH</h3>
-<blockquote>
-<p>TODO</p>
-</blockquote>
+<p><a href="https://ohmyz.sh">https://ohmyz.sh</a></p>
+<p>安装</p>
+<pre><code class="language-shell">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+</code></pre>
+<p>配置 (<code>~/.zshrc</code>)</p>
+<pre><code class="language-shell">alias zshconfig=&quot;vim  ~/.zshrc&quot;
+alias ohmyzsh=&quot;vim ~/.oh-my-zsh&quot;
+alias vscode=&quot;/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code&quot;
+
+# v2ray
+alias proxy=&quot;export http_proxy=http://127.0.0.1 https_proxy=$http_proxy&quot;
+alias unproxy=&quot;unset http_proxy https_proxy&quot;
+
+# homebrew 加速
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+
+# github
+export GH_TOKEN=&quot;&quot;
+
+# android
+export ANDROID_HOME=/Users/zfkun/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# jdk
+# ...
+
+# rust
+export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+
+# go
+
+# flutter
+# ...
+
+# dotnet
+# ...
+
+# unreal
+# ...
+
+# unity
+# ...
+
+# godot
+# ...
+
+# home
+export PATH=&quot;$PATH:/Users/zfkun/bin&quot;
+</code></pre>
 <h3 id="ssh">SSH</h3>
-<blockquote>
-<p>TODO</p>
-</blockquote>
+<pre><code class="language-shell"># 默认 (常用)
+ssh-keygen -t rsa -P &quot;&quot; -C &quot;zfkun@msn.com&quot;
+</code></pre>
+<pre><code class="language-shell"># Mac 版本 13 之后可能会碰到 `Permission denied (publickey)` 错误 (比如 `git clone`)
+# 需用 ed25519 秘钥类型:
+ssh-keygen -t ed25519 -P &quot;&quot; -C &quot;zfkun@msn.com&quot;
+</code></pre>
 <h3 id="homebrew">Homebrew</h3>
+<p><a href="https://brew.sh/zh-cn/">https://brew.sh/zh-cn/</a></p>
+<p>网络 (确保通常)</p>
+<pre><code class="language-shell">ping raw.githubusercontent.com
+</code></pre>
+<p>不通, 则需 Host 配置 (<code>/etc/hosts</code>), 解决 <code>DNS污染</code> 问题</p>
+<p>借助 <a href="https://www.ipaddress.com/website/raw.githubusercontent.com/">ipaddress</a> 查询结果:</p>
+<pre><code class="language-shell">185.199.108.133 raw.Githubusercontent.com
+185.199.109.133 raw.Githubusercontent.com
+185.199.110.133 raw.Githubusercontent.com
+185.199.111.133 raw.Githubusercontent.com
+</code></pre>
+<p>安装</p>
+<pre><code class="language-shell">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+</code></pre>
+<p>加速</p>
 <blockquote>
-<p>TODO</p>
+<p>添加到 <code>~/.zshrc</code> 或 <code>~/.bashrc</code> 或 <code>~/.bash_profile</code></p>
 </blockquote>
+<pre><code class="language-shell">export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+</code></pre>
 <h3 id="git">Git</h3>
+<p>安装</p>
+<pre><code class="language-shell">brew install git git-flow
+</code></pre>
 <blockquote>
-<p>TODO</p>
+<p>至于 <a href="https://git-lfs.com">git-lfs</a> 如果借助 brew 安装, 可能编译阶段会慢到吐血, 可以考虑 <a href="https://git-lfs.com/">二进制安装</a> 拉倒</p>
 </blockquote>
+<p>配置</p>
+<pre><code class="language-shell">git config --global user.name zfkun
+git config --global user.email zfkun@msn.com
+
+git config --global alias.st status
+git config --global alias.ci commit
+git config --global alias.co checkout
+git config --global alias.df diff
+</code></pre>
 <h3 id="alfred">Alfred</h3>
-<blockquote>
-<p>TODO</p>
-</blockquote>
+<p>安装</p>
+<p>同步配置 <code>Alfred/Alfred.alfredpreferences</code></p>
 <h3 id="iterm">iTerm</h3>
+<p><a href="https://iterm2.com">https://iterm2.com</a></p>
+<h2 id="开发环境">开发环境</h2>
+<h3 id="node">Node</h3>
+<p>借助 <a href="https://github.com/nvm-sh/nvm">nvm</a> 管理</p>
+<pre><code class="language-shell">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+nvm install node
+
+# `npm.taobao.org` `registry.npm.taobao.org` SSL证书 2024.1.22 过期, 需使用新域名
+npm config set registry https://registry.npmmirror.com
+</code></pre>
+<h3 id="flutter">Flutter</h3>
+<p>借助 <a href="https://fvm.app">fvm</a> 管理</p>
+<pre><code class="language-shell">brew tap leoafarias/fvm
+brew install fvm
+
+fvm use stable
+</code></pre>
+<h3 id="golang">Golang</h3>
+<p><del>借助 <a href="https://github.com/moovweb/gvm">gvm</a> 管理</del></p>
+<p><del><code>shell~~ ~~bash &lt; &lt;(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)~~ ~~</code></del></p>
 <blockquote>
-<p>TODO</p>
+<p>gvm 安装 1.20 以上版本, 需要先安装 <strong>低版本</strong> 用于自身编译, 过程太繁琐</p>
 </blockquote>
-<h3 id="v2ray">V2Ray</h3>
-<blockquote>
-<p>TODO</p>
-</blockquote>
+<pre><code class="language-shell">brew install go
+</code></pre>
+<h3 id="rust">Rust</h3>
+<p>官方 <a href="https://www.rust-lang.org/zh-CN/tools/install">rustup</a> 管理</p>
+<p>安装</p>
+<pre><code class="language-shell">curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+rustc --version
+cargo --version
+rustup --version
+</code></pre>
+<p>加速</p>
+<pre><code class="language-shell">cat &gt;&gt; ~/.cargo/config &lt;&lt; EOF
+[source.crates-io]
+registry = &quot;git://mirrors.ustc.edu.cn/crates.io-index&quot;
+EOF
+</code></pre>
 <h2 id="常用软件">常用软件</h2>
 <h3 id="visual-studio-code">Visual Studio Code</h3>
+<p><a href="https://code.visualstudio.com">https://code.visualstudio.com</a></p>
 <blockquote>
-<p>TODO</p>
+<p>登录同步</p>
 </blockquote>
 <h3 id="1password">1Password</h3>
 <blockquote>
 <p>TODO</p>
+</blockquote>
+<h3 id="sketch">Sketch</h3>
+<p>最高版本 96.3 (支持 Big Sur 11.7.10)</p>
+<blockquote>
+<p>14年的老本, 也只能这样了</p>
+</blockquote>
+<h3 id="photoshop">PhotoShop</h3>
+<blockquote>
+<p>无需多言</p>
 </blockquote>
 
         </div>
@@ -526,19 +669,29 @@
     </li>
     <li><a href="#基础环境">基础环境</a>
       <ul>
+        <li><a href="#魔法">魔法</a></li>
         <li><a href="#zsh">ZSH</a></li>
         <li><a href="#ssh">SSH</a></li>
         <li><a href="#homebrew">Homebrew</a></li>
         <li><a href="#git">Git</a></li>
         <li><a href="#alfred">Alfred</a></li>
         <li><a href="#iterm">iTerm</a></li>
-        <li><a href="#v2ray">V2Ray</a></li>
+      </ul>
+    </li>
+    <li><a href="#开发环境">开发环境</a>
+      <ul>
+        <li><a href="#node">Node</a></li>
+        <li><a href="#flutter">Flutter</a></li>
+        <li><a href="#golang">Golang</a></li>
+        <li><a href="#rust">Rust</a></li>
       </ul>
     </li>
     <li><a href="#常用软件">常用软件</a>
       <ul>
         <li><a href="#visual-studio-code">Visual Studio Code</a></li>
         <li><a href="#1password">1Password</a></li>
+        <li><a href="#sketch">Sketch</a></li>
+        <li><a href="#photoshop">PhotoShop</a></li>
       </ul>
     </li>
   </ul>
@@ -560,7 +713,16 @@
         <h2 class="text-lg font-semibold mb-4">相关</h2>
         <div class="content">
             
+            <a href="/mac-reinstall-setup.html">Mac重装初始化最小习惯设置</a>
+            <br />
+            
             <a href="/unity-development-setup-for-vscode.html">Unity3D 开发环境 (VS Code 篇)</a>
+            <br />
+            
+            <a href="/unity-development-setup-for-vscode.html">Unity3D 开发环境 (VS Code 篇)</a>
+            <br />
+            
+            <a href="/flutter-setup.html">Flutter 开发环境初始化</a>
             <br />
             
             <a href="/flutter-setup.html">Flutter 开发环境初始化</a>
@@ -582,7 +744,7 @@
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">Copyright &copy; 2023 <a href="https://www.zfkun.com/">zfkun.com</a>
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2024 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div>

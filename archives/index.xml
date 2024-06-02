@@ -7,6 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
-</copyright><atom:link href="/archives/index.xml" rel="self" type="application/rss+xml" />
+</copyright>
+    <atom:link href="/archives/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

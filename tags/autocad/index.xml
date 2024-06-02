@@ -8,15 +8,21 @@
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Wed, 17 Nov 2021 12:36:00 +0800</lastBuildDate><atom:link href="/tags/autocad/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Nov 2021 12:36:00 +0800</lastBuildDate>
+    <atom:link href="/tags/autocad/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Autocad Uninstall Clean Script</title>
       <link>/autocad-uninstall-clean-script.html</link>
       <pubDate>Wed, 17 Nov 2021 12:36:00 +0800</pubDate>
-      
       <guid>/autocad-uninstall-clean-script.html</guid>
       <description>autocad 卸载清理脚本</description>
     </item>
-    
+    <item>
+      <title>Autocad Uninstall Clean Script</title>
+      <link>/autocad-uninstall-clean-script.html</link>
+      <pubDate>Wed, 17 Nov 2021 12:36:00 +0800</pubDate>
+      <guid>/autocad-uninstall-clean-script.html</guid>
+      <description>autocad 卸载清理脚本</description>
+    </item>
   </channel>
 </rss>

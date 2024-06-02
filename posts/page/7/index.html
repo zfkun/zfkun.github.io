@@ -82,7 +82,7 @@
             "@type":"ListItem",
             "position":  2 ,
             "name": "IE6+和FF的CSS Hack",
-            "description": "一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) #wrapper { width: 100px!important; /\\* IE7+FF \\*/ width: 80px; /\\* IE6 \\*/ } 2, IE6/IE77对FireFox *+html 与 *html 是IE特有的标签, firefox 暂不支持.而*+html 又为 IE7特有标签. #wrapper { #wrapper { width: 120px; } /\\* FireFox \\*/ \\*html #wrapper { width: 80px;} /\\* ie6 fixed */ \\*+html #wrapper { width: 60px;} /\\* ie7 fixed, 注意顺序 */ } 注意: *+html 对IE7的HACK 必须保证HTML顶部有如下声明： 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global",
+            "description": "一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) 2, IE6/IE77对FireFox *+html 与 *html 是IE特有的标签, firefox 暂不支持.而*+html 又为 IE7特有标签. 注意: *+html 对IE7的HACK 必须保证HTML顶部有如下声明： \u003c!DOCTYPE HTML PUBLIC \u0026#8220;-//W3C//DTD HTML 4.01 Transitional//EN\u0026#8221; \u0026#8221;http://www.w3.org/TR/html4/loose.dtd\u0026#8221;\u003e 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global CSS 中,给需要闭合的div加上 即可,屡试不爽. 三、其他兼容技巧(再次啰嗦) 1, F",
             "url": "/142.html"
         },{
             "@type":"ListItem",
@@ -307,7 +307,7 @@
 </div>
 <div class="content">
   
-    一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) #wrapper { width: 100px!important; /\* IE7&#43;FF \*/ width: 80px; /\* IE6 \*/ } 2, IE6/IE77对FireFox *&#43;html 与 *html 是IE特有的标签, firefox 暂不支持.而*&#43;html 又为 IE7特有标签. #wrapper { #wrapper { width: 120px; } /\* FireFox \*/ \*html #wrapper { width: 80px;} /\* ie6 fixed */ \*&#43;html #wrapper { width: 60px;} /\* ie7 fixed, 注意顺序 */ } 注意: *&#43;html 对IE7的HACK 必须保证HTML顶部有如下声明： 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global
+    一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) 2, IE6/IE77对FireFox *&#43;html 与 *html 是IE特有的标签, firefox 暂不支持.而*&#43;html 又为 IE7特有标签. 注意: *&#43;html 对IE7的HACK 必须保证HTML顶部有如下声明： &lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” ”http://www.w3.org/TR/html4/loose.dtd”&gt; 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global CSS 中,给需要闭合的div加上 即可,屡试不爽. 三、其他兼容技巧(再次啰嗦) 1, F
   
 </div>
 
@@ -322,7 +322,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>2408字</span>
+        <span>2334字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -593,7 +593,7 @@ MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由R
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>1524字</span>
+        <span>1528字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -723,7 +723,7 @@ MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由R
         <a href="/posts/page/6/" aria-label="Page 6" class="page-link" role="button">6</a>
       </li>
       <li class="page-item active">
-        <a href="#" aria-current="page" aria-label="Page 7" class="page-link" role="button">7</a>
+        <a aria-current="page" aria-label="Page 7" class="page-link" role="button">7</a>
       </li>
       <li class="page-item">
         <a href="/posts/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
@@ -745,7 +745,7 @@ MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由R
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">Copyright &copy; 2023 <a href="https://www.zfkun.com/">zfkun.com</a>
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2024 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div>

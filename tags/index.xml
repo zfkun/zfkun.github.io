@@ -7,510 +7,399 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
-</copyright><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+</copyright>
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bug</title>
       <link>/tags/bug/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/bug/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>chrome</title>
       <link>/tags/chrome/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/chrome/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>nginx</title>
       <link>/tags/nginx/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/nginx/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>openssl</title>
       <link>/tags/openssl/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/openssl/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>ssl</title>
       <link>/tags/ssl/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/ssl/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>app</title>
       <link>/tags/app/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/app/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>aseprite</title>
       <link>/tags/aseprite/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/aseprite/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>compile</title>
       <link>/tags/compile/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/compile/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>mac</title>
       <link>/tags/mac/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/mac/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>problem</title>
       <link>/tags/problem/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/problem/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>unreal</title>
       <link>/tags/unreal/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/unreal/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>ai</title>
       <link>/tags/ai/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/ai/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>comfyui</title>
       <link>/tags/comfyui/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/comfyui/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>model</title>
       <link>/tags/model/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/model/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>stable diffusion</title>
       <link>/tags/stable-diffusion/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/stable-diffusion/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>webui</title>
       <link>/tags/webui/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/webui/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>reinstall</title>
       <link>/tags/reinstall/</link>
       <pubDate>Fri, 09 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/reinstall/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>setup</title>
       <link>/tags/setup/</link>
       <pubDate>Fri, 09 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/tags/setup/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>blender</title>
       <link>/tags/blender/</link>
       <pubDate>Sun, 13 Mar 2022 09:03:00 +0800</pubDate>
-      
       <guid>/tags/blender/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>bridge</title>
       <link>/tags/bridge/</link>
       <pubDate>Sun, 13 Mar 2022 09:03:00 +0800</pubDate>
-      
       <guid>/tags/bridge/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>pbr</title>
       <link>/tags/pbr/</link>
       <pubDate>Sun, 13 Mar 2022 09:03:00 +0800</pubDate>
-      
       <guid>/tags/pbr/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>plugin</title>
       <link>/tags/plugin/</link>
       <pubDate>Sun, 13 Mar 2022 09:03:00 +0800</pubDate>
-      
       <guid>/tags/plugin/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>solaris</title>
       <link>/tags/solaris/</link>
       <pubDate>Sun, 13 Mar 2022 00:00:00 +0800</pubDate>
-      
       <guid>/tags/solaris/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>tw</title>
       <link>/tags/tw/</link>
       <pubDate>Sun, 13 Mar 2022 00:00:00 +0800</pubDate>
-      
       <guid>/tags/tw/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>天翼之链</title>
       <link>/tags/%E5%A4%A9%E7%BF%BC%E4%B9%8B%E9%93%BE/</link>
       <pubDate>Sun, 13 Mar 2022 00:00:00 +0800</pubDate>
-      
       <guid>/tags/%E5%A4%A9%E7%BF%BC%E4%B9%8B%E9%93%BE/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>虚拟机</title>
       <link>/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
       <pubDate>Sun, 13 Mar 2022 00:00:00 +0800</pubDate>
-      
       <guid>/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>develop</title>
       <link>/tags/develop/</link>
       <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
-      
       <guid>/tags/develop/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>game</title>
       <link>/tags/game/</link>
       <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
-      
       <guid>/tags/game/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>unity</title>
       <link>/tags/unity/</link>
       <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
-      
       <guid>/tags/unity/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>vscode</title>
       <link>/tags/vscode/</link>
       <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
-      
       <guid>/tags/vscode/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>tech</title>
       <link>/tags/tech/</link>
       <pubDate>Sun, 19 Dec 2021 14:07:01 +0800</pubDate>
-      
       <guid>/tags/tech/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>up</title>
       <link>/tags/up/</link>
       <pubDate>Sun, 19 Dec 2021 14:07:01 +0800</pubDate>
-      
       <guid>/tags/up/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>uploader</title>
       <link>/tags/uploader/</link>
       <pubDate>Sun, 19 Dec 2021 14:07:01 +0800</pubDate>
-      
       <guid>/tags/uploader/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>agent</title>
       <link>/tags/agent/</link>
       <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
-      
       <guid>/tags/agent/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>jetbrains</title>
       <link>/tags/jetbrains/</link>
       <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
-      
       <guid>/tags/jetbrains/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>mymap</title>
       <link>/tags/mymap/</link>
       <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
-      
       <guid>/tags/mymap/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>netfilter</title>
       <link>/tags/netfilter/</link>
       <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
-      
       <guid>/tags/netfilter/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>reset</title>
       <link>/tags/reset/</link>
       <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
-      
       <guid>/tags/reset/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>flutter</title>
       <link>/tags/flutter/</link>
       <pubDate>Sun, 28 Nov 2021 18:50:51 +0800</pubDate>
-      
       <guid>/tags/flutter/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>web</title>
       <link>/tags/web/</link>
       <pubDate>Sun, 28 Nov 2021 18:50:51 +0800</pubDate>
-      
       <guid>/tags/web/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>vpn</title>
       <link>/tags/vpn/</link>
       <pubDate>Wed, 17 Nov 2021 12:48:33 +0800</pubDate>
-      
       <guid>/tags/vpn/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>vps</title>
       <link>/tags/vps/</link>
       <pubDate>Wed, 17 Nov 2021 12:48:33 +0800</pubDate>
-      
       <guid>/tags/vps/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>wireguard</title>
       <link>/tags/wireguard/</link>
       <pubDate>Wed, 17 Nov 2021 12:48:33 +0800</pubDate>
-      
       <guid>/tags/wireguard/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>autocad</title>
       <link>/tags/autocad/</link>
       <pubDate>Wed, 17 Nov 2021 12:36:00 +0800</pubDate>
-      
       <guid>/tags/autocad/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>autodesk</title>
       <link>/tags/autodesk/</link>
       <pubDate>Wed, 17 Nov 2021 12:36:00 +0800</pubDate>
-      
       <guid>/tags/autodesk/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>uninstall</title>
       <link>/tags/uninstall/</link>
       <pubDate>Wed, 17 Nov 2021 12:36:00 +0800</pubDate>
-      
       <guid>/tags/uninstall/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>hotkey</title>
       <link>/tags/hotkey/</link>
       <pubDate>Wed, 17 Nov 2021 11:34:03 +0800</pubDate>
-      
       <guid>/tags/hotkey/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>aces</title>
       <link>/tags/aces/</link>
       <pubDate>Sat, 10 Apr 2021 12:43:13 +0800</pubDate>
-      
       <guid>/tags/aces/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>arnold</title>
       <link>/tags/arnold/</link>
       <pubDate>Sat, 10 Apr 2021 12:43:13 +0800</pubDate>
-      
       <guid>/tags/arnold/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>c4d</title>
       <link>/tags/c4d/</link>
       <pubDate>Sat, 10 Apr 2021 12:43:13 +0800</pubDate>
-      
       <guid>/tags/c4d/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>airplay</title>
       <link>/tags/airplay/</link>
       <pubDate>Fri, 20 Dec 2013 09:44:02 +0000</pubDate>
-      
       <guid>/tags/airplay/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>apple</title>
       <link>/tags/apple/</link>
       <pubDate>Fri, 20 Dec 2013 09:44:02 +0000</pubDate>
-      
       <guid>/tags/apple/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>nodejs</title>
       <link>/tags/nodejs/</link>
       <pubDate>Fri, 20 Dec 2013 09:44:02 +0000</pubDate>
-      
       <guid>/tags/nodejs/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>dash</title>
       <link>/tags/dash/</link>
       <pubDate>Thu, 03 Oct 2013 17:42:37 +0000</pubDate>
-      
       <guid>/tags/dash/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>docset</title>
       <link>/tags/docset/</link>
       <pubDate>Thu, 03 Oct 2013 17:42:37 +0000</pubDate>
-      
       <guid>/tags/docset/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>emmet</title>
       <link>/tags/emmet/</link>
       <pubDate>Thu, 03 Oct 2013 17:42:37 +0000</pubDate>
-      
       <guid>/tags/emmet/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

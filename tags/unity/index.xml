@@ -8,15 +8,21 @@
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Mon, 10 Jan 2022 14:28:27 +0800</lastBuildDate><atom:link href="/tags/unity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jan 2022 14:28:27 +0800</lastBuildDate>
+    <atom:link href="/tags/unity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unity3D 开发环境 (VS Code 篇)</title>
       <link>/unity-development-setup-for-vscode.html</link>
       <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
-      
       <guid>/unity-development-setup-for-vscode.html</guid>
       <description>记录一些基于 vscode 的 unity 本机开发环境配置相关注意事项</description>
     </item>
-    
+    <item>
+      <title>Unity3D 开发环境 (VS Code 篇)</title>
+      <link>/unity-development-setup-for-vscode.html</link>
+      <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
+      <guid>/unity-development-setup-for-vscode.html</guid>
+      <description>记录一些基于 vscode 的 unity 本机开发环境配置相关注意事项</description>
+    </item>
   </channel>
 </rss>

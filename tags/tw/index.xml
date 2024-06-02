@@ -8,15 +8,21 @@
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 13 Mar 2022 00:00:00 +0800</lastBuildDate><atom:link href="/tags/tw/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Mar 2022 00:00:00 +0800</lastBuildDate>
+    <atom:link href="/tags/tw/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>天翼之链单机 - Solaris10 虚拟机启动问题修复</title>
       <link>/tw-setup-solaris-bugfix.html</link>
       <pubDate>Sun, 13 Mar 2022 00:00:00 +0800</pubDate>
-      
       <guid>/tw-setup-solaris-bugfix.html</guid>
       <description>记录下《天翼之链》&lt;strong&gt;单机&lt;/strong&gt;版(都懂的)虚拟机部署问题解决方法</description>
     </item>
-    
+    <item>
+      <title>天翼之链单机 - Solaris10 虚拟机启动问题修复</title>
+      <link>/tw-setup-solaris-bugfix.html</link>
+      <pubDate>Sun, 13 Mar 2022 00:00:00 +0800</pubDate>
+      <guid>/tw-setup-solaris-bugfix.html</guid>
+      <description>记录下《天翼之链》&lt;strong&gt;单机&lt;/strong&gt;版(都懂的)虚拟机部署问题解决方法</description>
+    </item>
   </channel>
 </rss>

@@ -7,249 +7,196 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
-</copyright><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+</copyright>
+    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>chrome</title>
       <link>/categories/chrome/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/chrome/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>linux</title>
       <link>/categories/linux/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/linux/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>nginx</title>
       <link>/categories/nginx/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/nginx/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>tech</title>
       <link>/categories/tech/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/tech/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>mac</title>
       <link>/categories/mac/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/mac/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>develop</title>
       <link>/categories/develop/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/develop/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>game</title>
       <link>/categories/game/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/game/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>unreal</title>
       <link>/categories/unreal/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/unreal/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>ai</title>
       <link>/categories/ai/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/ai/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>macos</title>
       <link>/categories/macos/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/categories/macos/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>blender</title>
       <link>/categories/blender/</link>
       <pubDate>Sun, 13 Mar 2022 09:03:00 +0800</pubDate>
-      
       <guid>/categories/blender/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>design</title>
       <link>/categories/design/</link>
       <pubDate>Sun, 13 Mar 2022 09:03:00 +0800</pubDate>
-      
       <guid>/categories/design/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>单机</title>
       <link>/categories/%E5%8D%95%E6%9C%BA/</link>
       <pubDate>Sun, 13 Mar 2022 00:00:00 +0800</pubDate>
-      
       <guid>/categories/%E5%8D%95%E6%9C%BA/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>unity</title>
       <link>/categories/unity/</link>
       <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
-      
       <guid>/categories/unity/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>up</title>
       <link>/categories/up/</link>
       <pubDate>Sun, 19 Dec 2021 14:07:01 +0800</pubDate>
-      
       <guid>/categories/up/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>video</title>
       <link>/categories/video/</link>
       <pubDate>Sun, 19 Dec 2021 14:07:01 +0800</pubDate>
-      
       <guid>/categories/video/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>agent</title>
       <link>/categories/agent/</link>
       <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
-      
       <guid>/categories/agent/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>java</title>
       <link>/categories/java/</link>
       <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
-      
       <guid>/categories/java/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>jetbrains</title>
       <link>/categories/jetbrains/</link>
       <pubDate>Sun, 19 Dec 2021 10:26:03 +0800</pubDate>
-      
       <guid>/categories/jetbrains/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>flutter</title>
       <link>/categories/flutter/</link>
       <pubDate>Sun, 28 Nov 2021 18:50:51 +0800</pubDate>
-      
       <guid>/categories/flutter/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>web</title>
       <link>/categories/web/</link>
       <pubDate>Sun, 28 Nov 2021 18:50:51 +0800</pubDate>
-      
       <guid>/categories/web/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>vpn</title>
       <link>/categories/vpn/</link>
       <pubDate>Wed, 17 Nov 2021 12:48:33 +0800</pubDate>
-      
       <guid>/categories/vpn/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>vps</title>
       <link>/categories/vps/</link>
       <pubDate>Wed, 17 Nov 2021 12:48:33 +0800</pubDate>
-      
       <guid>/categories/vps/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>wireguard</title>
       <link>/categories/wireguard/</link>
       <pubDate>Wed, 17 Nov 2021 12:48:33 +0800</pubDate>
-      
       <guid>/categories/wireguard/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>autocad</title>
       <link>/categories/autocad/</link>
       <pubDate>Wed, 17 Nov 2021 12:36:00 +0800</pubDate>
-      
       <guid>/categories/autocad/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>autodesk</title>
       <link>/categories/autodesk/</link>
       <pubDate>Wed, 17 Nov 2021 12:36:00 +0800</pubDate>
-      
       <guid>/categories/autodesk/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>c4d</title>
       <link>/categories/c4d/</link>
       <pubDate>Sat, 10 Apr 2021 12:43:13 +0800</pubDate>
-      
       <guid>/categories/c4d/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

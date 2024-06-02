@@ -8,42 +8,63 @@
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0800</lastBuildDate><atom:link href="/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0800</lastBuildDate>
+    <atom:link href="/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR</title>
       <link>/chrome-ssl-protocol-error.html</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      
       <guid>/chrome-ssl-protocol-error.html</guid>
       <description>记录下 Chrome 访问 nginx https 站点报错提示 ERR_SSL_PROTOCOL_ERROR 的问题及解决办法</description>
     </item>
-    
+    <item>
+      <title>Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR</title>
+      <link>/chrome-ssl-protocol-error.html</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
+      <guid>/chrome-ssl-protocol-error.html</guid>
+      <description>记录下 Chrome 访问 nginx https 站点报错提示 ERR_SSL_PROTOCOL_ERROR 的问题及解决办法</description>
+    </item>
     <item>
       <title>Aseprite 手工编译流程 (Mac)</title>
       <link>/aseprite-compile-app.html</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
-      
       <guid>/aseprite-compile-app.html</guid>
       <description>记录下 Aseprite 手工编译桌面端的基本流程 (Mac)</description>
     </item>
-    
+    <item>
+      <title>Aseprite 手工编译流程 (Mac)</title>
+      <link>/aseprite-compile-app.html</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
+      <guid>/aseprite-compile-app.html</guid>
+      <description>记录下 Aseprite 手工编译桌面端的基本流程 (Mac)</description>
+    </item>
     <item>
       <title>AI共享环境基本设置和优化</title>
       <link>/ai-basic-setup.html</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/ai-basic-setup.html</guid>
       <description>AI 潮流当下，玩玩是必须的，了解和运用是自然的。拖延了几个月，先更一篇基础实用内容, 作为入门把玩基础还是有一定必要的</description>
     </item>
-    
+    <item>
+      <title>AI共享环境基本设置和优化</title>
+      <link>/ai-basic-setup.html</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
+      <guid>/ai-basic-setup.html</guid>
+      <description>AI 潮流当下，玩玩是必须的，了解和运用是自然的。拖延了几个月，先更一篇基础实用内容, 作为入门把玩基础还是有一定必要的</description>
+    </item>
     <item>
       <title>做一个技术up主</title>
       <link>/to-be-a-tech-uploader.html</link>
       <pubDate>Sun, 19 Dec 2021 14:07:01 +0800</pubDate>
-      
       <guid>/to-be-a-tech-uploader.html</guid>
       <description>其实很早很早很早以前就想把玩技术UP主的路线,碍于生活、工作的干扰以及自身拖延症的习惯, 一直没有实质性投入</description>
     </item>
-    
+    <item>
+      <title>做一个技术up主</title>
+      <link>/to-be-a-tech-uploader.html</link>
+      <pubDate>Sun, 19 Dec 2021 14:07:01 +0800</pubDate>
+      <guid>/to-be-a-tech-uploader.html</guid>
+      <description>其实很早很早很早以前就想把玩技术UP主的路线,碍于生活、工作的干扰以及自身拖延症的习惯, 一直没有实质性投入</description>
+    </item>
   </channel>
 </rss>

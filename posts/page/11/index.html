@@ -88,7 +88,7 @@
             "@type":"ListItem",
             "position":  3 ,
             "name": "Java UnicodeHelper",
-            "description": "public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return \"\"; char c = '\\0'; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j \u0026lt; k; j++) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // '\"' case 92: // '\\\\' stringbuffer.append('\\\\'); stringbuffer.append(c); break; case 47: // '/' if (i == 60) stringbuffer.append('\\\\'); stringbuffer.append(c); break; case 8: // '\\b' stringbuffer.append(\"\\\\b\"); break; case 9: // '\\t' stringbuffer.append(\"\\\\t\"); break; case 10: // '\\n' stringbuffer.append(\"\\\\n\"); break; case 12: // '\\f' stringbuffer.append(\"\\\\f\"); break; case 13: // '\\r' stringbuffer.append(\"\\\\r\"); break; default: if (c = '0' \u0026\u0026 c \u0026lt;= '9' || c = 'A' \u0026\u0026 c \u0026lt;= 'z') { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(\"000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(\"\\\\u\").append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = \"\"; while (start -1) { end = unicodeStr.indexOf(\"\\\\u\", start + 2); if (end == -1) { if (unicodeStr.length()",
+            "description": "public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return \"\"; char c = '\\0'; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j \u0026lt; k; j++) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // '\"' case 92: // '\\\\' stringbuffer.append('\\\\'); stringbuffer.append(c); break; case 47: // '/' if (i == 60) stringbuffer.append('\\\\'); stringbuffer.append(c); break; case 8: // '\\b' stringbuffer.append(\"\\\\b\"); break; case 9: // '\\t' stringbuffer.append(\"\\\\t\"); break; case 10: // '\\n' stringbuffer.append(\"\\\\n\"); break; case 12: // '\\f' stringbuffer.append(\"\\\\f\"); break; case 13: // '\\r' stringbuffer.append(\"\\\\r\"); break; default: if (c \u003e= '0' \u0026\u0026 c \u0026lt;= '9' || c \u003e= 'A' \u0026\u0026 c \u0026lt;= 'z') { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(\"000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(\"\\\\u\").append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = \"\"; while (start \u003e -1) { end = unicodeStr.indexOf(\"\\\\u\", start + 2); if (end == -1) { if",
             "url": "/15.html"
         }
     ]
@@ -314,7 +314,7 @@
 </div>
 <div class="content">
   
-    public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return &#34;&#34;; char c = &#39;\0&#39;; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j &lt; k; j&#43;&#43;) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // &#39;&#34;&#39; case 92: // &#39;\\&#39; stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 47: // &#39;/&#39; if (i == 60) stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 8: // &#39;\b&#39; stringbuffer.append(&#34;\\b&#34;); break; case 9: // &#39;\t&#39; stringbuffer.append(&#34;\\t&#34;); break; case 10: // &#39;\n&#39; stringbuffer.append(&#34;\\n&#34;); break; case 12: // &#39;\f&#39; stringbuffer.append(&#34;\\f&#34;); break; case 13: // &#39;\r&#39; stringbuffer.append(&#34;\\r&#34;); break; default: if (c = &#39;0&#39; &amp;&amp; c &lt;= &#39;9&#39; || c = &#39;A&#39; &amp;&amp; c &lt;= &#39;z&#39;) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(&#34;000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(&#34;\\u&#34;).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = &#34;&#34;; while (start -1) { end = unicodeStr.indexOf(&#34;\\u&#34;, start &#43; 2); if (end == -1) { if (unicodeStr.length()
+    public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return &#34;&#34;; char c = &#39;\0&#39;; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j &lt; k; j&#43;&#43;) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // &#39;&#34;&#39; case 92: // &#39;\\&#39; stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 47: // &#39;/&#39; if (i == 60) stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 8: // &#39;\b&#39; stringbuffer.append(&#34;\\b&#34;); break; case 9: // &#39;\t&#39; stringbuffer.append(&#34;\\t&#34;); break; case 10: // &#39;\n&#39; stringbuffer.append(&#34;\\n&#34;); break; case 12: // &#39;\f&#39; stringbuffer.append(&#34;\\f&#34;); break; case 13: // &#39;\r&#39; stringbuffer.append(&#34;\\r&#34;); break; default: if (c &gt;= &#39;0&#39; &amp;&amp; c &lt;= &#39;9&#39; || c &gt;= &#39;A&#39; &amp;&amp; c &lt;= &#39;z&#39;) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(&#34;000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(&#34;\\u&#34;).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = &#34;&#34;; while (start &gt; -1) { end = unicodeStr.indexOf(&#34;\\u&#34;, start &#43; 2); if (end == -1) { if
   
 </div>
 
@@ -329,7 +329,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>425字</span>
+        <span>427字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -375,13 +375,13 @@
         <a href="/posts/page/10/" aria-label="Page 10" class="page-link" role="button">10</a>
       </li>
       <li class="page-item active">
-        <a href="#" aria-current="page" aria-label="Page 11" class="page-link" role="button">11</a>
+        <a aria-current="page" aria-label="Page 11" class="page-link" role="button">11</a>
       </li>
       <li class="page-item disabled">
-        <a href="#" aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item disabled">
-        <a href="#" aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 
@@ -391,7 +391,7 @@
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">Copyright &copy; 2023 <a href="https://www.zfkun.com/">zfkun.com</a>
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2024 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div>

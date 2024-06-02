@@ -8,33 +8,49 @@
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Fri, 09 Jun 2023 00:00:00 +0800</lastBuildDate><atom:link href="/tags/setup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Jun 2023 00:00:00 +0800</lastBuildDate>
+    <atom:link href="/tags/setup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac重装初始化最小习惯设置</title>
       <link>/mac-reinstall-setup.html</link>
       <pubDate>Fri, 09 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>/mac-reinstall-setup.html</guid>
-      <description>记录下 aseprite 手工编译桌面端的基本流程 (Mac)</description>
+      <description>主要记录下自己比较习惯的 Mac 系统重装后的最小化基础设置工作流</description>
     </item>
-    
+    <item>
+      <title>Mac重装初始化最小习惯设置</title>
+      <link>/mac-reinstall-setup.html</link>
+      <pubDate>Fri, 09 Jun 2023 00:00:00 +0800</pubDate>
+      <guid>/mac-reinstall-setup.html</guid>
+      <description>主要记录下自己比较习惯的 Mac 系统重装后的最小化基础设置工作流</description>
+    </item>
     <item>
       <title>Unity3D 开发环境 (VS Code 篇)</title>
       <link>/unity-development-setup-for-vscode.html</link>
       <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
-      
       <guid>/unity-development-setup-for-vscode.html</guid>
       <description>记录一些基于 vscode 的 unity 本机开发环境配置相关注意事项</description>
     </item>
-    
+    <item>
+      <title>Unity3D 开发环境 (VS Code 篇)</title>
+      <link>/unity-development-setup-for-vscode.html</link>
+      <pubDate>Mon, 10 Jan 2022 14:28:27 +0800</pubDate>
+      <guid>/unity-development-setup-for-vscode.html</guid>
+      <description>记录一些基于 vscode 的 unity 本机开发环境配置相关注意事项</description>
+    </item>
     <item>
       <title>Flutter 开发环境初始化</title>
       <link>/flutter-setup.html</link>
       <pubDate>Sun, 28 Nov 2021 18:50:51 +0800</pubDate>
-      
       <guid>/flutter-setup.html</guid>
       <description>几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧</description>
     </item>
-    
+    <item>
+      <title>Flutter 开发环境初始化</title>
+      <link>/flutter-setup.html</link>
+      <pubDate>Sun, 28 Nov 2021 18:50:51 +0800</pubDate>
+      <guid>/flutter-setup.html</guid>
+      <description>几年前的flutter项目需二次开发复用。可时过境迁、物是人非，flutter大版本跳跃、as更新、mac更换、github抽风、办公网络龟速、记忆力衰退等等因素, 发现连快速起手调试都是那么的举步维艰。决定还一些之前的欠下的技术债吧</description>
+    </item>
   </channel>
 </rss>

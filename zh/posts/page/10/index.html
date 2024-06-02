@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>文章 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="codeing life">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Zhs",
+      "item":"/zh/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"文章",
+      "item":"/zh/posts/"}]
+}
+</script>
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[{
+            "@type":"ListItem",
+            "position":  1 ,
+            "name": "神奇电池v8将PSP刷到5.00M33-4教程",
+            "description": "本教程不适用以下主机：PSP3000、PSP2000（TA88V3），这两种主机无法按照本教程制作神奇电池、无法进行刷机操作。如果你是以上两种主机，请使用5.03HEN R2进行破解。\n部分适用以下主机：PSP2000（TA88V2），这种主机无法按照本教程制作神奇电池，但如果已经拥有神奇电池，则可按照本教程进行刷机操作。\n其余PSP1000及PSP2000主机完全适用本教程。\n本教程将指导玩家制作两个东西：神奇电池以及神奇记忆棒，这两者相配合可以实现将任何好用的不好用（仅限软件层面的损坏）的PSP主机修复到5.00M33-4系统。",
+            "url": "/46.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
+            "name": "DOS命令之netstat",
+            "description": "经常调试程序需要占用80端口来跑WEB服务，可是总有乱七八糟的软件给抢了先，哎。 无奈只能自己动手查出进程 KILL 掉才行。netstat命令还算可以满足需求。 cmd\u0026gt; netstat -abn | grep :80 最后一列就是PID 这样通过任务管理器里就可以查看这个进程的详细信息了，当然还通过DOS去查看也行，不过我懒得敲了。",
+            "url": "/44.html"
+        },{
+            "@type":"ListItem",
+            "position":  3 ,
+            "name": "PS游戏大合集(内含”最终幻想”全系列原版ISO)",
+            "description": "PS游戏大合集(内含”最终幻想”全系列原版ISO) http://www.verycd.com/topics/47245/",
+            "url": "/42.html"
+        },{
+            "@type":"ListItem",
+            "position":  4 ,
+            "name": "基于OpenCV的PHP图像人脸识别技术",
+            "description": "写了一个PHP扩展openCV，只封装了两个函数，叫face_detect和face_count。openCV是一个开源的用C/C++开发的计算机图形图像库，非常强大，研究资料很齐全。本文重点是介绍如何使用php来调用其中的局部的功能。人脸侦查技术只是openCV一个应用分支。",
+            "url": "/39.html"
+        },{
+            "@type":"ListItem",
+            "position":  5 ,
+            "name": "PHP CURL函数库",
+            "description": "curl_close — 关闭一个curl会话 curl_copy_handle — 拷贝一个curl连接资源的所有内容和参数 curl_errno — 返回一个包含当前会话错误信息的数字编号 curl_error — 返回一个包含当前会话错误信息的字符串 curl_exec — 执行一个curl会话 curl_getinfo — 获取一个curl连接资源句柄的信息 curl_init — 初始化一个curl会话 curl_multi_add_handle — 向curl批处理会话中添加单独的curl句柄资源 curl_multi_close — 关闭一个批处理句柄资源 curl_multi_exec — 解析一个curl批处理句柄 curl_multi_getcontent — 返回获取的输出的文本流 curl_multi_info_read — 获取当前解析的curl的相关传输信息 curl_multi_init — 初始化一个curl批处理句柄资源 curl_multi_remove_handle — 移除curl批处理句柄资源中的某个句柄资源 curl_multi_select — Get all the sockets associated with",
+            "url": "/35.html"
+        },{
+            "@type":"ListItem",
+            "position":  6 ,
+            "name": "domdocument::domdocument() expects at least 1 parameter解决办法",
+            "description": "问题的解决方法：http://bugs.php.net/bug.php?id=45538 php5 在 windows 下运行时，不需要在 php.ini 里声明 php_domxml.dll，加个分号注释起来就行了。 If you use PHP 5 in windows, you don’t need to declare php_domxml.dll in your php.ini file. so u can give comment in the line php_domxml.dll in your php.ini file. you only need to comment it out, but do not delete the php_domxml.dll file in the ext directory.",
+            "url": "/33.html"
+        },{
+            "@type":"ListItem",
+            "position":  7 ,
+            "name": "久违了。。。",
+            "description": "昨天无意中看到《寄生前夜III》的介绍，这让我突然又怀念起高中时代孤身一人、深更半夜、冥思苦想、浴血奋战的时光了。 于是决定下载(非合盘不死机美版镜像)下来在我的小P(PSP200 5.00M33-6)上玩一把。 终于，偷鸡摸狗的下载了下来却被无尽的重启、卡屏给彻底打败了。 晚上，看龙珠的时候，不知怎么突然的想到小P中的FC软件了，总有一种感觉告诉我跟FC有点关系。 于是乎，关机、重启、进入恢复模式、调整plugin中FC为禁用、保存退出、重启、进入游戏、调出popsloader选择3.11核心进入、经典PS开机画",
+            "url": "/30.html"
+        },{
+            "@type":"ListItem",
+            "position":  8 ,
+            "name": "最新@msn.com邮箱帐号注册方法",
+            "description": "最新 @msn.com 邮箱帐号注册方法。 访问https://accountservices.passport.net/reg.srf?ns=msn.com\u0026amp;sl=1\u0026amp;lc=2052 即可",
+            "url": "/28.html"
+        },{
+            "@type":"ListItem",
+            "position":  9 ,
+            "name": "Axis 解析WSDL生成JAVA代码命令",
+            "description": "主要收藏记录使用 axis 项目部署到 tomcat 上 进入到部署目录里 tomcat安装目录/webapps/axis/WEB-INF/ 执行下面命令即可: Java -Djava.ext.dirs=lib org.apache.axis.wsdl.WSDL2Java WSDL文件地址或URL",
+            "url": "/26.html"
+        },{
+            "@type":"ListItem",
+            "position":  10 ,
+            "name": "绝体绝命都市3 试玩版",
+            "description": "《绝体绝命都市 3 破坏的城市与她的歌》（絶体絶命都市 3 壊れゆく街と彼女の歌）（ZETTAI ZETSUMEI TOSHI 3 THE FIRST SCREENS）（NPJH-90030|EC8EA5FE30E84A8C|0001|G）\n游戏名称：绝体绝命都市3：破坏的城市与她的歌 / 绝体绝命都市3：崩坏的街道与她的歌 / 绝体绝命都市3：崩坏的城市与她的歌声 / 绝体绝命都市3：晃动的歌声\n日文名称：絶体絶命都市 3 -壊れゆく街と彼女の歌-\n英文名称：Zettai Zetsumei Toshi 3 : The First Screens\n制作厂商：IREM SOFTWARE ENGINEERING INC.\n代理发行：IREM SOFTWARE ENGINEERING INC.\n游戏类型：A·AVG – Action + Adventage Game（动作＋冒险游戏）\n载体容量：UMD×1\n对应主机：Play Station Portable（プレイステーション·ポータブル）\n语言版本：日文（日版）\n发卖日期：2009年04月23日（木曜日/星期四）\n参考价格：5,040日元\n官方网站：http://www.zettai-zetsumei.com/zz3/index.html",
+            "url": "/23.html"
+        }
+    ]
+}
+</script><meta property="og:title" content="文章 | 影の域" />
+<meta property="og:type" content="website" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/zh/posts/" />
+
+
+
+
+
+<meta property="og:description" content="codeing life" />
+
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+
+
+<meta property="article:section" content="zh" />
+
+
+<link rel="alternate" type="application/rss+xml" href="/zh/posts/index.xml" title="影の域" />
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<article class="mx-6 my-8">
+    <h1 class="font-bold text-3xl text-primary-text">文章</h1>
+    
+</article>
+<div class="bg-secondary-bg rounded px-6">
+    <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/46.html" class="font-bold text-xl hover:text-eureka">神奇电池v8将PSP刷到5.00M33-4教程</a>
+</div>
+<div class="content">
+  
+    本教程不适用以下主机：PSP3000、PSP2000（TA88V3），这两种主机无法按照本教程制作神奇电池、无法进行刷机操作。如果你是以上两种主机，请使用5.03HEN R2进行破解。
+部分适用以下主机：PSP2000（TA88V2），这种主机无法按照本教程制作神奇电池，但如果已经拥有神奇电池，则可按照本教程进行刷机操作。
+其余PSP1000及PSP2000主机完全适用本教程。
+本教程将指导玩家制作两个东西：神奇电池以及神奇记忆棒，这两者相配合可以实现将任何好用的不好用（仅限软件层面的损坏）的PSP主机修复到5.00M33-4系统。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1452字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/44.html" class="font-bold text-xl hover:text-eureka">DOS命令之netstat</a>
+</div>
+<div class="content">
+  
+    经常调试程序需要占用80端口来跑WEB服务，可是总有乱七八糟的软件给抢了先，哎。 无奈只能自己动手查出进程 KILL 掉才行。netstat命令还算可以满足需求。 cmd&gt; netstat -abn | grep :80 最后一列就是PID 这样通过任务管理器里就可以查看这个进程的详细信息了，当然还通过DOS去查看也行，不过我懒得敲了。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>138字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/42.html" class="font-bold text-xl hover:text-eureka">PS游戏大合集(内含”最终幻想”全系列原版ISO)</a>
+</div>
+<div class="content">
+  
+    PS游戏大合集(内含”最终幻想”全系列原版ISO) http://www.verycd.com/topics/47245/
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>26字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/39.html" class="font-bold text-xl hover:text-eureka">基于OpenCV的PHP图像人脸识别技术</a>
+</div>
+<div class="content">
+  
+    写了一个PHP扩展openCV，只封装了两个函数，叫face_detect和face_count。openCV是一个开源的用C/C&#43;&#43;开发的计算机图形图像库，非常强大，研究资料很齐全。本文重点是介绍如何使用php来调用其中的局部的功能。人脸侦查技术只是openCV一个应用分支。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>811字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/35.html" class="font-bold text-xl hover:text-eureka">PHP CURL函数库</a>
+</div>
+<div class="content">
+  
+    curl_close — 关闭一个curl会话 curl_copy_handle — 拷贝一个curl连接资源的所有内容和参数 curl_errno — 返回一个包含当前会话错误信息的数字编号 curl_error — 返回一个包含当前会话错误信息的字符串 curl_exec — 执行一个curl会话 curl_getinfo — 获取一个curl连接资源句柄的信息 curl_init — 初始化一个curl会话 curl_multi_add_handle — 向curl批处理会话中添加单独的curl句柄资源 curl_multi_close — 关闭一个批处理句柄资源 curl_multi_exec — 解析一个curl批处理句柄 curl_multi_getcontent — 返回获取的输出的文本流 curl_multi_info_read — 获取当前解析的curl的相关传输信息 curl_multi_init — 初始化一个curl批处理句柄资源 curl_multi_remove_handle — 移除curl批处理句柄资源中的某个句柄资源 curl_multi_select — Get all the sockets associated with
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>13分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>6061字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/33.html" class="font-bold text-xl hover:text-eureka">domdocument::domdocument() expects at least 1 parameter解决办法</a>
+</div>
+<div class="content">
+  
+    问题的解决方法：http://bugs.php.net/bug.php?id=45538 php5 在 windows 下运行时，不需要在 php.ini 里声明 php_domxml.dll，加个分号注释起来就行了。 If you use PHP 5 in windows, you don’t need to declare php_domxml.dll in your php.ini file. so u can give comment in the line php_domxml.dll in your php.ini file. you only need to comment it out, but do not delete the php_domxml.dll file in the ext directory.
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>139字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/30.html" class="font-bold text-xl hover:text-eureka">久违了。。。</a>
+</div>
+<div class="content">
+  
+    昨天无意中看到《寄生前夜III》的介绍，这让我突然又怀念起高中时代孤身一人、深更半夜、冥思苦想、浴血奋战的时光了。 于是决定下载(非合盘不死机美版镜像)下来在我的小P(PSP200 5.00M33-6)上玩一把。 终于，偷鸡摸狗的下载了下来却被无尽的重启、卡屏给彻底打败了。 晚上，看龙珠的时候，不知怎么突然的想到小P中的FC软件了，总有一种感觉告诉我跟FC有点关系。 于是乎，关机、重启、进入恢复模式、调整plugin中FC为禁用、保存退出、重启、进入游戏、调出popsloader选择3.11核心进入、经典PS开机画
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>426字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/28.html" class="font-bold text-xl hover:text-eureka">最新@msn.com邮箱帐号注册方法</a>
+</div>
+<div class="content">
+  
+    最新 @msn.com 邮箱帐号注册方法。 访问https://accountservices.passport.net/reg.srf?ns=msn.com&amp;sl=1&amp;lc=2052 即可
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>92字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/26.html" class="font-bold text-xl hover:text-eureka">Axis 解析WSDL生成JAVA代码命令</a>
+</div>
+<div class="content">
+  
+    主要收藏记录使用 axis 项目部署到 tomcat 上 进入到部署目录里 tomcat安装目录/webapps/axis/WEB-INF/ 执行下面命令即可: Java -Djava.ext.dirs=lib org.apache.axis.wsdl.WSDL2Java WSDL文件地址或URL
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>80字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/23.html" class="font-bold text-xl hover:text-eureka">绝体绝命都市3 试玩版</a>
+</div>
+<div class="content">
+  
+    《绝体绝命都市 3 破坏的城市与她的歌》（絶体絶命都市 3 壊れゆく街と彼女の歌）（ZETTAI ZETSUMEI TOSHI 3 THE FIRST SCREENS）（NPJH-90030|EC8EA5FE30E84A8C|0001|G）
+游戏名称：绝体绝命都市3：破坏的城市与她的歌 / 绝体绝命都市3：崩坏的街道与她的歌 / 绝体绝命都市3：崩坏的城市与她的歌声 / 绝体绝命都市3：晃动的歌声
+日文名称：絶体絶命都市 3 -壊れゆく街と彼女の歌-
+英文名称：Zettai Zetsumei Toshi 3 : The First Screens
+制作厂商：IREM SOFTWARE ENGINEERING INC.
+代理发行：IREM SOFTWARE ENGINEERING INC.
+游戏类型：A·AVG – Action &#43; Adventage Game（动作＋冒险游戏）
+载体容量：UMD×1
+对应主机：Play Station Portable（プレイステーション·ポータブル）
+语言版本：日文（日版）
+发卖日期：2009年04月23日（木曜日/星期四）
+参考价格：5,040日元
+官方网站：http://www.zettai-zetsumei.com/zz3/index.html
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-01-16</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>6分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>2572字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+</div>
+
+
+</div>
+
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/zh/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/zh/posts/page/9/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/zh/posts/page/7/" aria-label="Page 7" class="page-link" role="button">7</a>
+      </li>
+      <li class="page-item">
+        <a href="/zh/posts/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item">
+        <a href="/zh/posts/page/9/" aria-label="Page 9" class="page-link" role="button">9</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item">
+        <a href="/zh/posts/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item">
+        <a href="/zh/posts/page/11/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/zh/posts/page/11/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2024 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+  </footer>
+</body>
+
+</html>

@@ -63,7 +63,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return &#34;&#34;; char c = &#39;\0&#39;; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j &lt; k; j&#43;&#43;) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // &#39;&#34;&#39; case 92: // &#39;\\&#39; stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 47: // &#39;/&#39; if (i == 60) stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 8: // &#39;\b&#39; stringbuffer.append(&#34;\\b&#34;); break; case 9: // &#39;\t&#39; stringbuffer.append(&#34;\\t&#34;); break; case 10: // &#39;\n&#39; stringbuffer.append(&#34;\\n&#34;); break; case 12: // &#39;\f&#39; stringbuffer.append(&#34;\\f&#34;); break; case 13: // &#39;\r&#39; stringbuffer.append(&#34;\\r&#34;); break; default: if (c = &#39;0&#39; && c &lt;= &#39;9&#39; || c = &#39;A&#39; && c &lt;= &#39;z&#39;) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(&#34;000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(&#34;\\u&#34;).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = &#34;&#34;; while (start -1) { end = unicodeStr.indexOf(&#34;\\u&#34;, start &#43; 2); if (end == -1) { if (unicodeStr.length()">
+  content="public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return &#34;&#34;; char c = &#39;\0&#39;; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j &lt; k; j&#43;&#43;) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // &#39;&#34;&#39; case 92: // &#39;\\&#39; stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 47: // &#39;/&#39; if (i == 60) stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 8: // &#39;\b&#39; stringbuffer.append(&#34;\\b&#34;); break; case 9: // &#39;\t&#39; stringbuffer.append(&#34;\\t&#34;); break; case 10: // &#39;\n&#39; stringbuffer.append(&#34;\\n&#34;); break; case 12: // &#39;\f&#39; stringbuffer.append(&#34;\\f&#34;); break; case 13: // &#39;\r&#39; stringbuffer.append(&#34;\\r&#34;); break; default: if (c &gt;= &#39;0&#39; && c &lt;= &#39;9&#39; || c &gt;= &#39;A&#39; && c &lt;= &#39;z&#39;) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(&#34;000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(&#34;\\u&#34;).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = &#34;&#34;; while (start &gt; -1) { end = unicodeStr.indexOf(&#34;\\u&#34;, start &#43; 2); if (end == -1) { if">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,10 +71,14 @@
   "itemListElement": [{
       "@type": "ListItem",
       "position": 1 ,
-      "name":"文章",
-      "item":"/posts/"},{
+      "name":"Zhs",
+      "item":"/zh/"},{
       "@type": "ListItem",
       "position": 2 ,
+      "name":"文章",
+      "item":"/zh/posts/"},{
+      "@type": "ListItem",
+      "position": 3 ,
       "name":"Java UnicodeHelper",
       "item":"/15.html"}]
 }
@@ -92,7 +96,7 @@
     },
     "headline": "Java UnicodeHelper | 影の域","datePublished": "2010-01-16T14:31:47+00:00",
     "dateModified": "2021-03-28T16:20:45+08:00",
-    "wordCount":  425 ,
+    "wordCount":  427 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -105,7 +109,7 @@
             "url": "/images/me.png"
         }
         },
-    "description": "public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return \u0022\u0022; char c = \u0027\\0\u0027; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j \u0026lt; k; j\u002b\u002b) { int i = c; c = gbString.charAt(j); switch (c) { case 34: \/\/ \u0027\u0022\u0027 case 92: \/\/ \u0027\\\\\u0027 stringbuffer.append(\u0027\\\\\u0027); stringbuffer.append(c); break; case 47: \/\/ \u0027\/\u0027 if (i == 60) stringbuffer.append(\u0027\\\\\u0027); stringbuffer.append(c); break; case 8: \/\/ \u0027\\b\u0027 stringbuffer.append(\u0022\\\\b\u0022); break; case 9: \/\/ \u0027\\t\u0027 stringbuffer.append(\u0022\\\\t\u0022); break; case 10: \/\/ \u0027\\n\u0027 stringbuffer.append(\u0022\\\\n\u0022); break; case 12: \/\/ \u0027\\f\u0027 stringbuffer.append(\u0022\\\\f\u0022); break; case 13: \/\/ \u0027\\r\u0027 stringbuffer.append(\u0022\\\\r\u0022); break; default: if (c = \u00270\u0027 \u0026\u0026 c \u0026lt;= \u00279\u0027 || c = \u0027A\u0027 \u0026\u0026 c \u0026lt;= \u0027z\u0027) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(\u0022000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(\u0022\\\\u\u0022).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = \u0022\u0022; while (start -1) { end = unicodeStr.indexOf(\u0022\\\\u\u0022, start \u002b 2); if (end == -1) { if (unicodeStr.length()"
+    "description": "public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return \u0022\u0022; char c = \u0027\\0\u0027; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j \u0026lt; k; j\u002b\u002b) { int i = c; c = gbString.charAt(j); switch (c) { case 34: \/\/ \u0027\u0022\u0027 case 92: \/\/ \u0027\\\\\u0027 stringbuffer.append(\u0027\\\\\u0027); stringbuffer.append(c); break; case 47: \/\/ \u0027\/\u0027 if (i == 60) stringbuffer.append(\u0027\\\\\u0027); stringbuffer.append(c); break; case 8: \/\/ \u0027\\b\u0027 stringbuffer.append(\u0022\\\\b\u0022); break; case 9: \/\/ \u0027\\t\u0027 stringbuffer.append(\u0022\\\\t\u0022); break; case 10: \/\/ \u0027\\n\u0027 stringbuffer.append(\u0022\\\\n\u0022); break; case 12: \/\/ \u0027\\f\u0027 stringbuffer.append(\u0022\\\\f\u0022); break; case 13: \/\/ \u0027\\r\u0027 stringbuffer.append(\u0022\\\\r\u0022); break; default: if (c \u003e= \u00270\u0027 \u0026\u0026 c \u0026lt;= \u00279\u0027 || c \u003e= \u0027A\u0027 \u0026\u0026 c \u0026lt;= \u0027z\u0027) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(\u0022000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(\u0022\\\\u\u0022).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = \u0022\u0022; while (start \u003e -1) { end = unicodeStr.indexOf(\u0022\\\\u\u0022, start \u002b 2); if (end == -1) { if"
 }
 </script><meta property="og:title" content="Java UnicodeHelper | 影の域" />
 <meta property="og:type" content="article" />
@@ -119,7 +123,7 @@
 
 
 
-<meta property="og:description" content="public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return &#34;&#34;; char c = &#39;\0&#39;; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j &lt; k; j&#43;&#43;) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // &#39;&#34;&#39; case 92: // &#39;\\&#39; stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 47: // &#39;/&#39; if (i == 60) stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 8: // &#39;\b&#39; stringbuffer.append(&#34;\\b&#34;); break; case 9: // &#39;\t&#39; stringbuffer.append(&#34;\\t&#34;); break; case 10: // &#39;\n&#39; stringbuffer.append(&#34;\\n&#34;); break; case 12: // &#39;\f&#39; stringbuffer.append(&#34;\\f&#34;); break; case 13: // &#39;\r&#39; stringbuffer.append(&#34;\\r&#34;); break; default: if (c = &#39;0&#39; && c &lt;= &#39;9&#39; || c = &#39;A&#39; && c &lt;= &#39;z&#39;) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(&#34;000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(&#34;\\u&#34;).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = &#34;&#34;; while (start -1) { end = unicodeStr.indexOf(&#34;\\u&#34;, start &#43; 2); if (end == -1) { if (unicodeStr.length()" />
+<meta property="og:description" content="public class UnicodeHelper { public static String encode(String gbString) { if (gbString == null || gbString.length() == 0) return &#34;&#34;; char c = &#39;\0&#39;; int k = gbString.length(); StringBuffer stringbuffer = new StringBuffer(k); for (int j = 0; j &lt; k; j&#43;&#43;) { int i = c; c = gbString.charAt(j); switch (c) { case 34: // &#39;&#34;&#39; case 92: // &#39;\\&#39; stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 47: // &#39;/&#39; if (i == 60) stringbuffer.append(&#39;\\&#39;); stringbuffer.append(c); break; case 8: // &#39;\b&#39; stringbuffer.append(&#34;\\b&#34;); break; case 9: // &#39;\t&#39; stringbuffer.append(&#34;\\t&#34;); break; case 10: // &#39;\n&#39; stringbuffer.append(&#34;\\n&#34;); break; case 12: // &#39;\f&#39; stringbuffer.append(&#34;\\f&#34;); break; case 13: // &#39;\r&#39; stringbuffer.append(&#34;\\r&#34;); break; default: if (c &gt;= &#39;0&#39; && c &lt;= &#39;9&#39; || c &gt;= &#39;A&#39; && c &lt;= &#39;z&#39;) { stringbuffer.append(c); } else { String s1 = (new StringBuilder()).append(&#34;000″).append(Integer.toHexString(c)).toString(); stringbuffer.append(&#34;\\u&#34;).append(s1.substring(s1.length() – 4)); } break; } } return stringbuffer.toString(); } private static String decode(final String unicodeStr) { int start = 0, end = 0; final StringBuffer buffer = new StringBuffer(); String charStr = &#34;&#34;; while (start &gt; -1) { end = unicodeStr.indexOf(&#34;\\u&#34;, start &#43; 2); if (end == -1) { if" />
 
 
 
@@ -143,7 +147,7 @@
 
 
 
-<meta property="article:section" content="posts" />
+<meta property="article:section" content="zh" />
 
 
 
@@ -238,7 +242,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>425字</span>
+        <span>427字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -361,9 +365,7 @@
  }
 
 }
-</code></pre><blockquote>
-</blockquote>
-
+</code></pre>
         </div>
         
         
@@ -500,7 +502,7 @@
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">Copyright &copy; 2023 <a href="https://www.zfkun.com/">zfkun.com</a>
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2024 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div>

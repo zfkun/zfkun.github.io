@@ -95,8 +95,8 @@
         "@id": "/mac-reinstall-setup.html"
     },
     "headline": "Mac重装初始化最小习惯设置 | 影の域","datePublished": "2023-06-09T00:00:00+08:00",
-    "dateModified": "2023-09-06T18:10:39+08:00",
-    "wordCount":  828 ,
+    "dateModified": "2024-06-02T10:49:10+08:00",
+    "wordCount":  838 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -143,7 +143,7 @@
 <meta property="article:published_time" content="2023-06-09T00:00:00&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2023-09-06T18:10:39&#43;08:00" />
+<meta property="article:modified_time" content="2024-06-02T10:49:10&#43;08:00" />
 
 
 
@@ -262,7 +262,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>828字</span>
+        <span>838字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -388,6 +388,7 @@ export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 
 # go
+export PATH=&quot;$PATH:/Users/zfkun/go/bin&quot;
 
 # flutter
 # ...
@@ -399,7 +400,7 @@ export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 # ...
 
 # unity
-# ...
+export PATH=&quot;$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin&quot;
 
 # godot
 # ...
@@ -481,6 +482,9 @@ fvm use stable
 <p>gvm 安装 1.20 以上版本, 需要先安装 <strong>低版本</strong> 用于自身编译, 过程太繁琐</p>
 </blockquote>
 <pre><code class="language-shell">brew install go
+
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.cn,direct
 </code></pre>
 <h3 id="rust">Rust</h3>
 <p>官方 <a href="https://www.rust-lang.org/zh-CN/tools/install">rustup</a> 管理</p>

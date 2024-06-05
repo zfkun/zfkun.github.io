@@ -10,6 +10,34 @@
 </copyright>
     <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>homebrew</title>
+      <link>/categories/homebrew/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0800</pubDate>
+      <guid>/categories/homebrew/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>linux</title>
+      <link>/categories/linux/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0800</pubDate>
+      <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mac</title>
+      <link>/categories/mac/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0800</pubDate>
+      <guid>/categories/mac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>tech</title>
+      <link>/categories/tech/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0800</pubDate>
+      <guid>/categories/tech/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>chrome</title>
       <link>/categories/chrome/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
@@ -17,31 +45,10 @@
       <description></description>
     </item>
     <item>
-      <title>linux</title>
-      <link>/categories/linux/</link>
-      <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      <guid>/categories/linux/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>nginx</title>
       <link>/categories/nginx/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
       <guid>/categories/nginx/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>tech</title>
-      <link>/categories/tech/</link>
-      <pubDate>Wed, 29 Nov 2023 00:00:00 +0800</pubDate>
-      <guid>/categories/tech/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>mac</title>
-      <link>/categories/mac/</link>
-      <pubDate>Mon, 04 Sep 2023 00:00:00 +0800</pubDate>
-      <guid>/categories/mac/</guid>
       <description></description>
     </item>
     <item>

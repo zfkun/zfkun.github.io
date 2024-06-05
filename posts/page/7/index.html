@@ -75,63 +75,63 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "前端资源文件缓存清除一法",
+            "description": "\u003cp\u003e|\n对于前端开发来说，经常要面对JS，CSS，图片等资源的缓存更新问题（CDN永久缓存的就另当别论）。\u003c/p\u003e\n\u003cp\u003e大部分情况，为了节省服务器压力及带宽且又不失可维护性，习惯对这些资源文件添加比较久的缓存时间，这样就给前端开发人员带来一个自动更新的棘手问题。\u003c/p\u003e\n\u003cp\u003e其实，较简单的解决办法，就是固定周期或有条件的或每次（这样要缓存何用？）的增加随机数击穿缓存，强制更新即可。\u003c/p\u003e\n\u003cp\u003e这里说一个也较为简单的方式，利用AJAX的访问来更新本地缓存。\u003c/p\u003e\n\u003cp\u003e原理很简单，使用http协议的 If-Modified-Since 和 Cache-Control 两个header头参数即可。\u003c/p\u003e\n",
+            "url": "/147.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "现在",
             "description": "疲惫、累、烦。",
             "url": "/145.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "IE6+和FF的CSS Hack",
             "description": "一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) 2, IE6/IE77对FireFox *+html 与 *html 是IE特有的标签, firefox 暂不支持.而*+html 又为 IE7特有标签. 注意: *+html 对IE7的HACK 必须保证HTML顶部有如下声明： \u003c!DOCTYPE HTML PUBLIC \u0026#8220;-//W3C//DTD HTML 4.01 Transitional//EN\u0026#8221; \u0026#8221;http://www.w3.org/TR/html4/loose.dtd\u0026#8221;\u003e 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global CSS 中,给需要闭合的div加上 即可,屡试不爽. 三、其他兼容技巧(再次啰嗦) 1, F",
             "url": "/142.html"
         },{
             "@type":"ListItem",
-            "position":  3 ,
+            "position":  4 ,
             "name": "JavaScript的valueOf和toString",
             "description": "JavaScript中valueOf函数方法是返回指定对象的原始值。JavaScript中toString函数方法是返回对象的字符串表示",
             "url": "/140.html"
         },{
             "@type":"ListItem",
-            "position":  4 ,
+            "position":  5 ,
             "name": "Data URI 和 MHTML",
             "description": "Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。\nMHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。",
             "url": "/138.html"
         },{
             "@type":"ListItem",
-            "position":  5 ,
+            "position":  6 ,
             "name": "挑战 hax.tor.hu 申请带ssh的免费php+mysql空间",
             "description": "hax.tor.hu 是一家提供带ssh的免费php+mysql虚拟主机的空间服务商，而且它的SSH隧道是开通的,但是想获得这一免费午餐，却让我大伤脑筋，因为它要求通 过它的五道变态难题才行",
             "url": "/135.html"
         },{
             "@type":"ListItem",
-            "position":  6 ,
+            "position":  7 ,
             "name": "5 个简单实用的 CSS 属性",
             "description": "这篇文章介绍了 5 个实用的 CSS 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。",
             "url": "/131.html"
         },{
             "@type":"ListItem",
-            "position":  7 ,
+            "position":  8 ,
             "name": "PureMVC Standard for JavaScript",
             "description": "PureMVC is a lightweight framework for creating applications based upon the classic  Model-View-Controller design meta-pattern. This is the specific implementation for the JavaScript language.",
             "url": "/127.html"
         },{
             "@type":"ListItem",
-            "position":  8 ,
+            "position":  9 ,
             "name": "contains vs compareDocumentPosition",
             "description": "一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）",
             "url": "/125.html"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "JS闭包之词法作用域",
             "description": "var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic",
             "url": "/117.html"
-        },{
-            "@type":"ListItem",
-            "position":  10 ,
-            "name": "Comet—“服务器推”技术",
-            "description": "Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。",
-            "url": "/115.html"
         }
     ]
 }
@@ -252,6 +252,56 @@
 </article>
 <div class="bg-secondary-bg rounded px-6">
     <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/147.html" class="font-bold text-xl hover:text-eureka">前端资源文件缓存清除一法</a>
+</div>
+<div class="content">
+  
+    | 对于前端开发来说，经常要面对JS，CSS，图片等资源的缓存更新问题（CDN永久缓存的就另当别论）。
+大部分情况，为了节省服务器压力及带宽且又不失可维护性，习惯对这些资源文件添加比较久的缓存时间，这样就给前端开发人员带来一个自动更新的棘手问题。
+其实，较简单的解决办法，就是固定周期或有条件的或每次（这样要缓存何用？）的增加随机数击穿缓存，强制更新即可。
+这里说一个也较为简单的方式，利用AJAX的访问来更新本地缓存。
+原理很简单，使用http协议的 If-Modified-Since 和 Cache-Control 两个header头参数即可。
+
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-11-25</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>611字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
   
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
@@ -639,51 +689,6 @@ MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由R
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
         <span>5055字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/115.html" class="font-bold text-xl hover:text-eureka">Comet—“服务器推”技术</a>
-</div>
-<div class="content">
-  
-    Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2010-03-03</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>4分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>1693字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>

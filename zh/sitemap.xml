@@ -3,7 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/authors/</loc>
-    <lastmod>2024-06-02T10:49:10+08:00</lastmod>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/brew/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/homebrew/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/homebrew/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/mac/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/mac/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/make/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/openssl/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/tech/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/zh/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/old-mac-openssl-install.html</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/old-mac-openssl-install.html</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2024-06-04T00:00:00+08:00</lastmod>
   </url><url>
     <loc>/tags/bug/</loc>
     <lastmod>2023-12-01T19:08:27+08:00</lastmod>
@@ -20,29 +59,14 @@
     <loc>/chrome-ssl-protocol-error.html</loc>
     <lastmod>2023-12-01T19:08:27+08:00</lastmod>
   </url><url>
-    <loc>/categories/linux/</loc>
-    <lastmod>2023-12-26T22:15:19+08:00</lastmod>
-  </url><url>
     <loc>/tags/nginx/</loc>
     <lastmod>2023-12-01T19:08:27+08:00</lastmod>
   </url><url>
     <loc>/categories/nginx/</loc>
     <lastmod>2023-12-01T19:08:27+08:00</lastmod>
   </url><url>
-    <loc>/tags/openssl/</loc>
-    <lastmod>2023-12-01T19:08:27+08:00</lastmod>
-  </url><url>
     <loc>/tags/ssl/</loc>
     <lastmod>2023-12-01T19:08:27+08:00</lastmod>
-  </url><url>
-    <loc>/categories/tech/</loc>
-    <lastmod>2023-12-26T22:15:19+08:00</lastmod>
-  </url><url>
-    <loc>/zh/</loc>
-    <lastmod>2024-06-02T10:49:10+08:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2024-06-02T10:49:10+08:00</lastmod>
   </url><url>
     <loc>/tags/app/</loc>
     <lastmod>2023-09-06T12:00:00+08:00</lastmod>
@@ -58,12 +82,6 @@
   </url><url>
     <loc>/tags/compile/</loc>
     <lastmod>2023-09-06T12:00:00+08:00</lastmod>
-  </url><url>
-    <loc>/tags/mac/</loc>
-    <lastmod>2024-06-02T10:49:10+08:00</lastmod>
-  </url><url>
-    <loc>/categories/mac/</loc>
-    <lastmod>2024-06-02T10:49:10+08:00</lastmod>
   </url><url>
     <loc>/categories/develop/</loc>
     <lastmod>2023-09-02T12:00:00+08:00</lastmod>
@@ -117,16 +135,16 @@
     <lastmod>2023-12-26T22:15:19+08:00</lastmod>
   </url><url>
     <loc>/mac-reinstall-setup.html</loc>
-    <lastmod>2024-06-02T10:49:10+08:00</lastmod>
+    <lastmod>2024-06-02T12:12:56+08:00</lastmod>
   </url><url>
     <loc>/mac-reinstall-setup.html</loc>
-    <lastmod>2024-06-02T10:49:10+08:00</lastmod>
+    <lastmod>2024-06-02T12:12:56+08:00</lastmod>
   </url><url>
     <loc>/tags/reinstall/</loc>
-    <lastmod>2024-06-02T10:49:10+08:00</lastmod>
+    <lastmod>2024-06-02T12:12:56+08:00</lastmod>
   </url><url>
     <loc>/tags/setup/</loc>
-    <lastmod>2024-06-02T10:49:10+08:00</lastmod>
+    <lastmod>2024-06-02T12:12:56+08:00</lastmod>
   </url><url>
     <loc>/tags/blender/</loc>
     <lastmod>2022-03-13T10:07:02+08:00</lastmod>

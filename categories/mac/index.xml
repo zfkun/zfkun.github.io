@@ -8,8 +8,22 @@
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2024 00:00:00 +0800</lastBuildDate>
     <atom:link href="/categories/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>老旧Mac 以 homebrew 安装 ffmpeg 失败的问题及解决</title>
+      <link>/old-mac-ffmpeg-install.html</link>
+      <pubDate>Wed, 05 Jun 2024 00:00:00 +0800</pubDate>
+      <guid>/old-mac-ffmpeg-install.html</guid>
+      <description>接上回, ffmpeg 安装也是波折不断, 险象环生</description>
+    </item>
+    <item>
+      <title>老旧Mac 以 homebrew 安装 ffmpeg 失败的问题及解决</title>
+      <link>/old-mac-ffmpeg-install.html</link>
+      <pubDate>Wed, 05 Jun 2024 00:00:00 +0800</pubDate>
+      <guid>/old-mac-ffmpeg-install.html</guid>
+      <description>接上回, ffmpeg 安装也是波折不断, 险象环生</description>
+    </item>
     <item>
       <title>老旧Mac 以 homebrew 安装 openssl@3 失败的问题及解决</title>
       <link>/old-mac-openssl-install.html</link>

@@ -10,6 +10,13 @@
 </copyright>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>immich 机器学习模型问题</title>
+      <link>/immich-machine-learning-model.html</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>/immich-machine-learning-model.html</guid>
+      <description>爱玩 AIO 的垃圾佬们, 一般都 用过 或 在用 immich, 记录下机器学习模型相关问题</description>
+    </item>
+    <item>
       <title>老旧Mac 以 homebrew 安装 ffmpeg 失败的问题及解决</title>
       <link>/old-mac-ffmpeg-install.html</link>
       <pubDate>Wed, 05 Jun 2024 00:00:00 +0800</pubDate>

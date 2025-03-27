@@ -2,44 +2,71 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/categories/aio/</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
+  </url><url>
     <loc>/authors/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>/tags/brew/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
+    <loc>/tags/docker/</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>/tags/ffmpeg/</loc>
-    <lastmod>2024-06-05T00:00:00+08:00</lastmod>
+    <loc>/tags/gfw/</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>/tags/homebrew/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
+    <loc>/tags/huggingface/</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>/categories/homebrew/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
+    <loc>/tags/immich/</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>/categories/linux/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
+    <loc>/immich-machine-learning-model.html</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>/tags/mac/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
+    <loc>/immich-machine-learning-model.html</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>/categories/mac/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
+    <loc>/tags/model/</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/nas/</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
     <loc>/categories/tech/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
     <loc>/zh/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
-  </url><url>
-    <loc>/old-mac-ffmpeg-install.html</loc>
-    <lastmod>2024-06-05T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>/old-mac-ffmpeg-install.html</loc>
-    <lastmod>2024-06-05T00:00:00+08:00</lastmod>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2024-06-05T08:59:42+08:00</lastmod>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/brew/</loc>
+    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
+  </url><url>
+    <loc>/tags/ffmpeg/</loc>
+    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
+  </url><url>
+    <loc>/tags/homebrew/</loc>
+    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
+  </url><url>
+    <loc>/categories/homebrew/</loc>
+    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
+  </url><url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
+  </url><url>
+    <loc>/tags/mac/</loc>
+    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
+  </url><url>
+    <loc>/categories/mac/</loc>
+    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
+  </url><url>
+    <loc>/old-mac-ffmpeg-install.html</loc>
+    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
+  </url><url>
+    <loc>/old-mac-ffmpeg-install.html</loc>
+    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
   </url><url>
     <loc>/tags/make/</loc>
     <lastmod>2024-06-05T08:59:42+08:00</lastmod>
@@ -132,9 +159,6 @@
     <lastmod>2023-12-26T22:15:19+08:00</lastmod>
   </url><url>
     <loc>/categories/macos/</loc>
-    <lastmod>2023-12-26T22:15:19+08:00</lastmod>
-  </url><url>
-    <loc>/tags/model/</loc>
     <lastmod>2023-12-26T22:15:19+08:00</lastmod>
   </url><url>
     <loc>/tags/stable-diffusion/</loc>

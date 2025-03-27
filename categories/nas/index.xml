@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nas on 影の域</title>
+    <link>/categories/nas/</link>
+    <description>Recent content in nas on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 24 Mar 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="/categories/nas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>immich 机器学习模型问题</title>
+      <link>/immich-machine-learning-model.html</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>/immich-machine-learning-model.html</guid>
+      <description>爱玩 AIO 的垃圾佬们, 一般都 用过 或 在用 immich, 记录下机器学习模型相关问题</description>
+    </item>
+    <item>
+      <title>immich 机器学习模型问题</title>
+      <link>/immich-machine-learning-model.html</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>/immich-machine-learning-model.html</guid>
+      <description>爱玩 AIO 的垃圾佬们, 一般都 用过 或 在用 immich, 记录下机器学习模型相关问题</description>
+    </item>
+  </channel>
+</rss>

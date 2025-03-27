@@ -10,6 +10,41 @@
 </copyright>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>gfw</title>
+      <link>/tags/gfw/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/gfw/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>huggingface</title>
+      <link>/tags/huggingface/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/huggingface/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>immich</title>
+      <link>/tags/immich/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/immich/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>model</title>
+      <link>/tags/model/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/model/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>brew</title>
       <link>/tags/brew/</link>
       <pubDate>Wed, 05 Jun 2024 00:00:00 +0800</pubDate>
@@ -126,13 +161,6 @@
       <link>/tags/comfyui/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
       <guid>/tags/comfyui/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>model</title>
-      <link>/tags/model/</link>
-      <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      <guid>/tags/model/</guid>
       <description></description>
     </item>
     <item>

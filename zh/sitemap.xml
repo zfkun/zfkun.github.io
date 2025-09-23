@@ -2,11 +2,71 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/categories/aio/</loc>
-    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
+    <loc>/tags/3dprint/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/categories/3dprint/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/tags/ams/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/categories/ams/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/ams-lite-tiny.html</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/ams-lite-tiny.html</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
   </url><url>
     <loc>/authors/</loc>
-    <lastmod>2025-08-10T13:57:45+08:00</lastmod>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/categories/mcu/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/tags/pcb/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/tags/rp2040/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/tags/rs485/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/zh/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2025-09-23T12:27:22+08:00</lastmod>
+  </url><url>
+    <loc>/tags/ai/</loc>
+    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/ai/</loc>
+    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/esp32/</loc>
+    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/mcu/</loc>
+    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/xiaozhi/</loc>
+    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/xiaozhi/</loc>
+    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/xiaozhi-ai-zfkun-s3.html</loc>
+    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/xiaozhi-ai-zfkun-s3.html</loc>
+    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/aio/</loc>
+    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
     <loc>/tags/docker/</loc>
     <lastmod>2025-03-24T00:00:00+08:00</lastmod>
@@ -34,12 +94,6 @@
   </url><url>
     <loc>/categories/tech/</loc>
     <lastmod>2025-03-24T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>/zh/</loc>
-    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2025-08-10T13:57:45+08:00</lastmod>
   </url><url>
     <loc>/tags/brew/</loc>
     <lastmod>2024-06-06T13:14:32+08:00</lastmod>
@@ -142,12 +196,6 @@
   </url><url>
     <loc>/unreal-mac-bug.html</loc>
     <lastmod>2023-09-02T12:00:00+08:00</lastmod>
-  </url><url>
-    <loc>/tags/ai/</loc>
-    <lastmod>2023-12-26T22:15:19+08:00</lastmod>
-  </url><url>
-    <loc>/categories/ai/</loc>
-    <lastmod>2023-12-26T22:15:19+08:00</lastmod>
   </url><url>
     <loc>/ai-basic-setup.html</loc>
     <lastmod>2023-12-26T22:15:19+08:00</lastmod>

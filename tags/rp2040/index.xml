@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rp2040 on 影の域</title>
+    <link>/tags/rp2040/</link>
+    <description>Recent content in rp2040 on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 01 Sep 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="/tags/rp2040/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AMS Lite Tiny</title>
+      <link>/ams-lite-tiny.html</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>/ams-lite-tiny.html</guid>
+      <description>玩3D打印的, 对于多色打印, AMS 都不陌生, DIY圈子里的 AMS Lite 更是DIY热门, 自己也设计并开源了一个针对 TOP-AMS 的 485方案分支的二次开发板子, 用于手上只有 树莓派RP2040 Pico H 的用户</description>
+    </item>
+    <item>
+      <title>AMS Lite Tiny</title>
+      <link>/ams-lite-tiny.html</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>/ams-lite-tiny.html</guid>
+      <description>玩3D打印的, 对于多色打印, AMS 都不陌生, DIY圈子里的 AMS Lite 更是DIY热门, 自己也设计并开源了一个针对 TOP-AMS 的 485方案分支的二次开发板子, 用于手上只有 树莓派RP2040 Pico H 的用户</description>
+    </item>
+  </channel>
+</rss>

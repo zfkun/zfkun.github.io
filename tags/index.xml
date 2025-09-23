@@ -10,6 +10,69 @@
 </copyright>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>3dprint</title>
+      <link>/tags/3dprint/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/3dprint/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ams</title>
+      <link>/tags/ams/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/ams/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>pcb</title>
+      <link>/tags/pcb/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/pcb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>rp2040</title>
+      <link>/tags/rp2040/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/rp2040/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>rs485</title>
+      <link>/tags/rs485/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/rs485/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ai</title>
+      <link>/tags/ai/</link>
+      <pubDate>Fri, 15 Aug 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>esp32</title>
+      <link>/tags/esp32/</link>
+      <pubDate>Fri, 15 Aug 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/esp32/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mcu</title>
+      <link>/tags/mcu/</link>
+      <pubDate>Fri, 15 Aug 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/mcu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>xiaozhi</title>
+      <link>/tags/xiaozhi/</link>
+      <pubDate>Fri, 15 Aug 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/xiaozhi/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>docker</title>
       <link>/tags/docker/</link>
       <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
@@ -147,13 +210,6 @@
       <link>/tags/unreal/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0800</pubDate>
       <guid>/tags/unreal/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>ai</title>
-      <link>/tags/ai/</link>
-      <pubDate>Sat, 10 Jun 2023 00:00:00 +0800</pubDate>
-      <guid>/tags/ai/</guid>
       <description></description>
     </item>
     <item>

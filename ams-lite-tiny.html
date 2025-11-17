@@ -143,8 +143,8 @@
         "@id": "/ams-lite-tiny.html"
     },
     "headline": "AMS Lite Tiny | 影の域","datePublished": "2025-09-01T00:00:00+08:00",
-    "dateModified": "2025-09-23T12:48:11+08:00",
-    "wordCount":  549 ,
+    "dateModified": "2025-11-17T08:57:58+08:00",
+    "wordCount":  720 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -191,7 +191,7 @@
 <meta property="article:published_time" content="2025-09-01T00:00:00&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2025-09-23T12:48:11&#43;08:00" />
+<meta property="article:modified_time" content="2025-11-17T08:57:58&#43;08:00" />
 
 
 
@@ -310,7 +310,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>549字</span>
+        <span>720字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -348,20 +348,30 @@
 <p>对于喜欢DIY的电子爱好佬们来说, 能自己手搓 AMS 更是 乐趣无穷 (<code>省钱</code>).</p>
 <p>业界比较知名的:</p>
 <ul>
-<li><a href="https://github.com/applenana/AP-AMS">AP-AMS</a> (老牌, 已停止维护, 分支较多: HA, 串口, FakeAMSLite)</li>
-<li><a href="https://github.com/muzixiaoyang/KMS/">KMS</a> (目前存活, 硬件复杂, 工程化程度很高, 成本很高, 就不预计了, 玩不起)</li>
-<li><a href="https://bmcu.wanzii.cn">BMCU</a> (目前存活, 较成熟完善, 成本稍高, 入门小白预计要 250 元左右)</li>
-<li>TOP-AMS (目前存活, 新秀, 还在快速发展, 成本很低, 入门小白预计 50 元左右)</li>
-</ul>
-<p>自己也DIY了 BMCU (主) 和 TOP-AMS (辅),  都还不错.</p>
-<ul>
-<li>BMCU</li>
-</ul>
+<li>
+<p><a href="https://github.com/applenana/AP-AMS">AP-AMS</a> (老牌, 已停止维护, 分支较多: HA, 串口, FakeAMSLite)</p>
+</li>
+<li>
+<p><a href="https://github.com/muzixiaoyang/KMS/">KMS</a> (目前存活, 硬件复杂, 工程化程度很高, 成本很高, 就不预计了, 玩不起)</p>
+</li>
+<li>
+<p><a href="https://bmcu.wanzii.cn">BMCU</a> (目前存活, 较成熟完善, 成本稍高, 入门小白预计要 250 元左右)</p>
+<blockquote>
 <p>可修改迭代的空间已经不大了, 比较完善够用了, 能稳定工作</p>
-<ul>
-<li>TOP</li>
-</ul>
+<p>最新的已发展到 <code>BMCU Pro</code> 了, 基于 双微动, 加了 主动回卷, 一体式集成料箱</p>
+</blockquote>
+</li>
+<li>
+<p>TOP-AMS (目前存活, 新秀, 还在快速发展, 成本很低, 入门小白预计 50 元左右)</p>
+<blockquote>
+<p>自己也DIY了 BMCU (主) 和 TOP-AMS (辅),  都还不错.</p>
+</blockquote>
+<blockquote>
 <p>做了 N20 版, WEB 固件我还顺便二次开发了 <a href="https://github.com/zfkun/Top-AMS/releases">自定义通道时间</a> 版本 (感兴趣的可以烧录试试)</p>
+</blockquote>
+</li>
+</ul>
+<p>长久来看, 还是 <code>BMCU</code> 更稳一些, <code>TOP</code> 毕竟还是基于 MQTT 的 限制也是显而易见的.</p>
 <h2 id="ams-lite-tiny">AMS Lite Tiny</h2>
 <p>TOP-AMS 发展较快, 期间分支了很多 方案分支 (TT, N20, 电磁, 485 等, 各有所长),</p>
 <p>其中 <code>485方案</code>, 群友设计了一个版本 (主控采用 <code>树莓派 rp2040 zero</code>)</p>
@@ -374,10 +384,15 @@
 <p><img src="/uploads/2025/09/ams-lite-tiny-1.png" alt="成品图"></p>
 <ul>
 <li>
-<p>主控 树莓派 RP2040 Pico H</p>
+<p>主控 <a href="https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-family">树莓派 RP2040 Pico H</a></p>
 </li>
 <li>
 <p>支持 4个电机驱动 即 8通道 (电机)</p>
+<blockquote>
+<p>注意: 由于模拟的还是 AMS Lite, 所以</p>
+<p>A1 目前还只能4通道 (空出来的IO, 可以干别的用, 也不算浪费)</p>
+<p>P1 应该是可以16通道 (与 BMCU一样, 刷 A, B, C, D 不同固件)</p>
+</blockquote>
 </li>
 <li>
 <p>丰富外设扩展接口</p>
@@ -400,6 +415,10 @@
 <p><a href="https://oshwhub.com/z_1_z/ams-lite-tiny">https://oshwhub.com/z_1_z/ams-lite-tiny</a></p>
 <h3 id="固件">固件</h3>
 <p>需要些时间, 整理完开源发出来</p>
+<blockquote>
+<p>后续固件更新, 已经放到 <a href="https://pan.quark.cn/s/583978cbe1a2?pwd=n6JX">夸克网盘</a> 中, 方便更新维护</p>
+<p>也顺手建了交流群: <a href="https://jq.qq.com/?_wv=1023&amp;k=1056053877">QQ群: 1056053877</a></p>
+</blockquote>
 <h3 id="外壳">外壳</h3>
 <p>暂时没设计, 有时间了会做一个</p>
 
@@ -511,6 +530,9 @@
         
 <div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
     <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/pve-haos-recovery.html" class="block">PVE 下 Home Assistant OS 掉电内核损坏之无损恢复</a>
         
     </div>
     <div class="md:text-right mt-4 md:mt-0">

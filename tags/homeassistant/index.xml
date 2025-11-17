@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>homeassistant on 影の域</title>
+    <link>/tags/homeassistant/</link>
+    <description>Recent content in homeassistant on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 14 Nov 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PVE 下 Home Assistant OS 掉电内核损坏之无损恢复</title>
+      <link>/pve-haos-recovery.html</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/pve-haos-recovery.html</guid>
+      <description>说来也寸, 碰上小区停电闪断, PVE 异常掉电竟然导致 Home Assistant 虚拟机内核损坏无法启动, 经过谨慎的处理算是无损的恢复回来</description>
+    </item>
+    <item>
+      <title>PVE 下 Home Assistant OS 掉电内核损坏之无损恢复</title>
+      <link>/pve-haos-recovery.html</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/pve-haos-recovery.html</guid>
+      <description>说来也寸, 碰上小区停电闪断, PVE 异常掉电竟然导致 Home Assistant 虚拟机内核损坏无法启动, 经过谨慎的处理算是无损的恢复回来</description>
+    </item>
+  </channel>
+</rss>

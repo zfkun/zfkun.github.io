@@ -123,65 +123,65 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "动态生成windows快捷方式文件",
+            "description": "近期改版中涉及到此小需求。就看了下，其实挺简单，这里就做个简单记录，不需要分析了。简单的使用了PHP语言（其他也一样），扩展性很容易做（稍微做点可变处理就行），所以就没去刻意做，写死效率最高 - -。",
+            "url": "/223.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "HTML5 canvas 初级入门教程",
             "description": "HTML5 canvas 即HTML5画布，是一个现代浏览器都支持的HTML5非插件绘图的功能，本文将展示如何通过HTML5 canvas API操作canvas元素、绘制图形、改变绘图颜色以及删除图形，让我们开始进入这很酷的新技术的短暂旅行吧。",
             "image": "/uploads/2011/03/5444647417_e731191271-500x350.jpg",
             "url": "/220.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "如何检测HTML表单已经发生改变",
             "description": "表单是Web应用不可缺少的功能，它是服务器端与浏览器端数据交换的最基本的方法。你应该已经读过很多关于HTML5和Javascript的表单标签和数据验证的文章，今天我们来讨论下如何检查表单数据是否被改变了。",
             "url": "/218.html"
         },{
             "@type":"ListItem",
-            "position":  3 ,
+            "position":  4 ,
             "name": "Javascript浏览器另类探测技巧",
             "description": "下面是一些另类的但挺高效的浏览器探测技巧，主要利用了各浏览器的私有特征完成。",
             "image": "/uploads/2011/03/browsers.jpg",
             "url": "/216.html"
         },{
             "@type":"ListItem",
-            "position":  4 ,
+            "position":  5 ,
             "name": "JavaScript Memory Leak Detector (v2)",
             "description": "JavaScript Memory Leak Detector (download) is a debugging tool to detect memory leaks and enforce best practices in JavaScript code when working with version of Internet Explorer older than IE8.",
             "url": "/211.html"
         },{
             "@type":"ListItem",
-            "position":  5 ,
+            "position":  6 ,
             "name": "webkit的自定义图片滚动条",
             "description": "http://trac.webkit.org/export/41842/trunk/LayoutTests/scrollbars/overflow-scrollbar-combinations.html 非常不错, only webkit的话，还是不错的。",
             "url": "/208.html"
         },{
             "@type":"ListItem",
-            "position":  6 ,
+            "position":  7 ,
             "name": "欺骗IE不出现Flash激活框的小发现",
             "description": "大家都知道欺骗IE不出现Flash激活框的方法很简单 只要在页面上面引入一个js文件，然后用js来控制flash的html代码输出即可。 但是如果我们的脚本是动态加载的就会有两种情况，看以下代码 var s = docuemnt.createElement(\u0026#8220;script\u0026#8221;); s.src = src; docuemnt.getElementsByTagName(\u0026#8220;head\u0026#8221;)[0].appendChild(s); var s = docuemnt.createElement(\u0026#8220;script\u0026#8221;); docuemnt.getElementsByTagName(\u0026#8220;head\u0026#8221;)[0].appendChild(s); s.src = src; 一眼看下去这两断代码执行结果上面差不多。但是有一段代码无法欺骗IE，引入的js输出flash会出现激活框。 这两断唯一区别就是 先给 script 对象的src赋值 再 append到head。还是先append再赋值。我做了实验，只有先给 script 的src 赋值再 append 到页面上面就可以欺骗IE了。",
             "url": "/205.html"
         },{
             "@type":"ListItem",
-            "position":  7 ,
+            "position":  8 ,
             "name": "Google 的疯狂面试题",
             "description": "Google 的疯狂面试题",
             "url": "/202.html"
         },{
             "@type":"ListItem",
-            "position":  8 ,
+            "position":  9 ,
             "name": "XHR与浏览器导航冲突解决方案",
             "description": "最早没有 xhr 的时候，要想得到无刷新的用户体验，唯一的方法就是隐藏帧技术（frame） ,发展到现在的 iframe，这个技术仍然有它的使用场景，即在文件上传以及 简单情况下浏览器的前进后退导航功能 上。",
             "url": "/199.html"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "Repaint 跟踪浏览器的渲染",
             "description": "前端优化，从很久就开始了。随着研究的深入，关注的点就越来越多。最近也有不少的前端开发同学在研究浏览器的Reflow和Repaint",
             "url": "/196.html"
-        },{
-            "@type":"ListItem",
-            "position":  10 ,
-            "name": "ECMAScript 5与HTML5的支持情况",
-            "description": "ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。",
-            "url": "/192.html"
         }
     ]
 }
@@ -302,6 +302,51 @@
 </article>
 <div class="bg-secondary-bg rounded px-6">
     <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/223.html" class="font-bold text-xl hover:text-eureka">动态生成windows快捷方式文件</a>
+</div>
+<div class="content">
+  
+    近期改版中涉及到此小需求。就看了下，其实挺简单，这里就做个简单记录，不需要分析了。简单的使用了PHP语言（其他也一样），扩展性很容易做（稍微做点可变处理就行），所以就没去刻意做，写死效率最高 - -。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-04-02</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>125字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
   
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
@@ -696,51 +741,6 @@
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
         <span>371字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/192.html" class="font-bold text-xl hover:text-eureka">ECMAScript 5与HTML5的支持情况</a>
-</div>
-<div class="content">
-  
-    ECMAScript 5与HTML5离我们越来越近了，触摸屏相关的API开发中，未来的web世界更加多姿多彩。
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2011-03-20</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>4分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>1945字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>

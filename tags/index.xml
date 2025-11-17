@@ -10,6 +10,55 @@
 </copyright>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>ha</title>
+      <link>/tags/ha/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/ha/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>haos</title>
+      <link>/tags/haos/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/haos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>homeassistant</title>
+      <link>/tags/homeassistant/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/homeassistant/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>pve</title>
+      <link>/tags/pve/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/pve/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>recovery</title>
+      <link>/tags/recovery/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/recovery/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>vm</title>
+      <link>/tags/vm/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/tags/vm/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>3dprint</title>
       <link>/tags/3dprint/</link>
       <pubDate>Mon, 01 Sep 2025 00:00:00 +0800</pubDate>

@@ -2,44 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/3dprint/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
-  </url><url>
-    <loc>/categories/3dprint/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
-  </url><url>
-    <loc>/tags/ams/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
-  </url><url>
-    <loc>/categories/ams/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
-  </url><url>
-    <loc>/ams-lite-tiny.html</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
-  </url><url>
-    <loc>/ams-lite-tiny.html</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
-  </url><url>
     <loc>/authors/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
   </url><url>
-    <loc>/categories/mcu/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
+    <loc>/tags/ha/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
   </url><url>
-    <loc>/tags/pcb/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
+    <loc>/categories/ha/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
   </url><url>
-    <loc>/tags/rp2040/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
+    <loc>/tags/haos/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
   </url><url>
-    <loc>/tags/rs485/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
+    <loc>/tags/homeassistant/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/pve/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/categories/pve/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/pve-haos-recovery.html</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/pve-haos-recovery.html</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/recovery/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/vm/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
   </url><url>
     <loc>/zh/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2025-09-23T12:48:11+08:00</lastmod>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/3dprint/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/categories/3dprint/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/ams/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/categories/ams/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/ams-lite-tiny.html</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/ams-lite-tiny.html</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/categories/mcu/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/pcb/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/rp2040/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
+  </url><url>
+    <loc>/tags/rs485/</loc>
+    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
   </url><url>
     <loc>/tags/ai/</loc>
     <lastmod>2025-09-20T00:00:00+08:00</lastmod>
@@ -105,9 +141,6 @@
     <lastmod>2024-06-06T13:14:32+08:00</lastmod>
   </url><url>
     <loc>/categories/homebrew/</loc>
-    <lastmod>2024-06-06T13:14:32+08:00</lastmod>
-  </url><url>
-    <loc>/categories/linux/</loc>
     <lastmod>2024-06-06T13:14:32+08:00</lastmod>
   </url><url>
     <loc>/tags/mac/</loc>

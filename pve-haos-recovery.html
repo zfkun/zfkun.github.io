@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>PVE 下 Home Assistant OS 掉电内核损坏之无损恢复 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/python.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/arduino.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/c.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/cpp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/csharp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/java.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/lua.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/css.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/rust.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/scss.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/less.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/powershell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/json.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="说来也寸, 碰上小区停电闪断, PVE 异常掉电竟然导致 Home Assistant 虚拟机内核损坏无法启动, 经过谨慎的处理算是无损的恢复回来">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Zhs",
+      "item":"/zh/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"文章",
+      "item":"/zh/posts/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"PVE 下 Home Assistant OS 掉电内核损坏之无损恢复",
+      "item":"/pve-haos-recovery.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/pve-haos-recovery.html"
+    },
+    "headline": "PVE 下 Home Assistant OS 掉电内核损坏之无损恢复 | 影の域","datePublished": "2025-11-14T00:00:00+08:00",
+    "dateModified": "2025-11-17T08:57:58+08:00",
+    "wordCount":  2293 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "说来也寸, 碰上小区停电闪断, PVE 异常掉电竟然导致 Home Assistant 虚拟机内核损坏无法启动, 经过谨慎的处理算是无损的恢复回来"
+}
+</script><meta property="og:title" content="PVE 下 Home Assistant OS 掉电内核损坏之无损恢复 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/pve-haos-recovery.html" />
+
+
+
+
+<meta property="og:description" content="说来也寸, 碰上小区停电闪断, PVE 异常掉电竟然导致 Home Assistant 虚拟机内核损坏无法启动, 经过谨慎的处理算是无损的恢复回来" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2025-11-14T00:00:00&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2025-11-17T08:57:58&#43;08:00" />
+
+
+
+<meta property="article:section" content="zh" />
+
+
+<meta property="article:tag" content="ha" />
+
+<meta property="article:tag" content="haos" />
+
+<meta property="article:tag" content="homeassistant" />
+
+<meta property="article:tag" content="vm" />
+
+<meta property="article:tag" content="pve" />
+
+<meta property="article:tag" content="linux" />
+
+
+
+
+
+<meta property="og:see_also" content="/pve-haos-recovery.html" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">PVE 下 Home Assistant OS 掉电内核损坏之无损恢复</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2025-11-14</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>5分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>2293字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/ha/" class="hover:text-eureka">ha</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/pve/" class="hover:text-eureka">pve</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/linux/" class="hover:text-eureka">linux</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p><code>PVE</code> 玩久了总是要面对各种软硬件问题的, 这次就碰上了小区停电闪断, <code>PVE</code> 异常掉电导致 <code>Home Assistant</code> 虚拟机 <strong>内核损坏</strong> 无法启动的问题</p>
+<h2 id="问题">问题</h2>
+<p><strong>RT</strong></p>
+<blockquote>
+<p>没有现场截图了.</p>
+<p>问题比较清晰, 突发的异常掉电导致了 VM 内的内核出现损坏, 无法正常驱动进入</p>
+</blockquote>
+<h2 id="方案">方案</h2>
+<p>不外乎就2个选择:</p>
+<ol>
+<li>
+<p>重装VM, 数据从日常自动备份重新导入</p>
+<p>日常备份文件, 是经过加密处理的, 如果密钥保存不当, 或一时找不到密钥, 就比较尴尬</p>
+<p>而且, 全新重装导入, 很多非备份范畴的配置和修改, 就还得重新处理一遍</p>
+<p>费事费力, 且不能保证最新 (备份是周期计划性的, 肯定不如刚掉电前的状态新)</p>
+</li>
+<li>
+<p>尝试修复内核</p>
+<p>不过没那么简单, 这得从 Home Assistant OS 的特性说起</p>
+<p><code>Home Assistant OS 分区结构</code></p>
+<pre><code>-------------------------
+|       Boot            |
+-------------------------
+|       Kernel A        |
+-------------------------
+|       System A        |
+|                       |
+-------------------------
+|       Kernel B        |
+-------------------------
+|       System B        |
+|                       |
+-------------------------
+|       Bootstate       |
+-------------------------
+|       Overlay         |
+|                       |
+...
+
+-------------------------
+|       Data            |
+|                       |
+|                       |
+-------------------------
+</code></pre>
+<blockquote>
+<p>系统分区相关分区基本都是只读的</p>
+<p>数据分区是可读写的</p>
+</blockquote>
+<p>🧩 Home Assistant OS 的实际磁盘布局（以 16.x 系列为例）</p>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>用途</th>
+<th>文件系统类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>EFI</td>
+<td>FAT32</td>
+</tr>
+<tr>
+<td>2</td>
+<td>bootloader</td>
+<td>FAT32</td>
+</tr>
+<tr>
+<td>3</td>
+<td>kernel A</td>
+<td>ext4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>kernel B</td>
+<td>ext4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>rootfs A</td>
+<td>squashfs</td>
+</tr>
+<tr>
+<td>6</td>
+<td>rootfs B</td>
+<td>squashfs</td>
+</tr>
+<tr>
+<td>7</td>
+<td>overlay（运行层）</td>
+<td>ext4</td>
+</tr>
+<tr>
+<td>8</td>
+<td>data（持久化配置区）</td>
+<td>ext4 或 overlayfs/ext4</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h2 id="动手">动手</h2>
+<p>实在不想重装&amp;配置 (可能是上年纪了把, 原本爱折腾的特质开始弱化了)</p>
+<p>选择 <code>方案2</code></p>
+<blockquote>
+<p>要相信, 办法总是会比困难多的</p>
+</blockquote>
+<h3 id="思路">思路</h3>
+<p>替换掉虚拟磁盘损坏的系统分区, 保留 <code>Data</code> 数据分区原样不动</p>
+<h3 id="前提">前提</h3>
+<p><code>Data</code> 数据分区没有一起损坏, 还可以正常挂载读取, 否则就只能靠 <code>方案1</code> 了</p>
+<ol>
+<li>查看磁盘分区表</li>
+</ol>
+<pre><code class="language-shell">fdisk -l /var/lib/vz/images/101/vm-101-disk-0.raw
+</code></pre>
+<blockquote>
+<p><code>101</code> 是 HA 的虚拟机ID</p>
+</blockquote>
+<p>输出正常 (万幸)</p>
+<pre><code class="language-shell">Disk /var/lib/vz/images/101/vm-101-disk-0.raw: 32 GiB, 34359738368 bytes, 67108864 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 9F098C70-481C-402E-9A1E-B755A4C55342
+
+Device                                      Start      End  Sectors  Size Type
+/var/lib/vz/images/101/vm-101-disk-0.raw1    2048    67583    65536   32M EFI System
+/var/lib/vz/images/101/vm-101-disk-0.raw2   67584   116735    49152   24M Linux filesystem
+/var/lib/vz/images/101/vm-101-disk-0.raw3  116736   641023   524288  256M Linux filesystem
+/var/lib/vz/images/101/vm-101-disk-0.raw4  641024   690175    49152   24M Linux filesystem
+/var/lib/vz/images/101/vm-101-disk-0.raw5  690176  1214463   524288  256M Linux filesystem
+/var/lib/vz/images/101/vm-101-disk-0.raw6 1214464  1230847    16384    8M Linux filesystem
+/var/lib/vz/images/101/vm-101-disk-0.raw7 1230848  1427455   196608   96M Linux filesystem
+/var/lib/vz/images/101/vm-101-disk-0.raw8 1427456 67108830 65681375 31.3G Linux filesystem
+</code></pre>
+<blockquote>
+<p>可以看出, 第8个分区是 <code>Data</code> 数据分区, 前7个分区覆盖重置就可以了</p>
+</blockquote>
+<ol start="2">
+<li>准备新的 Home Assistant OS 虚拟机用于提取</li>
+</ol>
+<p>访问 <a href="https://www.home-assistant.io/installation/alternative/">官方下载页面</a> 下载 KVM/Proxmox 的镜像</p>
+<p>并 SCP 到 PVE 主机, 用于新建导入</p>
+<pre><code class="language-shell"># 例如, 我重新下载的目前最新镜像: haos_ova-16.3.qcow2.xz
+scp pve:/tmp/haos_ova-16.3.qcow2.xz haos_ova-16.3.qcow2.xz
+</code></pre>
+<p>登录 pve, 解压镜像</p>
+<pre><code class="language-shell">ssh pve
+cd /tmp
+xz -d haos_ova-16.3.qcow2.xz
+</code></pre>
+<p>创建虚拟机</p>
+<ul>
+<li>节点: local</li>
+<li>VM ID: 系统指派即可 (比如 <code>108</code>)</li>
+<li>BIOS: <code>OVMF (UEFI)</code></li>
+<li>磁盘: 不添加</li>
+<li>CPU, 内存, 网络 都随意</li>
+</ul>
+<p>导入 HAOS 镜像</p>
+<pre><code class="language-shell">qm import /tmp/haos_ova-16.3.qcow2 108
+</code></pre>
+<blockquote>
+<p>导入成功后, 硬件列表里会显示新的未使用的磁盘 <code>local:108/vm-108-disk-0.raw</code></p>
+</blockquote>
+<p>添加磁盘</p>
+<pre><code class="language-shell">qm set 108 --scsihw virtio-scsi-pci --scsi0 local:vm-108-disk-0
+</code></pre>
+<blockquote>
+<p>也可以在管理页面操作添加</p>
+</blockquote>
+<blockquote>
+<p>新建虚拟机不需要开机</p>
+</blockquote>
+<p>一切继续, 准备正式操作</p>
+<h3 id="执行">执行</h3>
+<p>停止虚拟机 (新旧2个虚拟机都要保证停止状态)</p>
+<pre><code class="language-shell">pct stop 101
+pct stop 108
+</code></pre>
+<p>备份虚拟磁盘 (保险起见, 非必须)</p>
+<pre><code class="language-shell">cp --reflink=auto /var/lib/vz/images/101/vm-101-disk-0.raw /var/lib/vz/images/101/vm-101-disk-0.raw.bak
+
+# 或用 dd（更可靠但慢）
+# dd if=/var/lib/vz/images/101/vm-101-disk-0.raw of=/var/lib/vz/images/101/vm-101-disk-0.raw.bak bs=4M status=progress conv=fsync
+</code></pre>
+<p>加载 nbd 模块</p>
+<pre><code class="language-shell">modprobe nbd max_part=16
+</code></pre>
+<blockquote>
+<p>这会在 <code>/dev/</code> 下创建 <code>/dev/nbd0</code> ~ <code>/dev/nbd15</code>, 用于挂载 qcow2 分区</p>
+<p>参数 max_part 表示最多支持的分区数</p>
+</blockquote>
+<p>挂载 旧磁盘 和 新磁盘</p>
+<ul>
+<li>旧磁盘: /var/lib/vz/images/101/vm-101-disk-0.raw</li>
+<li>新磁盘: /var/lib/vz/images/108/vm-108-disk-0.raw</li>
+</ul>
+<pre><code class="language-shell">qemu-nbd --connect=/dev/nbd0 /var/lib/vz/images/101/vm-101-disk-0.raw
+qemu-nbd --connect=/dev/nbd1 /var/lib/vz/images/101/vm-101-disk-0.raw
+</code></pre>
+<p>查看分区状态</p>
+<pre><code class="language-shell">fdisk -l /dev/nbd0
+fdisk -l /dev/nbd1
+</code></pre>
+<blockquote>
+<p>会分别列出对应磁盘的  <code>/dev/nbd0p1</code> ~ <code>/dev/nbd0p8</code> 8个分区</p>
+<p>其中旧磁盘的第8个分区 (<code>/dev/nbd0p8</code>) 就是 <code>Data</code> 数据分区 (后续操作务必小心 不要覆盖这个分区)</p>
+</blockquote>
+<p>克隆新磁盘前7个分区分别覆盖到旧磁盘对应分区</p>
+<pre><code class="language-shell">dd if=/dev/nbd1p1 of=/dev/nbd0p1 bs=4M status=progress
+dd if=/dev/nbd1p2 of=/dev/nbd0p2 bs=4M status=progress
+dd if=/dev/nbd1p3 of=/dev/nbd0p3 bs=4M status=progress
+dd if=/dev/nbd1p4 of=/dev/nbd0p4 bs=4M status=progress
+dd if=/dev/nbd1p5 of=/dev/nbd0p5 bs=4M status=progress
+dd if=/dev/nbd1p6 of=/dev/nbd0p6 bs=4M status=progress
+dd if=/dev/nbd1p7 of=/dev/nbd0p7 bs=4M status=progress
+</code></pre>
+<blockquote>
+<p>一定注意, 不要覆盖 <code>/dev/nbd0p8</code></p>
+</blockquote>
+<p>覆盖替换完成, 断开 NBD</p>
+<pre><code class="language-shell">qemu-nbd --disconnect /dev/nbd0
+qemu-nbd --disconnect /dev/nbd1
+</code></pre>
+<p>结束, 启动原HA虚拟机即可恢复正常</p>
+<h2 id="脚本">脚本</h2>
+<p>折腾半天, 还是总结成脚本, 方便日后万一还需要的话, 快速处理</p>
+<pre><code class="language-shell">#!/bin/bash
+# ha_restore_101_from_108.sh
+# 使用说明: sudo ./ha_restore_101_from_108.sh
+# 该脚本会：
+#  - 备份旧 VM101 的磁盘镜像（完整拷贝到 .bak）
+#  - 使用 qemu-nbd 连接 VM101(old) 和 VM108(new) 磁盘
+#  - 将 VM108 的 p1..p7 逐个 dd 覆盖到 VM101 的 p1..p7（不触碰 p8）
+#  - 断开 nbd 并尝试启动 VM101
+#
+# 请先确保 VM 101 和 VM 108 均为 stopped 状态，并且宿主机有足够磁盘空间做备份。
+set -euo pipefail
+
+######### 用户可修改的变量（如果你的路径不同，请改这里） #########
+VM_OLD=101
+VM_NEW=108
+
+# 映像文件位置（Proxmox 默认路径）
+IMG_OLD=&quot;/var/lib/vz/images/${VM_OLD}/vm-${VM_OLD}-disk-0.raw&quot;
+IMG_NEW=&quot;/var/lib/vz/images/${VM_NEW}/vm-${VM_NEW}-disk-0.raw&quot;
+
+# 备份文件（会占用与IMG_OLD相同空间）
+BACKUP=&quot;${IMG_OLD}.backup.$(date +%s).raw&quot;
+
+# nbd 设备
+NBD_OLD=&quot;/dev/nbd0&quot;
+NBD_NEW=&quot;/dev/nbd1&quot;
+
+#########################################################################
+
+if [ &quot;$(id -u)&quot; -ne 0 ]; then
+  echo &quot;请以 root 运行此脚本（sudo）。&quot;
+  exit 1
+fi
+
+echo &quot;==== 检查 VM 状态 ====&quot;
+qm status $VM_OLD || true
+qm status $VM_NEW || true
+echo &quot;请确认两台 VM（$VM_OLD 和 $VM_NEW）都已停止。若未停止请 Ctrl-C 并先停止它们。&quot;
+read -p &quot;确认两台 VM 已停止并继续？(y/n) &quot; yn
+if [ &quot;$yn&quot; != &quot;y&quot; ]; then
+  echo &quot;已取消&quot;
+  exit 1
+fi
+
+# 检查镜像文件存在
+for f in &quot;$IMG_OLD&quot; &quot;$IMG_NEW&quot;; do
+  if [ ! -e &quot;$f&quot; ]; then
+    echo &quot;错误: 找不到镜像文件 $f&quot;
+    exit 1
+  fi
+done
+
+echo &quot;==== 备份旧磁盘（可能很大，耐心等待） ====&quot;
+echo &quot;备份 $IMG_OLD -&gt; $BACKUP&quot;
+# 先检查是否已经有足够空间（粗略检查）
+avail=$(df --output=avail -k /var | tail -n1)
+size_kb=$(du -k &quot;$IMG_OLD&quot; | cut -f1)
+if [ &quot;$avail&quot; -lt &quot;$size_kb&quot; ]; then
+  echo &quot;警告: 可用空间不足以保存完整备份 ($avail KB available, $size_kb KB needed).&quot;
+  read -p &quot;仍要继续备份吗？(y/n) &quot; yn
+  if [ &quot;$yn&quot; != &quot;y&quot; ]; then
+    echo &quot;已取消&quot;
+    exit 1
+  fi
+fi
+
+# 做备份（使用 dd，可改为 cp 或其他）
+dd if=&quot;$IMG_OLD&quot; of=&quot;$BACKUP&quot; bs=4M status=progress conv=fsync
+echo &quot;备份完成: $BACKUP&quot;
+
+echo &quot;==== 加载 nbd 模块 ====&quot;
+modprobe nbd max_part=16
+sleep 1
+
+echo &quot;==== 连接镜像为 nbd 设备 ====&quot;
+qemu-nbd --connect=&quot;$NBD_OLD&quot; --format=raw &quot;$IMG_OLD&quot;
+qemu-nbd --connect=&quot;$NBD_NEW&quot; --format=qcow2 &quot;$IMG_NEW&quot;
+sleep 1
+
+echo &quot;==== 列出分区（核对） ====&quot;
+fdisk -l &quot;$NBD_OLD&quot;
+fdisk -l &quot;$NBD_NEW&quot;
+
+echo &quot;请再次确认：将覆盖 VM $VM_OLD 的 p1..p7（系统分区），**不会**覆盖 p8（data）。&quot;
+read -p &quot;确认继续覆盖 p1..p7 吗？(y/n) &quot; yn
+if [ &quot;$yn&quot; != &quot;y&quot; ]; then
+  echo &quot;取消操作，断开 nbd 并退出...&quot;
+  qemu-nbd --disconnect &quot;$NBD_OLD&quot; || true
+  qemu-nbd --disconnect &quot;$NBD_NEW&quot; || true
+  exit 1
+fi
+
+echo &quot;==== 开始按分区逐个 dd 覆盖（显示进度） ====&quot;
+for part in 1 2 3 4 5 6 7; do
+  src=&quot;${NBD_NEW}p${part}&quot;
+  dst=&quot;${NBD_OLD}p${part}&quot;
+  if [ ! -b &quot;$src&quot; ]; then
+    echo &quot;错误: 源分区不存在: $src&quot;
+    qemu-nbd --disconnect &quot;$NBD_OLD&quot; || true
+    qemu-nbd --disconnect &quot;$NBD_NEW&quot; || true
+    exit 1
+  fi
+  if [ ! -b &quot;$dst&quot; ]; then
+    echo &quot;错误: 目标分区不存在: $dst&quot;
+    qemu-nbd --disconnect &quot;$NBD_OLD&quot; || true
+    qemu-nbd --disconnect &quot;$NBD_NEW&quot; || true
+    exit 1
+  fi
+
+  echo &quot;覆盖 p${part}: dd if=$src of=$dst ...&quot;
+  dd if=&quot;$src&quot; of=&quot;$dst&quot; bs=4M status=progress conv=fsync || {
+    echo &quot;错误: dd 失败 for p${part}&quot;
+    qemu-nbd --disconnect &quot;$NBD_OLD&quot; || true
+    qemu-nbd --disconnect &quot;$NBD_NEW&quot; || true
+    exit 1
+  }
+  sync
+done
+
+echo &quot;==== 完成覆盖，断开 nbd 设备 ====&quot;
+qemu-nbd --disconnect &quot;$NBD_OLD&quot;
+qemu-nbd --disconnect &quot;$NBD_NEW&quot;
+
+echo &quot;==== 启动 VM $VM_OLD ====&quot;
+qm start $VM_OLD
+
+echo &quot;完成：已启动 VM $VM_OLD。请到 PVE 控制台观察启动过程与日志（或在 PVE 控制台查看串口台）。&quot;
+echo &quot;若启动失败，请不要 panic，先将 $BACKUP 恢复为原始磁盘或联系我继续排查。&quot;
+
+exit 0
+</code></pre>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/ha/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#ha</a>
+    
+    <a href="/tags/haos/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#haos</a>
+    
+    <a href="/tags/homeassistant/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#homeassistant</a>
+    
+    <a href="/tags/vm/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#vm</a>
+    
+    <a href="/tags/pve/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#pve</a>
+    
+    <a href="/tags/linux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#linux</a>
+    
+    <a href="/tags/recovery/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#recovery</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/ams-lite-tiny.html" class="block">AMS Lite Tiny</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题">问题</a></li>
+    <li><a href="#方案">方案</a></li>
+    <li><a href="#动手">动手</a>
+      <ul>
+        <li><a href="#思路">思路</a></li>
+        <li><a href="#前提">前提</a></li>
+        <li><a href="#执行">执行</a></li>
+      </ul>
+    </li>
+    <li><a href="#脚本">脚本</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="/pve-haos-recovery.html">PVE 下 Home Assistant OS 掉电内核损坏之无损恢复</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2025 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+  </footer>
+</body>
+
+</html>

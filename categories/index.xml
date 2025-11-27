@@ -10,17 +10,38 @@
 </copyright>
     <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ha</title>
-      <link>/categories/ha/</link>
-      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>/categories/ha/</guid>
+      <title>ai</title>
+      <link>/categories/ai/</link>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/categories/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>linux</title>
       <link>/categories/linux/</link>
-      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0800</pubDate>
       <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>tech</title>
+      <link>/categories/tech/</link>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/categories/tech/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>windows</title>
+      <link>/categories/windows/</link>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/categories/windows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ha</title>
+      <link>/categories/ha/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/categories/ha/</guid>
       <description></description>
     </item>
     <item>
@@ -52,13 +73,6 @@
       <description></description>
     </item>
     <item>
-      <title>ai</title>
-      <link>/categories/ai/</link>
-      <pubDate>Fri, 15 Aug 2025 00:00:00 +0800</pubDate>
-      <guid>/categories/ai/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>xiaozhi</title>
       <link>/categories/xiaozhi/</link>
       <pubDate>Fri, 15 Aug 2025 00:00:00 +0800</pubDate>
@@ -77,13 +91,6 @@
       <link>/categories/nas/</link>
       <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
       <guid>/categories/nas/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>tech</title>
-      <link>/categories/tech/</link>
-      <pubDate>Mon, 24 Mar 2025 00:00:00 +0800</pubDate>
-      <guid>/categories/tech/</guid>
       <description></description>
     </item>
     <item>

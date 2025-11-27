@@ -2,7 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/ai/</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/ai/</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
     <loc>/authors/</loc>
+    <lastmod>2025-11-27T08:23:02+08:00</lastmod>
+  </url><url>
+    <loc>/tags/comfyui/</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/comfyui-tiny-setup.html</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/comfyui-tiny-setup.html</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/model/</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/tags/setup/</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/tech/</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/categories/windows/</loc>
+    <lastmod>2025-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>/zh/</loc>
+    <lastmod>2025-11-27T08:23:02+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
     <lastmod>2025-11-27T08:23:02+08:00</lastmod>
   </url><url>
     <loc>/tags/ha/</loc>
@@ -18,9 +54,6 @@
     <lastmod>2025-11-17T08:57:58+08:00</lastmod>
   </url><url>
     <loc>/tags/linux/</loc>
-    <lastmod>2025-11-17T08:57:58+08:00</lastmod>
-  </url><url>
-    <loc>/categories/linux/</loc>
     <lastmod>2025-11-17T08:57:58+08:00</lastmod>
   </url><url>
     <loc>/tags/pve/</loc>
@@ -40,12 +73,6 @@
   </url><url>
     <loc>/tags/vm/</loc>
     <lastmod>2025-11-17T08:57:58+08:00</lastmod>
-  </url><url>
-    <loc>/zh/</loc>
-    <lastmod>2025-11-27T08:23:02+08:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2025-11-27T08:23:02+08:00</lastmod>
   </url><url>
     <loc>/tags/3dprint/</loc>
     <lastmod>2025-11-27T08:23:02+08:00</lastmod>
@@ -76,12 +103,6 @@
   </url><url>
     <loc>/tags/rs485/</loc>
     <lastmod>2025-11-27T08:23:02+08:00</lastmod>
-  </url><url>
-    <loc>/tags/ai/</loc>
-    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>/categories/ai/</loc>
-    <lastmod>2025-09-20T00:00:00+08:00</lastmod>
   </url><url>
     <loc>/tags/esp32/</loc>
     <lastmod>2025-09-20T00:00:00+08:00</lastmod>
@@ -122,13 +143,7 @@
     <loc>/immich-machine-learning-model.html</loc>
     <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>/tags/model/</loc>
-    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
-  </url><url>
     <loc>/categories/nas/</loc>
-    <lastmod>2025-03-24T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>/categories/tech/</loc>
     <lastmod>2025-03-24T00:00:00+08:00</lastmod>
   </url><url>
     <loc>/tags/brew/</loc>
@@ -236,9 +251,6 @@
     <loc>/ai-basic-setup.html</loc>
     <lastmod>2023-12-26T22:15:19+08:00</lastmod>
   </url><url>
-    <loc>/tags/comfyui/</loc>
-    <lastmod>2023-12-26T22:15:19+08:00</lastmod>
-  </url><url>
     <loc>/categories/macos/</loc>
     <lastmod>2023-12-26T22:15:19+08:00</lastmod>
   </url><url>
@@ -255,9 +267,6 @@
     <lastmod>2024-06-02T12:12:56+08:00</lastmod>
   </url><url>
     <loc>/tags/reinstall/</loc>
-    <lastmod>2024-06-02T12:12:56+08:00</lastmod>
-  </url><url>
-    <loc>/tags/setup/</loc>
     <lastmod>2024-06-02T12:12:56+08:00</lastmod>
   </url><url>
     <loc>/tags/blender/</loc>

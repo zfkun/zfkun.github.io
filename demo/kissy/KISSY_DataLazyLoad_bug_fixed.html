@@ -39,7 +39,8 @@
         </div>
         </div>
 
-        <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+        <!-- <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script> -->
+        <script src="./1.2.0/kissy-min.js"></script>
         <script>
             KISSY.ready(function(S) {
                 // Native Event
@@ -63,7 +64,7 @@
                     S.augment(DataLazyload, {
                         _initLoadEvent: function () {
                             var self = this, resizeHandler,
-                                // ¼ÓÔØÑÓ³ÙÏîresizeHandler
+                                // ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½resizeHandler
                                 loadItems = function () {
                                     self._loadItems();
                                     if (self._getItemsLength() === 0) {
@@ -71,10 +72,10 @@
                                         Event.remove(win, RESIZE, resizeHandler);
                                     }
                                 },
-                                // ¼ÓÔØº¯Êý
+                                // ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½
                                 loader = S.buffer(loadItems, DURATION, this);
 
-                            // scroll ºÍ resize Ê±£¬¼ÓÔØÍ¼Æ¬
+                            // scroll ï¿½ï¿½ resize Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
                             Event.on(win, SCROLL, loader);
                             
                             ///////////////////// fixed start //////////////////
@@ -84,7 +85,7 @@
                             });
                             ///////////////////// fixed end ////////////////////
 
-                            // ÐèÒªÁ¢¼´¼ÓÔØÒ»´Î£¬ÒÔ±£Ö¤µÚÒ»ÆÁµÄÑÓ³ÙÏî¿É¼û
+                            // ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î£ï¿½ï¿½Ô±ï¿½Ö¤ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½É¼ï¿½
                             if (self._getItemsLength()) S.ready(loadItems);
                         }
                     });

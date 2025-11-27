@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>window.open() 句柄保持及重连 - Parent Window | Demo演示 | 影の域</title>
+<style type="text/css" src="/static/css/reset-min.css"></style>
+<style type="text/css">
+body {font-size: 18px;}
+.adsense {text-align:center;}
+</style>
+<script type="text/javascript">//document.domain = 'zfkun.com';</script>
+</head>
+<body>
+
+<script type="text/javascript">
+var openWinName = 'childWin',
+    openWinUrl = 'child.html',
+    openWinOptions = 'height=400,width=800',
+    openWinHandler = null;
+
+function doOpen() {
+    if (openWinHandler) {
+        if (!openWinHandler.closed) {
+            doLog(openWinUrl + ' window exist');
+            openWinHandler.focus();
+        } else {
+        	doLog(openWinUrl + ' has closed, to reconnect it...');
+            openWinHandler = window.open(openWinUrl, openWinName, openWinOptions);
+        }
+    } else {
+    	doLog(openWinUrl + ' does\'nt exist or current window has reloaded ?');
+    	
+        openWinHandler = window.open("", openWinName, openWinOptions);
+		
+		// becaseful crossdomain url, may throw exception when access location.href
+        if (openWinHandler.location.href === 'about:blank') {
+        	doLog('child window no exist, to open it...');
+            openWinHandler = window.open(openWinUrl, openWinName, openWinOptions);
+        } else {
+        	doLog('child window exist(only current window has reloaded), to focus it...');
+            openWinHandler.doReconnect();
+            openWinHandler.focus();
+        }
+    }
+}
+function doReload() { location.reload() }
+function doLeave() { location.href = 'http://html5.so' }
+function doClose() { window.close() }
+function doLog(msg) { document.getElementById('loger').value += msg + "\n"; }
+</script>
+
+<div style="text-align:center;">
+    <h1>Parent Window</h1>
+    <div style="text-align:center;margin:20px 0;">
+        <a href="#" onclick="doOpen();return false">open</a>
+        <a href="#" onclick="doReload();return false">reload</a>
+        <a href="#" onclick="doLeave();return false">leave</a>
+        <a href="#" onclick="doClose();return false">close</a>
+    </div>
+    <textarea id="loger" cols="90" rows="10"></textarea>
+</div>
+
+<div class="adsense">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2950544153986345";
+google_ad_slot = "4341512254";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div>
+
+<script type="text/javascript" src="/static/stat.js"></script>
+</body>
+</html>

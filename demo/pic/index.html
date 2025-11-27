@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>突破图片防盗链DEMO(PHP + JS) &#8211; 影の域</title>
+<link rel="search" type="application/opensearchdescription+xml" title="影の域搜索" href="http://www.zfkun.com/opensearch.xml" />
+<link rel="alternate" type="application/rss+xml" href="http://www.zfkun.com/blog/index.php/feed" title="影の域 最新文章" />
+<link rel="alternate" type="application/rss+xml" href="http://www.zfkun.com/blog/index.php/comments/feed" title="影の域 最新评论" />
+<link rel="pingback" href="http://www.zfkun.com/blog/xmlrpc.php" />
+<link rel='archives' title='2011 年五月' href='http://www.zfkun.com/blog/index.php/archives/date/2011/05' /> 
+<link rel='archives' title='2011 年四月' href='http://www.zfkun.com/blog/index.php/archives/date/2011/04' /> 
+<link rel='archives' title='2011 年三月' href='http://www.zfkun.com/blog/index.php/archives/date/2011/03' /> 
+<link rel='archives' title='2011 年一月' href='http://www.zfkun.com/blog/index.php/archives/date/2011/01' /> 
+<link rel='archives' title='2010 年十二月' href='http://www.zfkun.com/blog/index.php/archives/date/2010/12' /> 
+<link rel='archives' title='2010 年十一月' href='http://www.zfkun.com/blog/index.php/archives/date/2010/11' /> 
+<link rel='archives' title='2010 年四月' href='http://www.zfkun.com/blog/index.php/archives/date/2010/04' /> 
+<link rel='archives' title='2010 年三月' href='http://www.zfkun.com/blog/index.php/archives/date/2010/03' /> 
+<link rel='archives' title='2010 年二月' href='http://www.zfkun.com/blog/index.php/archives/date/2010/02' /> 
+<link rel='archives' title='2010 年一月' href='http://www.zfkun.com/blog/index.php/archives/date/2010/01' />
+
+
+<script>
+// add by me
+function showPic(url, noCache) {
+	var h, n = +new Date, u = url + (noCache === false ? '' : (/\?/.test(url) ? '&' : '?') + Math.random());
+
+	showPic[n] = '<img src="' + u + '">';
+
+	h = '<iframe _pic="' + u + '" marginwidth=0 marginheight=0 scrolling="no" frameborder="0" src="javascript:parent.showPic[\'' + n + '\'];" onload="javascript:var x=this.contentWindow.document.images[0];this.width=x.width;this.height=x.height;"></iframe>';
+	
+	document.write(h);
+}
+</script>
+</head>
+<body>
+
+<div style="float:left;">
+<h2><span style="color: #ff0000;">简易破图片盗链(PHP)</span></h2>
+<p>http://zfkun.com/api/pic/</p>
+<p><strong>u</strong> 图片url (urlencode)&nbsp;[, <strong>t</strong> 图片扩展名 (小写)]</p>
+<p><strong>举例</strong>：</p>
+<p>
+<a href="http://hiphotos.baidu.com/%D3%B0%D6%AE%C3%D4%BB%F3/abpic/item/220281437a575a4b9213c65f.jpg" target="_blank" title="百度原图"><img src="http://hiphotos.baidu.com/%D3%B0%D6%AE%C3%D4%BB%F3/abpic/item/220281437a575a4b9213c65f.jpg" alt="百度原图" /></a> 
+<a href="http://zfkun.com/api/pic/?u=http%3A%2F%2Fhiphotos.baidu.com%2F%25D3%25B0%25D6%25AE%25C3%25D4%25BB%25F3%2Fabpic%2Fitem%2F220281437a575a4b9213c65f.jpg" target="_blank" title="zfkun.com 破解图"><img src="http://zfkun.com/api/pic/?u=http%3A%2F%2Fhiphotos.baidu.com%2F%25D3%25B0%25D6%25AE%25C3%25D4%25BB%25F3%2Fabpic%2Fitem%2F220281437a575a4b9213c65f.jpg" alt="zfkun.com 破解图"></a>
+</p>
+</div>
+
+<div style="float:left;margin-left:50px;">
+<h2><span style="color: #ff0000;">简易破图片盗链(JS)</span></h2>
+<p>showPic(url, noCache)</p>
+<p><strong>url</strong> 图片url &nbsp;[,&nbsp;noCache 是否自动清缓存]</p>
+<p><strong>举例</strong>：</p>
+<p>
+<img src="http://hiphotos.baidu.com/%D3%B0%D6%AE%C3%D4%BB%F3/abpic/item/220281437a575a4b9213c65f.jpg"> <script>showPic('http://hiphotos.baidu.com/%D3%B0%D6%AE%C3%D4%BB%F3/abpic/item/220281437a575a4b9213c65f.jpg')</script>
+</p>
+<p>&nbsp;</p>
+</div>
+
+<script src="/static/stat.js"></script>
+</body>
+</html>

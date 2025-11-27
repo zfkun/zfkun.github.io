@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>一淘触屏版</title>
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"  />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <!-- less
+    <link rel="stylesheet" type="text/less" href="./static/less/etao.less" />
+    
+    -->
+    <!-- dev 
+    <link href="./static/css/etao.css" rel="stylesheet" type="text/css" />
+    -->
+
+    <!-- product --> 
+    <link href="http://a.tbcdn.cn/mw/etao/touch/css/etao.130320.css?update=0320" rel="stylesheet" type="text/css" />
+    
+    <!-- seajs -->
+    <script src="http://a.tbcdn.cn/mw/etao/touch/js/sea-modules/seajs/1.3.1/sea.js"></script>
+</head>
+<body scroll="none">
+  <div id="screen-wrap" style="display:none" class="clearfix withcon">
+    <div id="wrapper" class="wrapper"> 
+        <div id="inner" class="inner">
+            <div class="fs-con">
+                <h1 class="logo">一淘</h1>
+                <div class="search">
+                    <div class="search-input-wrap">
+                        <form name="f" id="fs_search_from" style="display:block; width:100%">
+                        <div class="search-bar" id="fs_search_form">
+                            <input type="search" class="search-query" id="fs_search_input" placeholder="想购物 先一淘"><button class="btn btn-blue search-btn" id="fs_search_btn">搜索</button>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="search-cate">
+                        <a id="search_cate_hot"><i class="icon-hot"></i>热点</a>
+                        <a id="search_cate_share"><i class="icon-vip"></i>专享</a>
+                        <a id="search_cate_recharge"><i class="icon-charge"></i>充值</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="icon-up up"></div>
+    </div>
+  </div>
+
+  <div id="ietao_screen_wrap" class="clearfix">
+
+    <div class="etrans-cont" style="position:relative">
+    
+    <!--#main_wrapper begin-->
+    <div id="main_wrapper" style="display:none;" class="app-dom">
+        <!--头部-->
+        <header class="main-hd">
+            <h1 class="logo" title="一淘"></h1>
+            <form class="search-bar">
+                <input type="search" class="search-query fixAKeyboard" placeholder="想购物 先一淘"><button class="btn btn-blue search-btn">搜索</button>
+            </form>
+            <span id="show_nav_btn" class="nav-btn none">
+                <i class="icon-list">list btn</i>
+            </span>
+        </header>
+        <!--导航-->
+        <nav class="nav nav-tabs" id="main_tab">
+            <ul class="nav-three">
+                <li class="hot active" data-name="hot">热点</li>
+                <li class="vip" data-name="vip">专享<i class="icon-new"></i></li>
+                <li class="charge" data-name="charge">充值</li>
+            </ul>
+        </nav>
+        <!--内容-->
+        <section class="main-content" id="main_content">
+            <ul>
+                <li class="li-item">
+                    <div class="main-hot" id="main_hot">
+                        <p class="loading">加载中...</p>
+                    </div>
+                </li>
+                <li class="li-item">
+                    <div class="main-vip">
+                        <div class="nav main-subTabs" id="main_cat_tab">
+                            <ul class="nav-two">
+                                <li class="only active">
+                                    <em>今日专享</em>:<span>全部商品</span><b class="icon-chevron-oran chevron"></b>
+                                </li>
+                                <li class="topic">
+                                    <em>主题专享</em>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="main-catBox" id="main_list_cat">
+                            <p class="loading">加载中...</p>
+                        </div>
+                        <div class="main-vip-content" id="main_vip_content">
+                            <div class="mian-list-vip">
+                                <p class="loading">加载中...</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="li-item">
+                    <div class="main-charge">
+                        <div class="charge-notice">
+                            <p><span class="mobile"></span>用一淘充话费送集分宝</p>
+                        </div>
+
+                        <form method="post" id="main_charge_form" action="http://zc.m.taobao.com/index.do?_input_charset=utf-8&pds=confirmbuy%23h%23zhichong">
+                          <div class="number">
+                            <input type="tel" value="" class="input-large charge-input" placeholder="手机号码" alias="tel" autocomplete="off" name="account" />
+                          </div>
+                          <div class="charge-sku">
+                              <ul  class="clearfix">
+                                <li class="form-sku"><a href="" rel="" rev="">10元<i class="icon-sku"></i></a></li>
+                                <li class="form-sku"><a href="" rel="" rev="">20元<i class="icon-sku"></i></a></li>
+                                <li class="form-sku"><a href="" rel="" rev="">30元<i class="icon-sku"></i></a></li>
+                                <li class="form-sku selected"><a href="" rel="" rev="">50元<i class="icon-sku"></i></a></li>
+                                <li class="form-sku"><a href="" rel="" rev="">100元<i class="icon-sku"></i></a></li>
+                                <li class="form-sku"><a href="" rel="" rev="">200元<i class="icon-sku"></i></a></li>
+                              </ul>
+                          </div>
+                          <div class="price charge-price"></div>
+                          <div class="jump">
+                            <input id="main_charge_btn" type="submit" value="立即充值" class="btn btn-oran btn-large" />
+                          </div>
+                          <div class="none">
+                              <input type="hidden" name="tccdetail" value="etao_home.wap" />
+                              <input type="hidden" name="type" value="1" />
+                              <input type="hidden" name="action" value="game_action_iphone" />
+                              <input type="hidden" name="event_submit_do_buy" value="1" />
+                              <!--验证码-->
+                              <input type="hidden" name="_1fma.b._0.a1" value="x" />
+                              <input type="hidden" name="wapCheckId" value="" />
+                              <input type="hidden" name="checkCode" value="abcd" size="5" />
+                              <!--商品id、面值-->
+                              <input type="hidden" id="main_itemID" name="itemId" value="" />
+                              <input type="hidden" id="main_faceValue" name="faceValue" value="" />
+                          </div>
+                          <!--是否缺货、地区、运营商-->
+                          <div class="none" id="main_charge_param">
+                              <input type="hidden" id="main_stockout" alias="stockout" value="false" />
+                              <input type="hidden" id="main_areaID" name="areaId" alias="area" value="" />
+                              <input type="hidden" id="main_catID" name="catId" alias="cat" value="" />
+                          </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!--尾部-->
+        <footer class="footer">
+            <nav class="f-nav">
+                <span class="f-l">
+                    <a href="http://wap.etao.com">标准版</a>|<a href="https://itunes.apple.com/us/app/id451400917?mt=8">客户端</a>|
+                </span>
+                <span class="f-r">
+                    <a href="#main" class="gohome">回首页<b class="icon-home"></b></a>|<a class="gotop" href="javascript:scroll(0,0)">回顶部<b class="icon-gotop"></b></a>
+                </span>
+            </nav>
+            <!--没有登录 先去掉
+            <div class="f-exit">
+                <a href="#">标准版</a><a href="">客户端</a><a href="">帮助</a>
+            </div>
+            -->
+            <p class="copyright">&copy;2013 | 浙B2-20080224</p>
+        </footer>
+
+        <!--热点模版-->
+        <script type="text/template" id="main_hot_template">
+            <div class="main-banner" id="main_banner">
+                <div class="banner-wrap">
+                    <ul class="clearfix">
+                        <% _.each(data.gallery,function(item,index){%>
+                        <li>
+                            <a href="<%=item.link%>">
+                            <img alt="图片" src="http://a.tbcdn.cn/mw/etao/touch/img/grey.gif" data-src="<%=item.pic%>" class="lazy" />
+                            </a>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <%if(data.gallery.length > 1){%>
+                <div class="banner-status">
+                    <!--
+                    <% _.each(data.gallery,function(item,index){%>
+                    <span class="<%if(index == 0){%>on<%}%>"><%=index%></span>
+                    <% }); %>
+                    -->
+                </div>
+                <%}%>　　　　
+            </div>
+            <div class="main-list-hot">
+                <ul class="clearfix">
+                <%if(data.auction.length > 0){%>
+                    <% _.each(data.auction,function(item,index){%>
+                    <li class="list-item">
+                        <a href="<%=item.link%>">
+                            <div class="pic">
+                                <img class="lazy" src="http://m.etao.com/static/img/no-180.png" data-src="<%=item.pic%>" />
+                            </div>
+                            <div class="desc">
+                                <h5 class="tit"><%=item.title%></h5>
+                                <p class="time"><%=item.time%>更新</p>
+                                <p class="explain"><%=item.desc%></p>
+                            </div>
+                        </a>
+                    </li>
+                    <% }); %>
+                <%}else{%>
+                    <p class="no-content">亲，还没有热点宝贝！</p>
+                <%}%>
+                </ul>
+            </div>
+        </script>
+
+        <!--专享模版-->
+        <script type="text/template" id="main_cat_template">
+            <ul class="clearfix">
+            <% _.each(catList,function(item,index){ %><li class="sort-item <%if(index == 0){%>active<%}%>" data-catid="<%=item.catId%>"><%=item.catName%></li><% }); %>
+            </ul>
+        </script>
+
+        <script type="text/template" id="main_vip_list_template">
+            <ul class="clearfix">
+            <%if(vipList.length > 0){%>
+                <% _.each(vipList,function(item,index){%>
+                <li class="list-item" <%if(item.nid == ""){%>data-wap="true"<%}%>>
+                    <a <%if(item.nid != ""){%>href="#item/<%=item.nid%>"<%}%>>
+                        <img alt="图片" height="145" width="145" class="lazy" src="http://m.etao.com/static/img/no-180.png" data-src="<%=item.pic%>_160x160.jpg">
+                        <p class="tit"><%=item.title%></p>
+                        <p class="price"><strong class="h">￥<%=item.onlyPrice%></strong><del>￥<%=item.price%></del></p>
+                        <!--<span>送<%=item.rebate%>个集分宝</span>-->
+                    </a>
+                </li>
+                <% }); %>
+            <%}else{%>
+                <p class="no-content">亲，该专享没有宝贝！</p>
+            <%}%>
+            </ul>
+        </script>
+
+        <script type="text/template" id="main_vip_page_template">
+            <div class="pagination">
+                <a class="prev<%if(pageIndex==1){%> disabled<%}%>" href="javascript:;">上一页<b class="caret"></b></a>
+                <div class="page-state">
+                    <div class="page-counter"><span><%=pageIndex%>/<%=pageTotal%></span><b class="arrow"></b></div>
+                    <select class="page-select">
+                        <% var i = 1;while(pageTotal != (i - 1)) {%>
+                            <option value="<%=i%>"<%if(pageIndex==i){%> selected<%}%>>第<%= i %>页</option>
+                        <% i++; };   %>
+                    </select>
+                </div>
+                <a class="next<%if(pageIndex==pageTotal){%> disabled<%}%>" href="javascript:;">下一页<b class="caret"></b></a>
+            </div>
+        </script>      
+
+        <!--充值模版-->
+        <script type="text/template" id="charge_sku_template">
+            <ul>
+            <% _.each(choose,function(item,index){%>
+              <li class="form-sku <%if(item.disabled){%>disabled<%}%>"><a href="<%=item.url%>" rel="<%=item.price%>" rev="<%=item.faceValue%>" itemId="<%=item.itemId%>" itemId="<%=item.itemId%>" txt="<%=item.text%>"><%=item.faceValue%>元<i class="icon-sku"></i></a></li>
+              <% }); %>
+            </ul>
+        </script>
+
+        <script type="text/template" id="charge_price_template">
+            <div class="avail">
+                一淘价：约<em class="h"><%=price%>元</em> <span class="rebate"> 送<em class="h"><%=rebate%></em>个集分宝（100集分宝=1元）
+                </span>
+            </div>
+        </script>
+
+        <script type="text/template" id="charge_stockout_template">
+            <div class="stockout">
+                <em class="h"><%=faceValue%>元</em>充值暂时缺货，请选择其他价格或<a href="<%=url%>" class="more"><%=txt%></a></div>
+        </script>
+
+    </div>
+    <!--#main_wrapper end-->
+
+    <!--#compare begin-->
+    
+    <div id="compare_wrapper" style="display: none;" class="app-dom">
+        <div id = 'compare_screen'>
+        <section id="compare_screen_one">
+            <header class="top-bar">
+                <button class="back btn btn-blue btn-back"><b class="caret"></b>返回</button>
+                <h1>比价产品名称</h1>
+                <button class="btn-fun btn btn-blue">同价位</button>
+            </header>
+            <div id="compare_content">
+                <div id="compare_desc"></div>
+                <div id="compare_tab" class="nav nav-tabs"></div>
+                <div id="compare_tab_content"></div>
+            </div>
+
+            <!--模板-->
+            <!--描述模板-->
+            <script type="text/template" id="compare_desc_template">
+                <div class="pic"><img src="<%=img%>_180x180.jpg" alt="<%=name%>"></div><div class="desc">
+                    <strong><%=name%></strong>
+                    <div class="price">参考价<em>￥<%=price%></em></div>
+                    <div class="merchant"><%=merchant%>个商家</div>
+                    <!--<div class="want"><span class="num"><%=want%></span>我想要</div>-->
+                    <!--<a class="info" href="<%=info%>">产品资讯</a>-->
+                    <div class="prop"><%=property%></div>
+                </div>
+            </script>
+            <!--商家模板-->
+            <script type="text/template" id="compare_merchant_template">
+                <a href="#item/<%=nid%>">
+                    <div class="pic"><img src="http://img03.taobaocdn.com/tps/<%=logo%>_160x90.jpg"></div><div class="desc">
+                        <div class="price"><em>￥<%=price%></em></div>
+                        <%if(postFee){%><div class="postFee"><%=postFee%></div><%}%>
+                        <%if(rebate != 0){%><div class="jfb">送集分宝<%=rebate%>个</div><%}%>
+                        <%if(sales != 0){%><div class="sales">最近销量<span class="num"><%=sales%></span>件</div><%}%>
+                        <div class="icon-chevron-grey"></div>
+                    </div>
+                </a>
+            </script>
+            <!--点评模板-->
+            <script type="text/template" id="compare_comment_list_template">
+                <ul></ul>
+                <div class="pagination">
+                    <a class="prev<%if(pageIndex==1){%> disabled<%}%>">上一页<b class="caret"></b></a>
+                    <div class="page-state">
+                        <div class="page-counter"><span><%=pageIndex%>/<%=pageTotal%></span><b class="arrow arrow-down"></b></div>
+                        <select class="page-select">
+                            <% var i = 1;while(pageTotal != (i - 1)) {%>
+                                <option value="<%=i%>"<%if(pageIndex==i){%> selected<%}%>>第<%= i %>页</option>
+                            <% i++; };   %>
+                        </select>
+                    </div>
+                    <a class="next<%if(pageIndex==pageTotal){%> disabled<%}%>">下一页<b class="caret"></b></a>
+                </div>
+            </script>
+            <script type="text/template" id="compare_search_template">
+                <div class="block">
+                    <form class="form-search">
+                        <input type="text" placeholder="春季新款" class="search-query"/>
+                        <button class="btn search-btn" type="submit">比价</button>
+                    </form>
+                </div>
+            </script>
+        </section>
+        <!--同价位-->
+        <section id="compare_screen_two" style="display:none">
+            <header class="top-bar">
+                <button class="back btn btn-blue btn-back"><b class="caret"></b>返回</button>
+                <h1>同价位商品</h1>
+            </header>
+            <div id="compare_similar">
+            </div>
+            <!--模板-->
+            <script type="text/template" id="compare_similar_list_template">
+                <a href="<%=url%>">
+                    <div class="pic"><img src="http://img03.taobaocdn.com/tps/<%=pictUrl%>_180x180.jpg"></div><div class="desc">
+                        <strong><%=title%></strong>
+                        <div class="price">参考价<em>￥<%=price%></em></div>
+                        <div class="merchant"><%=sellerCount %>个商家</div>
+                        <div class="tags"><%=property%></div>
+                    </div>
+                </a>
+            </script>
+        </section>
+        <section id="compare_screen_three" style="display:none">
+            <header class="top-bar">
+                <button class="back btn btn-blue btn-back"><b class="caret"></b>返回</button>
+                <h1>产品资讯</h1>
+            </header>
+        </section>
+        </div>
+    </div>
+    <!--#compare end-->
+    
+    <!--item 商品页 begin-->
+    <div id="item_wrapper" style="display: none;" class="app-dom">
+        <header class="top-bar">
+            <a class="back btn btn-blue btn-back" href="javascript:;"><b class="caret"></b>返回</a>
+            <h1>商品名称</h1>
+        </header>
+        <div id="item_content"></div>
+        <!--模板-->
+        <script type="text/template" id="item_content_template">
+            <div class="pic"><img src="<%if(image){%><%=image%><%}else{%>http://m.etao.com/static/img/no-180.png<%}%>" /></div>
+            <ul>
+                <li class="name"><%=title%></li>
+                <li>价格:<span class="price">&nbsp;￥<%=productPrice%></span></li>
+                <%if(jfb != 0){%><li class="jfb"><i class="icon-jfb"></i> 送<%=jfb%>个</li><%}%>
+                <%if(postFee){%><li class="postFee">运费:&nbsp;<%=postFee%></li><%}%>
+                <%if(sales != "0"){%><li class="sale">已售:&nbsp;<%=sales%>件</li><%}%>
+                <%if(sourceSite){%><li class="form">来自:&nbsp;<%= sourceSite %></li><%}%>
+            </ul>
+            <a href="<%if(haveWapLink){%><%=linkout%><%}else{%>javascript:;<%}%>" class="btn btn-large btn-oran<%if(!haveWapLink){%> nowap<%}%>">立即购买</a>
+        </script>
+        <script type="text/template" id="item_content_3th_template">
+            <div class="pic"><img src="<%if(image){%><%=image%><%}else{%>http://m.etao.com/static/img/no-180.png<%}%>" alt="" /></div>
+            <div class="tip">
+                亲 你将访问商品购买页面
+            </div>
+            <div class="">
+                此网站没有手机版，<br/>你将直接跳转到网页版<br/>用手机访问网页会耗费较多的流量<br/>请谨慎选择
+            </div>
+            <a href="<%=linkout%>" class="btn btn-large btn-oran go">继续访问</a>
+        </script>
+    </div>
+    <!--item 商品页 end-->
+
+    <!--#search begin-->
+    <div style="display:none;" class="app-dom"  id="search" >
+      <div class="top-bar">
+        <a class="btn btn-blue btn-back"><b class="caret"></b><span class="search-back-text">返回</span></a>
+          <form class="search-form">
+            <div class="search-bar">
+              <input id="search_input_up" type="search" class="input-small search-query fixAKeyboard" placeholder="春季新款">
+              <button  id="search_btn_up" class="btn btn-blue btn-filter">筛选</button> <!-- btn-filter / search-btn 两个class切换  -->
+            </div>
+          </form>
+        <!-- 筛选test -->
+    <!--
+        <button id="search_filter_btn" style="position:absolute; left:48%;top:0">筛选</button>
+    -->
+      </div>
+      <div id="search_state_cover">
+    
+      </div>
+      <div class="search-body">
+        <div class="search-tabs nav nav-tabs">
+          <ul class="nav-four">
+            <!-- data-sort_by属性值和collection.js中的常量定义值保持一致 -->
+            <li data-sort_by="default"  class="active search-arrow-down" ><a >默认</a></li>  <!--  search-arrow-up -->
+            <li data-sort_by="salesVolume"  ><a >销量</a></li>
+            <li data-sort_by="price"  ><a >价格</a></li>
+            <li data-sort_by="discount" ><a >折扣</a></li>
+          </ul>
+        </div>
+        <div class="search-list"> 
+          <!-- the area filled by template  #search_item_template  -->         
+        </div>
+        <div class="pagination">
+          <a id="search_previous" class="prev" >上一页<b class="caret"></b></a>
+          <div class="page-state">
+            <div class="page-counter"><span id="search_current_pn">1</span>/<span id="search_all_pn">100</span><b class="arrow arrow-down"></b></div>
+            <select id="search_page_selector" class="page-select">
+            </select>
+          </div>
+          <a id="search_next" class="next" >下一页<b class="caret"></b></a>
+        </div>
+      </div>
+
+      <!--
+      <div class="search-adv">
+      </div>
+      -->
+
+      <div class="search-recommend">
+        <p>你是不是要找:<p/>
+        <div class="search-recommend-list">
+        </div>
+      </div>
+
+      <div class="block">
+        <form class="form-search">
+          <input id="search_input_bottom"  type="text" class="search-query fixAndroidKeyboard" placeholder="春季新款" />
+          <button  id="search_btn_bottom" class="btn search-btn" type="submit">比价</button>
+        </form>
+      </div>
+
+
+      <script type="text/template" id="search_item_template">
+        <div class="search-item">
+          <div class="search-item-image f-l">
+            <img alt="search-item-image"   src="<%=img%>">
+          </div>
+          <div class="search-item-info clearfix">
+            <div>
+              <%=title %>
+            </div>
+            <% if (type === "AUCTION") { %>
+            <div class="search-info-line2">
+              <span class="search-price">￥<%=price%></span>
+              <% if (JiFengBaoNum > 0) { %>
+              <span class="search-JiFengBao" ><i class="icon-jfb"></i> 送<%=JiFengBaoNum %>个</span>
+              <% } %>
+            </div>
+            <div class="search-info-line3">
+              <span class="search-sales-num">已售: <%=salesNum%>件</span> 
+              <span class="search-store"> <%= store %></span> 
+            </div>
+            <% }else{ %>
+            <div class="search-info-line2">
+              <span>参考价</span>
+          <span class="search-price-maybe">￥<%=price%></span>
+              <span class="search-seller-num"><%=sellerNum%>个商家</span>
+            </div>
+            <div class="search-info-line3">
+              <span class="search-tags"><%=tagsStr%></span>
+            </div>
+            <%  } %>
+          </div>
+        </div>
+      </script>
+
+    </div>
+    <!--#search end-->
+    
+    <!-- pop filter start -->
+    <div class="pop-wrapper" id="pop_filter">
+        <a class="close-arrow icon-right" href="javascript:;"></a>
+        <section class="filter-main" id="filter_main">
+            
+            <ul class="filter-tab-header" id="filter_tab_header">
+                <li class="filter-hd-item current" data-conid="filter_by_cate">分类</li>
+                <li class="filter-hd-item" data-conid="filter_by_param">参数</li>
+                <li class="filter-hd-item" data-conid="filter_by_shopprice">商家&价格</li>
+            </ul>
+            
+            <div class="filter-tab-content" id="filter_tab_con">
+                <div class="filter-con-item" id="filter_by_cate">
+                    <script type="text/template" id="pop_filter_cate_template">
+                    <ul class="filter-item-list">
+                        <% _.each(data, function(o){%>
+                        <% var selectedCls = o.isSelected ? " selected-lv1" : "", openClass = o.key.isOpen ? " active" : ""%>
+                        <li class="item-lv1<%=selectedCls%><%=openClass%>" data-count="<%=o.key.count%>" data-key="<%=o.key.key%>">
+                            <p><%=o.key.name%> <span class="selected-flag-lv1"></span></p>
+                            <% if (o.values && o.values.length) { %>
+                            <ul class="list-lv2">
+                                <% _.each(o.values, function(sl){%>
+                                <% var subSelectedCls = (sl.isSelected || sl.isOpen) ? " selected" : "" %>
+                                <li class="item-lv2<%=subSelectedCls%>" data-count="<%=sl.count%>" data-key="<%=sl.key%>"><%=sl.name%> <span class="selected-flag"></span></li>
+                                <% }); %>
+                            </ul>
+                            <% } %>
+                        </li>
+                        <% }); %>
+                    </ul>
+                    </script>
+                    加载中...
+                </div>
+                <div class="filter-con-item" id="filter_by_param">加载中...
+                </div>
+                <div class="filter-con-item" id="filter_by_shopprice">
+                    <div id="filter_seller_wrap">
+                        加载中...
+                        <script type="text/template" id="pop_filter_shop_template">
+                        <ul class="filter-shop-list">
+                            <% if (!data.length) { %>
+                                <li>无更多商家</li>
+                            <% } else { %>
+                            <% _.each(data, function(o, i){%>
+                            <li><input type="checkbox" class="checkbox orange" id="seller_<%=i%>" data-key="<%=o.key%>" /><label for="seller_<%=i%>"><%=o.name%></label></li>
+                            <% }); %>
+                            <% } %>
+                        </ul>
+                        </script>
+                    </div>
+                    
+                    <div class="filter-price">
+                        <p>价格区间：</p>
+                        <div>
+                            <input type="number" class="filter-price-input" id="filter_price_start" />
+                            <span>至</span>
+                            <input type="number" class="filter-price-input" id="filter_price_end" />
+                        </div>
+                    </div>
+                    
+                    <div class="filter-submit">
+                        <button id="filter_sure_btn" type="submit" class="btn btn-large btn-oran">确定</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- pop filter end -->
+    
+    <!-- nav slide start -->
+    <div class="nav-slide app-dom" style="display: none" id="nav_slide">
+        <h4 class="nav-title" id="nav_title">类目导航</h4>
+        <div class="nav-list-wrapper" id="nav_list_wrapper">
+            
+            <ul class="cate-lv1" id="nav_cate_list">
+            <script type="text/template" id="nav_list_template">
+                <% _.each(catlist, function (o) { %>
+                    <li>
+                        <h5><%= o.name %></h5>
+                        <ul class="cate-lv2">
+                        <% _.each(o.subList, function (so) { %>
+                            <li><%= so.name %></li>
+                        <% }) %>
+                        </ul>
+                    </li>
+                <% }) %>
+
+                </script>
+            </ul>
+            
+        </div>
+    </div>
+    <!-- nav slide end -->
+    
+    </div>
+
+  </div>
+
+  
+  <script type="text/javascript">
+    seajs.use('firstscreen', function (fs) {
+        seajs.use('app');
+    });
+  </script>
+</body>
+</html>

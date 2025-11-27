@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>7k7k proxy</title>
+</head>
+<body>
+<script>
+function getQuery(item, scope){
+  var sValue = (scope || window.location).search.match(new RegExp("[\?\&]" + item + "=([^\&]*)(\&?)","i"));
+  return sValue ? sValue[1] : sValue;
+}
+try {
+    window.top[getQuery("notify") || 'notify47k7k'](getQuery("task"), decodeURIComponent(getQuery("data")));
+} catch (e) {}
+</script>
+</body>
+</html>

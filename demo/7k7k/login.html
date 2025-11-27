@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test login</title>
+  </head>
+
+  <body>
+
+    <script>
+    /**
+     * 任务事件通知中心
+     *
+     * @param   task    {String}    任务事件类型
+     *      logon : 登录操作[, ...]
+     *
+     * @param   data    {String}    任务事件绑定数据
+     *      task === 'logon' 时, data 结构： { "success": <Boolean>, "data": <String|Object>, "user": <Object|undefined> }
+     *      注意： 
+     *          1. user 仅在 success 为true时存在且有效
+     *          2. proxy方式下，受proxyer页面没有引入JSON库的影响，采用了字符串形式，可根据自己需要自行调整为JSON
+     *
+     */
+    function miniNotify(task, data) {
+        var o, user;
+        if (task === 'logon') {
+            // String to JSON
+            try {
+                data = new Function('return ' + data + ';')();
+            } catch(e) {}
+            
+            // your code...
+            if (data && data.success === true) {
+                user = (data.data || {}).user || {};
+                alert('登录成功, user = { kk: ' + user.kk + ', uid: ' + user.uid + ', username: ' + user.username + ', securitycode: ' + user.securitycode + '}');
+            } else {
+                o = (data ? data.data : 0) || {};
+                alert(o.timeout ? '登录超时，请稍后重试' : o.message || '服务器忙，请稍后重试');
+            }
+        }
+    }
+    
+    /**
+     * build DOM
+     *
+     * 注意： callback 参数非必须。
+     *       不设置则 <任务事件通知中心> 函数名强制为 "notify47k7k"
+     */
+    document.write('');
+    </script>
+    
+  </body>
+
+</html>
+

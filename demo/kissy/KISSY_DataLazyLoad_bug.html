@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>KISSY DataLazyLoad Bug DEMO</title>
+    <style type="text/css">
+        body {
+            color: #EFEFEF;
+            background: black;
+            margin: 0;
+            padding: 0;
+        }
+        #photos {}
+        #photos a {
+            display: block;
+            height: 300px;
+        }
+        #photos a img {
+            border: 2px solid red;
+        }
+    </style>
+	<body>
+        <div>
+        <div id="photos">
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/1.jpg" data-size="63,76"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/2.jpg" data-size="800,800"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/3.jpg" data-size="1024,768"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/4.jpg" data-size="3200,3200"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/5.jpg" data-size="600,300"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/6.jpg" data-size="600,300"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/7.jpg" data-size="140,140"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/8.jpg" data-size="180,180"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/9.jpg" data-size="180,180"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/10.jpg" data-size="260,300"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/11.jpg" data-size="141,180"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/12.jpg" data-size="163,216"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/13.jpg" data-size="835,1280"/></a>
+            <a href="#"><img alt="" data-ks-lazyload="http://www.7k7kjs.cn/css/test/photosort/images/14.jpg" data-size="606,412"/></a>
+        </div>
+        </div>
+
+        <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+        <script>
+            KISSY.ready(function(S) {
+                // Native Event
+                window.addEventListener('resize', function() {
+                    console.info('ResizeEvent by Native');
+                }, false);
+                
+                // KISSY Event
+                S.Event.on(window, 'resize', function() {
+                    console.info('ResizeEvent by KISSY');
+                });
+                
+                // DataLazyload
+                S.use('datalazyload', function(S, DataLazyload) {
+                    DataLazyload();
+                });
+            });
+        </script>
+    </body>
+</html>
+

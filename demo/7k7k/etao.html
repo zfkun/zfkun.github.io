@@ -16,10 +16,10 @@
     -->
 
     <!-- product --> 
-    <link href="http://a.tbcdn.cn/mw/etao/touch/css/etao.130320.css?update=0320" rel="stylesheet" type="text/css" />
+    <link href="https://a.tbcdn.cn/mw/etao/touch/css/etao.130320.css?update=0320" rel="stylesheet" type="text/css" />
     
     <!-- seajs -->
-    <script src="http://a.tbcdn.cn/mw/etao/touch/js/sea-modules/seajs/1.3.1/sea.js"></script>
+    <script src="https://a.tbcdn.cn/mw/etao/touch/js/sea-modules/seajs/1.3.1/sea.js"></script>
 </head>
 <body scroll="none">
   <div id="screen-wrap" style="display:none" class="clearfix withcon">
@@ -108,7 +108,7 @@
                             <p><span class="mobile"></span>用一淘充话费送集分宝</p>
                         </div>
 
-                        <form method="post" id="main_charge_form" action="http://zc.m.taobao.com/index.do?_input_charset=utf-8&pds=confirmbuy%23h%23zhichong">
+                        <form method="post" id="main_charge_form" action="https://zc.m.taobao.com/index.do?_input_charset=utf-8&pds=confirmbuy%23h%23zhichong">
                           <div class="number">
                             <input type="tel" value="" class="input-large charge-input" placeholder="手机号码" alias="tel" autocomplete="off" name="account" />
                           </div>
@@ -155,7 +155,7 @@
         <footer class="footer">
             <nav class="f-nav">
                 <span class="f-l">
-                    <a href="http://wap.etao.com">标准版</a>|<a href="https://itunes.apple.com/us/app/id451400917?mt=8">客户端</a>|
+                    <a href="https://wap.etao.com">标准版</a>|<a href="https://itunes.apple.com/us/app/id451400917?mt=8">客户端</a>|
                 </span>
                 <span class="f-r">
                     <a href="#main" class="gohome">回首页<b class="icon-home"></b></a>|<a class="gotop" href="javascript:scroll(0,0)">回顶部<b class="icon-gotop"></b></a>
@@ -177,7 +177,7 @@
                         <% _.each(data.gallery,function(item,index){%>
                         <li>
                             <a href="<%=item.link%>">
-                            <img alt="图片" src="http://a.tbcdn.cn/mw/etao/touch/img/grey.gif" data-src="<%=item.pic%>" class="lazy" />
+                            <img alt="图片" src="https://a.tbcdn.cn/mw/etao/touch/img/grey.gif" data-src="<%=item.pic%>" class="lazy" />
                             </a>
                         </li>
                         <% }); %>
@@ -200,7 +200,7 @@
                     <li class="list-item">
                         <a href="<%=item.link%>">
                             <div class="pic">
-                                <img class="lazy" src="http://m.etao.com/static/img/no-180.png" data-src="<%=item.pic%>" />
+                                <img class="lazy" src="https://m.etao.com/static/img/no-180.png" data-src="<%=item.pic%>" />
                             </div>
                             <div class="desc">
                                 <h5 class="tit"><%=item.title%></h5>
@@ -230,7 +230,7 @@
                 <% _.each(vipList,function(item,index){%>
                 <li class="list-item" <%if(item.nid == ""){%>data-wap="true"<%}%>>
                     <a <%if(item.nid != ""){%>href="#item/<%=item.nid%>"<%}%>>
-                        <img alt="图片" height="145" width="145" class="lazy" src="http://m.etao.com/static/img/no-180.png" data-src="<%=item.pic%>_160x160.jpg">
+                        <img alt="图片" height="145" width="145" class="lazy" src="https://m.etao.com/static/img/no-180.png" data-src="<%=item.pic%>_160x160.jpg">
                         <p class="tit"><%=item.title%></p>
                         <p class="price"><strong class="h">￥<%=item.onlyPrice%></strong><del>￥<%=item.price%></del></p>
                         <!--<span>送<%=item.rebate%>个集分宝</span>-->
@@ -313,7 +313,7 @@
             <!--商家模板-->
             <script type="text/template" id="compare_merchant_template">
                 <a href="#item/<%=nid%>">
-                    <div class="pic"><img src="http://img03.taobaocdn.com/tps/<%=logo%>_160x90.jpg"></div><div class="desc">
+                    <div class="pic"><img src="https://img03.taobaocdn.com/tps/<%=logo%>_160x90.jpg"></div><div class="desc">
                         <div class="price"><em>￥<%=price%></em></div>
                         <%if(postFee){%><div class="postFee"><%=postFee%></div><%}%>
                         <%if(rebate != 0){%><div class="jfb">送集分宝<%=rebate%>个</div><%}%>
@@ -358,7 +358,7 @@
             <!--模板-->
             <script type="text/template" id="compare_similar_list_template">
                 <a href="<%=url%>">
-                    <div class="pic"><img src="http://img03.taobaocdn.com/tps/<%=pictUrl%>_180x180.jpg"></div><div class="desc">
+                    <div class="pic"><img src="https://img03.taobaocdn.com/tps/<%=pictUrl%>_180x180.jpg"></div><div class="desc">
                         <strong><%=title%></strong>
                         <div class="price">参考价<em>￥<%=price%></em></div>
                         <div class="merchant"><%=sellerCount %>个商家</div>
@@ -386,7 +386,7 @@
         <div id="item_content"></div>
         <!--模板-->
         <script type="text/template" id="item_content_template">
-            <div class="pic"><img src="<%if(image){%><%=image%><%}else{%>http://m.etao.com/static/img/no-180.png<%}%>" /></div>
+            <div class="pic"><img src="<%if(image){%><%=image%><%}else{%>https://m.etao.com/static/img/no-180.png<%}%>" /></div>
             <ul>
                 <li class="name"><%=title%></li>
                 <li>价格:<span class="price">&nbsp;￥<%=productPrice%></span></li>
@@ -398,7 +398,7 @@
             <a href="<%if(haveWapLink){%><%=linkout%><%}else{%>javascript:;<%}%>" class="btn btn-large btn-oran<%if(!haveWapLink){%> nowap<%}%>">立即购买</a>
         </script>
         <script type="text/template" id="item_content_3th_template">
-            <div class="pic"><img src="<%if(image){%><%=image%><%}else{%>http://m.etao.com/static/img/no-180.png<%}%>" alt="" /></div>
+            <div class="pic"><img src="<%if(image){%><%=image%><%}else{%>https://m.etao.com/static/img/no-180.png<%}%>" alt="" /></div>
             <div class="tip">
                 亲 你将访问商品购买页面
             </div>

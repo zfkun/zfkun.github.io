@@ -76,7 +76,7 @@
 	<div id="logMod"></div>
 
 
-<script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+<script src="https://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
 <script>
 	KISSY.ready(function(S) {
 		var $ = S.one, $$ = S.all, JSON = S.JSON, locker = {};
@@ -122,7 +122,7 @@
 			// },
 			'dialog.invite': {
 				context: '',
-				img: 'http://simg.7k7kimg.cn/hgame_icons/11/51/51024e3d62fb6fa677a8bb386fb961b5_s.jpg?1343273047',
+				img: 'https://simg.7k7kimg.cn/hgame_icons/11/51/51024e3d62fb6fa677a8bb386fb961b5_s.jpg?1343273047',
 				msg: '《我的王国》是以欧洲中世纪为背景的',
 				onResize: !window.ActiveXObject ? function(data) {
 					log('dialog.invite', 'resize', JSON.stringify(data));
@@ -231,7 +231,7 @@
 				locker[ev.target.value] = !!!ev.target.checked;
 			});
 			
-			S.getScript('http://api.open.7k7k.com/open/sdk/loader.php?appid=' + appid + '&platform=' + platform);
+			S.getScript('https://api.open.7k7k.com/open/sdk/loader.php?appid=' + appid + '&platform=' + platform);
 
 		} else {
 			$('#apiPlatform').on('change', function(ev) {

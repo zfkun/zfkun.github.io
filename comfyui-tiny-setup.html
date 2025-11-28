@@ -143,8 +143,8 @@
         "@id": "/comfyui-tiny-setup.html"
     },
     "headline": "ComfyUI 合理规划与瘦身重装 | 影の域","datePublished": "2025-11-25T00:00:00+08:00",
-    "dateModified": "2025-11-25T00:00:00+08:00",
-    "wordCount":  1724 ,
+    "dateModified": "2025-11-27T23:13:44+08:00",
+    "wordCount":  1875 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -191,7 +191,7 @@
 <meta property="article:published_time" content="2025-11-25T00:00:00&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2025-11-25T00:00:00&#43;08:00" />
+<meta property="article:modified_time" content="2025-11-27T23:13:44&#43;08:00" />
 
 
 
@@ -314,7 +314,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>1724字</span>
+        <span>1875字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -353,6 +353,9 @@
 
         <div class="content">
             <p>最近 <a href="https://huggingface.co/Qwen/Qwen-Image-Edit">Qwen-Image-Edit-2509</a> 比较火热, 甚至 <a href="https://huggingface.co/black-forest-labs/FLUX.2-dev">FLUX2</a> 也已发布 (<a href="https://www.modelscope.cn/models/city96/FLUX.2-dev-gguf">GGUF量化也同步跟进</a>), 于是乎重新打开吃灰已久的秋叶启动器, 经过重复着下载,安装,报错,修复,再安装,再调试后, 算是上手体验了一段时间, 的确挺不错的.</p>
+<blockquote>
+<p>有意思的是, 发布文章之时 <a href="https://tongyi-mai.github.io/Z-Image-blog/">Z-Image</a> 也刚发布了 <a href="https://www.modelscope.cn/models/Tongyi-MAI/Z-Image-Turbo">Z-Image-Turbo</a>, 卡着 <a href="https://huggingface.co/black-forest-labs/FLUX.2-dev">FLUX2</a> 的发布后发布, 真是有点意思 ~~</p>
+</blockquote>
 <p>但是看着岌岌可危的硬盘, 还是不得不要执行拖延了一年多的计划了: <strong>清理磁盘, 重装comfyui</strong></p>
 <p>如今都 <code>2025</code> (其实, 也可以说 <code>2026</code>) 了, 很多AI刚流行爆发时的一些模型,早已不再那么好用(或者说不如现在更新的后来者好用), 是时候重新来过, 只保留主流较近的模型, 对于是不是玩玩的话是足够的.</p>
 <h2 id="合理规划">合理规划</h2>
@@ -415,12 +418,15 @@
 </code></pre>
 <p>看似复杂, 实则简单, 用空间换时间.</p>
 <blockquote>
-<p>当然, 考虑到现在已经不像 sdxl 之前的时代了, 模型动不动都要 几十G,</p>
+<p>主要是 多份 <code>python_embeded</code> 占用的空间较多</p>
+</blockquote>
+<p>现在已经不像 SDXL 之前的轻量时代了, 现在大模型动不动都要几十G</p>
+<blockquote>
 <p>建议 <code>ui</code> 和 <code>models</code> 放在 <strong>固态硬盘</strong> (模型加载耗时短的多),  <code>workspace</code> 放 <strong>机械硬盘</strong> (数据安全第一)</p>
 </blockquote>
 <h2 id="安装步骤">安装步骤</h2>
 <p>上面啰嗦了一堆, 其实并不重要, 不喜欢可以不理会无妨.</p>
-<p>下面进入正题:</p>
+<p>进入正题:</p>
 <h3 id="下载">下载</h3>
 <p>直接下载 <a href="https://docs.comfy.org/zh-CN/installation/comfyui_portable_windows">官方便携版</a> 即可</p>
 <blockquote>
@@ -433,6 +439,9 @@
 <p>重装 comfyui 的话, 已没有再使用 启动器 的必要了, 直接用 便携版 就可以了, 基本能做到最轻量, 有问题随能随时自行调试定位并解决</p>
 </blockquote>
 <p>解压放置位置: <code>D:\ai\ui\comfyui\comfyui_xxx</code></p>
+<blockquote>
+<p><code>_xxx</code> 只是举例, 实际命名根据情况修改</p>
+</blockquote>
 <h3 id="pip-加速">PIP 加速</h3>
 <p>打开 <code>PowerShell</code> 或 <code>终端</code></p>
 <pre><code class="language-shell"># 设置镜像源 (清华大学)
@@ -514,16 +523,29 @@ git clone https://github.com/ltdrdata/ComfyUI-Manager comfyui-manager
 <p>这个插件安装估计会碰到不少小问题, 个人的经验建议: 这个插件装在独立的一份 comfyui 实例中比较好, 否则可能会时不时的因依赖问题造成崩溃反复重装</p>
 <p>比如: 新版对 sam3 做了支持, 但是安装最新插件后, 重装依赖过程会波折不断</p>
 <ul>
-<li>报错 缺少 <code>triton</code> 依赖, 需手工安装 <code>triton-windows</code> 而不是 <code>triton</code>
+<li>
+<p>报错 缺少 <code>triton</code> 依赖, 需手工安装 <code>triton-windows</code> 而不是 <code>triton</code></p>
 <pre><code class="language-shell">D:\ai\ui\comfyui\comfyui_xxx\python_embeded\python.exe -m pip install triton-windows
 </code></pre>
 </li>
-<li>报错 缺少 <code>decord</code> 依赖, 需手工安装 <code>decord</code> 依赖
+<li>
+<p>报错 缺少 <code>decord</code> 依赖, 需手工安装 <code>decord</code> 依赖</p>
 <pre><code class="language-shell">D:\ai\ui\comfyui\comfyui_xxx\python_embeded\python.exe -m pip install decord
 </code></pre>
 </li>
-<li>报错 缺少 <code>ftfy</code> 依赖, 需手工安装 <code>&quot;ftfy==6.1.1&quot;</code>
+<li>
+<p>报错 缺少 <code>ftfy</code> 依赖, 需手工安装 <code>&quot;ftfy==6.1.1&quot;</code></p>
 <pre><code class="language-shell">D:\ai\ui\comfyui\comfyui_xxx\python_embeded\python.exe -m pip install &quot;ftfy==6.1.1&quot;
+</code></pre>
+</li>
+<li>
+<p>遇到 <code>UnicodeDecodeError: 'gbk' codec ...</code> 错误, 需手工下载 <a href="https://github.com/giswqs/GroundingDINO">GroundingDINO</a> 项目源码修改编译</p>
+<pre><code class="language-python"># 解压后, 修改文件 `setup.py` 的 `README.md` 的读取代码部分, 增加 `encoding=&quot;utf-8&quot;` 参数
+with open('README.md', encoding=&quot;utf-8&quot;) as readme_file:
+    readme = readme_file.read()
+</code></pre>
+<pre><code class="language-shell"># 然后, 在源码目录下, 执行手工安装
+D:\ai\ui\comfyui\comfyui_xxx\python_embeded\python.exe -m pip install .
 </code></pre>
 </li>
 </ul>
@@ -539,9 +561,9 @@ git clone https://github.com/ltdrdata/ComfyUI-Manager comfyui-manager
 <h2 id="起手模型">起手模型</h2>
 <h3 id="图像生成">图像生成</h3>
 <ul>
-<li><a href="https://www.modelscope.cn/models/black-forest-labs/FLUX.1-dev">FLUX.1</a></li>
 <li><a href="https://www.modelscope.cn/models/black-forest-labs/FLUX.1-Krea-dev">FLUX.1-Krea</a></li>
 <li><a href="https://www.modelscope.cn/models/Qwen/Qwen-Image">Qwen-Image</a></li>
+<li><a href="https://www.modelscope.cn/models/Tongyi-MAI/Z-Image-Turbo">Z-Image</a></li>
 </ul>
 <h3 id="图像编辑">图像编辑</h3>
 <ul>
@@ -550,7 +572,12 @@ git clone https://github.com/ltdrdata/ComfyUI-Manager comfyui-manager
 </ul>
 <h3 id="视频生成">视频生成</h3>
 <ul>
-<li><a href="https://www.modelscope.cn/collections/tongyiwanxiang-22--shipinshengcheng-2bb5b1adef2840">Wan2.2</a></li>
+<li>
+<p><a href="https://www.modelscope.cn/collections/tongyiwanxiang-22--shipinshengcheng-2bb5b1adef2840">Wan2.2</a></p>
+<blockquote>
+<p>面向不同场景的模型非常多</p>
+</blockquote>
+</li>
 </ul>
 
         </div>

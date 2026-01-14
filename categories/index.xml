@@ -10,30 +10,44 @@
 </copyright>
     <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ai</title>
-      <link>/categories/ai/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>/categories/ai/</guid>
+      <title>acme</title>
+      <link>/categories/acme/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0800</pubDate>
+      <guid>/categories/acme/</guid>
       <description></description>
     </item>
     <item>
       <title>linux</title>
       <link>/categories/linux/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0800</pubDate>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0800</pubDate>
       <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>pve</title>
+      <link>/categories/pve/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0800</pubDate>
+      <guid>/categories/pve/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ai</title>
+      <link>/categories/ai/</link>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>/categories/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>tech</title>
       <link>/categories/tech/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0800</pubDate>
       <guid>/categories/tech/</guid>
       <description></description>
     </item>
     <item>
       <title>windows</title>
       <link>/categories/windows/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0800</pubDate>
       <guid>/categories/windows/</guid>
       <description></description>
     </item>
@@ -42,13 +56,6 @@
       <link>/categories/ha/</link>
       <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
       <guid>/categories/ha/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>pve</title>
-      <link>/categories/pve/</link>
-      <pubDate>Fri, 14 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>/categories/pve/</guid>
       <description></description>
     </item>
     <item>

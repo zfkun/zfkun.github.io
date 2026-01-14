@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>PVE 下 SSL 证书签发 与 全子系统同步 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/python.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/arduino.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/c.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/cpp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/csharp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/java.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/lua.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/css.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/rust.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/scss.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/less.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/powershell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/json.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="拖延了很久, 总算抽空把这个烦人的小问题解决了. PVE 生态下的 SSL 自动续签很简单, 但自动部署到复杂多变的各种内网子系统就总会遇到一些疑难杂症.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Zhs",
+      "item":"/zh/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"文章",
+      "item":"/zh/posts/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"PVE 下 SSL 证书签发 与 全子系统同步",
+      "item":"/pve-ssl-renew-and-deploy.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/pve-ssl-renew-and-deploy.html"
+    },
+    "headline": "PVE 下 SSL 证书签发 与 全子系统同步 | 影の域","datePublished": "2026-01-01T00:00:00+08:00",
+    "dateModified": "2026-01-14T22:34:00+08:00",
+    "wordCount":  915 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "拖延了很久, 总算抽空把这个烦人的小问题解决了. PVE 生态下的 SSL 自动续签很简单, 但自动部署到复杂多变的各种内网子系统就总会遇到一些疑难杂症."
+}
+</script><meta property="og:title" content="PVE 下 SSL 证书签发 与 全子系统同步 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/pve-ssl-renew-and-deploy.html" />
+
+
+
+
+<meta property="og:description" content="拖延了很久, 总算抽空把这个烦人的小问题解决了. PVE 生态下的 SSL 自动续签很简单, 但自动部署到复杂多变的各种内网子系统就总会遇到一些疑难杂症." />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-01-01T00:00:00&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-01-14T22:34:00&#43;08:00" />
+
+
+
+<meta property="article:section" content="zh" />
+
+
+<meta property="article:tag" content="ssl" />
+
+<meta property="article:tag" content="acme" />
+
+<meta property="article:tag" content="1panel" />
+
+<meta property="article:tag" content="pve" />
+
+<meta property="article:tag" content="linux" />
+
+<meta property="article:tag" content="nginx" />
+
+
+
+
+
+<meta property="og:see_also" content="/pve-ssl-renew-and-deploy.html" />
+
+<meta property="og:see_also" content="/pve-haos-recovery.html" />
+
+<meta property="og:see_also" content="/pve-haos-recovery.html" />
+
+<meta property="og:see_also" content="/chrome-ssl-protocol-error.html" />
+
+<meta property="og:see_also" content="/chrome-ssl-protocol-error.html" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">PVE 下 SSL 证书签发 与 全子系统同步</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2026-01-01</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>915字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/acme/" class="hover:text-eureka">acme</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/pve/" class="hover:text-eureka">pve</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/linux/" class="hover:text-eureka">linux</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>总算抽空把这个烦人的小问题解决了, 用最小的成本解决最大的需求还是值得的.</p>
+<h2 id="环境架构">环境架构</h2>
+<p>AIO 物理机 主系统 <a href="https://www.proxmox.com/en/">PVE</a></p>
+<p>子系统部署了 旁路由, 智能家居, Docker, 飞牛, 群晖 等等</p>
+<blockquote>
+<p>其中 Docker 子系统的职责颇为重要, 承载更多细化三级子系统服务:</p>
+<p>比如 动态DNS, 反向代理, gitlab, SSL管理, AI服务, MCP, 各种测试 等等</p>
+</blockquote>
+<h2 id="ssl维护">SSL维护</h2>
+<p>众多内网子系统, 要和谐稳定共存, 避不开个性化访问入口(域名访问)</p>
+<blockquote>
+<p>大部分子系统考虑安全性, 是不做公网解析和内网穿透的, 入口以 <code>.local</code> 即可够用</p>
+<p>仅 极少数服务要支持外网穿透, 则  SSL证书自动化维护和同步是必须的</p>
+</blockquote>
+<h3 id="证书签发">证书签发</h3>
+<p>Docker 子系统部署 <a href="https://acme.sh/">acme.sh</a> 即可,</p>
+<blockquote>
+<p>个人喜欢安全隔离优先, 便捷其次</p>
+<p>对安全不敏感的话, 也可以 <code>acme</code> 部署在 <code>PVE</code> 物理机之上 (<strong>不推荐</strong>)</p>
+</blockquote>
+<p>编排示例:</p>
+<blockquote>
+<p>挂载宿主机的 <code>/data/docker/acme.sh</code> 目录 到 容器 <code>/acme.sh</code>, 方便后续 安装 和 同步 等</p>
+</blockquote>
+<pre><code class="language-yaml"># docker-compose.yml
+services:
+    acme-sh:
+        container_name: acme.sh
+        image: neilpang/acme.sh:latest
+        network_mode: host
+        command: daemon
+        stdin_open: true
+        tty: true
+        environments:
+          # DNS API
+          - DP_Id=00000
+          - DP_Key=0000000000000000
+
+          # deploy hook - synology DSM
+          - SYNO_USERNAME=xxxxx
+          - SYNO_PASSWORD=&quot;xxxxx&quot;
+          - SYNO_CREATE=1
+          - SYNO_CERTIFICATE=xxxxx
+
+          # deploy hook - proxmoxve
+          - DEPLOY_PROXMOXVE_USER='xxx'
+          - DEPLOY_PROXMOXVE_USER_REALM='pam'
+          - DEPLOY_PROXMOXVE_API_TOKEN_NAME='xxxx'
+          - DEPLOY_PROXMOXVE_API_TOKEN_KEY='xxxxxxxxx'
+        volumes:
+            - /data/docker/acme.sh:/acme.sh
+            - /etc/localtime:/etc/localtime
+</code></pre>
+<h3 id="配置hook">配置HOOK</h3>
+<p>SSH 登录 docker 子系统, 借助 <code>acme.sh</code> 自带指令, 配置部署钩子</p>
+<blockquote>
+<p>同时也配置了每次续签后新证书的 安装路径 (不存在, 手工创建即可)
+每次续签后, 会自动执行 <code>同步脚本 (ssl_deploy_zfkun.com.sh)</code></p>
+</blockquote>
+<pre><code class="language-shell">docker exec acme.sh acme.sh --install-cert \
+    -d zfkun.com \
+    -d '*.zfkun.com' \
+    --key-file /acme.sh/install/zfkun.com/privkey.pem \
+    --fullchain-file /acme.sh/install/zfkun.com/fullchain.pem \
+    --reloadcmd &quot;sh /acme.sh/ssl_deploy_zfkun.com.sh&quot;
+</code></pre>
+<h3 id="同步脚本">同步脚本</h3>
+<p>由于 <code>acme.sh</code> 的 deploy hook 仅支持配置1个, 如果希望 deploy 多个, 就只能借助 reloadcmd 触发 自定义脚本 实现</p>
+<p>比如, 我的需求:</p>
+<ul>
+<li>
+<p>同步 给 群晖</p>
+<blockquote>
+<p><code>acme.sh --deploy -d zfkun.com --deploy-hook synology_dsm</code></p>
+</blockquote>
+</li>
+<li>
+<p>同步 给 PVE</p>
+<blockquote>
+<p><code>acme.sh --deploy -d zfkun.com --deploy-hook proxmoxve</code></p>
+</blockquote>
+</li>
+<li>
+<p>同步 给 1Panel (并重载 nginx)</p>
+<blockquote>
+<p>这个麻烦一些, 需要绕点弯路, 借助 <code>1panel</code> 的 <a href="https://1panel.cn/docs/v1/dev_manual/api_manual/">API</a> , 主动上传更新覆盖已托管的证书, 并重载 nginx</p>
+<p>其中需要手工确认的几个参数:</p>
+</blockquote>
+<ul>
+<li><code>PANEL_URL</code>: 1Panel 子系统的内网访问地址</li>
+<li><code>API_KEY</code>: 在 <code>管理后台 - 面板设置 - 面板 - API接口</code> 设置获取</li>
+<li><code>SSL_ID</code>: 在 <code>网站 - 证书</code> 列表里找到需要更新的目标证书, 浏览器打开 <code>开发者工具(F12)</code>, 点击 <code>详情</code> 后, 通过查看 XHR 请求 获取ID (请求URL会是 <code>http://xxxxx/api/v1/websites/ssl/1</code> 这种地址, 其中 <code>1</code> 就是ID)</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-shell">#!/bin/sh
+set -e
+
+log() {
+  echo &quot;[$(date '+%F %T')] $*&quot;
+}
+
+PANEL_URL=&quot;http://192.168.1.99:123456&quot;
+API_KEY=&quot;xxxxx&quot;
+SSL_DOMAIN=&quot;zfkun.com&quot;
+SSL_ID=1
+
+log &quot;Renew detected for domain: $SSL_DOMAIN&quot;
+
+CERT_FILE=&quot;/acme.sh/install/${SSL_DOMAIN}/fullchain.pem&quot;
+KEY_FILE=&quot;/acme.sh/install/${SSL_DOMAIN}/privkey.pem&quot;
+
+if [ ! -f &quot;$CERT_FILE&quot; ] || [ ! -f &quot;$KEY_FILE&quot; ]; then
+  log &quot;ERROR: cert/key not found for $SSL_DOMAIN&quot;
+  exit 1
+fi
+
+log &quot;Starting deploy for domain $SSL_DOMAIN (sslID=$SSL_ID)&quot;
+
+# ========= step 1: deploy to nas =========
+log &quot;Deploy to synology_dsm&quot;
+acme.sh --deploy -d &quot;$SSL_DOMAIN&quot; --deploy-hook synology_dsm
+
+# ========= step 2: deploy to pve =========
+log &quot;Deploy to proxmoxve&quot;
+acme.sh --deploy -d &quot;$SSL_DOMAIN&quot; --deploy-hook proxmoxve
+
+# ========= step 3: update 1Panel =========
+log &quot;Deploy to 1Panel&quot;
+
+# 这个很重要, API执行在宿主机中, 文件路径必须是宿主机下的路径
+DOCKER_VOLUME=&quot;/data/docker&quot;
+TS=$(date +%s)
+TOKEN=$(printf &quot;1panel%s%s&quot; &quot;$API_KEY&quot; &quot;$TS&quot; | md5sum | awk '{print $1}')
+
+curl -fsS \
+  &quot;$PANEL_URL/api/v1/websites/ssl/upload&quot; \
+  -H &quot;1Panel-Token: $TOKEN&quot; \
+  -H &quot;1Panel-Timestamp: $TS&quot; \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  --data-binary @- &lt;&lt;EOF
+{
+  &quot;sslID&quot;: $SSL_ID,
+  &quot;type&quot;: &quot;local&quot;,
+  &quot;certificate&quot;: &quot;&quot;,
+  &quot;certificatePath&quot;: &quot;${DOCKER_VOLUME}${CERT_FILE}&quot;,
+  &quot;privateKey&quot;: &quot;&quot;,
+  &quot;privateKeyPath&quot;: &quot;${DOCKER_VOLUME}${KEY_FILE}&quot;,
+  &quot;description&quot;: &quot;acme.sh auto renew $(date +%F)&quot;
+}
+EOF
+echo &quot;&quot;
+
+log &quot;All deploy steps finished for $SSL_DOMAIN (sslID=$SSL_ID)&quot;
+</code></pre>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/ssl/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#ssl</a>
+    
+    <a href="/tags/acme/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#acme</a>
+    
+    <a href="/tags/1panel/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#1panel</a>
+    
+    <a href="/tags/pve/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#pve</a>
+    
+    <a href="/tags/linux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#linux</a>
+    
+    <a href="/tags/nginx/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#nginx</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/comfyui-tiny-setup.html" class="block">ComfyUI 合理规划与瘦身重装</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#环境架构">环境架构</a></li>
+    <li><a href="#ssl维护">SSL维护</a>
+      <ul>
+        <li><a href="#证书签发">证书签发</a></li>
+        <li><a href="#配置hook">配置HOOK</a></li>
+        <li><a href="#同步脚本">同步脚本</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="/pve-ssl-renew-and-deploy.html">PVE 下 SSL 证书签发 与 全子系统同步</a>
+            <br />
+            
+            <a href="/pve-haos-recovery.html">PVE 下 Home Assistant OS 掉电内核损坏之无损恢复</a>
+            <br />
+            
+            <a href="/pve-haos-recovery.html">PVE 下 Home Assistant OS 掉电内核损坏之无损恢复</a>
+            <br />
+            
+            <a href="/chrome-ssl-protocol-error.html">Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR</a>
+            <br />
+            
+            <a href="/chrome-ssl-protocol-error.html">Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2026 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+  </footer>
+</body>
+
+</html>

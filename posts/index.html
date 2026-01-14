@@ -123,63 +123,63 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "PVE 下 SSL 证书签发 与 全子系统同步",
+            "description": "拖延了很久, 总算抽空把这个烦人的小问题解决了. PVE 生态下的 SSL 自动续签很简单, 但自动部署到复杂多变的各种内网子系统就总会遇到一些疑难杂症.",
+            "url": "/pve-ssl-renew-and-deploy.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "ComfyUI 合理规划与瘦身重装",
             "description": "最近 Qwen-Image-Edit-2509 比较火热, 甚至 FLUX2 也已发布 (GGUF量化也同步跟进), 于是乎重新打开吃灰已久的秋叶启动器, 经过重复着下载,安装,报错,修复,再安装,再调试后, 算是上手体验了一段时间, 的确挺不错的. 但是 \u0026hellip;",
             "url": "/comfyui-tiny-setup.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "PVE 下 Home Assistant OS 掉电内核损坏之无损恢复",
             "description": "说来也寸, 碰上小区停电闪断, PVE 异常掉电竟然导致 Home Assistant 虚拟机内核损坏无法启动, 经过谨慎的处理算是无损的恢复回来",
             "url": "/pve-haos-recovery.html"
         },{
             "@type":"ListItem",
-            "position":  3 ,
+            "position":  4 ,
             "name": "AMS Lite Tiny",
             "description": "玩3D打印的, 对于多色打印, AMS 都不陌生, DIY圈子里的 AMS Lite 更是DIY热门, 自己也设计并开源了一个针对 TOP-AMS 的 485方案分支的二次开发板子, 用于手上只有 树莓派RP2040 Pico H 的用户",
             "url": "/ams-lite-tiny.html"
         },{
             "@type":"ListItem",
-            "position":  4 ,
+            "position":  5 ,
             "name": "小智AI硬件 - 小智S3 双麦",
             "description": "小智AI火了一段时间了, 自己也设计并开源了两款双麦硬件板子, 个人实战娱乐还是不错的",
             "url": "/xiaozhi-ai-zfkun-s3.html"
         },{
             "@type":"ListItem",
-            "position":  5 ,
+            "position":  6 ,
             "name": "immich 机器学习模型问题",
             "description": "爱玩 AIO 的垃圾佬们, 一般都 用过 或 在用 immich, 记录下机器学习模型相关问题",
             "url": "/immich-machine-learning-model.html"
         },{
             "@type":"ListItem",
-            "position":  6 ,
+            "position":  7 ,
             "name": "老旧Mac 以 homebrew 安装 ffmpeg 失败的问题及解决",
             "description": "接上回, ffmpeg 安装也是波折不断, 险象环生",
             "url": "/old-mac-ffmpeg-install.html"
         },{
             "@type":"ListItem",
-            "position":  7 ,
+            "position":  8 ,
             "name": "老旧Mac 以 homebrew 安装 openssl@3 失败的问题及解决",
             "description": "一夜回到解放前, 助我战斗多年，早已年迈退休的 老Mac 不得已召回复用",
             "url": "/old-mac-openssl-install.html"
         },{
             "@type":"ListItem",
-            "position":  8 ,
+            "position":  9 ,
             "name": "Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR",
             "description": "记录下 Chrome 访问 nginx https 站点报错提示 ERR_SSL_PROTOCOL_ERROR 的问题及解决办法",
             "url": "/chrome-ssl-protocol-error.html"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "Aseprite 手工编译流程 (Mac)",
             "description": "记录下 Aseprite 手工编译桌面端的基本流程 (Mac)",
             "url": "/aseprite-compile-app.html"
-        },{
-            "@type":"ListItem",
-            "position":  10 ,
-            "name": "Unreal 开发在 Mac 环境的疑难杂症处理汇总",
-            "description": "主要记录Mac环境下较为常见的问题解决方法及实用操作方式",
-            "url": "/unreal-mac-bug.html"
         }
     ]
 }
@@ -306,6 +306,66 @@
   
   <div class="w-full ">
     <div class="mb-4">
+  <a href="/pve-ssl-renew-and-deploy.html" class="font-bold text-xl hover:text-eureka">PVE 下 SSL 证书签发 与 全子系统同步</a>
+</div>
+<div class="content">
+  
+    拖延了很久, 总算抽空把这个烦人的小问题解决了. PVE 生态下的 SSL 自动续签很简单, 但自动部署到复杂多变的各种内网子系统就总会遇到一些疑难杂症.
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2026-01-01</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>915字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/acme/" class="hover:text-eureka">acme</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/pve/" class="hover:text-eureka">pve</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/linux/" class="hover:text-eureka">linux</a>
+        
+    </div>
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
   <a href="/comfyui-tiny-setup.html" class="font-bold text-xl hover:text-eureka">ComfyUI 合理规划与瘦身重装</a>
 </div>
 <div class="content">
@@ -317,15 +377,15 @@
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2025-11-27</span>
+        <span>2025-11-25</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>4分钟阅读时长</span>
+        <span>5分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>1980字</span>
+        <span>2066字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -853,73 +913,6 @@
 </div>
   </div>
   
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/unreal-mac-bug.html" class="font-bold text-xl hover:text-eureka">Unreal 开发在 Mac 环境的疑难杂症处理汇总</a>
-</div>
-<div class="content">
-  
-    主要记录Mac环境下较为常见的问题解决方法及实用操作方式
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2023-09-01</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>453字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
-        
-        <a href="/categories/develop/" class="hover:text-eureka">develop</a>
-        
-        
-        <span>, </span>
-        <a href="/categories/unreal/" class="hover:text-eureka">unreal</a>
-        
-        
-        <span>, </span>
-        <a href="/categories/game/" class="hover:text-eureka">game</a>
-        
-    </div>
-    
-
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-th-list mr-1"></i>
-        
-        <a href="/series/unreal-workflow/" class="hover:text-eureka">unreal workflow</a>
-        
-    </div>
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
 </div>
 
 
@@ -951,7 +944,7 @@
         <a href="/posts/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/11/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/posts/page/12/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 
@@ -961,7 +954,7 @@
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">Copyright &copy; 2025 <a href="https://www.zfkun.com/">zfkun.com</a>
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2026 <a href="https://www.zfkun.com/">zfkun.com</a>
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div>

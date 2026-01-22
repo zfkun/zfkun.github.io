@@ -144,7 +144,7 @@
     },
     "headline": "ComfyUI 合理规划与瘦身重装 | 影の域","datePublished": "2025-11-25T00:00:00+08:00",
     "dateModified": "2026-01-14T22:34:00+08:00",
-    "wordCount":  2066 ,
+    "wordCount":  2255 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -314,7 +314,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>2066字</span>
+        <span>2255字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -514,11 +514,33 @@ git clone https://github.com/ltdrdata/ComfyUI-Manager comfyui-manager
 <p>nunchaku 的插件安装, 也经常会碰到问题, 常见的就是安装依赖后引起的, 各种依赖包的版本冲突问题</p>
 <p>比如 numpy 的版本 与 opencv-python 的依赖版本冲突 就比较常见</p>
 <blockquote>
-<p>　以目前 <code>1.1.0</code> 的轮子 和 插件 来说, <code>numpy==1.26.4</code> 应该就可以解决问题</p>
+<p>以目前 <code>1.2.0</code> 的轮子 和 插件 来说, <code>numpy==1.26.4</code> 就可以解决问题</p>
+<p>目前能较为稳定使用 <code>nunchaku</code> 的 <code>numpy</code> 版本还是建议锁定在 <code>1.26.4</code>, 遇到冲突就手工卸载高版本, 重新安装此版本</p>
 </blockquote>
 </li>
 <li>
 <p><a href="https://github.com/city96/ComfyUI-GGUF">ComfyUI-GGUF</a> GGUF量化低显福音</p>
+</li>
+</ul>
+<h2 id="图片处理">图片处理</h2>
+<ul>
+<li>
+<p><a href="https://github.com/chflame163/ComfyUI_LayerStyle">ComfyUI-LayerStyle</a> PotoShop 的功能基本都搬了一遍</p>
+<p>插件的依赖也会差生 <code>numpy</code> 版本冲突的问题, 需要手工处理冲突</p>
+<blockquote>
+<p>通常是因为依赖自动安装了 <code>numpy 2.x</code> 的高版本 和 <code>colour-science</code> 高版本引起, 解决很简单:</p>
+<ol>
+<li>卸载 <code>numpy</code>, <code>colour-science</code></li>
+<li>也要卸载 <code>opencv-python</code>, <code>opencv-python-headless</code>, <code>opencv-contrib-python</code></li>
+<li>重新安装稳定依赖 (<strong>必须指定安全版本</strong>) <code>numpy==1.26.4</code>, <code>colour-science==0.4.4</code> (0.4.5+ 就强制依赖 <code>numpy2</code> 了), <code>opencv-python==4.9.0.80</code></li>
+</ol>
+</blockquote>
+<pre><code class="language-shell"># 卸载问题依赖
+.\python_embeded\python.exe -m pip uninstall numpy colour-science opencv-python opencv-python-headless opencv-contrib-python
+
+# 重装稳定依赖
+.\python_embeded\python.exe -m pip install &quot;numpy==1.26.4&quot; &quot;colour-science==0.4.4&quot; &quot;opencv-python==4.9.0.80&quot;
+</code></pre>
 </li>
 </ul>
 <h3 id="高清放大">高清放大</h3>
@@ -615,15 +637,18 @@ D:\ai\ui\comfyui\comfyui_xxx\python_embeded\python.exe -m pip install .
 <h2 id="起手模型">起手模型</h2>
 <h3 id="图像生成">图像生成</h3>
 <ul>
-<li><a href="https://www.modelscope.cn/models/black-forest-labs/FLUX.1-Krea-dev">FLUX.1-Krea</a></li>
-<li><a href="https://www.modelscope.cn/models/Qwen/Qwen-Image">Qwen-Image</a></li>
+<li><del><a href="https://www.modelscope.cn/models/black-forest-labs/FLUX.1-Krea-dev">FLUX.1-Krea</a></del></li>
+<li><a href="https://www.modelscope.cn/collections/black-forest-labs/FLUX-2-Klein">FLUX.2-Klein</a></li>
+<li><del><a href="https://www.modelscope.cn/models/Qwen/Qwen-Image">Qwen-Image</a></del></li>
+<li><a href="https://www.modelscope.cn/models/Qwen/Qwen-Image-2512">Qwen-Image-2512</a></li>
 <li><a href="https://www.modelscope.cn/models/Tongyi-MAI/Z-Image-Turbo">Z-Image</a></li>
 </ul>
 <h3 id="图像编辑">图像编辑</h3>
 <ul>
-<li><a href="https://www.modelscope.cn/models/black-forest-labs/FLUX.1-Kontext-dev">FLUX.1-Kontext</a></li>
+<li><del><a href="https://www.modelscope.cn/models/black-forest-labs/FLUX.1-Kontext-dev">FLUX.1-Kontext</a></del></li>
+<li><a href="https://www.modelscope.cn/collections/black-forest-labs/FLUX-2-Klein">FLUX.2-Klein</a></li>
 <li><del><a href="https://www.modelscope.cn/models/Qwen/Qwen-Image-Edit-2509">Qwen-Image-Edit-2509</a></del></li>
-<li><a href="https://www.modelscope.cn/models/Qwen/Qwen-Image-Edit-2511">Qwen-Image-Edit-2511</a></li>
+<li>~~<a href="https://www.modelscope.cn/models/Qwen/Qwen-Image-Edit-2511">Qwen-Image-Edit-2511</a></li>
 </ul>
 <h3 id="视频生成">视频生成</h3>
 <ul>
@@ -792,6 +817,10 @@ D:\ai\ui\comfyui\comfyui_xxx\python_embeded\python.exe -m pip install .
     <li><a href="#起手插件">起手插件</a>
       <ul>
         <li><a href="#通用">通用</a></li>
+      </ul>
+    </li>
+    <li><a href="#图片处理">图片处理</a>
+      <ul>
         <li><a href="#高清放大">高清放大</a></li>
         <li><a href="#抠图识别">抠图识别</a></li>
         <li><a href="#效率工具">效率工具</a></li>

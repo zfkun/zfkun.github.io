@@ -10,6 +10,20 @@
 </copyright>
     <atom:link href="/authors/zfkun/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>xray vmess 迁移 vless</title>
+      <link>/2026-03-10-xray-vmess-to-vless.html</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0800</pubDate>
+      <guid>/2026-03-10-xray-vmess-to-vless.html</guid>
+      <description>最近 v2rayN 更新了 7.x 之后, 系统很不稳定, ERR_PROXY_CONNECTION_FAILED 很频繁且代理混乱, 于是做了下协议优化升级</description>
+    </item>
+    <item>
+      <title>xray vmess 迁移 vless</title>
+      <link>/2026-03-10-xray-vmess-to-vless.html</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0800</pubDate>
+      <guid>/2026-03-10-xray-vmess-to-vless.html</guid>
+      <description>最近 v2rayN 更新了 7.x 之后, 系统很不稳定, ERR_PROXY_CONNECTION_FAILED 很频繁且代理混乱, 于是做了下协议优化升级</description>
+    </item>
+    <item>
       <title>PVE 下 SSL 证书签发 与 全子系统同步</title>
       <link>/pve-ssl-renew-and-deploy.html</link>
       <pubDate>Thu, 01 Jan 2026 00:00:00 +0800</pubDate>

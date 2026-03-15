@@ -144,7 +144,7 @@
     },
     "headline": "PVE 下 SSL 证书签发 与 全子系统同步 | 影の域","datePublished": "2026-01-01T00:00:00+08:00",
     "dateModified": "2026-01-14T22:34:00+08:00",
-    "wordCount":  915 ,
+    "wordCount":  1075 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -312,11 +312,11 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>2分钟阅读时长</span>
+        <span>3分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>915字</span>
+        <span>1075字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -403,6 +403,29 @@ services:
             - /data/docker/acme.sh:/acme.sh
             - /etc/localtime:/etc/localtime
 </code></pre>
+<h4 id="acme-的-deploy-hook-配置">ACME 的 deploy hook 配置</h4>
+<ul>
+<li>
+<p><a href="https://github.com/acmesh-official/acme.sh/wiki/deployhooks#20-deploy-the-certificate-to-synology-dsm">Synology DSM</a></p>
+<blockquote>
+<p>我是 <code>Docker部署</code> 的, 只能通过 <code>现有管理员用户</code> 的凭证调用API实现
+如果 <code>本地部署</code> 的, 就简单一些:　直接 <code>environments</code>　配置 <code>SYNO_USE_TEMP_ADMIN=1</code> 即可 (acme 会自动创建 <code>临时管理员</code> 自动操作)
+<strong>注意:</strong> 如果曾用过 临时管理员 模式, 现在要切换成 现有管理员 模式, 则需先 <code>environments</code> 配置 <code>CLEAR_SYNO_USE_TEMP_ADMIN=1</code> 执行一次清理</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://github.com/acmesh-official/acme.sh/wiki/deployhooks#27-deploy-the-cert-on-a-proxmox-ve-node">Proxmox</a></p>
+<blockquote>
+<p>创建一个具有 <a href="https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/%7Bnode%7D/certificates/custom">sys.modify</a> 权限的用户 及 API令牌 即可</p>
+</blockquote>
+</li>
+<li>
+<p>1Panel</p>
+<blockquote>
+<p>不支持, 需手动调用API模拟实现</p>
+</blockquote>
+</li>
+</ul>
 <h3 id="配置hook">配置HOOK</h3>
 <p>SSH 登录 docker 子系统, 借助 <code>acme.sh</code> 自带指令, 配置部署钩子</p>
 <blockquote>
@@ -618,6 +641,9 @@ log &quot;All deploy steps finished for $SSL_DOMAIN (sslID=$SSL_ID)&quot;
 <div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
     <div>
         
+        <span class="block font-bold">上一页</span>
+        <a href="/2026-03-10-xray-vmess-to-vless.html" class="block">xray vmess 迁移 vless</a>
+        
     </div>
     <div class="md:text-right mt-4 md:mt-0">
         
@@ -655,7 +681,11 @@ log &quot;All deploy steps finished for $SSL_DOMAIN (sslID=$SSL_ID)&quot;
     <li><a href="#环境架构">环境架构</a></li>
     <li><a href="#ssl维护">SSL维护</a>
       <ul>
-        <li><a href="#证书签发">证书签发</a></li>
+        <li><a href="#证书签发">证书签发</a>
+          <ul>
+            <li><a href="#acme-的-deploy-hook-配置">ACME 的 deploy hook 配置</a></li>
+          </ul>
+        </li>
         <li><a href="#配置hook">配置HOOK</a></li>
         <li><a href="#同步脚本">同步脚本</a></li>
       </ul>

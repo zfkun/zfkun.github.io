@@ -10,17 +10,31 @@
 </copyright>
     <atom:link href="/authors/zfkun/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>杀戮尖塔2 本地编译 (godot项目)</title>
+      <link>/slay-the-spire-2-godot.html</link>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 +0800</pubDate>
+      <guid>/slay-the-spire-2-godot.html</guid>
+      <description>杀戮尖塔2 本地编译构建运行还是比较简单的, 稍微避开几个小坑即可顺利编译运行</description>
+    </item>
+    <item>
+      <title>杀戮尖塔2 本地编译 (godot项目)</title>
+      <link>/slay-the-spire-2-godot.html</link>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 +0800</pubDate>
+      <guid>/slay-the-spire-2-godot.html</guid>
+      <description>杀戮尖塔2 本地编译构建运行还是比较简单的, 稍微避开几个小坑即可顺利编译运行</description>
+    </item>
+    <item>
       <title>xray vmess 迁移 vless</title>
-      <link>/2026-03-10-xray-vmess-to-vless.html</link>
+      <link>/xray-vmess-to-vless.html</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0800</pubDate>
-      <guid>/2026-03-10-xray-vmess-to-vless.html</guid>
+      <guid>/xray-vmess-to-vless.html</guid>
       <description>最近 v2rayN 更新了 7.x 之后, 系统很不稳定, ERR_PROXY_CONNECTION_FAILED 很频繁且代理混乱, 于是做了下协议优化升级</description>
     </item>
     <item>
       <title>xray vmess 迁移 vless</title>
-      <link>/2026-03-10-xray-vmess-to-vless.html</link>
+      <link>/xray-vmess-to-vless.html</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0800</pubDate>
-      <guid>/2026-03-10-xray-vmess-to-vless.html</guid>
+      <guid>/xray-vmess-to-vless.html</guid>
       <description>最近 v2rayN 更新了 7.x 之后, 系统很不稳定, ERR_PROXY_CONNECTION_FAILED 很频繁且代理混乱, 于是做了下协议优化升级</description>
     </item>
     <item>

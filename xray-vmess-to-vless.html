@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>xray vmess 迁移 vless | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/python.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/arduino.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/c.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/cpp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/csharp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/java.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/lua.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/css.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/rust.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/scss.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/less.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/powershell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/json.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="最近 v2rayN 更新了 7.x 之后, 系统很不稳定, ERR_PROXY_CONNECTION_FAILED 很频繁且代理混乱, 于是做了下协议优化升级">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Zhs",
+      "item":"/zh/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"文章",
+      "item":"/zh/posts/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"xray vmess 迁移 vless",
+      "item":"/xray-vmess-to-vless.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/xray-vmess-to-vless.html"
+    },
+    "headline": "xray vmess 迁移 vless | 影の域","datePublished": "2026-03-10T00:00:00+08:00",
+    "dateModified": "2026-03-24T14:04:12+08:00",
+    "wordCount":  887 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "最近 v2rayN 更新了 7.x 之后, 系统很不稳定, ERR_PROXY_CONNECTION_FAILED 很频繁且代理混乱, 于是做了下协议优化升级"
+}
+</script><meta property="og:title" content="xray vmess 迁移 vless | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/xray-vmess-to-vless.html" />
+
+
+
+
+<meta property="og:description" content="最近 v2rayN 更新了 7.x 之后, 系统很不稳定, ERR_PROXY_CONNECTION_FAILED 很频繁且代理混乱, 于是做了下协议优化升级" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-03-10T00:00:00&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-03-24T14:04:12&#43;08:00" />
+
+
+
+<meta property="article:section" content="zh" />
+
+
+<meta property="article:tag" content="xray" />
+
+<meta property="article:tag" content="v2ray" />
+
+<meta property="article:tag" content="vmess" />
+
+<meta property="article:tag" content="vless" />
+
+<meta property="article:tag" content="reality" />
+
+<meta property="article:tag" content="nginx" />
+
+
+
+
+
+<meta property="og:see_also" content="/xray-vmess-to-vless.html" />
+
+<meta property="og:see_also" content="/pve-ssl-renew-and-deploy.html" />
+
+<meta property="og:see_also" content="/pve-ssl-renew-and-deploy.html" />
+
+<meta property="og:see_also" content="/chrome-ssl-protocol-error.html" />
+
+<meta property="og:see_also" content="/chrome-ssl-protocol-error.html" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">xray vmess 迁移 vless</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2026-03-10</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>887字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/xray/" class="hover:text-eureka">xray</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/nginx/" class="hover:text-eureka">nginx</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/linux/" class="hover:text-eureka">linux</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>国内环境的不友好, 相比懂互联网的老鸟们都有体会.</p>
+<p>最近更新了一直用的 v2ray 的客户端, 突然发现电脑频繁的出现代理抽风的问题, 折腾了1天算解决了</p>
+<h2 id="问题表现">问题表现</h2>
+<p><code>chrome</code> 打开任意网页, 大概率报错提示 <code>ERR_PROXY_CONNECTION_FAILED</code>, 反复刷新后, 偶尔正常一会</p>
+<blockquote>
+<p>无论用 黑名单模式, 还是全局, 都一样, 彻底禁用代理一切正常</p>
+</blockquote>
+<h2 id="问题根源">问题根源</h2>
+<ul>
+<li>
+<p>v2ray 7.x 连接复用策略 及 通讯协议废弃</p>
+<p>v2rayN 启动日志</p>
+<pre><code class="language-log">2026/03/10 09:59:31.901786 [Warning] common/errors: The feature WebSocket transport (with ALPN http/1.1, etc.) is deprecated, not recommended for using and might be removed. Please migrate to XHTTP H2 &amp; H3 as soon as possible.
+
+2026/03/10 09:59:31.901786 [Warning] common/errors: The feature VMess (with no Forward Secrecy, etc.) is deprecated, not recommended for using and might be removed. Please migrate to VLESS Encryption as soon as possible.
+</code></pre>
+</li>
+<li>
+<p>本地端口耗尽</p>
+<pre><code>netstat -ano | findstr TIME_WAIT
+
+TCP    127.0.0.1:1576         192.168.1.2:9999        TIME_WAIT       0
+TCP    127.0.0.1:1638         192.168.1.2:9999        TIME_WAIT       0
+TCP    127.0.0.1:1944         192.168.1.2:9999        TIME_WAIT       0
+TCP    127.0.0.1:1982         192.168.1.2:9999        TIME_WAIT       0
+...
+TCP    127.0.0.1:63668        192.168.1.2:9999        TIME_WAIT       0
+TCP    127.0.0.1:64405        192.168.1.2:9999        TIME_WAIT       0
+...
+</code></pre>
+</li>
+<li>
+<p>Tun 模式打开</p>
+</li>
+</ul>
+<h2 id="解决方法">解决方法</h2>
+<h3 id="chrome-关闭-quic-可选">Chrome 关闭 QUIC (可选)</h3>
+<ol>
+<li>chrome 地址栏输入 <code>chrome://flags</code></li>
+<li>搜索 <code>QUIC</code></li>
+<li>找到 <code>Experimental QUIC protocol</code> 改为 <code>Disabled</code></li>
+</ol>
+<h3 id="tcp端口池清理-必须">TCP端口池清理 (必须)</h3>
+<p>这一步可以在更换协议后进行</p>
+<ol>
+<li>
+<p>检查确认端口池是否耗尽</p>
+<pre><code>netstat -ano | findstr TIME_WAIT
+</code></pre>
+<blockquote>
+<p>发现大量的 TIME_WAIT, 说明已耗尽</p>
+</blockquote>
+</li>
+<li>
+<p>清理重启TCP端口池</p>
+<pre><code>netsh int ip reset
+netsh winsock reset
+</code></pre>
+<blockquote>
+<p>需要重启电脑</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="更换传输协议-关键">更换传输协议 (关键)</h3>
+<p>将目前的 <a href="https://xtls.github.io/config/inbounds/vmess.html">VMESS + WebSocket</a> 改为 <a href="https://xtls.github.io/config/inbounds/vless.html">VLESS + Reality</a></p>
+<h4 id="网络架构">网络架构</h4>
+<p>隔离 Reality 和 Nginx 站点服务, 仅对本地服务, 443 统一由 Nginx 代理</p>
+<pre><code>Internet
+    │
+    ▼
+VPS:443
+    │
+    ▼
+Nginx stream (SNI 分流)
+    │
+    ├── www.microsoft.com  → 127.0.0.1:4432 (Reality)
+    │
+    └── default            → 127.0.0.1:4431 (网站)
+                                 │
+                                 ▼
+                           Nginx HTTPS
+
+</code></pre>
+<h4 id="服务器调整">服务器调整</h4>
+<ol>
+<li>关闭并禁用 v2ray 服务</li>
+</ol>
+<pre><code class="language-shell">systemctl stop v2ray
+systemctl disable v2ray
+</code></pre>
+<ol start="2">
+<li>安装 xray-core 服务</li>
+</ol>
+<pre><code class="language-shell">bash -c &quot;$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)&quot; @ install
+</code></pre>
+<ol start="3">
+<li>生成 Reality 密钥</li>
+</ol>
+<pre><code class="language-shell">xray x25519
+</code></pre>
+<p>得到</p>
+<pre><code>PrivateKey: aaaaaa
+Password: bbbbbb
+Hash32: cccccc
+</code></pre>
+<ul>
+<li><code>PrivateKey</code> 用于 服务器配置的 <code>inbounds[].streamSettings.privateKey</code></li>
+<li><code>Password</code> 用于 客户端配置的 <code>outbounds[].streamSettings.realitySettings.publicKey</code></li>
+</ul>
+<ol start="3">
+<li>配置 xray-core</li>
+</ol>
+<pre><code class="language-shell">vim /usr/local/etc/xray/config.json
+</code></pre>
+<p>配置内容</p>
+<pre><code class="language-json">{
+  &quot;log&quot;: {
+    &quot;loglevel&quot;: &quot;warning&quot;,
+    &quot;access&quot;: &quot;/var/log/xray/access.log&quot;,
+    &quot;error&quot;: &quot;/var/log/xray/error.log&quot;
+  },
+  &quot;inbounds&quot;: [
+    {
+      &quot;tag&quot;: &quot;reality-in&quot;,
+      &quot;port&quot;: 4432,
+      &quot;listen&quot;: &quot;127.0.0.1&quot;,
+      &quot;protocol&quot;: &quot;vless&quot;,
+      &quot;settings&quot;: {
+        &quot;clients&quot;: [
+          {
+            &quot;id&quot;: &quot;你的UUID 1&quot;,
+            &quot;flow&quot;: &quot;xtls-rprx-vision&quot;,
+            &quot;email&quot;: &quot;你的邮箱 1&quot;
+          },
+          {
+            &quot;id&quot;: &quot;你的UUID 2&quot;,
+            &quot;flow&quot;: &quot;xtls-rprx-vision&quot;,
+            &quot;email&quot;: &quot;你的邮箱 2&quot;
+          }
+        ],
+        &quot;decryption&quot;: &quot;none&quot;
+      },
+      &quot;streamSettings&quot;: {
+        &quot;network&quot;: &quot;tcp&quot;,
+        &quot;security&quot;: &quot;reality&quot;,
+        &quot;realitySettings&quot;: {
+          &quot;dest&quot;: &quot;www.microsoft.com:443&quot;,
+          &quot;serverNames&quot;: [
+            &quot;www.microsoft.com&quot;
+          ],
+          &quot;privateKey&quot;: &quot;你的私钥&quot;,
+          &quot;shortIds&quot;: [
+            &quot;a1&quot;,
+            &quot;b2&quot;
+          ]
+        }
+      },
+      &quot;sniffing&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;destOverride&quot;: [
+          &quot;http&quot;,
+          &quot;tls&quot;
+        ]
+      }
+    }
+  ],
+  &quot;outbounds&quot;: [
+    {
+      &quot;protocol&quot;: &quot;freedom&quot;
+    }
+  ]
+}
+</code></pre>
+<blockquote>
+<p>UUID 可通过 <code>xray uuid</code> 新生成 或 自己随便定义</p>
+<p>shortId 可通过 <code>openssl rand -hex 8</code> 新生成 或 自己随便定义</p>
+</blockquote>
+<ol start="4">
+<li>修改 Nginx 配置</li>
+</ol>
+<p>stream 分流</p>
+<pre><code class="language-nginx">stream {
+    map $ssl_preread_server_name $proxy {
+        www.microsoft.com 127.0.0.1:4432;
+        default 127.0.0.1:4431;
+    }
+
+    server {
+        listen 443 reuseport;
+        listen [::]:443 reuseport;
+        ssl_preread on;
+        proxy_pass $proxy;
+    }
+}
+</code></pre>
+<p>其他现存网站改为监听 本机 4431 端口</p>
+<pre><code class="language-nginx">server {
+    listen 127.0.0.1:4431 ssl http2;
+    server_name a1.yourdomain.com;
+}
+
+server {
+    listen 127.0.0.1:4431 ssl http2;
+    server_name b2.yourdomain.com;
+}
+
+...
+</code></pre>
+<ol start="5">
+<li>客户端配置</li>
+</ol>
+<p>以 <a href="https://github.com/2dust/v2rayN">v2rayN</a> 为例</p>
+<pre><code>协议: VLESS
+地址: VPS 公网IP 或 自定义域名 (推荐)
+端口: 443
+用户ID: 你的UUID 1
+流控: xtls-rprx-vision
+加密方式: none
+开启Mux: 否
+
+传输协议: tcp
+伪装类型: none
+伪装域名: 空
+路径: 空
+
+TLS: reality
+SNI: www.microsoft.com
+Fingerprint: chrome
+PublicKey: Reality 密钥生成的 password
+ShortId: 服务器配置里的
+SpiderX: /
+</code></pre>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/xray/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#xray</a>
+    
+    <a href="/tags/v2ray/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#v2ray</a>
+    
+    <a href="/tags/vmess/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#vmess</a>
+    
+    <a href="/tags/vless/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#vless</a>
+    
+    <a href="/tags/reality/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#reality</a>
+    
+    <a href="/tags/nginx/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#nginx</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="/slay-the-spire-2-godot.html" class="block">杀戮尖塔2 本地编译 (godot项目)</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/pve-ssl-renew-and-deploy.html" class="block">PVE 下 SSL 证书签发 与 全子系统同步</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题表现">问题表现</a></li>
+    <li><a href="#问题根源">问题根源</a></li>
+    <li><a href="#解决方法">解决方法</a>
+      <ul>
+        <li><a href="#chrome-关闭-quic-可选">Chrome 关闭 QUIC (可选)</a></li>
+        <li><a href="#tcp端口池清理-必须">TCP端口池清理 (必须)</a></li>
+        <li><a href="#更换传输协议-关键">更换传输协议 (关键)</a>
+          <ul>
+            <li><a href="#网络架构">网络架构</a></li>
+            <li><a href="#服务器调整">服务器调整</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="/xray-vmess-to-vless.html">xray vmess 迁移 vless</a>
+            <br />
+            
+            <a href="/pve-ssl-renew-and-deploy.html">PVE 下 SSL 证书签发 与 全子系统同步</a>
+            <br />
+            
+            <a href="/pve-ssl-renew-and-deploy.html">PVE 下 SSL 证书签发 与 全子系统同步</a>
+            <br />
+            
+            <a href="/chrome-ssl-protocol-error.html">Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR</a>
+            <br />
+            
+            <a href="/chrome-ssl-protocol-error.html">Chrome 访问域名错误 ERR_SSL_PROTOCOL_ERROR</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2026 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+  </footer>
+</body>
+
+</html>

@@ -138,69 +138,123 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "Thinkpad 全系列驱动程序官方安装光盘下载",
-            "description": "Lenovo 这次厚道一次了，知道提高用户体验了。对于经常反复装系统的孩子们应该用的着。当然就不要要求实时更新了，估计很难。先装了再update也无妨，总比装完发现，网卡，声卡，显卡驱动均无 + 无另外上网设备的尴尬好的多吧。",
-            "image": "/uploads/2011/11/lenovo_logo.gif",
-            "url": "/449.html"
+            "name": "apache2.2的优化及模块安装",
+            "description": "一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 \u0026lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L",
+            "url": "/174.html"
         },{
             "@type":"ListItem",
             "position":  2 ,
-            "name": "移动 Web 开发平台 Rexsee 开源",
-            "description": "国内移动Web开发平台Rexsee正式开源，其开发者社区也于本周上线。访问社区可以查看详细开发手册、API说明与示例以及全部源码，并可在线编译免费生成移动应用客户端。",
-            "url": "/445.html"
+            "name": "Google API – Chart – QR",
+            "description": "谷歌的Chart API真是全啊，下面这个就是比较实用的二维码： http://code.google.com/intl/zh-CN/apis/chart/docs/gallery/qr_codes.html",
+            "url": "/170.html"
         },{
             "@type":"ListItem",
             "position":  3 ,
-            "name": "CubeStormer II + Samsung Galaxy S II ，5.35 秒暴解三阶魔方！",
-            "description": "CubeStormer II + Samsung Galaxy S II ，5.35 秒暴解三阶魔方！",
-            "image": "/uploads/2011/10/cubestormer-ii-finished-cube.jpg",
-            "url": "/441.html"
+            "name": "判断 iframe 是否加载完成的完美方法",
+            "description": "网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(\u0026quot;iframe\u0026quot;); iframe.src = \u0026quot;http://www.planabc.net\u0026quot;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == \u0026quot;complete\u0026quot;){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(\u0026quot;iframe\u0026quot;); iframe.src = \u0026quot;http://www.planabc.net\u0026quot;; if (iframe.attachEvent){ iframe.attachEvent(\u0026quot;onload\u0026quot;, function(){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); }); } else { iframe.onload = function(){ alert(\u0026quot;Local iframe is now loaded.\u0026quot;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。",
+            "url": "/167.html"
         },{
             "@type":"ListItem",
             "position":  4 ,
-            "name": "WordPress Rewrite SEO 之404方式折腾笔记",
-            "description": "WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。\n最近折腾 HTML5探索 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。\n空间是虚拟主机（还是WIN + IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite。SO, 就开始大面积的调整程序 + hack, 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）",
-            "image": "/uploads/2011/07/wordpress_404_page.gif",
-            "url": "/417.html"
+            "name": "获取 Textarea 的光标位置",
+            "description": "在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。",
+            "url": "/163.html"
         },{
             "@type":"ListItem",
             "position":  5 ,
-            "name": "[转]利用跨域资源共享（CORS）实现ajax跨域调用",
-            "description": "几年前，网站开发者都因为ajax的同源策略而撞了南墙。当我们惊叹于XMLHttpRequest对象跨浏览器支持所带来的巨大进步时，我们很快发现没有一个方法可以使我们用JavaScript实现请求跨域访问，对此我们哀叹不已。每个人在他们自己的网站上建立代理来摆脱这种限制。虽然开发者利用服务器代理和其它技巧避开了这种限制，而在社区的抗议者允许ajax在本地跨域调用。许多人还没意识到当前几乎所有的浏览器（Internet Explorer 8+， Firefox 3.5+， Safari 4+和 Chrome）都可通过名为Cross-Origin Resource Sharing的协议支持ajax跨域调用。",
-            "image": "/uploads/2011/07/cors.jpg",
-            "url": "/394.html"
+            "name": "如何获取当前 select 元素的值",
+            "description": "如何获取当前 select 元素的值",
+            "url": "/161.html"
         },{
             "@type":"ListItem",
             "position":  6 ,
-            "name": "window.open() 之句柄保持和重连",
-            "description": "window.open()是挺常用的弹窗方式，大部分时候用在一些会话框提示、上传、第三方应用交互等，这时若需要面对资源保持的问题时，就需要一些特殊的技巧来fix。",
-            "image": "/uploads/2011/07/11111111111111.jpg",
-            "url": "/388.html"
+            "name": "如何在事件代理中正确使用 focus 和 blur 事件",
+            "description": "如何在事件代理中正确使用 focus 和 blur 事件",
+            "url": "/159.html"
         },{
             "@type":"ListItem",
             "position":  7 ,
-            "name": "apk文件的MIME类型",
-            "description": "今天更新日志时刚好需要提供apk文件的本地下载，测试下果然该死的WIN+IIS的虚拟主机不给力，因为缺少MIME识别而提示404。\n其实文件路径是真实有效的，只是主机没有手动增加对apk文件类型的识别配置，所以默认给了404（体验还真好，FK）。\nso, fix it !!",
-            "image": "/uploads/2011/07/android-apk.png",
-            "url": "/372.html"
+            "name": "MooTools Upgrade from 1.2 to 1.3",
+            "description": "This is a list of the API changes made from 1.2 to 1.3. It allows you to drop the compatibility layer mostly by doing search and replace. If you just want to update to MooTools Core 1.3 with your existing code, see Update from 1.2 to 1.3.",
+            "url": "/157.html"
         },{
             "@type":"ListItem",
             "position":  8 ,
-            "name": "WordPress 中文Tag 显示404错误的BUG修正",
-            "description": "今天无意间查看站点的谷歌统计数据时发现，存在200+的错误页面。 - -!\n分析了下，最终锁定WordPress 的中文支持问题。由于WordPress对中文的支持不好，主要体现在路由的解析上，导致了中文Tag的URL解析异常，从而显示了404结果页。",
-            "url": "/344.html"
+            "name": "随机颜色",
+            "description": "var getRandomColor = function() { return ‘#’ + (‘00000’ + (Math.random() * 0x1000000 \u0026laquo; 0).toString(16)).substr(-6); } 网上看到，记录一下。",
+            "url": "/154.html"
         },{
             "@type":"ListItem",
             "position":  9 ,
-            "name": "[转]IE6、IE7、IE8 CSS Bug兼容解决记录",
-            "description": "一份值得看下的IE6、IE7、IE8 CSS Bug兼容解决记录",
-            "url": "/275.html"
+            "name": "今夜",
+            "description": "冰冷的夜，守在窗边，期待归来。 忏悔的心，坐在床头，渴望重来。 对视，哀叹，奇怪又无奈。 说不出话来。 上望着熬过这一晚。",
+            "url": "/150.html"
         },{
             "@type":"ListItem",
             "position":  10 ,
-            "name": "Ubuntu安装之wubi方式默认自动BT下载iso的问题",
-            "description": "正在研究一基于c的qqrobot，无奈需搭建linux开发环境。经过 Dev-cpp，Cygwin（已通过编译但运行异常，怀疑环境有关）的尝试，各有不足，遂选择新装ubuntu来解决。",
-            "url": "/236.html"
+            "name": "前端资源文件缓存清除一法",
+            "description": "\u003cp\u003e|\n对于前端开发来说，经常要面对JS，CSS，图片等资源的缓存更新问题（CDN永久缓存的就另当别论）。\u003c/p\u003e\n\u003cp\u003e大部分情况，为了节省服务器压力及带宽且又不失可维护性，习惯对这些资源文件添加比较久的缓存时间，这样就给前端开发人员带来一个自动更新的棘手问题。\u003c/p\u003e\n\u003cp\u003e其实，较简单的解决办法，就是固定周期或有条件的或每次（这样要缓存何用？）的增加随机数击穿缓存，强制更新即可。\u003c/p\u003e\n\u003cp\u003e这里说一个也较为简单的方式，利用AJAX的访问来更新本地缓存。\u003c/p\u003e\n\u003cp\u003e原理很简单，使用http协议的 If-Modified-Since 和 Cache-Control 两个header头参数即可。\u003c/p\u003e\n",
+            "url": "/147.html"
+        },{
+            "@type":"ListItem",
+            "position":  11 ,
+            "name": "现在",
+            "description": "疲惫、累、烦。",
+            "url": "/145.html"
+        },{
+            "@type":"ListItem",
+            "position":  12 ,
+            "name": "IE6+和FF的CSS Hack",
+            "description": "一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) 2, IE6/IE77对FireFox *+html 与 *html 是IE特有的标签, firefox 暂不支持.而*+html 又为 IE7特有标签. 注意: *+html 对IE7的HACK 必须保证HTML顶部有如下声明： \u003c!DOCTYPE HTML PUBLIC \u0026#8220;-//W3C//DTD HTML 4.01 Transitional//EN\u0026#8221; \u0026#8221;http://www.w3.org/TR/html4/loose.dtd\u0026#8221;\u003e 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global CSS 中,给需要闭合的div加上 即可,屡试不爽. 三、其他兼容技巧(再次啰嗦) 1, F",
+            "url": "/142.html"
+        },{
+            "@type":"ListItem",
+            "position":  13 ,
+            "name": "JavaScript的valueOf和toString",
+            "description": "JavaScript中valueOf函数方法是返回指定对象的原始值。JavaScript中toString函数方法是返回对象的字符串表示",
+            "url": "/140.html"
+        },{
+            "@type":"ListItem",
+            "position":  14 ,
+            "name": "Data URI 和 MHTML",
+            "description": "Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。\nMHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。",
+            "url": "/138.html"
+        },{
+            "@type":"ListItem",
+            "position":  15 ,
+            "name": "挑战 hax.tor.hu 申请带ssh的免费php+mysql空间",
+            "description": "hax.tor.hu 是一家提供带ssh的免费php+mysql虚拟主机的空间服务商，而且它的SSH隧道是开通的,但是想获得这一免费午餐，却让我大伤脑筋，因为它要求通 过它的五道变态难题才行",
+            "url": "/135.html"
+        },{
+            "@type":"ListItem",
+            "position":  16 ,
+            "name": "5 个简单实用的 CSS 属性",
+            "description": "这篇文章介绍了 5 个实用的 CSS 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。",
+            "url": "/131.html"
+        },{
+            "@type":"ListItem",
+            "position":  17 ,
+            "name": "PureMVC Standard for JavaScript",
+            "description": "PureMVC is a lightweight framework for creating applications based upon the classic  Model-View-Controller design meta-pattern. This is the specific implementation for the JavaScript language.",
+            "url": "/127.html"
+        },{
+            "@type":"ListItem",
+            "position":  18 ,
+            "name": "contains vs compareDocumentPosition",
+            "description": "一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）",
+            "url": "/125.html"
+        },{
+            "@type":"ListItem",
+            "position":  19 ,
+            "name": "JS闭包之词法作用域",
+            "description": "var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic",
+            "url": "/117.html"
+        },{
+            "@type":"ListItem",
+            "position":  20 ,
+            "name": "Comet—“服务器推”技术",
+            "description": "Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。",
+            "url": "/115.html"
         }
     ]
 }
@@ -325,28 +379,28 @@
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
   
-  <div class="w-full lg:w-2/3">
+  <div class="w-full ">
     <div class="mb-4">
-  <a href="/449.html" class="font-bold text-xl hover:text-eureka">Thinkpad 全系列驱动程序官方安装光盘下载</a>
+  <a href="/174.html" class="font-bold text-xl hover:text-eureka">apache2.2的优化及模块安装</a>
 </div>
 <div class="content">
   
-    Lenovo 这次厚道一次了，知道提高用户体验了。对于经常反复装系统的孩子们应该用的着。当然就不要要求实时更新了，估计很难。先装了再update也无妨，总比装完发现，网卡，声卡，显卡驱动均无 &#43; 无另外上网设备的尴尬好的多吧。
+    一、安装 # 解压缩 tar jxvf httpd-2.2.2.tar.bz2 cd httpd-2.2.0 # vi server/mpm/worker/worker.c 找到下面几行，并改成如下的数值，其目的是在源码中修改apache可支持的最大线程数和最大客户端数目。 # define DEFAULT_SERVER_LIMIT 256 # define MAX_SERVER_LIMIT 40000 # define DEFAULT_THREAD_LIMIT 256 # define MAX_THREAD_LIMIT 40000 # 编译和安装 apr 1.2 cd srclib/apr ./configure –prefix=/home/liuchao/local/apr make make install # 编译和安装 apr-util 1.2 cd ../apr-util ./configure –prefix=/home/local/apr-util –with-apr=/home/local/apr make make install 优化编译选项及配置apache可加载的模块 patch -p1 &lt; ../mod_limitipconn-0.22/apachesrc.diff /usr/local/apache2.2.3/bin/apxs -c -i -a mod_limitipconn.c /usr/local/apache2.2/bin/apxs -c -i -a mod_evasive20.c 更改2Glogs export CFLAGS=”-O2 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_L
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-11-17</span>
+        <span>2011-03-10</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>2分钟阅读时长</span>
+        <span>15分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>699字</span>
+        <span>7108字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -363,10 +417,6 @@
 
   </div>
 
-  
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2011/11/lenovo_logo.gif" class="w-full" alt="Featured Image">
-  </div>
   
 </div>
   </div>
@@ -376,63 +426,18 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/445.html" class="font-bold text-xl hover:text-eureka">移动 Web 开发平台 Rexsee 开源</a>
+  <a href="/170.html" class="font-bold text-xl hover:text-eureka">Google API – Chart – QR</a>
 </div>
 <div class="content">
   
-    国内移动Web开发平台Rexsee正式开源，其开发者社区也于本周上线。访问社区可以查看详细开发手册、API说明与示例以及全部源码，并可在线编译免费生成移动应用客户端。
+    谷歌的Chart API真是全啊，下面这个就是比较实用的二维码： http://code.google.com/intl/zh-CN/apis/chart/docs/gallery/qr_codes.html
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-10-28</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>2分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>745字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full lg:w-2/3">
-    <div class="mb-4">
-  <a href="/441.html" class="font-bold text-xl hover:text-eureka">CubeStormer II &#43; Samsung Galaxy S II ，5.35 秒暴解三阶魔方！</a>
-</div>
-<div class="content">
-  
-    CubeStormer II &#43; Samsung Galaxy S II ，5.35 秒暴解三阶魔方！
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2011-10-26</span>
+        <span>2011-01-30</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -440,7 +445,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>231字</span>
+        <span>32字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -458,40 +463,34 @@
   </div>
 
   
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2011/10/cubestormer-ii-finished-cube.jpg" class="w-full" alt="Featured Image">
-  </div>
-  
 </div>
   </div>
   
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
   
-  <div class="w-full lg:w-2/3">
+  <div class="w-full ">
     <div class="mb-4">
-  <a href="/417.html" class="font-bold text-xl hover:text-eureka">WordPress Rewrite SEO 之404方式折腾笔记</a>
+  <a href="/167.html" class="font-bold text-xl hover:text-eureka">判断 iframe 是否加载完成的完美方法</a>
 </div>
 <div class="content">
   
-    WordPress 是多么强大的Blog（甚至可以说CMS）系统就不用多说了。说到底我把WP只看做一个开发起步的框架而已，更多的性能及功能的挖掘和利用还是需要自己去完成。
-最近折腾 HTML5探索 的SEO时，想起来我的博客依旧还没做过SEO，遂就开始了下面记录中的折腾回忆录。
-空间是虚拟主机（还是WIN &#43; IIS）、无Rewrite、无子域名等等，在诸多的不利因素下，对于强大的WordPress来说，依旧能找到较好的优化方式: 404 Rewrite。SO, 就开始大面积的调整程序 &#43; hack, 终于算完成了现在的Rewrite，真是累死我也。（做了一大堆复杂的兼容工作，历史原因害死人呀！）
+    网络看到，记录下。 一般来说，我们判断 iframe 是否加载完成其实与 判断 JavaScript 文件是否加载完成 采用的方法很类似： var iframe = document.createElement(&#34;iframe&#34;); iframe.src = &#34;http://www.planabc.net&#34;; if (!/*@cc_on!@*/0) { //if not IE iframe.onload = function(){ alert(&#34;Local iframe is now loaded.&#34;); }; } else { iframe.onreadystatechange = function(){ if (iframe.readyState == &#34;complete&#34;){ alert(&#34;Local iframe is now loaded.&#34;); } }; } document.body.appendChild(iframe); 最近， Nicholas C. Zakas 文章《Iframes, onload, and document.domain》的评论中 Christopher 提供了一个新的判断方法（很完美）： var iframe = document.createElement(&#34;iframe&#34;); iframe.src = &#34;http://www.planabc.net&#34;; if (iframe.attachEvent){ iframe.attachEvent(&#34;onload&#34;, function(){ alert(&#34;Local iframe is now loaded.&#34;); }); } else { iframe.onload = function(){ alert(&#34;Local iframe is now loaded.&#34;); }; } document.body.appendChild(iframe); 几点补充说明： IE 支持 iframe 的 onload 事件，不过是隐形的，需要通过 attachEvent 来注册。 第二种方法比第一种方法更完美，因为 readystatechange 事件相对于 load 事件有一些潜在的问题。
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-07-17</span>
+        <span>2011-01-13</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>4分钟阅读时长</span>
+        <span>1分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>1629字</span>
+        <span>244字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -509,9 +508,50 @@
   </div>
 
   
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2011/07/wordpress_404_page.gif" class="w-full" alt="Featured Image">
+</div>
   </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/163.html" class="font-bold text-xl hover:text-eureka">获取 Textarea 的光标位置</a>
+</div>
+<div class="content">
+  
+    在任何编辑器中，获取光标位置都是非常重要的，很多人可能认为较难，其实只要处理好浏览器的兼容，还是比较容易实现的。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-01-13</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1089字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
   
 </div>
   </div>
@@ -519,20 +559,340 @@
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
   
-  <div class="w-full lg:w-2/3">
+  <div class="w-full ">
     <div class="mb-4">
-  <a href="/394.html" class="font-bold text-xl hover:text-eureka">[转]利用跨域资源共享（CORS）实现ajax跨域调用</a>
+  <a href="/161.html" class="font-bold text-xl hover:text-eureka">如何获取当前 select 元素的值</a>
 </div>
 <div class="content">
   
-    几年前，网站开发者都因为ajax的同源策略而撞了南墙。当我们惊叹于XMLHttpRequest对象跨浏览器支持所带来的巨大进步时，我们很快发现没有一个方法可以使我们用JavaScript实现请求跨域访问，对此我们哀叹不已。每个人在他们自己的网站上建立代理来摆脱这种限制。虽然开发者利用服务器代理和其它技巧避开了这种限制，而在社区的抗议者允许ajax在本地跨域调用。许多人还没意识到当前几乎所有的浏览器（Internet Explorer 8&#43;， Firefox 3.5&#43;， Safari 4&#43;和 Chrome）都可通过名为Cross-Origin Resource Sharing的协议支持ajax跨域调用。
+    如何获取当前 select 元素的值
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-07-15</span>
+        <span>2011-01-13</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>257字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/159.html" class="font-bold text-xl hover:text-eureka">如何在事件代理中正确使用 focus 和 blur 事件</a>
+</div>
+<div class="content">
+  
+    如何在事件代理中正确使用 focus 和 blur 事件
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-01-13</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>563字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/157.html" class="font-bold text-xl hover:text-eureka">MooTools Upgrade from 1.2 to 1.3</a>
+</div>
+<div class="content">
+  
+    This is a list of the API changes made from 1.2 to 1.3. It allows you to drop the compatibility layer mostly by doing search and replace. If you just want to update to MooTools Core 1.3 with your existing code, see Update from 1.2 to 1.3.
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-01-13</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>360字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/154.html" class="font-bold text-xl hover:text-eureka">随机颜色</a>
+</div>
+<div class="content">
+  
+    var getRandomColor = function() { return ‘#’ &#43; (‘00000’ &#43; (Math.random() * 0x1000000 « 0).toString(16)).substr(-6); } 网上看到，记录一下。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2011-01-12</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>35字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/150.html" class="font-bold text-xl hover:text-eureka">今夜</a>
+</div>
+<div class="content">
+  
+    冰冷的夜，守在窗边，期待归来。 忏悔的心，坐在床头，渴望重来。 对视，哀叹，奇怪又无奈。 说不出话来。 上望着熬过这一晚。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-12-15</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>57字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/147.html" class="font-bold text-xl hover:text-eureka">前端资源文件缓存清除一法</a>
+</div>
+<div class="content">
+  
+    | 对于前端开发来说，经常要面对JS，CSS，图片等资源的缓存更新问题（CDN永久缓存的就另当别论）。
+大部分情况，为了节省服务器压力及带宽且又不失可维护性，习惯对这些资源文件添加比较久的缓存时间，这样就给前端开发人员带来一个自动更新的棘手问题。
+其实，较简单的解决办法，就是固定周期或有条件的或每次（这样要缓存何用？）的增加随机数击穿缓存，强制更新即可。
+这里说一个也较为简单的方式，利用AJAX的访问来更新本地缓存。
+原理很简单，使用http协议的 If-Modified-Since 和 Cache-Control 两个header头参数即可。
+
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-11-25</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>611字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/145.html" class="font-bold text-xl hover:text-eureka">现在</a>
+</div>
+<div class="content">
+  
+    疲惫、累、烦。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-04-29</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>7字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/142.html" class="font-bold text-xl hover:text-eureka">IE6&#43;和FF的CSS Hack</a>
+</div>
+<div class="content">
+  
+    一、CSS HACK 以下两种方法几乎能解决现今所有HACK. 1, !important 随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.) 2, IE6/IE77对FireFox *&#43;html 与 *html 是IE特有的标签, firefox 暂不支持.而*&#43;html 又为 IE7特有标签. 注意: *&#43;html 对IE7的HACK 必须保证HTML顶部有如下声明： &lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” ”http://www.w3.org/TR/html4/loose.dtd”&gt; 二、万能 float 闭合(非常重要!) 关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup] 将以下代码加入Global CSS 中,给需要闭合的div加上 即可,屡试不爽. 三、其他兼容技巧(再次啰嗦) 1, F
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-04-22</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -540,7 +900,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>2505字</span>
+        <span>2334字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -558,30 +918,26 @@
   </div>
 
   
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2011/07/cors.jpg" class="w-full" alt="Featured Image">
-  </div>
-  
 </div>
   </div>
   
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
   
-  <div class="w-full lg:w-2/3">
+  <div class="w-full ">
     <div class="mb-4">
-  <a href="/388.html" class="font-bold text-xl hover:text-eureka">window.open() 之句柄保持和重连</a>
+  <a href="/140.html" class="font-bold text-xl hover:text-eureka">JavaScript的valueOf和toString</a>
 </div>
 <div class="content">
   
-    window.open()是挺常用的弹窗方式，大部分时候用在一些会话框提示、上传、第三方应用交互等，这时若需要面对资源保持的问题时，就需要一些特殊的技巧来fix。
+    JavaScript中valueOf函数方法是返回指定对象的原始值。JavaScript中toString函数方法是返回对象的字符串表示
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-07-14</span>
+        <span>2010-04-22</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -589,108 +945,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>865字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2011/07/11111111111111.jpg" class="w-full" alt="Featured Image">
-  </div>
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full lg:w-2/3">
-    <div class="mb-4">
-  <a href="/372.html" class="font-bold text-xl hover:text-eureka">apk文件的MIME类型</a>
-</div>
-<div class="content">
-  
-    今天更新日志时刚好需要提供apk文件的本地下载，测试下果然该死的WIN&#43;IIS的虚拟主机不给力，因为缺少MIME识别而提示404。
-其实文件路径是真实有效的，只是主机没有手动增加对apk文件类型的识别配置，所以默认给了404（体验还真好，FK）。
-so, fix it !!
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2011-07-10</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>204字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="/uploads/2011/07/android-apk.png" class="w-full" alt="Featured Image">
-  </div>
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/344.html" class="font-bold text-xl hover:text-eureka">WordPress 中文Tag 显示404错误的BUG修正</a>
-</div>
-<div class="content">
-  
-    今天无意间查看站点的谷歌统计数据时发现，存在200&#43;的错误页面。 - -!
-分析了下，最终锁定WordPress 的中文支持问题。由于WordPress对中文的支持不好，主要体现在路由的解析上，导致了中文Tag的URL解析异常，从而显示了404结果页。
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2011-07-07</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>419字</span>
+        <span>733字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -716,26 +971,27 @@ so, fix it !!
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/275.html" class="font-bold text-xl hover:text-eureka">[转]IE6、IE7、IE8 CSS Bug兼容解决记录</a>
+  <a href="/138.html" class="font-bold text-xl hover:text-eureka">Data URI 和 MHTML</a>
 </div>
 <div class="content">
   
-    一份值得看下的IE6、IE7、IE8 CSS Bug兼容解决记录
+    Data URI是由RFC 2397定义的一种把小文件直接嵌入文档的方案。通过如下语法就可以把小文件变成指定编码直接嵌入到页面中。
+MHTML是MIME HTML (Multipurpose Internet Mail Extension HTML)的缩写，是由RFC 2557定义的把一个多媒体的页面所有内容都保存到同一个文档解决方案。这个方案是由微软提出从IE5.0开始支持，另外Opera9.0也开始支持，Safari可以把文件保存为.mht（MHTML文件的后缀）格式，但不支持显示它。
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-06-14</span>
+        <span>2010-04-10</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>6分钟阅读时长</span>
+        <span>4分钟阅读时长</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>2751字</span>
+        <span>1830字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -761,18 +1017,108 @@ so, fix it !!
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/236.html" class="font-bold text-xl hover:text-eureka">Ubuntu安装之wubi方式默认自动BT下载iso的问题</a>
+  <a href="/135.html" class="font-bold text-xl hover:text-eureka">挑战 hax.tor.hu 申请带ssh的免费php&#43;mysql空间</a>
 </div>
 <div class="content">
   
-    正在研究一基于c的qqrobot，无奈需搭建linux开发环境。经过 Dev-cpp，Cygwin（已通过编译但运行异常，怀疑环境有关）的尝试，各有不足，遂选择新装ubuntu来解决。
+    hax.tor.hu 是一家提供带ssh的免费php&#43;mysql虚拟主机的空间服务商，而且它的SSH隧道是开通的,但是想获得这一免费午餐，却让我大伤脑筋，因为它要求通 过它的五道变态难题才行
   
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2011-04-26</span>
+        <span>2010-03-19</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1163字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/131.html" class="font-bold text-xl hover:text-eureka">5 个简单实用的 CSS 属性</a>
+</div>
+<div class="content">
+  
+    这篇文章介绍了 5 个实用的 CSS 属性。你应该很熟悉，但很可能很少会使用到。我并不是在谈论展望全新的 CSS3 属性，我指的是旧的 CSS2 中的属性，如：clip，min-height，white-space，curosr 和 display 等一些被所有浏览器广泛支持的属性。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-09</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1004字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/127.html" class="font-bold text-xl hover:text-eureka">PureMVC Standard for JavaScript</a>
+</div>
+<div class="content">
+  
+    PureMVC is a lightweight framework for creating applications based upon the classic  Model-View-Controller design meta-pattern. This is the specific implementation for the JavaScript language.
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-08</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -780,7 +1126,142 @@ so, fix it !!
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>285字</span>
+        <span>132字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/125.html" class="font-bold text-xl hover:text-eureka">contains vs compareDocumentPosition</a>
+</div>
+<div class="content">
+  
+    一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-07</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1528字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/117.html" class="font-bold text-xl hover:text-eureka">JS闭包之词法作用域</a>
+</div>
+<div class="content">
+  
+    var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-05</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>11分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>5055字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="/115.html" class="font-bold text-xl hover:text-eureka">Comet—“服务器推”技术</a>
+</div>
+<div class="content">
+  
+    Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-03</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1693字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -832,7 +1313,7 @@ so, fix it !!
         <a href="/zh/posts/page/5/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/zh/posts/page/12/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/zh/posts/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 

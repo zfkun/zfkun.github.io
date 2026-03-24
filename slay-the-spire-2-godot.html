@@ -146,7 +146,7 @@
     "image": "/uploads/2026/03/sts2_1.png",
     "datePublished": "2026-03-24T00:00:00+08:00",
     "dateModified": "2026-03-24T00:00:00+08:00",
-    "wordCount":  950 ,
+    "wordCount":  921 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -306,7 +306,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>950字</span>
+        <span>921字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -397,9 +397,6 @@
 <p>当然, 编译出错不影响产出 godot 工程, 后面这步做好后, gidit IDE里重新编译也行, 但提前做好, 一步到位更稳</p>
 </blockquote>
 <p>查询注册源</p>
-<blockquote>
-<p><strong>假设</strong>: 你下载的 <code>Godot 4.5.1 .NET</code> 安装到了 <code>D:\godot\v4.5.1_mono</code></p>
-</blockquote>
 <pre><code class="language-shell">dotnet nuget list source
 
 注册的源:
@@ -458,9 +455,6 @@
 &lt;/Project&gt;
 </code></pre>
 <p>Godot 自己的 SDK 并没有被注册到 dotnet / MSBuild 里, 编译走的是系统的 MSBuild, 找不到就报错了</p>
-<blockquote>
-<p><strong>假设</strong>: 下载的 <code>Godot 4.5.1 .NET</code> 安装到了 <code>D:\godot\v4.5.1_mono</code></p>
-</blockquote>
 <blockquote>
 <p><code>Godot.NET.Sdk</code> 实际在 <code>D:\godot\v4.5.1_mono\GodotSharp\Tools\nupkgs\</code> 里</p>
 </blockquote>

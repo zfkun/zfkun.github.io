@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Aseprite 手工编译流程 (Windows) | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/python.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/arduino.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/c.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/cpp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/csharp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/java.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/lua.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/css.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/rust.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/scss.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/less.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/powershell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/json.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="记录下 Aseprite 手工编译桌面端的基本流程 (Windows)">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Zhs",
+      "item":"/zh/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"文章",
+      "item":"/zh/posts/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"Aseprite 手工编译流程 (Windows)",
+      "item":"/aseprite-compile-app-win.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/aseprite-compile-app-win.html"
+    },
+    "headline": "Aseprite 手工编译流程 (Windows) | 影の域","datePublished": "2026-08-23T00:00:00+08:00",
+    "dateModified": "2026-08-23T12:00:00+08:00",
+    "wordCount":  611 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "记录下 Aseprite 手工编译桌面端的基本流程 (Windows)"
+}
+</script><meta property="og:title" content="Aseprite 手工编译流程 (Windows) | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/aseprite-compile-app-win.html" />
+
+
+
+
+<meta property="og:description" content="记录下 Aseprite 手工编译桌面端的基本流程 (Windows)" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-08-23T00:00:00&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-08-23T12:00:00&#43;08:00" />
+
+
+
+<meta property="article:section" content="zh" />
+
+
+<meta property="article:tag" content="aseprite" />
+
+<meta property="article:tag" content="compile" />
+
+<meta property="article:tag" content="app" />
+
+<meta property="article:tag" content="windows" />
+
+
+
+
+
+<meta property="og:see_also" content="/aseprite-compile-app-win.html" />
+
+<meta property="og:see_also" content="/aseprite-compile-app.html" />
+
+<meta property="og:see_also" content="/aseprite-compile-app.html" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Aseprite 手工编译流程 (Windows)</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2026-08-23</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>611字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/tech/" class="hover:text-eureka">tech</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/windows/" class="hover:text-eureka">windows</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>主要记录 Winodws 环境的编译构建流程</p>
+<blockquote>
+<p><strong>Mac</strong> 系统参考<a href="./aseprite-compile-app.html">文章</a>, 其他系统 (<strong>Linux</strong>) 根据官方文档，适当调整即可, 较为简单</p>
+</blockquote>
+<h2 id="安装依赖">安装依赖</h2>
+<p><a href="https://cmake.org/download/">CMake</a></p>
+<p>选择 Installer 版本, 无需额外操作:</p>
+<blockquote>
+<p>记得勾选 <code>Add CMake to the system PATH</code> (命令行使用)</p>
+</blockquote>
+<p>选择 ZIP 版本, 需手工设置环境变量:</p>
+<blockquote>
+<p>假设解压位置: <code>D:\toolkit\cmake\cmake-4.1.2-windows-x86_64</code></p>
+</blockquote>
+<ol>
+<li>新建 <code>CMAKE_HOME</code>, 取值 <code>D:\toolkit\cmake\cmake-4.1.2-windows-x86_64</code></li>
+<li><code>PATH</code> 里增加一条 <code>%CMAKE_HOME%\bin</code> 即可</li>
+</ol>
+<p><a href="https://github.com/ninja-build/ninja/releases">Ninja</a></p>
+<p>下载 <code>ninja-win.zip</code> 即可, 需手工设置环境变量:</p>
+<blockquote>
+<p>假设解压位置: <code>D:\toolkit\ninja\ninja-win-v1.13.1</code></p>
+</blockquote>
+<ol>
+<li>新建 <code>NINJA_HOME</code>, 取值 <code>D:\toolkit\ninja\ninja-win-v1.13.1</code></li>
+<li><code>PATH</code> 里增加一条 <code>%NINJA_HOME%\bin</code> 即可</li>
+</ol>
+<p><a href="https://github.com/aseprite/skia">Skia</a></p>
+<p><strong>注意, 这里依赖的是 Aseprite 维护的 fork 版本 (aseprite 和 laf 依赖使用</strong>)</p>
+<blockquote>
+<p>直接下 <a href="https://github.com/aseprite/skia/releases">预编译二进制包</a> 更省事点</p>
+<p>假设解压位置: <code>D:\toolkit\skia\skia-m124</code></p>
+</blockquote>
+<p><a href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio</a></p>
+<p>安装 <a href="https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/">Visual Studio Community 2022 版本</a> 的 (<strong>版本过高</strong> 的会有各种问题)</p>
+<blockquote>
+<p>官网页面，<strong>大概率</strong>找不到 2022 社区版下载地址， 所以直接用命令行安装即可：</p>
+</blockquote>
+<blockquote>
+<p>确保系统已安装 <a href="https://learn.microsoft.com/zh-cn/windows/package-manager/winget/">winget</a>（Windows 10 1709+ 默认自带，Win11 必带）</p>
+</blockquote>
+<ol>
+<li>查询可用版本列表</li>
+</ol>
+<pre><code>winget show &quot;Microsoft.VisualStudio.2022.Community&quot; --versions
+</code></pre>
+<ol start="2">
+<li>安装指定版本</li>
+</ol>
+<blockquote>
+<p>版本号不一定最新就最好 (如果遇到编译问题，可以试试用旧一点的版本)</p>
+</blockquote>
+<pre><code>winget install --id &quot;Microsoft.VisualStudio.2022.Community&quot; --version &quot;17.14.39&quot;
+</code></pre>
+<h2 id="命令行环境">命令行环境</h2>
+<p><strong>这里比较重要</strong>, 很多时候编译遇到各种问题，可能都是因为所处的命令行环境引起的</p>
+<p>编译本项目，务必在 <code>Visual Studio</code> 自带的 <code>x64 Native Tools Command Prompt for VS 2022</code> 命令行终端内</p>
+<blockquote>
+<p>位置在 <code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022\Visual Studio Tools\VC\x64 Native Tools Command Prompt for VS 2022</code></p>
+</blockquote>
+<h2 id="初始化项目">初始化项目</h2>
+<p>直接下载工程源码</p>
+<pre><code class="language-shell">git clone --recursive https://github.com/aseprite/aseprite.git
+</code></pre>
+<h2 id="编译构建">编译构建</h2>
+<p>官方 <a href="https://github.com/aseprite/aseprite/blob/main/INSTALL.md">INSTALL.md</a> 够简洁高效了, 复制命令内容 <strong>适当调整参数</strong> 即可</p>
+<pre><code class="language-shell">cd aseprite
+mkdir build
+cd build
+
+# 构建
+cmake \
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+  -DLAF_WITH_EXAMPLES=OFF \
+  -DLAF_WITH_TESTS=OFF \
+  -DLAF_BACKEND=skia \
+  -DSKIA_DIR=&quot;D:/skia/skia-m124&quot; \
+  -DSKIA_LIBRARY_DIR=&quot;D:/skia/skia-m124/out/Release-x64&quot; \
+  -DSKIA_LIBRARY=&quot;D:/skia/skia-m124/out/Release-x64/skia.lib&quot; \
+  -G Ninja \
+  ..
+
+# 编译
+ninja aseprite
+</code></pre>
+<p>编译正常结束后 <code>./build/bin</code> 目录下即编译产物:</p>
+<ul>
+<li><code>aseprite.exe</code> (应用程序入口)</li>
+<li><code>data</code> (应用依赖资源)</li>
+<li><code>gen</code> (没用上, 可以忽略)</li>
+</ul>
+<p>到这里, 就可以直接使用了 (双击运行 <code>./build/bin/aseprite.exe</code> 文件即可)</p>
+<h2 id="打包-zip">打包 ZIP</h2>
+<p>bin 目录复制到需要得地方，<strong>改名</strong> 使用即可</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/aseprite/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#aseprite</a>
+    
+    <a href="/tags/compile/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#compile</a>
+    
+    <a href="/tags/app/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#app</a>
+    
+    <a href="/tags/windows/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#windows</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/slay-the-spire-2-godot.html" class="block">杀戮尖塔2 本地编译 (godot项目)</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装依赖">安装依赖</a></li>
+    <li><a href="#命令行环境">命令行环境</a></li>
+    <li><a href="#初始化项目">初始化项目</a></li>
+    <li><a href="#编译构建">编译构建</a></li>
+    <li><a href="#打包-zip">打包 ZIP</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="/aseprite-compile-app-win.html">Aseprite 手工编译流程 (Windows)</a>
+            <br />
+            
+            <a href="/aseprite-compile-app.html">Aseprite 手工编译流程 (Mac)</a>
+            <br />
+            
+            <a href="/aseprite-compile-app.html">Aseprite 手工编译流程 (Mac)</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2026 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+  </footer>
+</body>
+
+</html>

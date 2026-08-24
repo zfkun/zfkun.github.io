@@ -10,6 +10,13 @@
 </copyright>
     <atom:link href="/zh/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Aseprite 手工编译流程 (Windows)</title>
+      <link>/aseprite-compile-app-win.html</link>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0800</pubDate>
+      <guid>/aseprite-compile-app-win.html</guid>
+      <description>记录下 Aseprite 手工编译桌面端的基本流程 (Windows)</description>
+    </item>
+    <item>
       <title>杀戮尖塔2 本地编译 (godot项目)</title>
       <link>/slay-the-spire-2-godot.html</link>
       <pubDate>Tue, 24 Mar 2026 00:00:00 +0800</pubDate>

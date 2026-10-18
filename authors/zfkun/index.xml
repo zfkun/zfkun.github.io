@@ -10,6 +10,20 @@
 </copyright>
     <atom:link href="/authors/zfkun/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>天猫魔盒2（TMB300A）固件提取与备份</title>
+      <link>/tmb300a-firmware-dump-diy.html</link>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>/tmb300a-firmware-dump-diy.html</guid>
+      <description>最近翻出来一台天猫魔盒2 (TMB300A), 吃灰十来年了, 决定废物利用下发点光热，也算成功提取备份了原厂固件，为后续魔改打好基础</description>
+    </item>
+    <item>
+      <title>天猫魔盒2（TMB300A）固件提取与备份</title>
+      <link>/tmb300a-firmware-dump-diy.html</link>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>/tmb300a-firmware-dump-diy.html</guid>
+      <description>最近翻出来一台天猫魔盒2 (TMB300A), 吃灰十来年了, 决定废物利用下发点光热，也算成功提取备份了原厂固件，为后续魔改打好基础</description>
+    </item>
+    <item>
       <title>Aseprite 手工编译流程 (Windows)</title>
       <link>/aseprite-compile-app-win.html</link>
       <pubDate>Sun, 23 Aug 2026 00:00:00 +0800</pubDate>

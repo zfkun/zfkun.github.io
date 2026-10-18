@@ -10,9 +10,23 @@
 </copyright>
     <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>android</title>
+      <link>/categories/android/</link>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>/categories/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>linux</title>
+      <link>/categories/linux/</link>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>tech</title>
       <link>/categories/tech/</link>
-      <pubDate>Sun, 23 Aug 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0800</pubDate>
       <guid>/categories/tech/</guid>
       <description></description>
     </item>
@@ -42,13 +56,6 @@
       <link>/categories/sts2/</link>
       <pubDate>Tue, 24 Mar 2026 00:00:00 +0800</pubDate>
       <guid>/categories/sts2/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>linux</title>
-      <link>/categories/linux/</link>
-      <pubDate>Tue, 10 Mar 2026 00:00:00 +0800</pubDate>
-      <guid>/categories/linux/</guid>
       <description></description>
     </item>
     <item>

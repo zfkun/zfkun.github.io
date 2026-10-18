@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>diy on 影の域</title>
+    <link>/tags/diy/</link>
+    <description>Recent content in diy on 影の域</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 18 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="/tags/diy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>天猫魔盒2（TMB300A）固件提取与备份</title>
+      <link>/tmb300a-firmware-dump-diy.html</link>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>/tmb300a-firmware-dump-diy.html</guid>
+      <description>最近翻出来一台天猫魔盒2 (TMB300A), 吃灰十来年了, 决定废物利用下发点光热，也算成功提取备份了原厂固件，为后续魔改打好基础</description>
+    </item>
+    <item>
+      <title>天猫魔盒2（TMB300A）固件提取与备份</title>
+      <link>/tmb300a-firmware-dump-diy.html</link>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>/tmb300a-firmware-dump-diy.html</guid>
+      <description>最近翻出来一台天猫魔盒2 (TMB300A), 吃灰十来年了, 决定废物利用下发点光热，也算成功提取备份了原厂固件，为后续魔改打好基础</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>天猫魔盒2（TMB300A）固件提取与备份 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/python.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/arduino.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/c.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/cpp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/csharp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/java.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/lua.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/css.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/rust.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/scss.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/less.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/powershell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/json.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="最近翻出来一台天猫魔盒2 (TMB300A), 吃灰十来年了, 决定废物利用下发点光热，也算成功提取备份了原厂固件，为后续魔改打好基础">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Zhs",
+      "item":"/zh/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"文章",
+      "item":"/zh/posts/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"天猫魔盒2（TMB300A）固件提取与备份",
+      "item":"/tmb300a-firmware-dump-diy.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/tmb300a-firmware-dump-diy.html"
+    },
+    "headline": "天猫魔盒2（TMB300A）固件提取与备份 | 影の域",
+    "image": "/uploads/2026/10/tmb300a_1.jpg",
+    "datePublished": "2026-10-18T00:00:00+08:00",
+    "dateModified": "2026-10-18T12:00:00+08:00",
+    "wordCount":  8659 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "最近翻出来一台天猫魔盒2 (TMB300A), 吃灰十来年了, 决定废物利用下发点光热，也算成功提取备份了原厂固件，为后续魔改打好基础"
+}
+</script><meta property="og:title" content="天猫魔盒2（TMB300A）固件提取与备份 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/tmb300a-firmware-dump-diy.html" />
+
+
+
+
+<meta property="og:description" content="最近翻出来一台天猫魔盒2 (TMB300A), 吃灰十来年了, 决定废物利用下发点光热，也算成功提取备份了原厂固件，为后续魔改打好基础" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-10-18T00:00:00&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-10-18T12:00:00&#43;08:00" />
+
+
+
+<meta property="article:section" content="zh" />
+
+
+<meta property="article:tag" content="天猫魔盒" />
+
+<meta property="article:tag" content="tmb300a" />
+
+<meta property="article:tag" content="firmware" />
+
+<meta property="article:tag" content="diy" />
+
+<meta property="article:tag" content="reverse" />
+
+
+
+
+
+<meta property="og:see_also" content="/tmb300a-firmware-dump-diy.html" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">天猫魔盒2（TMB300A）固件提取与备份</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2026-10-18</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>18分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>8659字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+
+<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
+
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/tech/" class="hover:text-eureka">tech</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/linux/" class="hover:text-eureka">linux</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/android/" class="hover:text-eureka">android</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="/uploads/2026/10/tmb300a_1.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <blockquote>
+<p><strong>设备型号</strong>：MagicBox2<br>
+<strong>系统版本</strong>：<a href="https://zh.wikipedia.org/wiki/AliOS">YunOS 3.0.6</a><br>
+<strong>固件版本</strong>：3.0.6-RS-20160831.0951<br>
+<strong>内部存储</strong>：8G<br>
+<strong>内存</strong>：1 GiB DDR3（串口启动日志 <code>DRAM: 1 GiB</code> 可见）<br>
+<strong>芯片平台</strong>：晶晨 S802-H<br>
+<strong>内核版本</strong>：Linux <code>3.10.33</code>（待填，见 5.3 节确认方法）</p>
+</blockquote>
+<hr>
+<h2 id="写在前面为什么又折腾这台老盒子">写在前面：为什么又折腾这台老盒子</h2>
+<p>前阵子收拾屋子，翻出来一台天猫魔盒2，型号 TMB300A。掐指一算，这玩意儿在家吃灰得有十来年了。</p>
+<p>当年智能电视盒子刚兴起时它还算个新鲜物件，后来电视自带系统越来越全，手机投屏也越来越方便，它就被塞进抽屉，慢慢成了电子古董。</p>
+<p>本来想顺手处理掉，但拿在手里又觉得可惜：<strong>硬件还在，晶晨 S802-H 的芯片，8G 存储，YunOS 3.0.6，扔了怪浪费</strong>。</p>
+<p>正好前阵子刚对中兴小兴看看 mini C320 摄像头做过一轮逆向固件提取，魔改还在规划中，手上那股“拆点啥、备份点啥、再刷点啥”的劲还没过去。那台摄像头的折腾记录还在整理，等落地后会单独成文，这里先留个位置：<a href="#c320-article-placeholder">《中兴小兴看看 mini C320 逆向固件提取与魔改实录（待发布）》</a>。</p>
+<p>于是决定废物利用一下，看看这台老盒子还能不能再发点光热。</p>
+<p>目标也不复杂：</p>
+<ul>
+<li>先让它在一个<strong>不连外网</strong>的小局域网里被 ADB 摸到，方便调试；</li>
+<li>再想办法把原厂固件<strong>完整备份</strong>出来，万一后面手痒刷机刷坏了，还能有个后悔药；</li>
+<li>至于更远的魔改，等备份做完再说。</li>
+</ul>
+<p>这篇记录就是整个折腾过程的流水账，包含踩过的坑、验证过的死路，以及最后跑通的串口备份方案。希望能给同样翻出老盒子的朋友省点时间。</p>
+<hr>
+<h2 id="更新日志">更新日志</h2>
+<ul>
+<li>2026-10-18 开放原始固件, 详见 夸克网盘 (<code>整理中</code>)</li>
+</ul>
+<h2 id="一目标与约束">一、目标与约束</h2>
+<p>缘起唠完，落到具体目标上，这次折腾主要想干三件事：</p>
+<ol>
+<li>让魔盒在一个<strong>不连外网</strong>的小局域网里被电脑 ADB 摸到，方便调试；</li>
+<li>拿到 root 权限，把原厂固件<strong>按分区完整备份</strong>出来；</li>
+<li>为后续可能的魔改/刷机留一条“刷坏了还能还原”的退路。</li>
+</ol>
+<p>约束也很现实：</p>
+<ul>
+<li>⚠️ ADB 只有普通用户权限，无法直接读取块设备；</li>
+<li>⚠️ 设备固件资料稀少，刷错难救；</li>
+<li>✅ 需要一套可复现的备份流程，并留下完整记录。</li>
+</ul>
+<p><strong>实际路线分两个阶段</strong>：</p>
+<blockquote>
+<p><strong>第一阶段（固件备份）</strong>：TTL 串口取得 root → 分区级 <code>dd</code> 备份。<br>
+这一阶段<strong>不需要网络，也不需要 ADB</strong>，串口拿到 root 后即可直接操作。</p>
+<p><strong>第二阶段（魔改与测试）</strong>：手机关数据开热点组建无外网局域网 → ADB 无线调试 → 安装、调试、管理测试应用。<br>
+这一阶段才需要网络和 ADB，用于后续魔改、测试 APK 等操作。</p>
+</blockquote>
+<p>其中 <strong>ADB 无线调试经实测仅能用于常规调试，无法完成固件提取</strong>；固件提取只能依赖 TTL 串口方案。</p>
+<hr>
+<h2 id="二需求拆解与技术路线">二、需求拆解与技术路线</h2>
+<p>目标拆成三层：</p>
+<ol>
+<li><strong>调试通道</strong>：让魔盒与电脑处于同一局域网，ADB 可连，但不通外网。</li>
+<li><strong>权限获取</strong>：ADB 权限不足时，通过 TTL 串口登录系统控制台，取得 root shell。</li>
+<li><strong>固件备份</strong>：在 root 下用 <code>dd</code> 按分区导出镜像，存到外挂 U 盘。</li>
+</ol>
+<p>路线对比：</p>
+<table>
+<thead>
+<tr>
+<th>路线</th>
+<th>优点</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADB 无线调试</td>
+<td>方便、无需拆机</td>
+<td>❌ 普通权限，无法 <code>dd</code> 块设备；首次连接需盒子端手工确认</td>
+</tr>
+<tr>
+<td>TTL 串口</td>
+<td>✅ 可拿 root，能读底层分区，稳定高效</td>
+<td>需拆机焊接排针</td>
+</tr>
+<tr>
+<td>PC 虚拟 WiFi</td>
+<td>不依赖手机</td>
+<td>配置稍多，需确保不共享外网</td>
+</tr>
+<tr>
+<td>手机热点（关数据）</td>
+<td>✅ 最简单，天然无外网</td>
+<td>依赖手机</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="三adb-无线调试首选手机热点">三、ADB 无线调试：首选手机热点</h2>
+<blockquote>
+<p>💡 <strong>本章定位</strong>：ADB 无线调试主要用于<strong>后续魔改与测试阶段</strong>（安装、调试、管理 APK 等）。如果只是做首次固件备份，TTL 串口拿到 root 后即可直接 <code>dd</code>，<strong>本章内容可以先跳过</strong>。</p>
+</blockquote>
+<h3 id="31-首选方案手机关闭数据网络开热点">3.1 首选方案：手机关闭数据网络，开热点</h3>
+<p>这是本次实际采用的方式，原因很简单：</p>
+<blockquote>
+<p><strong>手机热点在关闭移动数据后，天然就是一个没有外网出口的局域网</strong>，魔盒连上后只能与手机/电脑互通，不会误连外网，配置成本最低。</p>
+</blockquote>
+<p>操作步骤：</p>
+<ol>
+<li>
+<p>手机设置中<strong>关闭移动数据</strong>（或开启飞行模式后再手动开热点，视机型而定）。</p>
+</li>
+<li>
+<p>打开“个人热点”，设置热点名称和密码。</p>
+</li>
+<li>
+<p>魔盒连接该热点。</p>
+</li>
+<li>
+<p>电脑也连接同一热点，确保与魔盒同网段。</p>
+</li>
+<li>
+<p>在魔盒上开启开发者模式与 <a href="https://developer.android.com/tools/adb?hl=zh-cn">ADB</a> 调试。</p>
+</li>
+<li>
+<p>电脑执行：</p>
+<pre><code class="language-bash">adb tcpip 5555
+adb connect 魔盒IP:5555
+</code></pre>
+<p>首次 <code>tcpip</code> 可能需要 USB 线连接一次，之后可无线连接。</p>
+</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>注意</strong>：部分手机在关闭数据后热点会自动关闭，需在热点设置中允许“无互联网时保持热点”。若手机不支持，可改用备选方案。</p>
+<p>⚠️ <strong>另一个繁琐点</strong>：首次 <code>adb connect</code> 时，盒子端通常会弹出“是否允许 USB 调试”的确认框，需要人工在电视上点“允许”。如果盒子端未及时确认，连接会失败。这一步无法完全自动化，对反复调试来说比较麻烦。</p>
+</blockquote>
+<h3 id="32-备选方案pc-虚拟-wifi不共享外网">3.2 备选方案：PC 虚拟 WiFi（不共享外网）</h3>
+<p>如果不想依赖手机，可在 PC 上创建“可连接但不通外网”的热点。</p>
+<p><strong>核心原则</strong>：只建局域网，不做 Internet 共享。</p>
+<ul>
+<li>
+<p><strong>Windows 自带移动热点</strong>：图形化开启，但默认可能共享外网，需在“网络连接”中确认热点虚拟适配器未被勾选“允许其他网络用户通过此计算机的 Internet 连接来连接”。</p>
+</li>
+<li>
+<p><strong><code>netsh</code> 承载网络</strong>：命令行创建，天然不共享外网，适合纯局域网调试：</p>
+<pre><code class="language-bash">netsh wlan set hostednetwork mode=allow ssid=热点名 key=至少8位密码
+netsh wlan start hostednetwork
+</code></pre>
+</li>
+<li>
+<p><strong>第三方软件</strong>：如 Connectify，可在 “Internet to Share” 中选择 “No Internet sharing”。</p>
+</li>
+<li>
+<p><strong>Python 方案</strong>：WiFiDirectLegacyAP 可建不共享外网的热点，但依赖 Python 2.7；也可用脚本封装 <code>netsh</code>，本质不变。</p>
+</li>
+</ul>
+<p><strong>取舍</strong>：手机热点最简；PC 方案适合没有备用手机或需要长期固定调试环境的场景。</p>
+<hr>
+<h2 id="四adb-权限边界与实测结论">四、ADB 权限边界与实测结论</h2>
+<p>ADB 连接成功后，在 <code>adb shell</code> 中执行 <code>id</code>，返回的是普通用户（如 <code>uid=2000(shell)</code>）。尝试 <code>dd</code> 读取 <code>/dev/block/boot</code> 等块设备会被拒绝。</p>
+<h3 id="-实测验证结论">❌ 实测验证结论</h3>
+<p>对于天猫魔盒2（TMB300A），<strong>ADB 路线只能用于常规调试、安装应用、查看日志，无法完成完整固件提取</strong>。</p>
+<p>这不是“可能不行”，而是本机已经验证走不通。原因有两层：</p>
+<ol>
+<li><strong>权限不足</strong>：ADB shell 为普通用户，无 root，无法读取块设备；</li>
+<li><strong>首次连接繁琐</strong>：首次 <code>adb connect</code> 需要盒子端手工确认接受连接，无法完全自动化。</li>
+</ol>
+<h3 id="-结论">✅ 结论</h3>
+<blockquote>
+<p><strong>对于这台盒子，提取完整固件目前只能走 TTL 串口方案。</strong></p>
+</blockquote>
+<p>串口方案虽然需要拆机焊接排针，但拿到的是 <strong>root shell</strong>，能直接读底层分区，<strong>简单、稳定、高效</strong>，是这台设备上唯一可靠的固件提取路径。</p>
+<hr>
+<h2 id="五硬件排查与-ttl-接入">五、硬件排查与 TTL 接入</h2>
+<h3 id="51-拆机与串口点位">5.1 拆机与串口点位</h3>
+<p>拆开魔盒，在主板上定位 TTL 焊点。本次使用的引脚对应关系：</p>
+<table>
+<thead>
+<tr>
+<th>引脚</th>
+<th>定义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>VCC</td>
+<td>⚠️ 用不到，安全第一，不接</td>
+</tr>
+<tr>
+<td>2</td>
+<td>TX</td>
+<td>接 USB 转 TTL 的 RX</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RX</td>
+<td>接 USB 转 TTL 的 TX</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td>接 GND</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/uploads/2026/10/tmb300a_2.jpg" alt="USB 转 TTL 与魔盒接线示意图"></p>
+<p><strong>接线注意</strong>：</p>
+<ul>
+<li><strong>TX/RX 交叉连接</strong>；</li>
+<li><strong>VCC 不接</strong>；</li>
+<li><strong>GND 必须共地</strong>。</li>
+</ul>
+<h3 id="52-串口登录与-root">5.2 串口登录与 root</h3>
+<p>使用 USB 转 TTL 模块连接电脑，串口终端工具使用 <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>（也可用 PuTTY / minicom 等等价工具），打开对应 COM 口，上电后即可看到启动日志并登录控制台。</p>
+<blockquote>
+<p>⚠️ <strong>MobaXterm 务必关闭流控</strong>：串口会话默认可能开启 RTS/CTS 硬件流控，而魔盒的 TTL 不响应握手信号，会出现“能收不能发”或命令敲下去没反应的情况。设置路径：<strong>Session → Serial → Advanced Serial settings → Flow control 选 None</strong>，并确认 <strong>RTS/CTS 不要勾选</strong>。</p>
+</blockquote>
+<p>登录后执行：</p>
+<pre><code class="language-bash">id
+</code></pre>
+<p>✅ 确认返回 <code>uid=0(root)</code>，具备块设备读取权限。</p>
+<hr>
+<h3 id="53-串口启动日志里能读到什么">5.3 串口启动日志里能读到什么</h3>
+<p>TTL 串口不只是登录 shell 的通道，上电瞬间的启动日志本身就包含不少硬件与固件信息。典型的启动早期输出大致如下（节选，具体地址和版本以你的设备为准）：</p>
+<pre><code class="language-text">DRAM:  1 GiB
+...
+## ANDROID Format IMAGE
+## Booting kernel from Legacy Image at 12000000 ...
+   Image Name:   Linux-3.10.33
+   Image Type:   ARM Linux Kernel Image (lzo compressed)
+   Data Size:    7813246 Bytes = 7.5 MiB
+   Load Address: 00208000
+   Entry Point:  00208000
+   Verifying Checksum ... OK
+   Loading Kernel Image ... OK
+</code></pre>
+<p>从这段日志可以直接读出几项信息：</p>
+<ul>
+<li><strong>DRAM 容量</strong>：<code>DRAM: 1 GiB</code>，与设备标称的 1G 内存一致；</li>
+<li><strong>引导方式</strong>：<code>Booting kernel from Legacy Image</code> 说明 U-Boot 使用传统 uImage 格式引导内核，而不是 FIT/Android Boot Image；</li>
+<li><strong>内核加载地址与入口地址</strong>：<code>Load Address</code> / <code>Entry Point</code>，对后续分析 boot 分区、手工引导有参考价值；</li>
+<li><strong>内核版本</strong>：<code>Image Name: Linux-3.10.xx</code> 这一行会直接给出内核版本号。</li>
+</ul>
+<p>如果启动日志已经滚过去了，也可以在 root shell 里直接确认内核版本：</p>
+<pre><code class="language-bash">cat /proc/version
+uname -a
+</code></pre>
+<p>这两条命令的输出与启动日志里的 <code>Image Name</code> 应当一致。</p>
+<h2 id="六存储与分区探测">六、存储与分区探测</h2>
+<h3 id="61-查看块设备">6.1 查看块设备</h3>
+<pre><code class="language-bash">ls -al /dev/block/
+</code></pre>
+<p>输出中可见 <code>boot</code>、<code>bootloader</code>、<code>cache</code>、<code>data</code>、<code>env</code>、<code>logo</code>、<code>logo1</code>、<code>mmcblk0</code>、<code>mmcblk0boot0</code>、<code>mmcblk0boot1</code>、<code>recovery</code>、<code>reserved</code>、<code>system</code> 等具名块设备，以及 <code>loop0~7</code>、<code>sda</code>、<code>sda1</code>、<code>zram0</code> 等。</p>
+<h3 id="62-查看分区表">6.2 查看分区表</h3>
+<pre><code class="language-bash">cat /proc/partitions
+</code></pre>
+<p>结果如下（节选）：</p>
+<pre><code>major minor  #blocks  name
+179        0    7634944 mmcblk0
+179        1       4096 mmcblk0p1
+179        2      65536 mmcblk0p2
+179        3     655360 mmcblk0p3
+179        4       8192 mmcblk0p4
+179        5      16384 mmcblk0p5
+179        6      16384 mmcblk0p6
+179        7      32768 mmcblk0p7
+179        8      32768 mmcblk0p8
+179        9     819200 mmcblk0p9
+179       10    5951488 mmcblk0p10
+179       32       4096 mmcblk0boot1
+179       16       4096 mmcblk0boot0
+  8        0   15138816 sda
+  8        1   15134784 sda1
+</code></pre>
+<blockquote>
+<p>sda 是我外部插入的U盘</p>
+</blockquote>
+<h3 id="63-分区表与精确大小">6.3 分区表与精确大小</h3>
+<p><code>/proc/partitions</code> 中的 <code>#blocks</code> 单位是 <strong>1 KiB</strong>。结合 <code>blockdev --getsize64</code> 的结果，整理如下。</p>
+<h4 id="用户数据区mmcblk0内的分区">用户数据区（<code>mmcblk0</code>）内的分区</h4>
+<table>
+<thead>
+<tr>
+<th><code>/dev/block/</code> 具名</th>
+<th>底层设备</th>
+<th>major:minor</th>
+<th><code>#blocks</code></th>
+<th>字节数</th>
+<th>约合</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bootloader</code></td>
+<td><code>mmcblk0p1</code></td>
+<td>179:1</td>
+<td>4,096</td>
+<td>4,194,304</td>
+<td>4 MB</td>
+<td>引导程序分区</td>
+</tr>
+<tr>
+<td><code>reserved</code></td>
+<td><code>mmcblk0p2</code></td>
+<td>179:2</td>
+<td>65,536</td>
+<td>67,108,864</td>
+<td>64 MB</td>
+<td>厂商保留分区</td>
+</tr>
+<tr>
+<td><code>cache</code></td>
+<td><code>mmcblk0p3</code></td>
+<td>179:3</td>
+<td>655,360</td>
+<td>671,088,640</td>
+<td>640 MB</td>
+<td>缓存分区</td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td><code>mmcblk0p4</code></td>
+<td>179:4</td>
+<td>8,192</td>
+<td>8,388,608</td>
+<td>8 MB</td>
+<td>U-Boot 环境变量</td>
+</tr>
+<tr>
+<td><code>logo</code></td>
+<td><code>mmcblk0p5</code></td>
+<td>179:5</td>
+<td>16,384</td>
+<td>16,777,216</td>
+<td>16 MB</td>
+<td>开机画面</td>
+</tr>
+<tr>
+<td><code>logo1</code></td>
+<td><code>mmcblk0p6</code></td>
+<td>179:6</td>
+<td>16,384</td>
+<td>16,777,216</td>
+<td>16 MB</td>
+<td>备用开机画面</td>
+</tr>
+<tr>
+<td><code>recovery</code></td>
+<td><code>mmcblk0p7</code></td>
+<td>179:7</td>
+<td>32,768</td>
+<td>33,554,432</td>
+<td>32 MB</td>
+<td>Recovery 分区</td>
+</tr>
+<tr>
+<td><code>boot</code></td>
+<td><code>mmcblk0p8</code></td>
+<td>179:8</td>
+<td>32,768</td>
+<td>33,554,432</td>
+<td>32 MB</td>
+<td>内核/ramdisk</td>
+</tr>
+<tr>
+<td><code>system</code></td>
+<td><code>mmcblk0p9</code></td>
+<td>179:9</td>
+<td>819,200</td>
+<td>838,860,800</td>
+<td>800 MB</td>
+<td>系统主体</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>mmcblk0p10</code></td>
+<td>179:10</td>
+<td>5,951,488</td>
+<td>6,094,323,712</td>
+<td>约 5.67 GB</td>
+<td>用户数据</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>mmcblk0</code> 总块数为 7,634,944（约 7.28 GB）。<code>p1~p10</code> 块数合计 7,602,176，与总块数相差 32,768 块（32 MB），通常是分区表、对齐空隙或保留区域，不影响按分区备份。</p>
+</blockquote>
+<h4 id="emmc-硬件-boot-分区不属于-mmcblk0-分区表">eMMC 硬件 Boot 分区（不属于 <code>mmcblk0</code> 分区表）</h4>
+<table>
+<thead>
+<tr>
+<th><code>/dev/block/</code> 具名</th>
+<th>major:minor</th>
+<th><code>#blocks</code></th>
+<th>字节数</th>
+<th>约合</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mmcblk0boot0</code></td>
+<td>179:16</td>
+<td>4,096</td>
+<td>4,194,304</td>
+<td>4 MB</td>
+<td>eMMC Boot Area Partition 1，独立硬件分区</td>
+</tr>
+<tr>
+<td><code>mmcblk0boot1</code></td>
+<td>179:32</td>
+<td>4,096</td>
+<td>4,194,304</td>
+<td>4 MB</td>
+<td>eMMC Boot Area Partition 2，独立硬件分区</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这两个设备<strong>不是</strong> <code>mmcblk0p11</code> / <code>p12</code>，它们不在用户区分区表内，通常用于存放引导程序副本，默认多为只读。备份它们属于“底层保险”，但还原时<strong>不建议随意回写</strong>。</p>
+</blockquote>
+<h3 id="64-关于-mmcblk0boot0--mmcblk0boot1">6.4 关于 <code>mmcblk0boot0</code> / <code>mmcblk0boot1</code></h3>
+<p><code>/proc/partitions</code> 里同时出现 <code>mmcblk0p1~p10</code> 和 <code>mmcblk0boot0/1</code>，容易让人误以为后者是用户区里的第 11、12 个分区。实际上：</p>
+<ul>
+<li><code>mmcblk0</code> 是 eMMC 的<strong>用户数据区</strong>，<code>p1~p10</code> 是它内部由分区表管理的分区；</li>
+<li><code>mmcblk0boot0</code> / <code>mmcblk0boot1</code> 是 eMMC 芯片自带的<strong>两个 Boot Area Partition</strong>，属于硬件层面的独立区域，各 4 MB。其定义来自 <a href="https://www.jedec.org/standards-documents/docs/jesd84-b51">JEDEC e•MMC 标准</a>；</li>
+<li>它们不受 <code>mmcblk0</code> 分区表管理，minor 编号也跳到 16、32，因此不会以 <code>mmcblk0p11</code>、<code>p12</code> 的形式出现。</li>
+</ul>
+<p>从命名和平台习惯推测，这两个区域可能存放引导程序的副本或备份，但<strong>具体内容需要分析镜像才能确认</strong>。本文对它们做了 <code>dd</code> 备份，作为底层保险；但还原时风险较高，不建议在系统内直接回写。</p>
+<h3 id="-关键结论">💡 关键结论</h3>
+<blockquote>
+<p><code>/dev/block/</code> 下的具名设备是 <code>mmcblk0pX</code> 的软链接/别名。<strong>按具名备份等同于按编号备份，无需再单独备份 <code>mmcblk0p1~p10</code></strong>。</p>
+</blockquote>
+<hr>
+<h2 id="七固件提取实操">七、固件提取实操</h2>
+<h3 id="70-备份前的准备">7.0 备份前的准备</h3>
+<p>在开始 <code>dd</code> 备份之前，有几件事建议提前处理。尤其是备份 <code>data</code> 这类大分区时，<code>dd</code> 运行时间很长，中途盒子如果进入休眠或自动更新，都可能干扰备份：</p>
+<ul>
+<li><strong>关闭自动休眠</strong>：在盒子“设置”里找到休眠/屏保相关选项，设为“永不”或关闭自动休眠。<code>dd</code> 写入 <code>data</code> 分区可能需要十几分钟到半小时，中途休眠可能导致 I/O 中断或写入异常。</li>
+<li><strong>关闭应用自动更新</strong>：同样在设置里关闭应用商店的自动更新，避免备份期间后台下载、安装应用，占用 I/O 和存储空间。</li>
+<li><strong>考虑先恢复出厂设置再备份</strong>：如果盒子里还登录着你的账号、装了不少个人应用，建议先恢复出厂设置，清理掉账号信息和用户数据，再重新备份。这样得到的 <code>data.img</code> 更干净，作为“纯净底包”更合适。恢复出厂后 <code>data</code> 分区会被重新初始化，你的账号凭据、Wi-Fi 密码、应用数据都会被清除。</li>
+</ul>
+<blockquote>
+<p>💡 再次提醒：<strong>首次备份阶段用不到 ADB 和网络</strong>，TTL 串口拿到 root 后就可以直接 <code>dd</code>，不需要联网。ADB 无线调试是后续魔改、测试 APK 时才需要的管理手段，第三章的内容是为那个阶段准备的，首次备份可以先跳过。</p>
+</blockquote>
+<h3 id="71-外挂-u-盘">7.1 外挂 U 盘</h3>
+<p>使用大于 8G 的 U 盘，插入魔盒后自动识别挂载为 <code>sda1</code>，路径：</p>
+<pre><code>/storage/external_storage/sda1/
+</code></pre>
+<p>无需手动 <code>mount</code>。先确认空间：</p>
+<pre><code class="language-bash">df -h /storage/external_storage/sda1/
+</code></pre>
+<h3 id="72-文件系统选择exfat-优先fat32-分卷备选">7.2 文件系统选择：exFAT 优先，FAT32 分卷备选</h3>
+<p><code>data</code> 分区约 <strong>5.67 GB</strong>，超过 <a href="https://zh.wikipedia.org/wiki/File_Allocation_Table#FAT32">FAT32</a> 单文件 <strong>4 GB - 1 字节</strong> 的硬上限。</p>
+<ul>
+<li>如果 U 盘是 <strong>FAT32</strong>：直接 <code>dd</code> 得到的 <code>data.img</code> 会被截断；</li>
+<li>如果 U 盘是 <strong>exFAT</strong>：没有这个限制，可以直接完整备份。</li>
+</ul>
+<h4 id="策略一将-u-盘格式化为-exfat推荐一劳永逸">策略一：将 U 盘格式化为 exFAT（推荐，一劳永逸）</h4>
+<p><a href="https://learn.microsoft.com/zh-cn/windows/win32/fileio/exfat-specification">exFAT</a> 专为闪存设备设计，没有 4GB 单文件限制，同时兼容 Windows 和 macOS，适合存放镜像类大文件。</p>
+<p><strong>格式化工具</strong>：最方便的是 Windows 自带的“右键格式化”。</p>
+<blockquote>
+<p>右键 U 盘 → 格式化 → 文件系统选 <strong>exFAT</strong> → 勾选“快速格式化” → 开始。</p>
+</blockquote>
+<p>无需安装第三方软件。</p>
+<p><strong>分配单元大小</strong>：保持默认即可。Windows 对 32 GB 以上的 exFAT U 盘默认通常为 <strong>128 KB</strong>，已经适合大文件连续写入，不必手动调整。</p>
+<p>若确需手动指定，可在管理员 CMD 中执行：</p>
+<pre><code class="language-cmd">format E: /FS:exFAT /A:131072 /Q
+</code></pre>
+<p>其中 <code>E:</code> 换成 U 盘盘符，<code>/A:131072</code> 表示 128 KB 分配单元，<code>/Q</code> 为快速格式化。</p>
+<p><strong>备份命令</strong>：格式化后直接执行标准 <code>dd</code>：</p>
+<pre><code class="language-bash">dd if=/dev/block/data of=/storage/external_storage/sda1/data.img
+</code></pre>
+<p>✅ 完成后 <code>ls -lh</code> 应看到约 <strong>5.67 GB</strong> 的文件，说明完整。本次实测得到 <code>6,094,323,712</code> 字节，与 <code>blockdev --getsize64 /dev/block/data</code> 完全一致。</p>
+<h4 id="策略二fat32-u-盘分卷备份不想格式化时的变通方案">策略二：FAT32 U 盘分卷备份（不想格式化时的变通方案）</h4>
+<p>如果暂时不想格式化 U 盘，可以在备份时把 <code>data</code> 分区切成若干个小于 4GB 的文件，绕开单文件上限。</p>
+<p>魔盒的 TTL 环境是 <a href="https://busybox.net/">BusyBox</a>，实测其中<strong>包含 <code>split</code> 命令</strong>，因此可直接用管道分卷，无需手算 <code>dd</code> 的 <code>skip</code>/<code>count</code>。</p>
+<p>每卷 1GB：</p>
+<pre><code class="language-bash">dd if=/dev/block/data bs=1M | split -b 1G - /storage/external_storage/sda1/data.img.part_
+</code></pre>
+<p>生成 <code>data.img.part_aa</code>、<code>data.img.part_ab</code>…… 按字母顺序排列。</p>
+<p><strong>恢复时</strong>，按顺序合并并写回：</p>
+<pre><code class="language-bash">cat data.img.part_* | dd of=/dev/block/data bs=1M
+</code></pre>
+<p><strong>完整性校验</strong>：备份前后可在魔盒上执行 <code>md5sum /dev/block/data</code>，在电脑上对合并后的完整镜像执行 <code>md5sum</code>，两边一致说明分卷顺序和内容正确。</p>
+<h4 id="-取舍">💡 取舍</h4>
+<ul>
+<li><strong>exFAT 方案</strong>：更简单，后续校验、存储、恢复都是单个文件；</li>
+<li><strong>FAT32 分卷方案</strong>：适合“暂时不想格式化 U 盘”的场景，但恢复流程更繁琐。</li>
+</ul>
+<blockquote>
+<p>条件允许时，<strong>优先 exFAT</strong>。</p>
+</blockquote>
+<h3 id="73-按分区-dd-备份">7.3 按分区 dd 备份</h3>
+<p><a href="https://wiki.archlinux.org/title/Dd"><code>dd</code></a> 是 Linux 下常用的块设备复制工具。统一格式：</p>
+<pre><code class="language-bash">dd if=/dev/block/&lt;分区名&gt; of=/storage/external_storage/sda1/&lt;分区名&gt;.img
+</code></pre>
+<p>实际执行的分区：</p>
+<pre><code class="language-bash">dd if=/dev/block/boot       of=/storage/external_storage/sda1/boot.img
+dd if=/dev/block/bootloader of=/storage/external_storage/sda1/bootloader.img
+dd if=/dev/block/env        of=/storage/external_storage/sda1/env.img
+dd if=/dev/block/logo       of=/storage/external_storage/sda1/logo.img
+dd if=/dev/block/logo1      of=/storage/external_storage/sda1/logo1.img
+dd if=/dev/block/recovery   of=/storage/external_storage/sda1/recovery.img
+dd if=/dev/block/reserved   of=/storage/external_storage/sda1/reserved.img
+dd if=/dev/block/mmcblk0boot0 of=/storage/external_storage/sda1/mmcblk0boot0.img
+dd if=/dev/block/mmcblk0boot1 of=/storage/external_storage/sda1/mmcblk0boot1.img
+
+# 体积稍微大点, 需要多等一会
+dd if=/dev/block/system     of=/storage/external_storage/sda1/system.img
+
+# 体积很大, 需要等很久 (记得关闭 自动休眠), 首次备份建议做，非首次没太大必要
+dd if=/dev/block/data       of=/storage/external_storage/sda1/data.img
+
+# 体积也不小, 需要多等一会, 首次备份可以做，非首次没啥必要
+dd if=/dev/block/cache      of=/storage/external_storage/sda1/cache.img
+</code></pre>
+<blockquote>
+<p>⚠️ 如果 U 盘为 <strong>FAT32</strong>，<code>data</code> 分区按 7.2 的策略二分卷，<strong>不要直接执行上面的 <code>data.img</code> 单文件备份</strong>。</p>
+<p>💡 <code>mmcblk0boot0/1</code> 是 eMMC 硬件 Boot 分区，默认可能只读。能读则备份，报错记录即可；<strong>不建议随意回写</strong>。</p>
+</blockquote>
+<blockquote>
+<p>💡 <strong>想查看 <code>dd</code> 进度？</strong> 再开一个串口会话（或另开终端），执行：</p>
+<pre><code class="language-bash">kill -USR1 $(pidof dd)
+</code></pre>
+<p>正在运行的 <code>dd</code> 会立刻打印当前已复制的字节数，然后继续工作，不会中断备份。也可以每 10 秒自动触发：</p>
+<pre><code class="language-bash">watch -n 10 &quot;kill -USR1 $(pidof dd)&quot;
+</code></pre>
+<p>如果不想开新会话，也可反复 <code>ls -lh /storage/external_storage/sda1/data.img</code>，看文件大小是否在增长。</p>
+</blockquote>
+<h3 id="74-备份结果对比">7.4 备份结果对比</h3>
+<p>U 盘中的文件与 <code>blockdev</code> 查询大小对比。除 <code>data.img</code> 外，其余镜像在 FAT32 和 exFAT 下均应一致：</p>
+<table>
+<thead>
+<tr>
+<th>镜像文件</th>
+<th>实际大小（字节）</th>
+<th>与分区大小一致</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boot.img</code></td>
+<td>33,554,432</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>bootloader.img</code></td>
+<td>4,194,304</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>cache.img</code></td>
+<td>671,088,640</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>data.img</code>（FAT32 直接备份）</td>
+<td>4,294,967,295</td>
+<td>❌ 受 FAT32 单文件 4GB 上限截断</td>
+</tr>
+<tr>
+<td><code>data.img</code>（exFAT 直接备份）</td>
+<td>6,094,323,712</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>env.img</code></td>
+<td>8,388,608</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>logo.img</code></td>
+<td>16,777,216</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>logo1.img</code></td>
+<td>16,777,216</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>mmcblk0boot0.img</code></td>
+<td>4,194,304</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>mmcblk0boot1.img</code></td>
+<td>4,194,304</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>recovery.img</code></td>
+<td>33,554,432</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>reserved.img</code></td>
+<td>67,108,864</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>system.img</code></td>
+<td>838,860,800</td>
+<td>✅ 是</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>执行 <code>ls -lh /storage/external_storage/sda1/</code> 查看确认</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>提醒</strong>：若 <code>data.img</code> 显示为 <strong>4,294,967,295 字节</strong>，说明 U 盘是 FAT32 且发生了截断。此时应改用 <strong>exFAT</strong> 重新备份 <code>data</code>，或按 7.2 的策略二分卷备份。</p>
+<p>系统类分区镜像不受影响，还原系统所需的 <code>boot</code>、<code>system</code>、<code>recovery</code> 等镜像仍然完整。</p>
+</blockquote>
+<h3 id="75-未备份-mmcblk0-的取舍">7.5 未备份 <code>mmcblk0</code> 的取舍</h3>
+<p><code>mmcblk0</code> 是整盘裸设备（约 <strong>7.28 GB</strong>），包含 <a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E5%88%86%E5%8C%BA%E8%A1%A8">GPT 分区表</a>和各分区间的空隙。</p>
+<p>未备份的原因：</p>
+<ul>
+<li>U 盘剩余空间可能不足；</li>
+<li>分区级镜像已覆盖 bootloader 到 data 的全部内容，满足“刷机失败后按分区还原”的需求；</li>
+<li>整盘镜像主要用于编程器级救砖（分区表被破坏时），普通还原不需要。</li>
+</ul>
+<p>若追求终极保险，可在确认 U 盘空间充足（建议 exFAT）后补做：</p>
+<pre><code class="language-bash">dd if=/dev/block/mmcblk0 of=/storage/external_storage/sda1/mmcblk0_full.img
+</code></pre>
+<blockquote>
+<p>❌ <strong>切勿在系统内直接 <code>dd</code> 回写整盘，风险极高</strong>。</p>
+</blockquote>
+<h3 id="76-收尾">7.6 收尾</h3>
+<pre><code class="language-bash">sync
+</code></pre>
+<p>确保数据落盘后再拔出 U 盘，并在电脑上多处留存备份。</p>
+<hr>
+<h2 id="八后续魔改与还原思路">八、后续魔改与还原思路</h2>
+<ul>
+<li>⚠️ <strong>刷机风险</strong>：TMB300A 固件资料稀少，刷错难救；<strong>TTL 与 <a href="https://www.denx.de/wiki/U-Boot">U-Boot</a> 是最后逃生通道</strong>。</li>
+<li>✅ <strong>还原优先级</strong>：优先 recovery 卡刷或 U-Boot 的 <code>mmc write</code>；系统内 <code>dd</code> 写回底层分区风险最高，尤其是 <code>bootloader</code> 和 <code>mmcblk0boot0/1</code>。</li>
+<li>💡 <strong>数据分区</strong>：若 <code>data.img</code> 被截断，还原前需评估是否必须保留用户数据；系统还原通常不依赖 data。exFAT 下完整备份的 <code>data.img</code> 可用于需要保留用户数据的场景。</li>
+<li>🚀 <strong>可探索方向</strong>：第三方固件适配（注意 WiFi 等驱动差异）、系统精简、固化无外网调试环境。进入魔改和测试阶段后，ADB 无线调试就会派上用场，用于安装、调试和管理测试 APK。</li>
+<li>💡 <strong>内核版本是魔改的重要前提</strong>：从串口日志和 <code>cat /proc/version</code> 可以确认内核版本（本次为 <code>Linux 3.10.xx</code>，待填）。后续如果要移植第三方固件、替换内核模块或调整启动参数，内核版本决定了驱动兼容性和可用的调试手段，建议在动手前先记录清楚。</li>
+</ul>
+<hr>
+<h2 id="九固件分享与隐私安全">九、固件分享与隐私安全</h2>
+<p>如果你打算把备份的固件放到 GitHub 或网盘上分享，有一件事必须提前想清楚：<strong>不是所有分区镜像都适合公开。</strong> 有些文件包含你的个人数据，有些包含设备唯一标识，放出去就是隐患。</p>
+<h3 id="-绝对不要公开的分区">❌ 绝对不要公开的分区</h3>
+<p><strong><code>data.img</code></strong></p>
+<p>这是隐私风险最集中的地方。<code>data</code> 分区包含登录凭据、应用数据、Wi-Fi 密码、浏览记录，以及 YunOS/淘宝账号的登录态。即使恢复了出厂设置，旧数据的残片在闪存磨损均衡机制下也不一定被物理覆盖。分享 <code>data.img</code> 等于把你的个人数字生活打包送人。</p>
+<p><strong><code>bootloader.img</code>、<code>mmcblk0boot0.img</code>、<code>mmcblk0boot1.img</code></strong></p>
+<p>这些底层引导分区通常包含<strong>设备唯一的标识或校准数据</strong>。电视盒子虽然没有蜂窝 IMEI，但 <strong>Wi-Fi MAC 地址、设备序列号</strong>很可能就藏在这些分区里。公开它们，等于公开了这台设备的硬件“身份证”。</p>
+<p><strong><code>reserved.img</code></strong></p>
+<p>厂商保留分区。具体内容不分析镜像无法确定，但“保留”二字往往意味着可能存放校准数据、设备信息或厂商密钥。在确认内容之前，不建议公开。</p>
+<p><strong><code>mmcblk0_full.img</code>（整盘镜像）</strong></p>
+<p>整盘镜像必然包含上述所有敏感分区，同样不适合公开。</p>
+<h3 id="-相对可以公开的分区">✅ 相对可以公开的分区</h3>
+<p><code>system.img</code>、<code>boot.img</code>、<code>recovery.img</code>、<code>cache.img</code>、<code>logo.img</code> / <code>logo1.img</code>、<code>env.img</code> 属于“公共平台”层面的内容，通常不包含个人账号或设备唯一密钥。其中 <code>system.img</code> 是固件的核心，也是别人最需要的。</p>
+<blockquote>
+<p>⚠️ 例外：如果你曾经在 <code>system</code> 里手动写入过账号密码或密钥，分享前需要先检查并清除。</p>
+</blockquote>
+<h3 id="-分享前的快速自检">🧹 分享前的快速自检</h3>
+<p>用 <code>strings</code> 或十六进制工具扫一下打算公开的镜像，搜一搜设备唯一标识和个人信息的关键词：</p>
+<pre><code class="language-bash">strings system.img | grep -i -E &quot;mac|serial|password|账号|wifi&quot;
+</code></pre>
+<p>如果出现设备唯一标识或个人信息，就把它剔除或做匿名化处理。</p>
+<h3 id="-发布清单速查">📦 发布清单速查</h3>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>是否公开</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>system.img</code></td>
+<td>✅ 可以</td>
+<td>固件核心，公共平台内容</td>
+</tr>
+<tr>
+<td><code>boot.img</code></td>
+<td>✅ 可以</td>
+<td>内核，不含个人数据</td>
+</tr>
+<tr>
+<td><code>recovery.img</code></td>
+<td>✅ 可以</td>
+<td>恢复模式，公共内容</td>
+</tr>
+<tr>
+<td><code>cache.img</code></td>
+<td>✅ 可以（可选）</td>
+<td>通常不含敏感信息</td>
+</tr>
+<tr>
+<td><code>logo.img</code> / <code>logo1.img</code></td>
+<td>✅ 可以</td>
+<td>开机画面</td>
+</tr>
+<tr>
+<td><code>env.img</code></td>
+<td>✅ 可以</td>
+<td>U-Boot 环境变量</td>
+</tr>
+<tr>
+<td><code>data.img</code></td>
+<td>❌ 不要</td>
+<td>个人账号、应用数据、Wi-Fi 密码</td>
+</tr>
+<tr>
+<td><code>bootloader.img</code></td>
+<td>❌ 不要</td>
+<td>可能含设备唯一标识</td>
+</tr>
+<tr>
+<td><code>mmcblk0boot0/1.img</code></td>
+<td>❌ 不要</td>
+<td>可能含设备唯一标识</td>
+</tr>
+<tr>
+<td><code>reserved.img</code></td>
+<td>⚠️ 谨慎</td>
+<td>内容不明，确认前不公开</td>
+</tr>
+<tr>
+<td><code>mmcblk0_full.img</code></td>
+<td>❌ 不要</td>
+<td>整盘镜像，必然包含敏感分区</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 自己留作“后悔药”的 <code>data.img</code>、<code>bootloader.img</code> 等，放在本地或私有网盘没问题；<strong>公开分享时只放 <code>system</code>、<code>boot</code>、<code>recovery</code> 这类公共层面的镜像即可</strong>。</p>
+</blockquote>
+<hr>
+<h2 id="十经验总结与避坑清单">十、经验总结与避坑清单</h2>
+<ol>
+<li>❌ <strong>ADB 路线对本机不可行</strong>：实测 <code>adb shell</code> 为普通用户权限，无 root，无法 <code>dd</code> 块设备；且首次 <code>adb connect</code> 需盒子端手工确认，繁琐。<strong>提取完整固件只能走 TTL 串口方案</strong>，简单、稳定、高效。</li>
+<li>💡 <strong>首次备份不需要 ADB 和网络</strong>：TTL 串口拿到 root 即可直接 <code>dd</code>；ADB 无线调试留给后续魔改和测试阶段。</li>
+<li>✅ 手机“关数据开热点”是最简单的无外网局域网方案；PC 虚拟 WiFi 需明确不共享外网。</li>
+<li>⚠️ <strong>MobaXterm 串口务必关闭流控</strong>（Flow control 选 None，RTS/CTS 不勾），否则可能出现能收不能发。</li>
+<li>⚠️ <strong>备份大分区前关闭自动休眠和应用自动更新</strong>：<code>dd</code> 运行时间长，中途休眠或后台更新可能干扰备份。</li>
+<li>💡 <strong>先恢复出厂设置再备份</strong>：清理账号和用户数据，得到的 <code>data.img</code> 更干净，适合作为纯净底包。</li>
+<li>⚠️ 备份前先查分区大小，FAT32 U 盘单文件上限 4GB，<code>data</code> 分区会截断；<strong>优先 exFAT</strong>，或按分卷方案处理。</li>
+<li>✅ 魔盒 TTL 环境包含 <code>split</code>，FAT32 分卷可直接用 <code>dd | split</code>，无需手算 <code>skip</code>/<code>count</code>。</li>
+<li>💡 <code>/dev/block/</code> 具名设备即 <code>mmcblk0pX</code> 别名，按具名备份即可，无需重复备份编号分区。</li>
+<li>💡 <code>mmcblk0boot0/1</code> 是 eMMC 硬件 Boot 分区，不属于 <code>mmcblk0p1~p10</code>；可备份作底层保险，但不建议随意回写。</li>
+<li>⚠️ <code>bootloader</code>、<code>mmcblk0boot0/1</code> 备份可能受保护，能读则备份，报错记录即可。</li>
+<li>🔒 <strong>分享固件时，<code>data</code>、<code>bootloader</code>、<code>mmcblk0boot0/1</code>、<code>reserved</code>、整盘镜像不要公开</strong>；只分享 <code>system</code>、<code>boot</code>、<code>recovery</code> 等公共层面镜像。</li>
+<li>⚠️ 还原比备份风险高，备份文件务必多处留存。</li>
+</ol>
+<hr>
+<h2 id="相关文章">相关文章</h2>
+<ul>
+<li><a href="#c320-article-placeholder">《中兴小兴看看 mini C320 逆向固件提取与魔改实录（待发布）》</a><br>
+同一轮“翻出旧设备 → 提取固件 → 准备魔改”的折腾，摄像头篇。两篇可以对照看：一个是电视盒子，一个是网络摄像头，硬件不同，但备份思路和避坑逻辑有不少共通之处。</li>
+</ul>
+<hr>
+<h2 id="十一附录">十一、附录</h2>
+<h3 id="111-关键命令速查">11.1 关键命令速查</h3>
+<pre><code class="language-bash"># 查看内核版本
+cat /proc/version
+uname -a
+
+# 查看块设备
+ls -al /dev/block/
+
+# 查看分区表
+cat /proc/partitions
+
+# 查看分区字节数
+blockdev --getsize64 /dev/block/&lt;分区名&gt;
+
+# 备份分区
+dd if=/dev/block/&lt;分区名&gt; of=/storage/external_storage/sda1/&lt;分区名&gt;.img
+
+# 查看 dd 进度（另开串口会话）
+kill -USR1 $(pidof dd)
+
+# 确认 U 盘空间
+df -h /storage/external_storage/sda1/
+
+# 落盘
+sync
+
+# 分享前检查镜像中是否含敏感信息
+strings system.img | grep -i -E &quot;mac|serial|password|账号|wifi&quot;
+</code></pre>
+<h3 id="112-分区对照表">11.2 分区对照表</h3>
+<p>见 <a href="#%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E5%8C%BAmmcblk0%E5%86%85%E7%9A%84%E5%88%86%E5%8C%BA">6.3 节表格</a>。</p>
+<h3 id="113-工具清单">11.3 工具清单</h3>
+<ul>
+<li>USB 转 TTL 模块 (CH340 等等)</li>
+<li>串口终端：<a href="https://mobaxterm.mobatek.net/">MobaXterm</a>（也可用 PuTTY / minicom）</li>
+<li>大于 8G U盘（建议 exFAT，避免 4GB 截断）</li>
+<li>ADB 工具：<a href="https://developer.android.com/tools/releases/platform-tools?hl=zh-cn">Android SDK Platform-Tools</a></li>
+<li>电烙铁、排针（焊接 TTL）</li>
+<li>Windows 自带格式化工具（exFAT 快速格式化）</li>
+</ul>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/%E5%A4%A9%E7%8C%AB%E9%AD%94%E7%9B%92/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#天猫魔盒</a>
+    
+    <a href="/tags/tmb300a/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#tmb300a</a>
+    
+    <a href="/tags/firmware/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#firmware</a>
+    
+    <a href="/tags/diy/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#diy</a>
+    
+    <a href="/tags/reverse/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#reverse</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/aseprite-compile-app-win.html" class="block">Aseprite 手工编译流程 (Windows)</a>
+        
+    </div>
+</div>
+
+        
+
+<div id="utteranc_thread"></div>
+<script src="https://utteranc.es/client.js"
+        repo="zfkun/blogtalk"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        
+        async>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#写在前面为什么又折腾这台老盒子">写在前面：为什么又折腾这台老盒子</a></li>
+    <li><a href="#更新日志">更新日志</a></li>
+    <li><a href="#一目标与约束">一、目标与约束</a></li>
+    <li><a href="#二需求拆解与技术路线">二、需求拆解与技术路线</a></li>
+    <li><a href="#三adb-无线调试首选手机热点">三、ADB 无线调试：首选手机热点</a>
+      <ul>
+        <li><a href="#31-首选方案手机关闭数据网络开热点">3.1 首选方案：手机关闭数据网络，开热点</a></li>
+        <li><a href="#32-备选方案pc-虚拟-wifi不共享外网">3.2 备选方案：PC 虚拟 WiFi（不共享外网）</a></li>
+      </ul>
+    </li>
+    <li><a href="#四adb-权限边界与实测结论">四、ADB 权限边界与实测结论</a>
+      <ul>
+        <li><a href="#-实测验证结论">❌ 实测验证结论</a></li>
+        <li><a href="#-结论">✅ 结论</a></li>
+      </ul>
+    </li>
+    <li><a href="#五硬件排查与-ttl-接入">五、硬件排查与 TTL 接入</a>
+      <ul>
+        <li><a href="#51-拆机与串口点位">5.1 拆机与串口点位</a></li>
+        <li><a href="#52-串口登录与-root">5.2 串口登录与 root</a></li>
+        <li><a href="#53-串口启动日志里能读到什么">5.3 串口启动日志里能读到什么</a></li>
+      </ul>
+    </li>
+    <li><a href="#六存储与分区探测">六、存储与分区探测</a>
+      <ul>
+        <li><a href="#61-查看块设备">6.1 查看块设备</a></li>
+        <li><a href="#62-查看分区表">6.2 查看分区表</a></li>
+        <li><a href="#63-分区表与精确大小">6.3 分区表与精确大小</a>
+          <ul>
+            <li><a href="#用户数据区mmcblk0内的分区">用户数据区（<code>mmcblk0</code>）内的分区</a></li>
+            <li><a href="#emmc-硬件-boot-分区不属于-mmcblk0-分区表">eMMC 硬件 Boot 分区（不属于 <code>mmcblk0</code> 分区表）</a></li>
+          </ul>
+        </li>
+        <li><a href="#64-关于-mmcblk0boot0--mmcblk0boot1">6.4 关于 <code>mmcblk0boot0</code> / <code>mmcblk0boot1</code></a></li>
+        <li><a href="#-关键结论">💡 关键结论</a></li>
+      </ul>
+    </li>
+    <li><a href="#七固件提取实操">七、固件提取实操</a>
+      <ul>
+        <li><a href="#70-备份前的准备">7.0 备份前的准备</a></li>
+        <li><a href="#71-外挂-u-盘">7.1 外挂 U 盘</a></li>
+        <li><a href="#72-文件系统选择exfat-优先fat32-分卷备选">7.2 文件系统选择：exFAT 优先，FAT32 分卷备选</a>
+          <ul>
+            <li><a href="#策略一将-u-盘格式化为-exfat推荐一劳永逸">策略一：将 U 盘格式化为 exFAT（推荐，一劳永逸）</a></li>
+            <li><a href="#策略二fat32-u-盘分卷备份不想格式化时的变通方案">策略二：FAT32 U 盘分卷备份（不想格式化时的变通方案）</a></li>
+            <li><a href="#-取舍">💡 取舍</a></li>
+          </ul>
+        </li>
+        <li><a href="#73-按分区-dd-备份">7.3 按分区 dd 备份</a></li>
+        <li><a href="#74-备份结果对比">7.4 备份结果对比</a></li>
+        <li><a href="#75-未备份-mmcblk0-的取舍">7.5 未备份 <code>mmcblk0</code> 的取舍</a></li>
+        <li><a href="#76-收尾">7.6 收尾</a></li>
+      </ul>
+    </li>
+    <li><a href="#八后续魔改与还原思路">八、后续魔改与还原思路</a></li>
+    <li><a href="#九固件分享与隐私安全">九、固件分享与隐私安全</a>
+      <ul>
+        <li><a href="#-绝对不要公开的分区">❌ 绝对不要公开的分区</a></li>
+        <li><a href="#-相对可以公开的分区">✅ 相对可以公开的分区</a></li>
+        <li><a href="#-分享前的快速自检">🧹 分享前的快速自检</a></li>
+        <li><a href="#-发布清单速查">📦 发布清单速查</a></li>
+      </ul>
+    </li>
+    <li><a href="#十经验总结与避坑清单">十、经验总结与避坑清单</a></li>
+    <li><a href="#相关文章">相关文章</a></li>
+    <li><a href="#十一附录">十一、附录</a>
+      <ul>
+        <li><a href="#111-关键命令速查">11.1 关键命令速查</a></li>
+        <li><a href="#112-分区对照表">11.2 分区对照表</a></li>
+        <li><a href="#113-工具清单">11.3 工具清单</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="/tmb300a-firmware-dump-diy.html">天猫魔盒2（TMB300A）固件提取与备份</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2026 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+
+
+
+<script>
+(function(){
+    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
+        var ns = document.querySelectorAll('.viewstat-post');
+        for (var i = 0; i < ns.length; i++) {
+            ns[i].style.display = 'none';
+        }
+    }
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+  </footer>
+</body>
+
+</html>

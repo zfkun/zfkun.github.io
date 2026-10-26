@@ -146,7 +146,7 @@
     "image": "/uploads/2026/10/tmb300a_1.jpg",
     "datePublished": "2026-10-18T00:00:00+08:00",
     "dateModified": "2026-10-18T12:00:00+08:00",
-    "wordCount":  8659 ,
+    "wordCount":  8698 ,
     "author": {
         "@type": "Person",
         "name": "zfkun"
@@ -308,7 +308,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-keyboard mr-1"></i>
-        <span>8659字</span>
+        <span>8698字</span>
     </div>
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
@@ -372,7 +372,7 @@
 <hr>
 <h2 id="更新日志">更新日志</h2>
 <ul>
-<li>2026-10-18 开放原始固件, 详见 夸克网盘 (<code>整理中</code>)</li>
+<li>2026-10-18 开放原始固件, 详见 <a href="https://pan.quark.cn/s/984ccd6077f7?pwd=kEpP">夸克网盘</a></li>
 </ul>
 <h2 id="一目标与约束">一、目标与约束</h2>
 <p>缘起唠完，落到具体目标上，这次折腾主要想干三件事：</p>
@@ -989,14 +989,19 @@ dd if=/dev/block/cache      of=/storage/external_storage/sda1/cache.img
 <h3 id="-绝对不要公开的分区">❌ 绝对不要公开的分区</h3>
 <p><strong><code>data.img</code></strong></p>
 <p>这是隐私风险最集中的地方。<code>data</code> 分区包含登录凭据、应用数据、Wi-Fi 密码、浏览记录，以及 YunOS/淘宝账号的登录态。即使恢复了出厂设置，旧数据的残片在闪存磨损均衡机制下也不一定被物理覆盖。分享 <code>data.img</code> 等于把你的个人数字生活打包送人。</p>
-<p><strong><code>bootloader.img</code>、<code>mmcblk0boot0.img</code>、<code>mmcblk0boot1.img</code></strong></p>
-<p>这些底层引导分区通常包含<strong>设备唯一的标识或校准数据</strong>。电视盒子虽然没有蜂窝 IMEI，但 <strong>Wi-Fi MAC 地址、设备序列号</strong>很可能就藏在这些分区里。公开它们，等于公开了这台设备的硬件“身份证”。</p>
+<p><strong><code>env.img</code>、<code>bootloader.img</code>、<code>mmcblk0boot0.img</code>、<code>mmcblk0boot1.img</code></strong></p>
+<p>这些底层引导分区通常包含<strong>设备唯一的标识或校准数据</strong>。
+电视盒子虽然没有蜂窝 IMEI，但 <strong>Wi-Fi MAC 地址、设备序列号</strong>很可能就藏在这些分区里。
+公开它们，等于公开了这台设备的硬件“身份证”。</p>
+<blockquote>
+<p>经测，<code>env.img</code> 含 ethaddr（MAC 地址）、ipaddr、serverip 等设备标识和网络配置。</p>
+</blockquote>
 <p><strong><code>reserved.img</code></strong></p>
 <p>厂商保留分区。具体内容不分析镜像无法确定，但“保留”二字往往意味着可能存放校准数据、设备信息或厂商密钥。在确认内容之前，不建议公开。</p>
 <p><strong><code>mmcblk0_full.img</code>（整盘镜像）</strong></p>
 <p>整盘镜像必然包含上述所有敏感分区，同样不适合公开。</p>
 <h3 id="-相对可以公开的分区">✅ 相对可以公开的分区</h3>
-<p><code>system.img</code>、<code>boot.img</code>、<code>recovery.img</code>、<code>cache.img</code>、<code>logo.img</code> / <code>logo1.img</code>、<code>env.img</code> 属于“公共平台”层面的内容，通常不包含个人账号或设备唯一密钥。其中 <code>system.img</code> 是固件的核心，也是别人最需要的。</p>
+<p><code>system.img</code>、<code>boot.img</code>、<code>recovery.img</code>、<code>cache.img</code>、<code>logo.img</code> / <code>logo1.img</code> 属于“公共平台”层面的内容，通常不包含个人账号或设备唯一密钥。其中 <code>system.img</code> 是固件的核心，也是别人最需要的。</p>
 <blockquote>
 <p>⚠️ 例外：如果你曾经在 <code>system</code> 里手动写入过账号密码或密钥，分享前需要先检查并清除。</p>
 </blockquote>

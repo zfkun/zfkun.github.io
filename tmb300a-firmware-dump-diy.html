@@ -97,6 +97,12 @@
     });
   });
 </script>
+
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
 <script>
@@ -214,7 +220,21 @@
 
 
 
-<meta property="og:see_also" content="/tmb300a-firmware-dump-diy.html" />
+
+
+
+
+<meta property="og:see_also" content="/tmb300a-firmware-reverse-diy.html" />
+
+
+
+<meta property="og:see_also" content="/tmb300a-firmware-reverse-diy.html" />
+
+
+
+
+
+
 
 
 
@@ -313,9 +333,6 @@
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -335,6 +352,13 @@
     </div>
     
 
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-th-list mr-1"></i>
+        
+        <a href="/series/%E5%A4%A9%E7%8C%AB%E9%AD%94%E7%9B%92%E6%8A%98%E8%85%BE/" class="hover:text-eureka">天猫魔盒折腾</a>
+        
+    </div>
     
 </div>
         
@@ -1255,6 +1279,9 @@ strings system.img | grep -i -E &quot;mac|serial|password|账号|wifi&quot;
 <div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
     <div>
         
+        <span class="block font-bold">上一页</span>
+        <a href="/tmb300a-firmware-reverse-diy.html" class="block">天猫魔盒2（TMB300A）逆向分析实录</a>
+        
     </div>
     <div class="md:text-right mt-4 md:mt-0">
         
@@ -1265,22 +1292,31 @@ strings system.img | grep -i -E &quot;mac|serial|password|账号|wifi&quot;
 </div>
 
         
-
-<div id="utteranc_thread"></div>
-<script src="https://utteranc.es/client.js"
-        repo="zfkun/blogtalk"
-        issue-term="pathname"
-        theme="preferred-color-scheme"
-        crossorigin="anonymous"
-        
-        async>
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://utteranc.es/?ref_noscript">comments powered by Utterances.</a></noscript>
-
-
     </div>
     
     <div class="col-span-2">
+        
+        
+<div class="bg-secondary-bg rounded p-6">
+    <h3 class="text-lg font-semibold mb-4">系列文章</h3>
+    <div class="content">
+        
+        
+        <a href="/tmb300a-firmware-reverse-diy.html">天猫魔盒2（TMB300A）逆向分析实录</a>
+        <br />
+        
+        <a href="/tmb300a-firmware-reverse-diy.html">天猫魔盒2（TMB300A）逆向分析实录</a>
+        <br />
+        
+        <a href="/tmb300a-firmware-dump-diy.html">天猫魔盒2（TMB300A）固件提取与备份</a>
+        <br />
+        
+        <a href="/tmb300a-firmware-dump-diy.html">天猫魔盒2（TMB300A）固件提取与备份</a>
+        <br />
+        
+        
+    </div>
+</div>
         
         
         <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
@@ -1403,21 +1439,6 @@ strings system.img | grep -i -E &quot;mac|serial|password|账号|wifi&quot;
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div>
-
-
-
-
-<script>
-(function(){
-    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
-        var ns = document.querySelectorAll('.viewstat-post');
-        for (var i = 0; i < ns.length; i++) {
-            ns[i].style.display = 'none';
-        }
-    }
-})();
-</script>
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </div>
   </footer>

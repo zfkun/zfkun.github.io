@@ -97,6 +97,12 @@
     });
   });
 </script>
+
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
 <script>
@@ -138,123 +144,123 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "contains vs compareDocumentPosition",
+            "description": "一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）",
+            "url": "/125.html"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "JS闭包之词法作用域",
             "description": "var classA = function(){ this.prop1 = 1; } classA.prototype.func1 = function(){ var that = this, var1 = 2; function a(){ return function(){ alert(var1); alert(this.prop1); }.apply(that); }; a(); } var objA = new ClassA(); objA.func1(); 大家应该写过上面类似的代码吧，其实这里我想要表达的是有时候一个方法定义的地方和使用的地方会相隔十万八千里，那方法执行时，它能访问哪些变量，不能访问哪些变量，这个怎么判断呢？这个就是我们这次需要分析的问题—词法作用域 **词法作用域：**变量的作用域是在定义时决定而不是执行时决定，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫做静态作用域。 with和eval除外，所以只能说JS的作用域机制非常接近词法作用域（Lexic",
             "url": "/117.html"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "Comet—“服务器推”技术",
             "description": "Comet指的是一种Web应用程序架构。可以直接说，它不是一种技术，而是一种思想，只是这种思想采用了已有的技术去实现。在这种思想里，客户端（Client）不需要显式地向服务器端（Server）发出请求，Server会在其数据发生变化的时候主动将数据异步发送给Client，从而使Client能够及时更新数据并呈现给用户。它不同于传统的Web，也不同于当前流行的Ajax，这种思想非常架构思想非常适合event-driven(事件驱动)式的Web应用和对交互性及实时性要求很强的应用，比如股票交易，聊天室，Web IM，网游等。",
             "url": "/115.html"
         },{
             "@type":"ListItem",
-            "position":  3 ,
+            "position":  4 ,
             "name": "Javascript的变量与delete操作符",
             "description": "Javascript中的delete操作虽然是一个小小的delete操作符，其行为却异常复杂",
             "url": "/112.html"
         },{
             "@type":"ListItem",
-            "position":  4 ,
+            "position":  5 ,
             "name": "Understanding and Solving Internet Explorer Leak Patterns",
             "description": "\u003cp\u003eIn the past, memory leaks haven\u0026rsquo;t posed huge problems for Web developers. Pages were kept relatively simple and navigation between different locations within a site was a great way to clean up any loose memory. If there was a leak, it was most likely small enough to go unnoticed.\u003c/p\u003e\n\u003cp\u003eNew Web applications live up to higher standards. A page might run for hours without being navigated and retrieve updated information dynamically through Web services. Language features are pushed to the breaking point by combining complex event schemes, object-oriented JScript, and closures to produce entire applications. With these and other changes, certain memory leak patterns are becoming more prominent, especially those previously hidden by navigation.\u003c/p\u003e\n\u003cp\u003eThe good news is that memory leak patterns can be easily spotted if you know what to look for. Most of the troublesome patterns you might face have known workarounds requiring only a small amount of extra work on your behalf. While some pages might still fall prey to small memory leaks, the most noticeable ones can be easily removed.\u003c/p\u003e\n",
             "url": "/109.html"
         },{
             "@type":"ListItem",
-            "position":  5 ,
+            "position":  6 ,
             "name": "结婚了",
             "description": "结婚了 ，有情人终是要成眷属的。",
             "url": "/107.html"
         },{
             "@type":"ListItem",
-            "position":  6 ,
+            "position":  7 ,
             "name": "好累",
             "description": "太久了， 没安稳的睡过，烦躁、犹豫、无奈、恐惧。 凌乱的压力压的我透不过气，咬牙。 不求可怜、不求同情、也不求理解。 只相信， 最终， 做到想做的、得到想要的、给予能给的、看到想看的…… 好累。",
             "url": "/104.html"
         },{
             "@type":"ListItem",
-            "position":  7 ,
+            "position":  8 ,
             "name": "Windows 下 Nginx + PHP5 的安装与配置",
             "description": "Nginx 是一个轻量级的高性能 Http WebServer，以事件驱动方式编写，因此相比 Apache 而言，Nginx 更加稳定、性能更好，而且配置简单，资源占用较低。以下是在 Windows 7 安装中 Nginx 和 PHP5.3 的步骤。",
             "url": "/102.html"
         },{
             "@type":"ListItem",
-            "position":  8 ,
+            "position":  9 ,
             "name": "Nginx 0.8.x + PHP 5.2.10（FastCGI）搭建胜过Apache十倍的Web服务器（第5版）",
             "description": "本文是张宴撰写的关于搭建“Nginx + PHP（FastCGI）”Web服务器的第5篇文章。本系列文章作为国内最早详细介绍 Nginx + PHP 安装、配置、使用的资料之一，为推动 Nginx 在国内的发展产生了积极的作用。这是一篇关于Nginx 0.7.x系列版本的文章，安装、配置方式与第4篇文章相差不大，但增加了MySQL安装配置的信息、PHP 5.2.10 的 php-fpm 补丁。Nginx 0.7.x系列版本虽然为开发版，但在很多大型网站的生产环境中已经使用。",
             "url": "/95.html"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "房贷：等额本息和等额本金有什么区别？",
             "description": "等额本息：本金逐月递增，利息逐月递减，月还款数不变。等额本金：本金保持相同，利息逐月递减，月还款数递减。适合于有计划提前还贷。利息少的是等额本金方式的还款。",
             "url": "/93.html"
         },{
             "@type":"ListItem",
-            "position":  10 ,
+            "position":  11 ,
             "name": "CSS圆角—透明圆角化背景图片",
             "description": "序言：第一章中我介绍了最基本的纯CSS圆角框的实现原理，并给出Demo，在本章中会对上一个模型作一些新的创新，实现将背景图片透明圆角化。并给出一些漂亮的通用演示效果。\n在上面的案例中，我只给出最为原始的圆角框模型，它还是存在一些不足之处。比如不能将图片应用到圆角框内。而在本例中，我会在上面的基础上作出一些创新。就是将背景图片也圆角化。",
             "url": "/91.html"
         },{
             "@type":"ListItem",
-            "position":  11 ,
+            "position":  12 ,
             "name": "CSS圆角—基本圆角框",
             "description": "纯CSS实现圆角框是一件大家都说烂了的事件，我也写过两篇总结文章，为什么还会有这篇文章呢，事情是这样的。在我们的以前的项目中，实现圆角框往往是用背景图片来实现的，但是，当这些项目发布上线后，在维护过程中，有时需要添加一些新的需求，因为以前的项目中大量采用了圆角图片，并且这些图片全部采用了CSS sprites方式合并的图，为了不增加更多的额外工作，并且也不想用JS来添加更多的http请求，所以需要一些简单的CSS方案来解决这个问题。而我的个人爱好，也喜欢采用无图片的方式来处理这些效果。总觉得CSS能完成的工作，为什么不让它来实现呢？",
             "url": "/87.html"
         },{
             "@type":"ListItem",
-            "position":  12 ,
+            "position":  13 ,
             "name": "[转]Google Closure: 糟糕的JavaScript",
             "description": "上周在澳大利亚佩恩的Edge of the Web会议上我碰到了javascript library Raphaël 和 gRaphaël 的创建者Dmitry Baranovskiy。这两个library做的最重要的事情也许就是使在javascript效率相对低下的IE上面绘制一些复杂的矢量图变得了可能。然而，Dmitry 却很不爽，因为他找到的一些实现的很糟糕的代码，在Google刚刚发布的Closure Library中。",
             "url": "/80.html"
         },{
             "@type":"ListItem",
-            "position":  13 ,
+            "position":  14 ,
             "name": "Google Closure Tools",
             "description": "Web applications have evolved from simple HTML pages into rich, interactive applications that provide a great user experience. Today\u0026rsquo;s web apps pose a challenge for developers, however: how do you create and maintain efficient JavaScript code that downloads quickly and works across different browsers?",
             "url": "/76.html"
         },{
             "@type":"ListItem",
-            "position":  14 ,
+            "position":  15 ,
             "name": "wp_list_categories()参数说明",
             "description": "show_option_all 值：任意填。 如果你写”那啥’，那么在列表第一个分类就显示“那啥”两字，不过连接是连接到blog首页的，正好可以利用此参数加个“首页”。 orderby 值：ID、name（默认值）、count。 作用是按这3个值来排序。 order 值：ASC（默认值）、DESC。 ASC为升序，DESC为降序。 show_last_updated 值：0（默认值）、1。 0无作用，1为最近更新的分类显示在前面。 style 值：list（默认值）、none。 例6中已经举例了。none无作用。 show_count 值：0、1（默认值） 1在每个分类后面显示日志数量，0不显示。 hide_empty 值：0、1（默认值） 1是隐藏没有发表日志的分",
             "url": "/74.html"
         },{
             "@type":"ListItem",
-            "position":  15 ,
+            "position":  16 ,
             "name": "Mootools Sortables插件BUG修正",
             "description": "前阵子新版专辑管理项目开发中碰到比较郁闷的问题，经测试最终决定给Sortables打个小补丁。\n由于对选择状态的文本内容、连接和图片等进行拖放操作会触发系统的默认动作，例如ie中拖动图片鼠标会变成禁止操作状态，这样会导致这个拖放程序执行失败，所以Mootools 的Drag基类配置里其实有preventDefault配置项来给使用者解决此类问题，默认值为false，需要处理时设置为true即可。 然而郁闷的是，开发时才发现，Sortables类里内部创建的Drag.Move实例却只能使用preventDefault的默认值，因为Sortables没有给出配置项用来设置内部(this.drag)这个DragMove实例的preventDefault参数项。无奈之下，只能打补丁了。 另打补丁期间又发现另一个问题，甚是郁闷。Sortables的start方法仅判断是否空闲进而决定是否真正执行。而实际项目需求有时需要屏蔽鼠标右键(带来的问题很多)，而看了办法发现，找到的唯一办法仍旧是打补丁。 最终，打上2处补丁后，世界清静了。。。",
             "url": "/67.html"
         },{
             "@type":"ListItem",
-            "position":  16 ,
+            "position":  17 ,
             "name": "选择性复活",
             "description": "博客选择性复活！ 经过几天的捣腾，终于恢复了部分数据(其他的我已回天无力)。 能有幸捣腾这非天灾，真是感谢党的关怀、感谢领导的决策、感谢祖国的和谐！ 从零开始….",
             "url": "/64.html"
         },{
             "@type":"ListItem",
-            "position":  17 ,
+            "position":  18 ,
             "name": "用硬盘玩《银河战士：三部曲》（ Metroid Prime Trilogy 美版）的方法",
             "description": "首先，据说目前最完美的方法还是刻盘。我没有D9的空盘，也懒得试验。。。",
             "url": "/61.html"
         },{
             "@type":"ListItem",
-            "position":  18 ,
+            "position":  19 ,
             "name": "腾讯TT、遨游浏览器检测",
             "description": "最近腾讯TT4.5版发布后，为了兼容一处FLASH的WMODE参数异常的BUG使用到了新版检测方法，特此记录一下，省的以后忘记。 TT4.5 检测方法: 调用 external.getTTVerStr() 返回 浏览器信息，非TT或此版本均会抛出异常。 TT通用版检测方法: 首先检测 navigator.userAgent 是否含有 Tencent 特征串，继而调用 external.ShowBrowserUI(’ku6′) ，非TT均会抛出异常 顺便提一下 遨游 的检测方法： 也是通过 external 对象来辅助检测，调用 external.tab_count 不抛异常即为 遨游浏览器。",
             "url": "/59.html"
         },{
             "@type":"ListItem",
-            "position":  19 ,
+            "position":  20 ,
             "name": "5.50GEN用PSone模拟游戏模块Popsloader For 5.50GEN-A（含完整版）",
             "description": "十分感谢PSPGEN小组，他们不但发布了让PSP3000实现运行ISO的5.03GEN for HEN，还为PSP1000和非PSP2000-3的老玩家们带来了解决5.50游戏问题的自制系统5.50GEN-A。这次为解决玩家们在5.50系统下无法正常运行PSone模拟游戏的问题，发布了Popsloader For 5.50GEN-A，喜欢PSone模拟游戏的5.50GEN-A用户赶快试试！",
             "url": "/57.html"
-        },{
-            "@type":"ListItem",
-            "position":  20 ,
-            "name": "绝对震撼!10款动感图片展示js代码",
-            "description": "绝对震撼!10款动感图片展示js代码 http://pcedu.pconline.com.cn/empolder/wz/javascript/0809/1421645.html",
-            "url": "/55.html"
         }
     ]
 }
@@ -381,6 +387,48 @@
   
   <div class="w-full ">
     <div class="mb-4">
+  <a href="/125.html" class="font-bold text-xl hover:text-eureka">contains vs compareDocumentPosition</a>
+</div>
+<div class="content">
+  
+    一个很棒的 blog 文章，是 PPK 两年前写的，文章中解释了 contains() 和 compareDocumentPosition() 方法运行在他们各自的浏览器上。从那起，我已经对这些方法做了大量的研究，并且已经在很多场合使用他们。在很多任务中，他们被证明是非常有用的（特别关于结构的抽象 DOM 选择器）
+  
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2010-03-07</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>1528字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
   <a href="/117.html" class="font-bold text-xl hover:text-eureka">JS闭包之词法作用域</a>
 </div>
 <div class="content">
@@ -405,9 +453,6 @@
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -450,9 +495,6 @@
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -495,9 +537,6 @@
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -543,9 +582,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -588,9 +624,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -633,9 +666,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -678,9 +708,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -723,9 +750,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -768,9 +792,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -814,9 +835,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -859,9 +877,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -904,9 +919,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -949,9 +961,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -994,9 +1003,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -1040,9 +1046,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -1085,9 +1088,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -1130,9 +1130,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -1175,9 +1172,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -1220,54 +1214,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
     <div class="mr-6 my-2 viewstat-post">
         <i class="fas fa-eye mr-1"></i>
         
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/55.html" class="font-bold text-xl hover:text-eureka">绝对震撼!10款动感图片展示js代码</a>
-</div>
-<div class="content">
-  
-    绝对震撼!10款动感图片展示js代码 http://pcedu.pconline.com.cn/empolder/wz/javascript/0809/1421645.html
-  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2010-01-16</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-keyboard mr-1"></i>
-        <span>19字</span>
-    </div>
-    <div class="mr-6 my-2 viewstat-post">
-        <i class="fas fa-eye mr-1"></i>
-        
-
-<span id="busuanzi_container_page_pv">阅读 <span id="busuanzi_value_page_pv"></span></span>
-
     </div>
     
     
@@ -1326,21 +1272,6 @@ The good news is that memory leak patterns can be easily spotted if you know wha
  &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
     <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div>
-
-
-
-
-<script>
-(function(){
-    if (!/^\/(?:[^\/])+\.html$/.test(location.pathname)) {
-        var ns = document.querySelectorAll('.viewstat-post');
-        for (var i = 0; i < ns.length; i++) {
-            ns[i].style.display = 'none';
-        }
-    }
-})();
-</script>
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </div>
   </footer>

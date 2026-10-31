@@ -8,8 +8,22 @@
     <language>zh-CN</language>
     <copyright>&amp;copy; {year} &lt;a href=&#34;https://www.zfkun.com/&#34;&gt;zfkun.com&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 18 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>天猫魔盒2（TMB300A）逆向分析实录</title>
+      <link>/tmb300a-firmware-reverse-diy.html</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>/tmb300a-firmware-reverse-diy.html</guid>
+      <description>记录天猫魔盒2（TMB300A）从固件备份到逆向分析的完整过程，重点还原启动链、&lt;code&gt;init&lt;/code&gt; 脚本加载树与 &lt;code&gt;alisec&lt;/code&gt; 完整性校验机制，并通过实测确认 boot 分区受 Amlogic RSA 签名校验保护、标准 &lt;code&gt;mkbootimg&lt;/code&gt; 重打包镜像会被拒绝，为同平台设备的魔改划清可行边界</description>
+    </item>
+    <item>
+      <title>天猫魔盒2（TMB300A）逆向分析实录</title>
+      <link>/tmb300a-firmware-reverse-diy.html</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>/tmb300a-firmware-reverse-diy.html</guid>
+      <description>记录天猫魔盒2（TMB300A）从固件备份到逆向分析的完整过程，重点还原启动链、&lt;code&gt;init&lt;/code&gt; 脚本加载树与 &lt;code&gt;alisec&lt;/code&gt; 完整性校验机制，并通过实测确认 boot 分区受 Amlogic RSA 签名校验保护、标准 &lt;code&gt;mkbootimg&lt;/code&gt; 重打包镜像会被拒绝，为同平台设备的魔改划清可行边界</description>
+    </item>
     <item>
       <title>天猫魔盒2（TMB300A）固件提取与备份</title>
       <link>/tmb300a-firmware-dump-diy.html</link>

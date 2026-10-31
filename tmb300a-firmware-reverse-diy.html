@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang='zh-CN' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>天猫魔盒2（TMB300A）逆向分析实录 | 影の域</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/dist/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/rainbow.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/python.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/arduino.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/c.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/cpp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/csharp.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/java.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/lua.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/css.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/rust.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/scss.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/less.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/powershell.min.js"
+     crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/json.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11859397-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-11859397-1');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/me_hubcd5ebbd0ac4683c297fe332fbcb3c46_358446_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="记录天猫魔盒2（TMB300A）从固件备份到逆向分析的完整过程，重点还原启动链、init 脚本加载树与 alisec 完整性校验机制，并通过实测确认 boot 分区受 Amlogic RSA 签名校验保护、标准 mkbootimg 重打包镜像会被拒绝，为同平台设备的魔改划清可行边界">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Zhs",
+      "item":"/zh/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"文章",
+      "item":"/zh/posts/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"天猫魔盒2（TMB300A）逆向分析实录",
+      "item":"/tmb300a-firmware-reverse-diy.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/tmb300a-firmware-reverse-diy.html"
+    },
+    "headline": "天猫魔盒2（TMB300A）逆向分析实录 | 影の域",
+    "image": "/uploads/2026/10/tmb300a_1.jpg",
+    "datePublished": "2026-10-20T00:00:00+08:00",
+    "dateModified": "2026-10-20T12:00:00+08:00",
+    "wordCount":  7598 ,
+    "author": {
+        "@type": "Person",
+        "name": "zfkun"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "zfkun",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/me.png"
+        }
+        },
+    "description": "记录天猫魔盒2（TMB300A）从固件备份到逆向分析的完整过程，重点还原启动链、\u003ccode\u003einit\u003c\/code\u003e 脚本加载树与 \u003ccode\u003ealisec\u003c\/code\u003e 完整性校验机制，并通过实测确认 boot 分区受 Amlogic RSA 签名校验保护、标准 \u003ccode\u003emkbootimg\u003c\/code\u003e 重打包镜像会被拒绝，为同平台设备的魔改划清可行边界"
+}
+</script><meta property="og:title" content="天猫魔盒2（TMB300A）逆向分析实录 | 影の域" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/me.png">
+
+
+<meta property="og:url" content="/tmb300a-firmware-reverse-diy.html" />
+
+
+
+
+<meta property="og:description" content="记录天猫魔盒2（TMB300A）从固件备份到逆向分析的完整过程，重点还原启动链、init 脚本加载树与 alisec 完整性校验机制，并通过实测确认 boot 分区受 Amlogic RSA 签名校验保护、标准 mkbootimg 重打包镜像会被拒绝，为同平台设备的魔改划清可行边界" />
+
+
+
+
+<meta property="og:locale" content="zh-CN" />
+
+
+
+
+<meta property="og:site_name" content="影の域" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-10-20T00:00:00&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-10-20T12:00:00&#43;08:00" />
+
+
+
+<meta property="article:section" content="zh" />
+
+
+<meta property="article:tag" content="天猫魔盒" />
+
+<meta property="article:tag" content="tmb300a" />
+
+<meta property="article:tag" content="firmware" />
+
+<meta property="article:tag" content="diy" />
+
+<meta property="article:tag" content="reverse" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta property="og:see_also" content="/tmb300a-firmware-dump-diy.html" />
+
+
+
+<meta property="og:see_also" content="/tmb300a-firmware-dump-diy.html" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">影の域</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/archives/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">归档</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">天猫魔盒2（TMB300A）逆向分析实录</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2026-10-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>16分钟阅读时长</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-keyboard mr-1"></i>
+        <span>7598字</span>
+    </div>
+    <div class="mr-6 my-2 viewstat-post">
+        <i class="fas fa-eye mr-1"></i>
+        
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/tech/" class="hover:text-eureka">tech</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/linux/" class="hover:text-eureka">linux</a>
+        
+        
+        <span>, </span>
+        <a href="/categories/android/" class="hover:text-eureka">android</a>
+        
+    </div>
+    
+
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-th-list mr-1"></i>
+        
+        <a href="/series/%E5%A4%A9%E7%8C%AB%E9%AD%94%E7%9B%92%E6%8A%98%E8%85%BE/" class="hover:text-eureka">天猫魔盒折腾</a>
+        
+    </div>
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="/uploads/2026/10/tmb300a_1.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <blockquote>
+<p><strong>设备型号</strong>：MagicBox2<br>
+<strong>系统版本</strong>：<a href="https://zh.wikipedia.org/wiki/AliOS">YunOS 3.0.6</a><br>
+<strong>固件版本</strong>：3.0.6-RS-20160831.0951<br>
+<strong>芯片平台</strong>：晶晨 S802-H（M8）<br>
+<strong>内存</strong>：1 GiB DDR3<br>
+<strong>存储</strong>：8G eMMC<br>
+<strong>U-Boot</strong>：<code>U-boot-00000-g667d5c3(m8_mango_v1@667d5c32) (Jul 15 2015)</code><br>
+<strong>内核</strong>：Linux 3.10.33（uImage，lzo 压缩）<br>
+<strong>WiFi</strong>：Broadcom SDIO（<code>dhd</code> / <code>bcmsdh_sdmmc</code>）</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>🔒 <strong>脱敏声明</strong>：本文涉及设备唯一标识（MAC 地址、设备序列号）、内网 IP 配置等内容，均已替换为占位符或做模糊化处理。<br>
+<code>env.img</code> 本身含这些信息，<strong>绝对不能公开分享</strong>。<br>
+读者在自己设备上操作时，也请注意不要将原始 <code>env.img</code> 或含敏感值的串口日志直接公开。</p>
+</blockquote>
+<hr>
+<h2 id="写在前面">写在前面</h2>
+<p>上一篇 <a href="./tmb300a-firmware-dump-diy.html">《天猫魔盒2（TMB300A）固件提取与备份》</a> 记录了怎么把原厂固件完整备份出来。备份是手段，不是目的。真正想做的事，是在这台老盒子上做点魔改：精简系统、去掉不需要的服务、尝试第三方固件，或者至少让它在一个可控的环境里跑起来。</p>
+<p>但魔改之前，得先搞清楚它内部是怎么运转的。启动链怎么走、安全校验卡在哪、<code>system</code> 里哪些组件是厂商定制、哪些服务可以安全移除——这些不弄清楚，刷机就是碰运气。</p>
+<p>这篇文章就是逆向分析阶段的记录。和上一篇一样，它会随分析进度逐步补充，不会一次写完。</p>
+<blockquote>
+<p><code>最终实测结果: 签名校验拦截机制 不好处理， 就不进一步深究了 （浪费时间）</code></p>
+</blockquote>
+<p><strong>前置条件</strong>：</p>
+<ul>
+<li>完整的分区备份</li>
+<li>TTL 串口访问</li>
+<li>root shell</li>
+</ul>
+<blockquote>
+<p>这三样在上一篇里已经齐了。</p>
+</blockquote>
+<p><strong>本文目标</strong>：</p>
+<ul>
+<li>还原完整启动链，确认每一级的输入输出；</li>
+<li>分析安全机制（Secure Boot、系统完整性校验）对魔改的实际约束；</li>
+<li>拆解 <code>system</code> 分区，定位厂商定制组件和可精简项；</li>
+<li>确认硬件驱动与内核模块的依赖关系，为第三方固件适配做准备。</li>
+</ul>
+<p><strong>边界</strong>：本文只做分析和记录，不涉及具体刷机操作。魔改实操留到下一篇。</p>
+<hr>
+<h2 id="一设备与固件概览">一、设备与固件概览</h2>
+<h3 id="11-硬件规格">1.1 硬件规格</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>规格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SoC</td>
+<td>晶晨 S802-H（M8），四核 Cortex-A9</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>1 GiB DDR3，DDR clock 768MHz，1T mode</td>
+</tr>
+<tr>
+<td>存储</td>
+<td>8G eMMC（SDIO Port C）</td>
+</tr>
+<tr>
+<td>WiFi</td>
+<td>Broadcom SDIO，<code>dhd</code> 驱动</td>
+</tr>
+<tr>
+<td>电源管理</td>
+<td>RN5T618</td>
+</tr>
+<tr>
+<td>电池管理</td>
+<td>AML1218（平台复用，盒子无电池）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-软件版本">1.2 软件版本</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统</td>
+<td>YunOS 3.0.6</td>
+</tr>
+<tr>
+<td>固件</td>
+<td>3.0.6-RS-20160831.0951</td>
+</tr>
+<tr>
+<td>内核</td>
+<td>Linux 3.10.33</td>
+</tr>
+<tr>
+<td>U-Boot</td>
+<td><code>m8_mango_v1</code>，2015-07-15</td>
+</tr>
+<tr>
+<td>安全方案</td>
+<td>M8-RSA-1024</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-已备份分区">1.3 已备份分区</h3>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>大小</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bootloader</code></td>
+<td>4 MB</td>
+<td>引导程序</td>
+</tr>
+<tr>
+<td><code>reserved</code></td>
+<td>64 MB</td>
+<td>厂商保留</td>
+</tr>
+<tr>
+<td><code>cache</code></td>
+<td>640 MB</td>
+<td>缓存</td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td>8 MB</td>
+<td>U-Boot 环境变量</td>
+</tr>
+<tr>
+<td><code>logo</code> / <code>logo1</code></td>
+<td>16 MB × 2</td>
+<td>开机画面</td>
+</tr>
+<tr>
+<td><code>recovery</code></td>
+<td>32 MB</td>
+<td>Recovery</td>
+</tr>
+<tr>
+<td><code>boot</code></td>
+<td>32 MB</td>
+<td>内核 + ramdisk</td>
+</tr>
+<tr>
+<td><code>system</code></td>
+<td>800 MB</td>
+<td>系统主体</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>约 5.67 GB</td>
+<td>用户数据</td>
+</tr>
+<tr>
+<td><code>mmcblk0boot0/1</code></td>
+<td>4 MB × 2</td>
+<td>eMMC 硬件 Boot 分区</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="二启动链分析">二、启动链分析</h2>
+<p><div class="mermaid">
+flowchart TD
+    A["上电 / BootROM"] --> B["BL1 / TPL<br/>M8-RSA-1024 校验<br/>TPL secure check pass"]
+    B --> C["U-Boot<br/>m8_mango_v1<br/>2015-07-15"]
+    C --> D["读取 boot 分区<br/>imgread kernel boot"]
+    D --> E{"Amlogic 私有签名校验"}
+    E -->|通过| F["加载 kernel<br/>Linux 3.10.33<br/>uImage, lzo"]
+    E -->|失败| X["Image secure check fail<br/>show error logo<br/>boot_hang=2"]
+    F --> G["DTB<br/>m8_mang_1g"]
+    G --> H["ramdisk<br/>解压挂载"]
+    H --> I["init<br/>/init"]
+    I --> J["解析 init.rc<br/>及 import 的 rc"]
+    J --> K["YunOS 服务启动"]
+    X --> L["Enter v2 usbburning mode<br/>等待 USB 烧录恢复"]
+
+    style E fill:#f9c74f,stroke:#333,stroke-width:2px
+    style X fill:#e63946,color:#fff,stroke:#333,stroke-width:2px
+    style L fill:#457b9d,color:#fff
+
+</div>
+
+<em>图 2-1：TMB300A 启动链，标注了各级校验点。</em></p>
+<h3 id="21-从串口日志还原的完整启动链">2.1 从串口日志还原的完整启动链</h3>
+<p>根据恢复出厂后抓取的完整串口日志，启动链如下：</p>
+<pre><code class="language-text">BL1 / TPL（M8-RSA-1024 校验）
+  → U-Boot（m8_mango_v1，2015-07-15）
+    → kernel Linux 3.10.33（uImage，lzo）
+      → DTB（m8_mang_1g）
+        → ramdisk → init → YunOS 服务
+</code></pre>
+<h3 id="22-各阶段关键日志">2.2 各阶段关键日志</h3>
+<h4 id="bl1--tpl-阶段">BL1 / TPL 阶段</h4>
+<pre><code class="language-text">Boot From SDIO C
+Aml log : M8-RSA-1024
+Aml log : TPL secure check pass!
+ucl decompress...pass
+Boot from internal device 1st SDIO C
+</code></pre>
+<ul>
+<li>启动介质是 <strong>SDIO Port C 上的 eMMC</strong>；</li>
+<li>TPL 阶段有 <strong>M8-RSA-1024</strong> 安全校验，日志显示通过；</li>
+<li><code>ucl decompress</code> 说明 TPL 是压缩存储的，启动时解压。</li>
+</ul>
+<h4 id="u-boot-阶段">U-Boot 阶段</h4>
+<pre><code class="language-text">U-boot-00000-g667d5c3(m8_mango_v1@667d5c32) (Jul 15 2015 - 17:28:52)
+clr h-ram
+DRAM:  1 GiB
+relocation Offset is: 2fec8000
+</code></pre>
+<ul>
+<li>U-Boot 编译于 <strong>2015-07-15</strong>，代码标识 <code>m8_mango_v1</code>；</li>
+<li>内存 1 GiB，U-Boot 自身重定位偏移 <code>0x2fec8000</code>。</li>
+</ul>
+<h4 id="内核引导阶段">内核引导阶段</h4>
+<pre><code class="language-text">## Booting kernel from Legacy Image at 12000000 ...
+   Image Name:   Linux-3.10.33
+   Image Type:   ARM Linux Kernel Image (lzo compressed)
+   Data Size:    7813246 Bytes = 7.5 MiB
+   Load Address: 00208000
+   Entry Point:  00208000
+   Verifying Checksum ... OK
+    Ramdisk start addr = 0x12774800, len = 0x27bc87
+      Multi dtb detected, support 2 dtbs.
+        0 dtb: ... &quot;m8_mang_1g&quot;
+        1 dtb: ... &quot;m8_mang_2g&quot;
+      Find match dtb: 0
+    Flat device tree start addr = 0x129f1000, len = 0x4bda magic=0xedfe0dd0
+   Uncompressing Kernel Image ... OK
+</code></pre>
+<ul>
+<li>内核 <strong>Linux 3.10.33</strong>，uImage 格式，lzo 压缩；</li>
+<li>加载地址和入口地址均为 <code>0x00208000</code>；</li>
+<li>DTB 支持 1G 和 2G 两个变体，本机匹配 <code>m8_mang_1g</code>；</li>
+<li>ramdisk 起始 <code>0x12774800</code>，长度 <code>0x27bc87</code>；</li>
+<li>DTB 起始 <code>0x129f1000</code>，长度 <code>0x4bda</code>。</li>
+</ul>
+<h4 id="init-阶段节选">init 阶段（节选）</h4>
+<pre><code class="language-text">init: mount none to target failed
+init: Before e2fsck_main...
+init: After e2fsck_main...
+SysFileCheck: do_alisec|Total time passed: 135ms||
+init: data_integrity_guard main!
+init: is_support_system_bak sup_sys_bak:0
+init: cannot find '/system/bin/zram_mount.sh', disabling 'zram_mem'
+init: cannot find '/system/bin/nvwa', disabling 'nvwa'
+init: process 'aliyun_uuid', pid 1387 exited
+</code></pre>
+<ul>
+<li><code>SysFileCheck</code> / <code>data_integrity_guard</code> 是 YunOS 的系统文件完整性校验；</li>
+<li><code>zram_mount.sh</code>、<code>nvwa</code> 在 system 中缺失，相关服务被禁用；</li>
+<li><code>aliyun_uuid</code> 与阿里云账号 UUID 相关。</li>
+</ul>
+<h3 id="23-启动链分析要点">2.3 启动链分析要点</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>关键点</th>
+<th>对魔改的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BL1/TPL</td>
+<td>M8-RSA-1024 校验</td>
+<td>需确认校验范围，是否覆盖 bootloader 之后的镜像</td>
+</tr>
+<tr>
+<td>U-Boot</td>
+<td>分区表、环境变量、bootcmd</td>
+<td>可修改 env 调整启动参数，但需注意校验</td>
+</tr>
+<tr>
+<td>Kernel</td>
+<td>3.10.33，uImage</td>
+<td>第三方内核需匹配此版本或确认兼容性</td>
+</tr>
+<tr>
+<td>DTB</td>
+<td>双变体，1G/2G</td>
+<td>魔改时需保持 DTB 与硬件匹配</td>
+</tr>
+<tr>
+<td>init</td>
+<td>SysFileCheck、alisec check-core-file</td>
+<td>修改 system 可能触发校验，需分析绕过或关闭方式</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="三init-脚本加载树">三、init 脚本加载树</h2>
+<p><div class="mermaid">
+flowchart TD
+    A["init.rc"] --> B["init.environ.rc<br/>环境变量"]
+    A --> C["init.usb.rc<br/>USB 通用配置"]
+    A --> D["init.amlogic.rc<br/>Amlogic 平台配置"]
+    A --> E["init.trace.rc<br/>内核 tracing"]
+    A --> F["init.yunos.rc<br/>YunOS 定制服务"]
+    D --> G["init.amlogic.usb.rc<br/>Amlogic USB"]
+    D --> H["init.amlogic.board.rc<br/>板级配置"]
+    H --> I["mount /system rw<br/>alisec check-core-file<br/>remount /system ro"]
+
+    style H fill:#f9c74f,stroke:#333,stroke-width:2px
+    style I fill:#e63946,color:#fff,stroke:#333,stroke-width:2px
+
+</div>
+
+<strong>图 3-1：init 脚本加载树（init.rc 及各 import 关系）</strong></p>
+<h3 id="31-完整加载顺序">3.1 完整加载顺序</h3>
+<p><code>init.rc</code> 头部 import 顺序：</p>
+<pre><code class="language-text">import /init.environ.rc
+import /init.usb.rc
+import /init.${ro.hardware}.rc
+import /init.trace.rc
+import /init.yunos.rc
+</code></pre>
+<p><code>ro.hardware</code> 在这台机器上是 <code>amlogic</code>，所以实际加载 <code>init.amlogic.rc</code>。而 <code>init.amlogic.rc</code> 又 import：</p>
+<pre><code class="language-text">import init.amlogic.usb.rc
+import init.amlogic.board.rc
+</code></pre>
+<p>完整加载树：</p>
+<pre><code class="language-text">init.rc
+  ├─ init.environ.rc      环境变量（PATH、BOOTCLASSPATH 等）
+  ├─ init.usb.rc          USB 通用配置
+  ├─ init.amlogic.rc      Amlogic 平台配置
+  │    ├─ init.amlogic.usb.rc    Amlogic USB 配置
+  │    └─ init.amlogic.board.rc  Amlogic 板级配置（含 SysFileCheck）
+  ├─ init.trace.rc        内核 tracing 权限
+  └─ init.yunos.rc        YunOS 定制服务
+</code></pre>
+<h3 id="32-各文件职责">3.2 各文件职责</h3>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>职责</th>
+<th>关键内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>init.environ.rc</code></td>
+<td>环境变量</td>
+<td><code>PATH</code>、<code>LD_LIBRARY_PATH</code>、<code>BOOTCLASSPATH</code>（含 <code>libyunos.jar</code>）</td>
+</tr>
+<tr>
+<td><code>init.usb.rc</code></td>
+<td>USB 通用配置</td>
+<td>adb、mass_storage、mtp、ptp 等 USB 模式切换</td>
+</tr>
+<tr>
+<td><code>init.amlogic.rc</code></td>
+<td>Amlogic 平台配置</td>
+<td>视频/音频/HDMI/CPU 调频等大量 sysfs 权限设置</td>
+</tr>
+<tr>
+<td><code>init.amlogic.usb.rc</code></td>
+<td>Amlogic USB 配置</td>
+<td>USB 序列号、mass_storage、mtp、ptp 模式</td>
+</tr>
+<tr>
+<td><code>init.amlogic.board.rc</code></td>
+<td>板级配置</td>
+<td><strong><code>/system</code> 挂载 + <code>alisec check-core-file</code> + remount ro</strong></td>
+</tr>
+<tr>
+<td><code>init.trace.rc</code></td>
+<td>内核 tracing</td>
+<td>trace buffer 权限</td>
+</tr>
+<tr>
+<td><code>init.yunos.rc</code></td>
+<td>YunOS 定制服务</td>
+<td><code>alitvsecureboot</code>、<code>aliyun_uuid</code>、<code>nvwa</code>、<code>ras-daemon</code> 等</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="四u-boot-层分析">四、U-Boot 层分析</h2>
+<p><div class="mermaid">
+flowchart LR
+    subgraph EMMC["eMMC (mmcblk0)"]
+        P0["bootloader<br/>offset 0x0<br/>size 0x400000"]
+        P1["reserved<br/>offset 0x2400000<br/>size 0x4000000"]
+        P2["cache<br/>offset 0x6400000<br/>size 0x28000000"]
+        P3["env<br/>offset 0x2e400000<br/>size 0x800000"]
+        P4["logo<br/>0x2ec00000 / 0x1000000"]
+        P5["logo1<br/>0x2fc00000 / 0x1000000"]
+        P6["recovery<br/>0x30c00000 / 0x2000000"]
+        P7["boot<br/>0x32c00000 / 0x2000000"]
+        P8["system<br/>0x34c00000 / 0x32000000"]
+        P9["data<br/>0x66c00000 / 0x16b400000"]
+        P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7 --> P8 --> P9
+    end
+
+    style P7 fill:#f9c74f,stroke:#333,stroke-width:2px
+    style P8 fill:#2a9d8f,color:#fff
+
+</div>
+
+<strong>图 4-1：U-Boot 分区表与地址对照</strong></p>
+<h3 id="41-分区表u-boot-视角">4.1 分区表（U-Boot 视角）</h3>
+<pre><code class="language-text">Partition table get from SPL is :
+        name                        offset              size              flag
+   0: bootloader                         0            400000                  0
+   1: reserved                     2400000           4000000                  0
+   2: cache                        6400000          28000000                  2
+   3: env                         2e400000            800000                  0
+   4: logo                        2ec00000           1000000                  1
+   5: logo1                       2fc00000           1000000                  1
+   6: recovery                    30c00000           2000000                  1
+   7: boot                        32c00000           2000000                  1
+   8: system                      34c00000          32000000                  1
+   9: data                        66c00000         16b400000                  4
+</code></pre>
+<p>与 Linux 下 <code>/proc/partitions</code> 的 <code>mmcblk0p1~p10</code> 完全对应，U-Boot 视角多了 <strong>offset</strong> 和 <strong>flag</strong>：</p>
+<ul>
+<li><code>offset</code> 是分区起始地址（十六进制）；</li>
+<li><code>flag</code> 可能与分区属性有关（如是否可启动、是否加密），具体含义需结合晶晨平台文档确认；</li>
+<li><code>bootloader</code> 之后到 <code>reserved</code> 之间有 <strong>32 MB 空隙</strong>，与 <code>/proc/partitions</code> 中总块数和分区块数合计的差值吻合。</li>
+</ul>
+<h3 id="42-环境变量分析">4.2 环境变量分析</h3>
+<p><code>env.img</code> 通过 <code>strings</code> 提取后，得到完整的 U-Boot 环境变量。以下是与魔改和安全相关的关键项。</p>
+<blockquote>
+<p>💡 <strong>完整查看方法</strong>：<code>strings env.img | head -100</code> 只能看到前 100 行，可能截断长变量。建议用 <code>strings env.img &gt; env_full.txt</code> 保存完整输出，再用 <code>grep</code> 按关键词筛选。</p>
+</blockquote>
+<h4 id="启动参数bootargs">启动参数（bootargs）</h4>
+<p>将 <code>initargs</code> 与 <code>storeargs</code> 拼接，实际传给内核的 <code>bootargs</code> 为：</p>
+<pre><code class="language-text">init=/init console=ttyS0,115200n8 no_console_suspend vmalloc=300m quiet
+ramoops.mem_address=0x04e00000 ramoops.mem_size=0x100000
+ramoops.record_size=0x8000 ramoops.console_size=0x10000 storage=2
+vdaccfg=... logo=osd1,loaded,... hdmimode=1080p50hz cvbsmode=576cvbs
+androidboot.firstboot=0 hdmitx=...
+</code></pre>
+<p><strong>关键结论</strong>：</p>
+<ul>
+<li>❌ <strong>没有 <code>dm-verity</code> / <code>verify=</code> 参数</strong>：内核未启用块设备级完整性校验；</li>
+<li>❌ <strong>没有 <code>androidboot.selinux=enforcing</code></strong>：SELinux 状态不由 bootargs 强制指定；</li>
+<li>❌ <strong>没有 <code>androidboot.verifiedbootstate=</code></strong>：未传递 Verified Boot 状态。</li>
+</ul>
+<p>这意味着修改 <code>system</code> 分区后，内核层大概率不会因完整性校验而拒绝挂载。<code>SysFileCheck</code> 是用户空间的点名校验，不是 dm-verity。</p>
+<h4 id="启动流程bootcmd--storeboot">启动流程（bootcmd / storeboot）</h4>
+<pre><code class="language-text">bootcmd=run storeboot
+storeboot=echo enter storeboot...; echo Booting...; if unifykey get usid; then setenv bootargs ${initargs} androidboot.serialno=${usid}; fi; imgread kernel boot ${loadaddr}; setenv bootm_mode boot; bootm; run recovery1;
+</code></pre>
+<ul>
+<li><code>unifykey get usid</code> 读取设备序列号，拼进 <code>bootargs</code> 的 <code>androidboot.serialno=</code>（原始值不展示）；</li>
+<li><code>imgread kernel boot</code> 读取 boot 分区并启动；</li>
+<li>启动失败时执行 <code>recovery1</code>（显示错误 logo，挂起）。</li>
+</ul>
+<h4 id="恢复与烧录通道">恢复与烧录通道</h4>
+<pre><code class="language-text">recovery_key=saradc open 0; if saradc get_in_range 0x0 0x50; then msleep 50; if saradc get_in_range 0x0 0x50; then setenv user_factoryreset true; save; run recovery; fi; fi
+switch_bootmode=... if test ${reboot_mode} = factory_reset; then run recovery; ... usb_burning ... safe_mode ...
+</code></pre>
+<ul>
+<li><code>recovery_key</code> 通过 SAR ADC 检测某个通道电压，连续两次命中触发恢复出厂；</li>
+<li><code>reboot_mode</code> 决定启动路径：正常、恢复出厂、OTA 更新、USB 烧录、安全模式；</li>
+<li><code>usb_burning</code> 和 <code>sdc_burning</code> 是两条救砖通道，具体触发方式待确认。</li>
+</ul>
+<h4 id="设备唯一标识与网络配置隐私相关">设备唯一标识与网络配置（隐私相关）</h4>
+<blockquote>
+<p>🔒 <strong>脱敏声明</strong>：以下环境变量值已做脱敏处理，<code>ethaddr</code>、<code>ipaddr</code>、<code>serverip</code>、<code>gatewayip</code>、<code>usid</code> 等均为设备唯一标识或内部网络配置，<strong>原始值不公开</strong>。<code>env.img</code> 本身含这些信息，<strong>绝对不能公开分享</strong>。</p>
+</blockquote>
+<pre><code class="language-text">ethaddr=xx:xx:xx:xx:xx:xx
+ipaddr=x.x.x.x
+serverip=x.x.x.x
+gatewayip=x.x.x.x
+netmask=255.255.255.0
+</code></pre>
+<ul>
+<li><code>ethaddr</code> 是以太网 MAC 地址，属于设备唯一标识；</li>
+<li><code>ipaddr</code> / <code>serverip</code> / <code>gatewayip</code> 是产线或内网调试配置，暴露内部网络结构；</li>
+<li><code>storeboot</code> 中的 <code>usid</code> 是设备序列号，同样属于设备唯一标识，原始值不展示。</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>结论</strong>：<code>env.img</code> 含设备唯一标识和网络配置，<strong>绝对不能公开分享</strong>。之前文章中将 <code>env.img</code> 列为“可公开”是不准确的，已修正。</p>
+</blockquote>
+<h4 id="其他关键变量">其他关键变量</h4>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>aml_dt</code></td>
+<td><code>m8_mango_1g</code></td>
+<td>DTB 名称，与串口日志一致</td>
+</tr>
+<tr>
+<td><code>bootdelay</code></td>
+<td><code>0</code></td>
+<td>启动不等待按键，正常上电无法中断 U-Boot</td>
+</tr>
+<tr>
+<td><code>firstboot</code></td>
+<td><code>0</code></td>
+<td>首次启动标志</td>
+</tr>
+<tr>
+<td><code>store</code></td>
+<td><code>2</code></td>
+<td>存储类型（eMMC）</td>
+</tr>
+<tr>
+<td><code>hdmimode</code></td>
+<td><code>1080p50hz</code></td>
+<td>默认 HDMI 输出模式</td>
+</tr>
+<tr>
+<td><code>outputmode</code></td>
+<td><code>1080p50hz</code></td>
+<td>默认输出模式</td>
+</tr>
+<tr>
+<td><code>cvbsmode</code></td>
+<td><code>576cvbs</code></td>
+<td>CVBS 输出模式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-安全状态">4.3 安全状态</h3>
+<pre><code class="language-text">Aml log : M8-RSA-1024
+Aml log : Image secure check pass!
+aml_keys: version 0 can not be init 3ff7368c
+ERR(v2_common/optimus_download_key.c)L268:failed to query key state, rc 0, keyIsBurned=0
+</code></pre>
+<ul>
+<li>镜像通过了 <strong>RSA-1024 安全校验</strong>；</li>
+<li>但 <code>keyIsBurned=0</code> 说明 <strong>efuse 中没有烧录设备密钥</strong>。</li>
+</ul>
+<p><strong>关键结论（已由实测修正）</strong>：<code>keyIsBurned=0</code> 只说明 efuse 中没有烧录设备密钥，<strong>不代表 boot 分区的签名校验被关闭</strong>。后续刷入 <code>boot_new.img</code> 的实测证明，U-Boot 仍然使用内置公钥校验 boot 分区内 kernel 的 Amlogic 私有签名。原“efuse 未烧录密钥可能允许重签名镜像”的推测被证伪。</p>
+<hr>
+<h2 id="五内核与-bootimg-分析">五、内核与 boot.img 分析</h2>
+<h3 id="51-内核信息">5.1 内核信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>版本</td>
+<td>Linux 3.10.33</td>
+</tr>
+<tr>
+<td>格式</td>
+<td>uImage（Legacy Image）</td>
+</tr>
+<tr>
+<td>压缩</td>
+<td>lzo</td>
+</tr>
+<tr>
+<td>加载地址</td>
+<td><code>0x00208000</code></td>
+</tr>
+<tr>
+<td>入口地址</td>
+<td><code>0x00208000</code></td>
+</tr>
+<tr>
+<td>镜像大小</td>
+<td>7,813,246 字节（约 7.5 MiB）</td>
+</tr>
+<tr>
+<td>ramdisk 起始</td>
+<td><code>0x12774800</code>，长度 <code>0x27bc87</code></td>
+</tr>
+<tr>
+<td>DTB 起始</td>
+<td><code>0x129f1000</code>，长度 <code>0x4bda</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-bootimg-格式">5.2 boot.img 格式</h3>
+<p><div class="mermaid">
+flowchart LR
+    H["header<br/>2048 字节<br/>page size=2048"]
+    K["kernel<br/>7,813,310 字节<br/>按 2048 对齐"]
+    R["ramdisk<br/>2,604,167 字节<br/>按 2048 对齐"]
+    S["second<br/>43,008 字节<br/>按 2048 对齐"]
+    H --> K --> R --> S
+
+    style H fill:#457b9d,color:#fff
+    style K fill:#2a9d8f,color:#fff
+    style R fill:#f9c74f,stroke:#333,stroke-width:2px
+    style S fill:#e76f51,color:#fff
+
+</div>
+
+<strong>图 5-1：boot.img 结构图</strong></p>
+<p><code>file boot.img</code>：</p>
+<pre><code class="language-text">Android bootimg, kernel (0x10008000), ramdisk (0x11000000), second stage (0x10f00000), page size: 2048
+</code></pre>
+<p><code>binwalk boot.img</code>：</p>
+<pre><code class="language-text">Android bootimg, kernel size: 7813310 bytes, kernel addr: 0x10008000, ramdisk size: 2604167 bytes, ramdisk addr: 0x11000000
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>格式</td>
+<td>Android bootimg</td>
+</tr>
+<tr>
+<td>page size</td>
+<td>2048</td>
+</tr>
+<tr>
+<td>kernel 大小</td>
+<td>7,813,310 字节（约 7.45 MB）</td>
+</tr>
+<tr>
+<td>kernel 头地址</td>
+<td><code>0x10008000</code></td>
+</tr>
+<tr>
+<td>ramdisk 大小</td>
+<td>2,604,167 字节（约 2.48 MB）</td>
+</tr>
+<tr>
+<td>ramdisk 头地址</td>
+<td><code>0x11000000</code></td>
+</tr>
+<tr>
+<td>second stage</td>
+<td>存在，地址 <code>0x10f00000</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-头地址与串口日志加载地址的差异">5.3 头地址与串口日志加载地址的差异</h3>
+<p>串口日志里：</p>
+<pre><code class="language-text">Load Address: 00208000
+Entry Point:  00208000
+Ramdisk start addr = 0x12774800
+</code></pre>
+<p>而 bootimg 头里 kernel addr 是 <code>0x10008000</code>，ramdisk addr 是 <code>0x11000000</code>。</p>
+<p><strong>解释</strong>：U-Boot 读取 bootimg 后，会把 kernel 和 ramdisk <strong>重定位</strong>到实际运行地址。头里的地址是 bootimg 打包时的约定地址，U-Boot 根据内存布局重新搬运。所以 <code>0x10008000</code> → <code>0x00208000</code>、<code>0x11000000</code> → <code>0x12774800</code> 是 U-Boot 的行为，不是镜像损坏。</p>
+<h3 id="54-binwalk-扫出的内容">5.4 binwalk 扫出的内容</h3>
+<p><code>binwalk</code> 在 <code>boot.img</code> 中扫出大量：</p>
+<ul>
+<li><strong>ELF 32-bit LSB shared object, ARM</strong>：ramdisk 里的共享库和可执行文件；</li>
+<li><strong>Copyright string</strong>：大量 Android Open Source Project 和 IBM 的版权字符串；</li>
+<li><strong>WidevineMediaKit 路径</strong>：<code>/var/lib/jenkins/workspace/Android_Classic_Widevine/...</code>，说明 ramdisk 里包含 Widevine DRM 组件；</li>
+<li><strong>蓝牙配置</strong>：<code>/etc/bluetooth/bt_vendor.conf</code>；</li>
+<li><strong>证书</strong>：<code>/etc/ssl/certs/ca-certificates.crt</code>；</li>
+<li><strong><code>/usr/bin/ntlm_auth</code></strong>：网络认证工具。</li>
+</ul>
+<blockquote>
+<p>💡 <code>bix header</code>、<code>mcrypt 2.2 encrypted data</code> 等大概率是误报或加密数据，不必过度解读。</p>
+</blockquote>
+<p><strong>结论</strong>：ramdisk 里不只有 init 脚本，还塞了不少厂商预置的二进制和库。</p>
+<h3 id="55-bootimg-内核与-ramdisk-数据疑似加密">5.5 boot.img 内核与 ramdisk 数据疑似加密</h3>
+<p><code>abootimg -x</code> 能正常解出 <code>zImage</code>、<code>initrd.img</code>、<code>bootimg.cfg</code>，但 <code>zImage</code> 前 512 字节全是随机字节，没有任何可读字符串：</p>
+<pre><code class="language-text">00000000: 4d7a 6919 3461 6608 5ba2 114d c758 ee1b  Mzi.4af.[..M.X..
+00000010: 0a56 3522 4c6f 5ddf f6e1 8d89 fda9 5565  .V5&quot;Lo].......Ue
+...
+</code></pre>
+<p>标准 uImage magic 是 <code>27 05 19 56</code>，gzip 是 <code>1f 8b</code>，ELF 是 <code>7f 45 4c 46</code>，前 512 字节里都没有出现。<code>initrd.img</code> 同样全是随机字节，<code>file</code> 返回 <code>data</code>，<code>binwalk</code> 无识别结果。</p>
+<p><strong>判断</strong>：<code>boot.img</code> 里的 kernel 和 ramdisk 数据很可能被 <strong>Amlogic 私有加密或加扰</strong>。<code>bootimg.cfg</code> 中的地址和大小与串口日志一致，说明 <code>abootimg</code> 切分偏移没错，只是内容不是明文。</p>
+<p><code>keyIsBurned=0</code> 只说明 efuse 中未烧录设备密钥，不代表镜像本身未加密——加密密钥可能硬编码在 BL1/U-Boot 中。</p>
+<p><strong>直接解包尝试结果</strong>：</p>
+<ul>
+<li><code>Customization Tool</code> 10.1.0 在部分 Windows 环境下启动闪退，无法使用。论坛中也有其他用户报告类似问题，换机器或换版本不一定能解决。</li>
+<li><code>mkbootimg_tools</code> 的 <code>mkboot</code> 脚本成功识别了 bootimg 头部（kernel 大小 7813310、ramdisk 大小 2604167、page size 2048 等），但最后报错 <code>ramdisk is unknown format, can't unpack ramdisk</code>。</li>
+<li>公开工具 <code>abootimg</code>、<code>unpackbootimg</code>、<code>mkboot</code> 均无法解包此 ramdisk，确认 Amlogic 对 ramdisk 数据做了私有封装或加密处理。</li>
+</ul>
+<p><strong>对魔改的影响</strong>：</p>
+<ul>
+<li>不能直接用标准 <code>abootimg</code> / <code>unpackbootimg</code> / <code>mkboot</code> 解包和重打包；</li>
+<li>不建议在逆向加密算法上投入过多时间，目标不是“解析原厂 ramdisk”，而是“让修改后的系统能启动”；</li>
+<li>更实际的路线是<strong>从运行系统重建 ramdisk</strong>。</li>
+</ul>
+<h3 id="56-second-stage-实测结论与文件取舍">5.6 second stage 实测结论与文件取舍</h3>
+<p><code>abootimg -i</code> 报告的 <code>second stage size = 2604167</code> 与 ramdisk size 完全相同，这个值不可靠。实际提取结果：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>文件</th>
+<th>大小</th>
+<th>md5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>abootimg -x</code></td>
+<td><code>stage2.img</code></td>
+<td>42 KB</td>
+<td><code>ffa699b7bc23daec92da4765db819d90</code></td>
+</tr>
+<tr>
+<td><code>mkboot</code></td>
+<td><code>second.img</code></td>
+<td>42 KB</td>
+<td><code>ca930f1535689e9aada383cc2ec5372e</code></td>
+</tr>
+<tr>
+<td>Python 按 42 KB 偏移切分</td>
+<td><code>second_42k.bin</code></td>
+<td>43008 字节</td>
+<td><code>ca930f1535689e9aada383cc2ec5372e</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>mkboot</code> 和 Python 切分结果完全一致，互相印证，说明 second 的真实大小是 <strong>43008 字节（42 KB）</strong>，内容以这两个为准。<code>abootimg</code> 虽然也切出 42 KB，但内容不同，说明它对 Amlogic 私有 bootimg 的 second 偏移解析有偏差，<code>stage2.img</code> 不可用。</p>
+<p><strong>关于 <code>mkboot</code> 报错的说明</strong>：<code>mkboot</code> 解包时报告 <code>ramdisk is unknown format, can't unpack ramdisk</code>，这个错误发生在“尝试解压 ramdisk”阶段，不影响前面的“按 header 偏移切分 kernel、ramdisk、second”步骤。<code>second.img</code> 在报错之前就已经切好，且与 Python 按标准 bootimg 布局独立切出的结果 md5 完全一致，说明 <code>mkboot</code> 的 second 切分是正确的。</p>
+<p><strong>关于 <code>second.img.tmp</code></strong>：<code>mkboot</code> 解包后会同时留下 <code>second.img</code> 和 <code>second.img.tmp</code>。<code>.tmp</code> 是工具“先写临时文件再改名”的中间产物，<code>second.img</code> 已正常生成，说明 second 切分完成。重打包用 <code>second.img</code>，不要用 <code>.tmp</code>。</p>
+<p><strong>second stage 只能从 <code>boot.img</code> 里切</strong>：second 区域不像 ramdisk 那样会在运行时解压挂载，内核启动时也没有使用它（<code>/proc/cmdline</code> 无相关参数，<code>dmesg</code> 只有 <code>Freeing initrd memory</code>），所以运行时无法导出 second，只能从原厂 <code>boot.img</code> 里按偏移切出。</p>
+<h3 id="57-从运行系统重建-ramdisk">5.7 从运行系统重建 ramdisk</h3>
+<p>原始 <code>boot.img</code> 中的 kernel 和 ramdisk 数据被 Amlogic 私有封装或加密，标准工具无法直接解包。但魔盒能正常启动，说明内核已经成功解压了 ramdisk，运行系统里的根文件系统就是 ramdisk 的内容。</p>
+<p>重建 ramdisk 的完整流程如下。</p>
+<h4 id="前置确认">前置确认</h4>
+<pre><code class="language-bash">id
+ls -la /init
+ls -la /sbin
+mount | grep -E '/system|/sbin|rootfs'
+</code></pre>
+<p>确认 root 权限、<code>/init</code> 是 ELF、<code>/sbin</code> 内容正常、<code>rootfs</code> 已挂载。</p>
+<h4 id="准备临时根目录">准备临时根目录</h4>
+<p>U 盘通常是 <code>fuseblk</code>（NTFS/exFAT），<strong>不支持符号链接</strong>，直接在 U 盘上 <code>cp -a /sbin</code> 会报 <code>cp: symlink: ../init: Function not implemented</code>。因此改为在 <code>/data</code>（ext4）下操作，最后只把生成的 cpio 文件复制到 U 盘：</p>
+<pre><code class="language-bash">rm -rf /data/local/rd_root
+mkdir -p /data/local/rd_root
+cd /data/local/rd_root
+
+cp -f /init /init.rc /init.amlogic.rc /init.amlogic.board.rc /init.amlogic.usb.rc \
+      /init.environ.rc /init.trace.rc /init.usb.rc /init.yunos.rc \
+      /default.prop /file_contexts /file_manifest /file_whitelist \
+      /property_contexts /restart_info.png /restore_info.rle . 2&gt;&amp;1
+
+mkdir -p sbin
+cd /sbin
+find . \( -type f -o -type l \) | while read f; do
+  mkdir -p &quot;/data/local/rd_root/sbin/$(dirname &quot;$f&quot;)&quot;
+  cp -a &quot;$f&quot; &quot;/data/local/rd_root/sbin/$f&quot; 2&gt;/dev/null
+done
+ls -la /data/local/rd_root/sbin/
+</code></pre>
+<p>预期看到 <code>adbd</code>、<code>alitvsecureboot</code>、<code>healthd</code>，以及 <code>ueventd -&gt; ../init</code>、<code>watchdogd -&gt; ../init</code> 两个软链接。</p>
+<h4 id="一次性-cpio-打包">一次性 cpio 打包</h4>
+<pre><code class="language-bash">cd /data/local/rd_root
+find . | cpio -o -H newc 2&gt;/dev/null | gzip &gt; /data/local/ramdisk_new.cpio.gz
+ls -lh /data/local/ramdisk_new.cpio.gz
+
+cp /data/local/ramdisk_new.cpio.gz /storage/external_storage/sda1/
+ls -lh /storage/external_storage/sda1/ramdisk_new.cpio.gz
+</code></pre>
+<p>预期文件大小在 1–3 MB 量级，接近原厂 ramdisk 的 2.48 MB。</p>
+<h4 id="校验归档内容">校验归档内容</h4>
+<pre><code class="language-bash">gunzip -c /data/local/ramdisk_new.cpio.gz | cpio -it 2&gt;/dev/null | grep sbin
+</code></pre>
+<p>预期看到 <code>./sbin/adbd</code>、<code>./sbin/alitvsecureboot</code>、<code>./sbin/healthd</code>、<code>./sbin/ueventd</code>、<code>./sbin/watchdogd</code>。</p>
+<h4 id="拉到电脑">拉到电脑</h4>
+<pre><code class="language-bash">adb pull /storage/external_storage/sda1/ramdisk_new.cpio.gz
+</code></pre>
+<h3 id="58-重打包-bootimg">5.8 重打包 boot.img</h3>
+<p>用系统 <code>apt</code> 安装的 <code>mkbootimg</code> 重打包。注意 Debian 源里的 <code>mkbootimg</code>（29.0.6）使用 <code>--base</code> + <code>--kernel_offset</code> 风格，<strong>不支持</strong>直接指定 <code>--kernel_addr</code> 这类绝对地址：</p>
+<pre><code class="language-bash">mkbootimg \
+  --kernel ~/boot_unpacked/zImage \
+  --ramdisk /path/to/ramdisk_new.cpio.gz \
+  --second ~/boot_mkboot/second.img \
+  --base 0x10000000 \
+  --kernel_offset 0x00008000 \
+  --ramdisk_offset 0x01000000 \
+  --second_offset 0x00f00000 \
+  --tags_offset 0x00000100 \
+  --pagesize 2048 \
+  -o boot_new.img
+</code></pre>
+<p>生成后校验：</p>
+<pre><code class="language-bash">file boot_new.img
+abootimg -i boot_new.img
+</code></pre>
+<p><code>file</code> 应显示 <code>Android bootimg</code>，<code>abootimg -i</code> 里 kernel size 应为 7813310，ramdisk size 应与 <code>ramdisk_new.cpio.gz</code> 大小一致。</p>
+<p><strong>打包结果确认</strong>：<code>boot_new.img</code> 生成后，<code>file</code> 和 <code>abootimg -i</code> 输出如下：</p>
+<pre><code class="language-text">boot_new.img: Android bootimg, kernel (0x10008000), ramdisk (0x11000000), second stage (0x10f00000), page size: 2048
+</code></pre>
+<ul>
+<li>kernel size <strong>7813310</strong>，与原厂一致；</li>
+<li>ramdisk size <strong>1334740</strong>（约 1.27 MB），对应新生成的 <code>ramdisk_new.cpio.gz</code>；</li>
+<li><code>abootimg -i</code> 报告的 second stage size <strong>1334740</strong> 是已知误读（把 ramdisk size 读成了 second size），实际 second 数据是打包时传入的 42 KB <code>second.img</code>。以 <code>file</code> 输出为准。</li>
+</ul>
+<p>ramdisk 从原厂 2.48 MB 缩小到 1.27 MB，是正常现象：原厂 ramdisk 是加密/私有封装格式且包含 Widevine、蓝牙、证书等组件，新 ramdisk 只包含 init 脚本和 <code>/sbin</code>，标准 gzip cpio 压缩后体积更小。</p>
+<p><strong>工具职责区分</strong>：Debian <code>apt</code> 安装的 <code>mkbootimg</code> <strong>只负责打包</strong>，不包含可用的解包功能。解包 <code>boot.img</code> 仍需使用 <code>mkboot</code>（<code>mkbootimg_tools</code>）或 <code>abootimg</code>。虽然 <code>mkboot</code> 解压 ramdisk 会报错，但它切分 kernel、second 的功能是正常的，且与 Python 独立切分结果一致。流程是：<code>mkboot</code> 解包 → 替换 ramdisk → <code>mkbootimg</code> 打包。</p>
+<p><strong><code>mkbootimg_tools</code> 的兼容性</strong>：该工具目录下的 <code>mkbootimg</code> 是 2016 年编译的 <strong>32 位 x86 ELF 二进制</strong>，依赖 <code>/lib/ld-linux.so.2</code>。在 64 位 Debian 12 上直接执行会报“无法执行：找不到需要的文件”。如果确实要用，需先 <code>sudo dpkg --add-architecture i386 &amp;&amp; sudo apt install libc6:i386</code>，但旧二进制对新版 glibc 的兼容性不保证。<strong>推荐直接使用系统 <code>apt</code> 安装的 <code>mkbootimg</code>（29.0.6）</strong>。</p>
+<h3 id="59-刷入-boot_newimg-的实测结果签名校验拦截">5.9 刷入 <code>boot_new.img</code> 的实测结果：签名校验拦截</h3>
+<p>通过 <code>update.exe</code>（Amlogic USB 烧录工具的命令行版）将 <code>boot_new.img</code> 写入 boot 分区。烧录过程成功：</p>
+<pre><code class="language-text">update.exe partition boot boot_new.img
+file size is 0x8c5000
+Downloading....
+[update]:mwrite success
+</code></pre>
+<p>串口同步显示 <code>Burn complete</code>。但设备重启后，U-Boot 拒绝加载新 boot：</p>
+<pre><code class="language-text">enter storeboot...
+Booting...
+ error: image data is not a fdt
+key_unify_init:362,unify key config table parse fail
+Err key(L48):fail in key_drv_init
+Aml log : M8-RSA-1024
+Aml log : ERROR! Image secure check fail!
+Error! Illegal kernel image, please check!
+handle_error_proc, bootm_mode=&quot;boot&quot;
+show error logo...
+show_booterror_logo, boot_hang=&quot;2&quot;
+</code></pre>
+<p><div class="mermaid">
+sequenceDiagram
+    participant U as U-Boot
+    participant B as boot 分区
+    participant S as 签名校验模块
+    U->>B: imgread kernel boot
+    B-->>U: 返回 bootimg 数据
+    U->>S: aml_sig_check_buffer
+    S->>S: 查找 Amlogic 私有签名块
+    alt 签名块存在且有效
+        S-->>U: 校验通过
+        U->>U: 加载 kernel 并 bootm
+    else 签名块缺失或无效
+        S-->>U: ERROR! Image secure check fail!
+        U->>U: show error logo / boot_hang=2
+        U->>U: 进入 usbburning mode
+    end
+
+</div>
+
+<strong>图 5-2：签名校验拦截示意</strong></p>
+<p><strong>关键结论</strong>：</p>
+<ul>
+<li><code>Image secure check fail</code> 表明 U-Boot 对 boot 分区内的 kernel 镜像执行了 <strong>Amlogic RSA-1024 签名校验</strong>，<code>mkbootimg</code> 生成的标准 Android bootimg 没有 Amlogic 私有签名块，被拒绝；</li>
+<li><code>keyIsBurned=0</code> 只说明 efuse 中未烧录设备密钥，<strong>不代表签名校验被关闭</strong>。U-Boot 仍然使用内置公钥校验镜像签名；</li>
+<li>之前“efuse 未烧录密钥可能允许</li>
+</ul>
+<p><div class="mermaid">
+flowchart LR
+    A["TTL 串口<br/>root shell dd"] --> C["boot.img 备份 A"]
+    B["update.exe mread<br/>USB 烧录模式"] --> D["boot.img 备份 B"]
+    C --> E{"哈希比对"}
+    D --> E
+    E -->|一致| F["交叉验证通过<br/>备份可信"]
+    E -->|不一致| G["排查偏移或分区"]
+
+    style F fill:#2a9d8f,color:#fff
+    style E fill:#f9c74f,stroke:#333,stroke-width:2px
+
+</div>
+
+<strong>图 5-3：两条备份路径交叉验证</strong></p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/%E5%A4%A9%E7%8C%AB%E9%AD%94%E7%9B%92/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#天猫魔盒</a>
+    
+    <a href="/tags/tmb300a/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#tmb300a</a>
+    
+    <a href="/tags/firmware/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#firmware</a>
+    
+    <a href="/tags/diy/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#diy</a>
+    
+    <a href="/tags/reverse/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#reverse</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="/authors/zfkun/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="/images/me.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="/authors/zfkun/" class="block font-bold text-lg pb-1 mb-2 border-b">zfkun</a>
+            <span class="block pb-2">喜欢游戏、热爱技术、追求艺术、崇尚自由、渴望精彩、最爱唠叨</span>
+            
+            
+            
+            
+            
+            <a href="mailto:zfkun@msn.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/zfkun" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://facebook.com/zfkun" class="mr-1">
+                <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://twitter.com/zfkun" class="mr-1">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.flickr.com/zfkun" class="mr-1">
+                <i class="fab fa-flickr"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://cn.linkedin.com/in/zfkun" class="mr-1">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://www.vimeo.com/zf" class="mr-1">
+                <i class="fab fa-vimeo"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://weibo.com/zfkun" class="mr-1">
+                <i class="fab fa-weibo"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="/tmb300a-firmware-dump-diy.html" class="block">天猫魔盒2（TMB300A）固件提取与备份</a>
+        
+    </div>
+</div>
+
+        
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+<div class="bg-secondary-bg rounded p-6">
+    <h3 class="text-lg font-semibold mb-4">系列文章</h3>
+    <div class="content">
+        
+        
+        <a href="/tmb300a-firmware-reverse-diy.html">天猫魔盒2（TMB300A）逆向分析实录</a>
+        <br />
+        
+        <a href="/tmb300a-firmware-reverse-diy.html">天猫魔盒2（TMB300A）逆向分析实录</a>
+        <br />
+        
+        <a href="/tmb300a-firmware-dump-diy.html">天猫魔盒2（TMB300A）固件提取与备份</a>
+        <br />
+        
+        <a href="/tmb300a-firmware-dump-diy.html">天猫魔盒2（TMB300A）固件提取与备份</a>
+        <br />
+        
+        
+    </div>
+</div>
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#写在前面">写在前面</a></li>
+    <li><a href="#一设备与固件概览">一、设备与固件概览</a>
+      <ul>
+        <li><a href="#11-硬件规格">1.1 硬件规格</a></li>
+        <li><a href="#12-软件版本">1.2 软件版本</a></li>
+        <li><a href="#13-已备份分区">1.3 已备份分区</a></li>
+      </ul>
+    </li>
+    <li><a href="#二启动链分析">二、启动链分析</a>
+      <ul>
+        <li><a href="#21-从串口日志还原的完整启动链">2.1 从串口日志还原的完整启动链</a></li>
+        <li><a href="#22-各阶段关键日志">2.2 各阶段关键日志</a>
+          <ul>
+            <li><a href="#bl1--tpl-阶段">BL1 / TPL 阶段</a></li>
+            <li><a href="#u-boot-阶段">U-Boot 阶段</a></li>
+            <li><a href="#内核引导阶段">内核引导阶段</a></li>
+            <li><a href="#init-阶段节选">init 阶段（节选）</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-启动链分析要点">2.3 启动链分析要点</a></li>
+      </ul>
+    </li>
+    <li><a href="#三init-脚本加载树">三、init 脚本加载树</a>
+      <ul>
+        <li><a href="#31-完整加载顺序">3.1 完整加载顺序</a></li>
+        <li><a href="#32-各文件职责">3.2 各文件职责</a></li>
+      </ul>
+    </li>
+    <li><a href="#四u-boot-层分析">四、U-Boot 层分析</a>
+      <ul>
+        <li><a href="#41-分区表u-boot-视角">4.1 分区表（U-Boot 视角）</a></li>
+        <li><a href="#42-环境变量分析">4.2 环境变量分析</a>
+          <ul>
+            <li><a href="#启动参数bootargs">启动参数（bootargs）</a></li>
+            <li><a href="#启动流程bootcmd--storeboot">启动流程（bootcmd / storeboot）</a></li>
+            <li><a href="#恢复与烧录通道">恢复与烧录通道</a></li>
+            <li><a href="#设备唯一标识与网络配置隐私相关">设备唯一标识与网络配置（隐私相关）</a></li>
+            <li><a href="#其他关键变量">其他关键变量</a></li>
+          </ul>
+        </li>
+        <li><a href="#43-安全状态">4.3 安全状态</a></li>
+      </ul>
+    </li>
+    <li><a href="#五内核与-bootimg-分析">五、内核与 boot.img 分析</a>
+      <ul>
+        <li><a href="#51-内核信息">5.1 内核信息</a></li>
+        <li><a href="#52-bootimg-格式">5.2 boot.img 格式</a></li>
+        <li><a href="#53-头地址与串口日志加载地址的差异">5.3 头地址与串口日志加载地址的差异</a></li>
+        <li><a href="#54-binwalk-扫出的内容">5.4 binwalk 扫出的内容</a></li>
+        <li><a href="#55-bootimg-内核与-ramdisk-数据疑似加密">5.5 boot.img 内核与 ramdisk 数据疑似加密</a></li>
+        <li><a href="#56-second-stage-实测结论与文件取舍">5.6 second stage 实测结论与文件取舍</a></li>
+        <li><a href="#57-从运行系统重建-ramdisk">5.7 从运行系统重建 ramdisk</a>
+          <ul>
+            <li><a href="#前置确认">前置确认</a></li>
+            <li><a href="#准备临时根目录">准备临时根目录</a></li>
+            <li><a href="#一次性-cpio-打包">一次性 cpio 打包</a></li>
+            <li><a href="#校验归档内容">校验归档内容</a></li>
+            <li><a href="#拉到电脑">拉到电脑</a></li>
+          </ul>
+        </li>
+        <li><a href="#58-重打包-bootimg">5.8 重打包 boot.img</a></li>
+        <li><a href="#59-刷入-boot_newimg-的实测结果签名校验拦截">5.9 刷入 <code>boot_new.img</code> 的实测结果：签名校验拦截</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="/tmb300a-firmware-reverse-diy.html">天猫魔盒2（TMB300A）逆向分析实录</a>
+            <br />
+            
+            <a href="/tmb300a-firmware-dump-diy.html">天猫魔盒2（TMB300A）固件提取与备份</a>
+            <br />
+            
+            <a href="/tmb300a-firmware-dump-diy.html">天猫魔盒2（TMB300A）固件提取与备份</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">Copyright &copy; 2026 <a href="https://www.zfkun.com/">zfkun.com</a>
+ &middot;  <a href="http://www.beian.miit.gov.cn/" class="hover:text-eureka">京ICP备14035013号</a></p>
+    <p class="text-sm text-tertiary-text">Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+
+</div>
+  </footer>
+</body>
+
+</html>
